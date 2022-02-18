@@ -20,7 +20,13 @@
 
 
 #e .obj{
-  position: absolute
+  position: absolute;
+  
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 
 #e img[data-selected="1"]{
