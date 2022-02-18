@@ -1,0 +1,26 @@
+#controls {
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+}
+
+#e {
+  position: relative;
+  margin: 0 auto;
+  background: #000;
+  border: 1px solid #fff;
+  outline: 2px solid #000;
+  width: 750px;
+  height: 750px;
+  overflow: hidden;
+}
+
+#e .obj {
+  position: absolute;
+}
+
+#e img[data-selected="1"] {
+  box-shadow: 0 0 20px #fff;
+}
+
+/*# sourceMappingURL=t.css.map */
