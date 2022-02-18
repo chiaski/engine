@@ -23,6 +23,7 @@ $( ".obj" ).dblclick(function() {
       .css("box-shadow", "0 0 20px #fff")
       .data("selected", "1")
       .draggable({
+      disabled: false,
       grid: [40,40],
       containment: "#e",
       stop: function(){
