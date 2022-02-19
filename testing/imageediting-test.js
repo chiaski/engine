@@ -165,6 +165,28 @@ const objControls = {
     
   },
   
+  effect: function(how){
+    
+    let t = $("#e img.obj[data-selected='1']");
+    
+    switch(how){
+        
+      case "invert":
+        
+        console.log( $(t).css("filter") );
+        
+        if( ($(t).css("filter") == 'invert(1)') ){
+          $(t).css("filter", "invert(0)");
+        }else{
+          $(t).css("filter", "invert(1)");
+        }
+        
+        break;
+        
+    }
+    
+  },
+  
   // OTHER HANDLERS
   
   updatePos: function(t){
