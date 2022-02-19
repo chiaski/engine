@@ -1,6 +1,32 @@
 
 
 
+// LIBRARY
+
+const library = {
+  
+  object_count: 0 // active objects this scene
+  
+};
+
+
+
+/* 
+  Adding objects from the library
+  
+  INSTR:
+  Double-click to add an image from the library to the engine.
+  
+*/
+
+$("#library .library-objects img.objtoadd").dblclick(function() {
+  
+  let copy = $(this);
+  
+  console.log( );
+  
+});
+
 // EDITING OBJECTS
 
 
@@ -19,7 +45,6 @@ $( ".obj" ).dblclick(function() {
     
   } else{
     
-    $(".controls-selected").fadeIn("slow");
     
     $(this)
       .css("box-shadow", "0 0 20px #fff")
@@ -46,6 +71,16 @@ const objControls = {
   
   // simple handlers
   
+  // add object
+  addObj: function(src, attrs){
+    
+    // fade in controls
+    $(".controls-selected").fadeIn("slow");
+    
+    
+    
+    
+  },
   
   // remove object 
   del: function(t){
@@ -54,7 +89,7 @@ const objControls = {
       t.remove();
     } else{
     console.log("Object removed");
-      $(".obj[data-selected='1']").remove();
+      $("#e .obj[data-selected='1']").remove();
     }
     
     // add error handling here, catch if no objec twas removed
@@ -65,7 +100,7 @@ const objControls = {
   
   size: function(how){
     
-    let t = $("img.obj[data-selected='1']");
+    let t = $("#e img.obj[data-selected='1']");
     
     if(how == "up"){
       

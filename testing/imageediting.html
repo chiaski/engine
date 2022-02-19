@@ -19,15 +19,26 @@
 <body>
 
   <div id="controls">
-    <h4>controls</h4>
 
     <div class="controls-selected">
+    <h4>controls</h4>
 
       <button data-action="delete" onclick="objControls.del();">delete</button>
       
       <button data-action="" onclick="objControls.size('up');">grow</button>
       <button data-action="" onclick="objControls.size('down');">shrink</button>
 
+    </div>
+    
+    <div id="library">
+      <h4>library</h4>
+      <p>you may have <span class="__obj-count">10</span> more objects on this scene.</p>
+      
+      <div class="library-objects">
+      <img class="objtoadd" data-selected="0" src="assets/image/environment/stone-1.gif">
+      <img class="objtoadd" data-selected="0" src="assets/image/environment/flower-1.gif">
+</div>
+      
     </div>
 
     <hr>

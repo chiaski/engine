@@ -1,3 +1,7 @@
+h4 {
+  padding: 0.5em;
+}
+
 #controls {
   margin: 0 auto;
   padding: 1em;
@@ -28,6 +32,21 @@
 
 #e img[data-selected="1"] {
   box-shadow: 0 0 20px #fff;
+}
+
+#library {
+  background: #000;
+  color: #fff;
+  padding: 1em;
+}
+
+#library .library-objects .objtoadd {
+  background: #000;
+  margin: 0;
+  padding: 0.25em;
+  border: 1px solid #fff;
+  max-width: 50px;
+  height: 50px;
 }
 
 /*# sourceMappingURL=t.css.map */
