@@ -23,10 +23,13 @@
     <div class="controls-selected">
     <h4>controls</h4>
 
-      <button data-action="delete" onclick="objControls.del();">delete</button>
+      <button data-action="delete" onclick="objControls.delObj();">delete</button>
       
       <button data-action="" onclick="objControls.size('up');">grow</button>
       <button data-action="" onclick="objControls.size('down');">shrink</button>
+      
+      <button data-action="" onclick="objControls.clearSelected();">finish editing</button>
+      
 
     </div>
     
@@ -50,7 +53,7 @@
 
   <div id="e">
 
-    <img class="obj" data-selected="0" src="assets/image/environment/stone-1.gif">
+    <!-- <img class="obj" data-selected="0" src="assets/image/environment/stone-1.gif"> -->
 
   </div>
 

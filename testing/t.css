@@ -49,4 +49,8 @@ h4 {
   height: 50px;
 }
 
+#library .library-objects .objtoadd:hover {
+  filter: invert(1);
+}
+
 /*# sourceMappingURL=t.css.map */
