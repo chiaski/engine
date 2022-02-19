@@ -1,9 +1,23 @@
 
 
 
-// LIBRARY
+const globals = {
+  
+  // maximum objects allowed per scene
+  MAX_object_count: 10
+  
+}
 
-const library = {
+const state = {
+  
+  // what scene am i currently on?
+  active_scene: [0, 0];
+  
+}
+
+// scene
+
+const scene = {
   
   MAX_object_count: 10,
   object_count: 0 // active objects this scene
@@ -26,7 +40,7 @@ $("#library .library-objects img.objtoadd").dblclick(function() {
   // Make sure there are no more than 10 objects
   console.log(library.object_count);
   
-  if(library.object_count >= library.MAX_object_count){
+  if(library.object_count >= globals.MAX_object_count){
     alert("Sorry, you can't add any more.")
     return;
   } else{
@@ -38,21 +52,9 @@ $("#library .library-objects img.objtoadd").dblclick(function() {
   console.log( "hi " + o );
   
   objControls.moveObj( o );
-  
 });
 
-// EDITING OBJECTS
 
-
-
-
-
-$( "#e .obj" ).dblclick(function() {
-  
-  // only one object may be selected at a time
-
-
-});
 
 
 // object controls

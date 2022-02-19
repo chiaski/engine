@@ -2,10 +2,11 @@ h4{
   padding: .5em;
 }
 
-#controls{
-  margin: 0 auto;
-  padding: 1em;
-  text-align: center;
+#engine{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 1000px;
 }
 
 
@@ -38,6 +39,19 @@ h4{
 
 #e img[data-selected="1"]{
   box-shadow: 0 0 20px #fff;
+}
+
+// controls
+
+#controls{
+  width: 200px;
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+}
+
+#controls .controls-selected{
+display: none;
 }
 
 // library

@@ -18,8 +18,22 @@
 
 <body>
 
+  <div id="engine">
   <div id="controls">
 
+    
+    <div id="library">
+      <h4>library</h4>
+      <p>you may have <span class="__obj-count">10</span> more objects on this scene.</p>
+      
+      <div class="library-objects">
+        <img class="objtoadd" src="assets/image/environment/stone-1.gif">
+        <img class="objtoadd" src="assets/image/environment/flower-1.gif">
+      </div>
+
+    </div>
+    
+    
     <div class="controls-selected">
     <h4>controls</h4>
 
@@ -32,19 +46,6 @@
       
       
       <button data-action="" onclick="objControls.clearSelected();">finish editing</button>
-      
-
-    </div>
-    
-    <div id="library">
-      <h4>library</h4>
-      <p>you may have <span class="__obj-count">10</span> more objects on this scene.</p>
-      
-      <div class="library-objects">
-      <img class="objtoadd" data-selected="0" src="assets/image/environment/stone-1.gif">
-      <img class="objtoadd" data-selected="0" src="assets/image/environment/flower-1.gif">
-</div>
-      
     </div>
 
     <hr>
@@ -59,6 +60,7 @@
     <!-- <img class="obj" data-selected="0" src="assets/image/environment/stone-1.gif"> -->
 
   </div>
+    </div>
 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
   <script src="//code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
