@@ -1,3 +1,9 @@
+body {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+}
+
 h4 {
   padding: 0.5em;
 }
@@ -15,8 +21,8 @@ h4 {
   background: #000;
   border: 1px solid #fff;
   outline: 2px solid #000;
-  width: 750px;
-  height: 750px;
+  width: 512px;
+  height: 512px;
   overflow: hidden;
 }
 
@@ -57,6 +63,8 @@ h4 {
   margin: 0;
   padding: 0.25em;
   border: 1px solid #fff;
+  width: 50px;
+  height: 50px;
   max-width: 50px;
   height: 50px;
 }
