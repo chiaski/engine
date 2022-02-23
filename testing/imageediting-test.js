@@ -65,7 +65,7 @@ const objControls = {
   // moving object
   moveObj: function(t){
     
-    
+
     // fade in controls
     $(".controls-selected").fadeIn("slow");
     
@@ -199,7 +199,6 @@ const objControls = {
 };
 
 // handle image selection
-
 
 // click handlers here
 $("button[data-action='delete']").on('click', objControls.delObj() );
