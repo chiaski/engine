@@ -1,7 +1,6 @@
 // CORE
 // Contains globals and such
 
-
 const globals = {
   
   // maximum objects allowed per scene
