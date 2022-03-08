@@ -4,7 +4,13 @@
 const globals = {
   
   // maximum objects allowed per scene
-  MAX_object_count: 10
+  MAX_object_count: 10,
+  
+  // map width (columns)
+  MAP_width: 8,
+  
+  // map height (rows)
+  MAP_height: 5
   
 }
 
@@ -23,6 +29,10 @@ const state = {
 
 const scenes = {
   
+  scene_count: 1,
+  
+  // ALL THE SCENESKMFAKSF
+  s: new Array( globals.MAP_width * globals.MAP_height )
   
 };
 
@@ -39,10 +49,16 @@ const scenes = {
 
 function Scene(x, y, active, color, object_count){
   
+  // scene coordinates
   this.x = x;
   this.y = y;
-  this.active = active; // Has this scene been edited?
+  
+  // has this scene been edited?
+  this.active = active; 
+  
+  // background color of the scene
   this.color = color;
   this.object_count = object_count;
   this.objects = [];
+  
 }

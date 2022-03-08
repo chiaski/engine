@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TESTING: Scene Editing!</title>
+    
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css" />
+  <link rel="stylesheet" href="t.css" />
+</head>
+
+<body>
+
+  <div id="engine">
+  <div id="controls">
+
+    <div id="scene_s">
+      scene:
+      
+      <select name="scene_no">
+        <option value="0">0,0</option>
+        <option value="1">0,1</option>
+      </select>
+      
+      <br>
+      <br>
+      <button data-action="" onclick="sceneControls.new();">new scene</button>
+      
+      <hr>
+      
+    </div>
+    
+    <div id="library">
+      <h4>library</h4>
+      <p>you may have <span class="__obj-count">10</span> more objects on this scene.</p>
+      
+      <div class="library-objects">
+        <img class="objtoadd" src="assets/image/environment/stone-1.gif">
+        <img class="objtoadd" src="assets/image/environment/flower-1.gif">
+      </div>
+
+    </div>
+    
+    
+    <div class="controls-selected">
+    <h4>controls</h4>
+
+      <button data-action="delete" onclick="objControls.delObj();">delete</button>
+      
+      <button data-action="" onclick="objControls.size('up');">grow</button>
+      <button data-action="" onclick="objControls.size('down');">shrink</button>
+      
+      <button data-action="" onclick="objControls.effect('invert');">invert</button>
+      
+      
+      <button data-action="" onclick="objControls.clearSelected();">finish editing</button>
+    </div>
+
+    <hr>
+    <br>
+
+    current x, y of selected img: <span class="__x"></span>, <span class="__y"></span>
+
+    <br><br>
+    <hr>
+    <br><br>
+    
+    color picker<br>
+    <input type="color" name="scenecolorpicker" value="#000">
+    <br><br>
+    <hr>
+    <br><br>
+  
+  <button onclick="sceneControls.clearScene();">clear scene</button><br>
+  <button onclick="sceneControls.loadObjects();">reload scene (from test_scene)</button>
+
+    
+  </div>
+
+  <div id="e">
+    <!-- <img class="obj" data-selected="0" src="assets/image/environment/stone-1.gif"> -->
+
+  </div>
+    </div>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+  <script src="//code.jquery.com/ui/1.13.0/jquery-ui.min.js" type="text/javascript"></script>
+
+  <script type="text/javascript" src="core.js"></script>
+  <script type="text/javascript" src="imageediting-test.js"></script>
+  <script type="text/javascript" src="saving.js"></script>
+
+</body></html>

@@ -1,5 +1,7 @@
 // create a temporary scene
 var scene = new Scene(0, 0, true, 0);
+scenes.s[0] = scene;
+scenes.s[1] = new Scene(0, 0, false, 0);
 var active_scene = scene;
 
 /* 
@@ -11,52 +13,28 @@ var active_scene = scene;
 */
 
 
-$("#library .library-objects .objtoadd").dblclick(function() {
-  
+$("#library .library-objects .objtoadd").dblclick(function () {
+
   // Make sure there are no more than 10 objects
   console.log(scene.object_count);
-  
-  if(scene.object_count >= globals.MAX_object_count){
+
+  if (scene.object_count >= globals.MAX_object_count) {
     alert("Sorry, you can't add any more.")
     return;
-  } else{
+  } else {
     scene.object_count++;
   }
-  
-  let o = objControls.addObj( $(this).attr("src") );
-  
-  console.log( "hi " + o );
-  
-  objControls.moveObj( o );
+
+  let o = objControls.addObj($(this).attr("src"));
+
+  console.log("hi " + o);
+
+  objControls.moveObj(o);
 });
 
 
-var test_scene = {
-  
-  // Is the scene accessible or not?
-  active: true,
-  
-  // Position on maps
-  coordinates: {
-    x: 0,
-    y: 0
-  },
-  
-  // Color palette
-  colors: {
-    primary: "#fff",
-    secondary: "#000"
-  },
-  
-  // Positions of objects contained in the scene
-  objects: []
-}
-
-
-// temporary scene constructor
-
 // temporary object constructor
-function thingy(x, y, img, filter, size, interaction){
+function thingy(x, y, img, filter, size, interaction) {
   this.x = x;
   this.y = y;
   this.img = img;
@@ -66,279 +44,306 @@ function thingy(x, y, img, filter, size, interaction){
 }
 
 
-  $("input[type='color']").change(function(){
-    $("#e").css("background", $("input[type='color']").val() );
-    
-    active_scene.color = $("input[type='color']").val();
-    
-  });
+// scene change
+
+
+$("select[name='scene_no']").change(function () {
+  
+  console.log( $("select[name='scene_no']").val() );
+  
+  sceneControls.clearScene();
+  
+  // change scene
+  active_scene = scenes.s[ $("select[name='scene_no']").val() ];
+  
+  sceneControls.loadObjects();
+  
+
+});
+
+
+// color change
+
+$("input[type='color']").change(function () {
+  $("#e").css("background", $("input[type='color']").val());
+
+  active_scene.color = $("input[type='color']").val();
+
+});
 
 // object controls
 const objControls = {
   // t = object
-  
-  // SET LISTENERS FOR CONTROLS
-  
-  
-  // SIMPLE HANDLERS
-  
-  
-  // SELECT/DESELECT via double-click
-  selectObj: function(t){
 
-//    console.log("double clicked");
+  // SET LISTENERS FOR CONTROLS
+
+
+  // SIMPLE HANDLERS
+
+
+  // SELECT/DESELECT via double-click
+  selectObj: function (t) {
+
+    //    console.log("double clicked");
 
     // I am double-clicking the image I currently selected
-    if( $(this).attr("data-selected") == "1" ){
+    if ($(this).attr("data-selected") == "1") {
 
       console.log("deselecting image");
       objControls.clearSelected();
       return;
 
-    } else{
+    } else {
       console.log("selecting image");
 
       objControls.clearSelected();
-      objControls.moveObj( this );
+      objControls.moveObj(this);
       return;
-      
+
     }
 
   },
-  
+
   // moving object
-  moveObj: function(t){
-    
+  moveObj: function (t) {
+
 
     // fade in controls
     $(".controls-selected").fadeIn("slow");
-    
+
     $(t)
       .bind("dblclick", objControls.selectObj)
       .css("box-shadow", "0 0 20px #fff")
       .attr("data-selected", "1")
       .draggable({
-      disabled: false,
-      grid: [40,40],
-      containment: "#e",
-      stop: function(){
-        objControls.updatePos(t);
-      }
+        disabled: false,
+        grid: [40, 40],
+        containment: "#e",
+        stop: function () {
+          objControls.updatePos(t);
+        }
       });
-    
+
     return;
-    
+
   },
-  
+
   // add object
-  addObj: function(src, x, y, filter, size, interaction){
-    
+  addObj: function (src, x, y, filter, size, interaction) {
+
     // first, deselect all objects
-    
+
     objControls.clearSelected();
-    
-    console.log("adding" + " " + src + x,y,size);
-    
+
+    console.log("adding" + " " + src + x, y, size);
+
     // makey thingy
-    
+
     let newSrc;
-    
-    
+
+
     newSrc = "<img class='obj' data-selected='0' src='" + src + "' style='";
-    
-    if(x && y){
+
+    if (x && y) {
       newSrc += "top:" + y + "px; left:" + x + "px;";
     }
-    
-    if(filter){
+
+    if (filter) {
       newSrc += "filter:" + filter + ";";
     }
-    
-    if(size){
+
+    if (size) {
       newSrc += "width:" + size + "; height:" + size + ";";
     }
-    
-    if(interaction){
+
+    if (interaction) {
       // TO-DO!
     }
-    
+
     newSrc += "'>";
-    
+
     let newObj = $(newSrc).fadeIn("slow").appendTo("#e");
-    
+
     return newObj;
-    
+
   },
-  
+
   // remove object 
-  delObj: function(t){
-    
-    if(t){
+  delObj: function (t) {
+
+    if (t) {
       t.remove();
-    } else{
-    console.log("Object removed");
+    } else {
+      console.log("Object removed");
       $("#e .obj[data-selected='1']").remove();
     }
-    
+
     // add error handling here, catch if no objec twas removed
-    
+
     $(".controls-selected").fadeOut("slow");
-    
+
   },
-  
-  size: function(how){
-    
+
+  size: function (how) {
+
     let t = $("#e img.obj[data-selected='1']");
     console.log(t);
-    
-    if(how == "up"){
-      
+
+    if (how == "up") {
+
       console.log("grow");
-      
+
       console.log(t.css("width"));
-      
-      t.css("width", t.width() * 1.25 + "px" );
-      t.css("height", t.height() * 1.25 + "px" );
-      
-    } else{
-      
+
+      t.css("width", t.width() * 1.25 + "px");
+      t.css("height", t.height() * 1.25 + "px");
+
+    } else {
+
       console.log("shrink");
-      
-      t.css("width", t.width() * 0.75 + "px" );
-      t.css("height", t.height() * 0.75 + "px" );
+
+      t.css("width", t.width() * 0.75 + "px");
+      t.css("height", t.height() * 0.75 + "px");
     }
-    
+
   },
-  
-  effect: function(how){
-    
+
+  effect: function (how) {
+
     let t = $("#e img.obj[data-selected='1']");
-    
-    switch(how){
-        
+
+    switch (how) {
+
       case "invert":
-        
-        console.log( $(t).css("filter") );
-        
-        if( ($(t).css("filter") == 'invert(1)') ){
+
+        console.log($(t).css("filter"));
+
+        if (($(t).css("filter") == 'invert(1)')) {
           $(t).css("filter", "invert(0)");
-        }else{
+        } else {
           $(t).css("filter", "invert(1)");
         }
-        
+
         break;
-        
+
     }
-    
+
   },
-  
+
   // write all positions of objects in engine dom to array of objects, and get it in scene
-  saveObjects: function(){
-    
+  saveObjects: function () {
+
     console.log(active_scene);
-    
-    $("#e .obj").each(function(){
-    
-      
+
+    $("#e .obj").each(function () {
+
+
       // width and height are always equa, so we only need to fetch one of these values for size
       // doesn't add interaction for now
-      
-      (active_scene.objects).push( new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width') ) );
-      
-      console.log("object created");
-      
-       // x
-      
-    });
-    
-    console.log(active_scene);
-    
-    
-  },
-  
-  // render all information from the scene
-  getSceneInfo: function(){
-    
-    console.log(active_scene);
-    
-  },
-  
-  // OTHER HANDLERS
-  
-  updatePos: function(t){
-      let pos = $(t).position();
-      console.log(pos);
 
-      $(".__x").text(pos.left);
-      $(".__y").text(pos.top);
+      (active_scene.objects).push(new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width')));
+
+      console.log("object created");
+
+      // x
+
+    });
+
+    console.log(active_scene);
+
+
   },
-  
+
+  // render all information from the scene
+  getSceneInfo: function () {
+
+    console.log(active_scene);
+
+  },
+
+  // OTHER HANDLERS
+
+  updatePos: function (t) {
+    let pos = $(t).position();
+    console.log(pos);
+
+    $(".__x").text(pos.left);
+    $(".__y").text(pos.top);
+  },
+
   // resets all objects on dom
-  clearSelected: function(){
+  clearSelected: function () {
 
     $(".controls-selected").hide();
 
     // reset position
-    
-      $(".__x").text("");
-      $(".__y").text("");
-    
-    $("#e .obj").each(function(){
+
+    $(".__x").text("");
+    $(".__y").text("");
+
+    $("#e .obj").each(function () {
       $(this)
-      .css("box-shadow", "none")
-      .attr("data-selected", "0")
-//      .draggable('disable');
+        .css("box-shadow", "none")
+        .attr("data-selected", "0")
+      //      .draggable('disable');
     });
-    
+
   }
-  
+
 };
 
 const sceneControls = {
-  
+
+  switchScene: function (x, y) {
+
+    // 2d to 1d array mapping here baby
+    let i = x
+
+  },
+
   /* clearScene SAVES all objects and empties the scene */
-  clearScene: function(){
-    
+  clearScene: function () {
+
     // first, save objects on scene
     objControls.saveObjects();
-    
-    $("#e .obj").each(function(){
+
+    $("#e .obj").each( function(){
       $(this).remove();
     });
-    
+
   },
-  
-  loadColor: function(whatscene){
-    
+
+  loadColor: function (whatscene) {
+
     $("#e").css("background", active_scene.color);
-    
+
   },
-  
+
   /*
     loadObjects brings back all the objects from the scene into the frame, lodaing it from the array of objects
   */
-                      
-  loadObjects: function(){
-    
+
+  loadObjects: function () {
+
     // arrange color
-    
+
     console.log(active_scene.objects);
-    
+
     // iterate over each object
-    (active_scene.objects).forEach(function(e){
+    (active_scene.objects).forEach(function (e) {
       console.log(e);
-      
-      objControls.addObj( e.img, e.x, e.y, e.filter, e.size );
-       // HELL YAAA
-      
+
+      objControls.addObj(e.img, e.x, e.y, e.filter, e.size);
+      // HELL YAAA
+
     })
 
-    
+
   }
-  
+
 };
 
 // handle image selection
 
 // click handlers here
-$("button[data-action='delete']").on('click', objControls.delObj() );
+$("button[data-action='delete']").on('click', objControls.delObj());
