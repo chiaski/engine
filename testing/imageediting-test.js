@@ -65,11 +65,16 @@ function thingy(x, y, img, filter, size, interaction){
 }
 
 
+  $("input[type='color']").change(function(){
+    $("#e").css("background", $("input[type='color']").val() );
+  });
+
 // object controls
 const objControls = {
   // t = object
   
   // SET LISTENERS FOR CONTROLS
+  
   
   // SIMPLE HANDLERS
   
@@ -122,15 +127,47 @@ const objControls = {
   },
   
   // add object
-  addObj: function(src, attrs){
+  addObj: function(src, x, y, filter, size, interaction){
     
+    
+//  this.x = x;
+//  this.y = y;
+//  this.img = img;
+//  this.filter = filter;
+//  this.size = size;
+//  this.interaction = interaction;
+//    
     // first, deselect all objects
     
     objControls.clearSelected();
     
-    console.log("adding" + " " + src);
+    console.log("adding" + " " + src + x,y,size);
     
-    let newSrc = "<img class='obj' data-selected='0' src='" + src + "'>";
+    // makey thingy
+    
+    let newSrc;
+    
+    
+    
+    newSrc = "<img class='obj' data-selected='0' src='" + src + "' style='";
+    
+    if(x && y){
+      newSrc += "top:" + y + "px; left:" + x + "px;";
+    }
+    
+    if(filter){
+      newSrc += "filter:" + filter + ";";
+    }
+    
+    if(size){
+      newSrc += "width:" + size + "; height:" + size + ";";
+    }
+    
+    if(interaction){
+      // TO-DO!
+    }
+    
+    newSrc += "'>";
     
     let newObj = $(newSrc).fadeIn("slow").appendTo("#e");
     
@@ -242,7 +279,6 @@ const objControls = {
   // resets all objects on dom
   clearSelected: function(){
 
-    
     $(".controls-selected").hide();
 
     // reset position
@@ -251,13 +287,49 @@ const objControls = {
       $(".__y").text("");
     
     $("#e .obj").each(function(){
-    
       $(this)
       .css("box-shadow", "none")
       .attr("data-selected", "0")
-      .draggable('disable');
-      
+//      .draggable('disable');
     });
+    
+  }
+  
+};
+
+const sceneControls = {
+  
+  /* clearScene SAVES all objects and empties the scene */
+  clearScene: function(){
+    
+    // first, save objects on scene
+    objControls.saveObjects();
+    
+    $("#e .obj").each(function(){
+      $(this).remove();
+    });
+    
+  },
+  
+  /*
+    loadObjects brings back all the objects from the scene into the frame, lodaing it from the array of objects
+  */
+                      
+  loadObjects: function(){
+    
+    // arrange color
+    
+    console.log(test_scene.objects);
+    
+    // iterate over each object
+    (test_scene.objects).forEach(function(e){
+      console.log(e);
+      
+      objControls.addObj( e.img, e.x, e.y, e.filter, e.size );
+       // HELL YAAA
+      
+    })
+
     
   }
   
