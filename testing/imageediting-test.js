@@ -1,5 +1,5 @@
 // create a temporary scene
-var scene = new Scene(0, 0, true, 0, []);
+var scene = new Scene(0, 0, true, 0);
 var active_scene = scene;
 
 /* 
@@ -68,6 +68,9 @@ function thingy(x, y, img, filter, size, interaction){
 
   $("input[type='color']").change(function(){
     $("#e").css("background", $("input[type='color']").val() );
+    
+    active_scene.color = $("input[type='color']").val();
+    
   });
 
 // object controls
@@ -130,14 +133,6 @@ const objControls = {
   // add object
   addObj: function(src, x, y, filter, size, interaction){
     
-    
-//  this.x = x;
-//  this.y = y;
-//  this.img = img;
-//  this.filter = filter;
-//  this.size = size;
-//  this.interaction = interaction;
-//    
     // first, deselect all objects
     
     objControls.clearSelected();
@@ -248,7 +243,7 @@ const objControls = {
       // width and height are always equa, so we only need to fetch one of these values for size
       // doesn't add interaction for now
       
-      active_scene.objects.push( new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width') ) );
+      (active_scene.objects).push( new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width') ) );
       
       console.log("object created");
       
@@ -315,7 +310,7 @@ const sceneControls = {
   
   loadColor: function(whatscene){
     
-    
+    $("#e").css("background", active_scene.color);
     
   },
   

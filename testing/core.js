@@ -37,12 +37,12 @@ const scenes = {
   
 */
 
-function Scene(x, y, active, color, object_count, objects){
+function Scene(x, y, active, color, object_count){
   
   this.x = x;
   this.y = y;
   this.active = active; // Has this scene been edited?
   this.color = color;
   this.object_count = object_count;
-  this.objects = objects;
+  this.objects = [];
 }
