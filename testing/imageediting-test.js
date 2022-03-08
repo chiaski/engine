@@ -69,6 +69,8 @@ function thingy(x, y, img, filter, size, interaction){
 const objControls = {
   // t = object
   
+  // SET LISTENERS FOR CONTROLS
+  
   // SIMPLE HANDLERS
   
   

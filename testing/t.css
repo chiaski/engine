@@ -30,6 +30,7 @@ h4 {
   position: absolute;
   width: 128px;
   height: 128px;
+  mix-blend-mode: exclusion;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
