@@ -3,4 +3,5 @@
 
 
 // objects in engine are known as 'thingies',=
-class Thingy {}
+//class Thingy {}
+

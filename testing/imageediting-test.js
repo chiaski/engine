@@ -30,6 +30,39 @@ $("#library .library-objects .objtoadd").dblclick(function() {
 });
 
 
+var test_scene = {
+  
+  // Is the scene accessible or not?
+  active: true,
+  
+  // Position on maps
+  coordinates: {
+    x: 0,
+    y: 0
+  },
+  
+  // Color palette
+  colors: {
+    primary: "#fff",
+    secondary: "#000"
+  },
+  
+  // Positions of objects contained in the scene
+  objects: []
+}
+
+
+// temporary scene constructor
+
+// temporary object constructor
+function thingy(x, y, img, filter, size, interaction){
+  this.x = x;
+  this.y = y;
+  this.img = img;
+  this.filter = filter;
+  this.size = size;
+  this.interaction = interaction;
+}
 
 
 // object controls
@@ -122,6 +155,7 @@ const objControls = {
   size: function(how){
     
     let t = $("#e img.obj[data-selected='1']");
+    console.log(t);
     
     if(how == "up"){
       
@@ -161,6 +195,35 @@ const objControls = {
         break;
         
     }
+    
+  },
+  
+  // write all positions of objects in engine dom to array of objects, and get it in scene
+  saveObjects: function(){
+    
+    $("#e .obj").each(function(){
+    
+      
+      // width and height are always equa, so we only need to fetch one of these values for size
+      // doesn't add interaction for now
+      
+      test_scene.objects.push( new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width') ) );
+      
+      console.log("object created");
+      
+       // x
+      
+    });
+    
+    console.log(test_scene);
+    
+    
+  },
+  
+  // render all information from the scene
+  getSceneInfo: function(){
+    
+    console.log(test_scene);
     
   },
   
