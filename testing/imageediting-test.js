@@ -1,5 +1,6 @@
-
-
+// create a temporary scene
+var scene = new Scene(0, 0, true, 0, []);
+var active_scene = scene;
 
 /* 
   Adding objects from the library
@@ -148,7 +149,6 @@ const objControls = {
     let newSrc;
     
     
-    
     newSrc = "<img class='obj' data-selected='0' src='" + src + "' style='";
     
     if(x && y){
@@ -240,13 +240,15 @@ const objControls = {
   // write all positions of objects in engine dom to array of objects, and get it in scene
   saveObjects: function(){
     
+    console.log(active_scene);
+    
     $("#e .obj").each(function(){
     
       
       // width and height are always equa, so we only need to fetch one of these values for size
       // doesn't add interaction for now
       
-      test_scene.objects.push( new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width') ) );
+      active_scene.objects.push( new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width') ) );
       
       console.log("object created");
       
@@ -254,7 +256,7 @@ const objControls = {
       
     });
     
-    console.log(test_scene);
+    console.log(active_scene);
     
     
   },
@@ -262,7 +264,7 @@ const objControls = {
   // render all information from the scene
   getSceneInfo: function(){
     
-    console.log(test_scene);
+    console.log(active_scene);
     
   },
   
@@ -311,6 +313,12 @@ const sceneControls = {
     
   },
   
+  loadColor: function(whatscene){
+    
+    
+    
+  },
+  
   /*
     loadObjects brings back all the objects from the scene into the frame, lodaing it from the array of objects
   */
@@ -319,10 +327,10 @@ const sceneControls = {
     
     // arrange color
     
-    console.log(test_scene.objects);
+    console.log(active_scene.objects);
     
     // iterate over each object
-    (test_scene.objects).forEach(function(e){
+    (active_scene.objects).forEach(function(e){
       console.log(e);
       
       objControls.addObj( e.img, e.x, e.y, e.filter, e.size );
