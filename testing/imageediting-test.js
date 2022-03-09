@@ -49,15 +49,15 @@ function thingy(x, y, img, filter, size, interaction) {
 
 $("select[name='scene_no']").change(function () {
   
-  console.log( $("select[name='scene_no']").val() );
-  
   sceneControls.clearScene();
   
-  // change scene
+  // set active scene
   active_scene = scenes.s[ $("select[name='scene_no']").val() ];
   
+  sceneControls.loadColor();
   sceneControls.loadObjects();
   
+  console.log("SWITCHING SCENES");
 
 });
 
@@ -65,9 +65,12 @@ $("select[name='scene_no']").change(function () {
 // color change
 
 $("input[type='color']").change(function () {
+  
   $("#e").css("background", $("input[type='color']").val());
 
   active_scene.color = $("input[type='color']").val();
+  
+  console.log(active_scene.color);
 
 });
 
@@ -233,11 +236,9 @@ const objControls = {
   // write all positions of objects in engine dom to array of objects, and get it in scene
   saveObjects: function () {
 
-    console.log(active_scene);
+//    console.log(active_scene);
 
     $("#e .obj").each(function () {
-
-
       // width and height are always equa, so we only need to fetch one of these values for size
       // doesn't add interaction for now
 
@@ -249,8 +250,7 @@ const objControls = {
 
     });
 
-    console.log(active_scene);
-
+//    console.log(active_scene);
 
   },
 
@@ -297,7 +297,6 @@ const sceneControls = {
   switchScene: function (x, y) {
 
     // 2d to 1d array mapping here baby
-    let i = x
 
   },
 
@@ -307,7 +306,7 @@ const sceneControls = {
     // first, save objects on scene
     objControls.saveObjects();
 
-    $("#e .obj").each( function(){
+    $("#e *").each( function(){
       $(this).remove();
     });
 
@@ -324,10 +323,6 @@ const sceneControls = {
   */
 
   loadObjects: function () {
-
-    // arrange color
-
-    console.log(active_scene.objects);
 
     // iterate over each object
     (active_scene.objects).forEach(function (e) {
