@@ -306,6 +306,13 @@ const sceneControls = {
 
   },
 
+  
+  /* saveScene writes all objects and settings to the active scene */
+  saveScene: function () {
+
+  objControls.saveObjects();
+
+  },
   /* clearScene deletes all objects from the scene */
   clearScene: function () {
 
