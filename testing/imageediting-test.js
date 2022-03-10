@@ -49,13 +49,16 @@ function thingy(x, y, img, filter, size, interaction) {
 
 $("select[name='scene_no']").change(function () {
   
+  objControls.saveObjects();
   sceneControls.clearScene();
   
   // set active scene
   active_scene = scenes.s[ $("select[name='scene_no']").val() ];
   
   sceneControls.loadColor();
-//  sceneControls.loadObjects();
+  sceneControls.loadObjects();
+  
+  console.log(active_scene.objects);
   
   console.log("SWITCHING SCENES");
 
@@ -237,6 +240,9 @@ const objControls = {
   saveObjects: function () {
 
 //    console.log(active_scene);
+    
+    // first clear objects in the existing scene
+    active_scene.objects = [];
 
     $("#e .obj").each(function () {
       // width and height are always equa, so we only need to fetch one of these values for size
@@ -300,11 +306,11 @@ const sceneControls = {
 
   },
 
-  /* clearScene SAVES all objects and empties the scene */
+  /* clearScene deletes all objects from the scene */
   clearScene: function () {
 
     // first, save objects on scene
-    objControls.saveObjects();
+//    objControls.saveObjects();
 
     $("#e *").each( function(){
       $(this).remove();
@@ -314,7 +320,10 @@ const sceneControls = {
 
   loadColor: function (whatscene) {
 
-    console.log(active_scene.color);
+    if(active_scene.color == 0){
+      // defaults to black if color isn't set
+      active_scene.color = "#000000"; 
+    }
     
     $("#e").css("background", active_scene.color);
 
@@ -326,13 +335,13 @@ const sceneControls = {
 
   loadObjects: function () {
 
+    
     // iterate over each object
     (active_scene.objects).forEach(function (e) {
-      console.log(e);
+//      console.log(e);
 
       objControls.addObj(e.img, e.x, e.y, e.filter, e.size);
       // HELL YAAA
-
     })
 
 
