@@ -50,7 +50,95 @@ h4{
   box-shadow: 0 0 20px #fff;
 }
 
-// controls
+// map view
+
+/* 
+
+
+
+EDITOR 
+
+
+
+*/
+
+
+
+// –––––––––
+// MAP
+// VIEW
+// –––––––––
+
+
+#scene_s{
+  
+  
+  h2{
+    border: 1px solid #000;
+    padding: .25em 0;
+  }
+  
+
+  #scene_selector{
+
+    outline: 1px solid #000;
+    padding: .5em;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    ._s{
+      padding: .25em;
+      background: #000;
+      color:#fff;
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      font-size: .5em;
+      line-height: 25px;
+      margin: .25em;
+      -webkit-transition: all .13s linear;
+-moz-transition: all .13s linear;
+-ms-transition: all .13s linear;
+-o-transition: all .13s linear;
+transition: all .13s linear;
+      border: 1px solid #fff;
+      box-shadow: 0 0 5px #fff;
+    }
+    
+    ._s.__active{
+      opacity: 1;
+      border: 1px solid #fff;
+      box-shadow: 0 0 5px #000;
+    }
+    
+    ._s.__inactive{
+      opacity: .75;
+    }
+    
+    
+    ._s.__unused{
+      opacity: 0.25;
+    }
+    
+    ._s:hover{
+      filter: invert(1);
+      cursor: pointer;
+    }
+    
+  }
+  
+}
+
+
+
+
+// –––––––––
+// EDITOR
+// CONTROLS
+// –––––––––
+
 
 #controls{
   width: 200px;
