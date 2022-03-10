@@ -16,13 +16,13 @@ var active_scene = scene;
 $("#library .library-objects .objtoadd").dblclick(function () {
 
   // Make sure there are no more than 10 objects
-  console.log(scene.object_count);
+  console.log(active_scene.object_count);
 
-  if (scene.object_count >= globals.MAX_object_count) {
+  if (active_scene.object_count >= globals.MAX_object_count) {
     alert("Sorry, you can't add any more.")
     return;
   } else {
-    scene.object_count++;
+    active_scene.object_count++;
   }
 
   let o = objControls.addObj($(this).attr("src"));
@@ -55,7 +55,7 @@ $("select[name='scene_no']").change(function () {
   active_scene = scenes.s[ $("select[name='scene_no']").val() ];
   
   sceneControls.loadColor();
-  sceneControls.loadObjects();
+//  sceneControls.loadObjects();
   
   console.log("SWITCHING SCENES");
 
@@ -314,6 +314,8 @@ const sceneControls = {
 
   loadColor: function (whatscene) {
 
+    console.log(active_scene.color);
+    
     $("#e").css("background", active_scene.color);
 
   },
