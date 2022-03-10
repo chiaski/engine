@@ -7,10 +7,10 @@ const globals = {
   MAX_object_count: 10,
   
   // map width (columns)
-  MAP_width: 8,
+  MAP_width: 5,
   
   // map height (rows)
-  MAP_height: 5
+  MAP_height: 2
   
 }
 

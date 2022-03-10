@@ -9,8 +9,44 @@
 */
 
 
+// make this easier for me
+
+
+var SCENE_AREA = $("#engine #scene_selector");
+
+const mapNavigation = {
+  // references
+  
+};
 
 // scene change
+
+
+$("#engine #scene_selector ._s").click(function (){
+  console.log(this);
+  
+  // do simple index mapping
+  
+  console.log( $(this).attr("data-scene") );
+  
+  
+  
+  // this is the converted index, i think
+  let coord = $(this).attr("data-scene").split(',');
+  
+  let i = (parseInt(coord[0]) * globals.MAP_width) + parseInt(coord[1]); 
+  
+
+  // Does this scene exist? If not, create it!
+  if( typeof scenes.s[i] == 'undefined' ){
+    
+  }
+  
+      
+  // Actively on scene 
+  
+});
+
 
 
 // TEMPORARY SHIT

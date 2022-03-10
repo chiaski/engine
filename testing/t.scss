@@ -1,3 +1,6 @@
+
+$c: #000000; // MAIN COLOR
+
 body{
   padding: 2em;
   display: flex;
@@ -22,9 +25,9 @@ h4{
   
   position: relative;
   margin: 0 auto;
-  background: #000;
+  background: $c;
   border: 1px solid #fff;
-  outline: 2px solid #000;
+  outline: 2px solid $c;
   
   width: 512px;
   height: 512px;
@@ -74,23 +77,27 @@ EDITOR
   
   
   h2{
-    border: 1px solid #000;
+    border: 1px solid $c;
     padding: .25em 0;
   }
   
 
   #scene_selector{
 
-    outline: 1px solid #000;
+    outline: 1px solid $c;
     padding: .5em;
 
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    
+    ._whatscene{
+      border-left: 1px solid $c;
+    }
 
     ._s{
       padding: .25em;
-      background: #000;
+      background: $c;
       color:#fff;
       display: inline-block;
       width: 25px;
@@ -110,7 +117,7 @@ transition: all .13s linear;
     ._s.__active{
       opacity: 1;
       border: 1px solid #fff;
-      box-shadow: 0 0 5px #000;
+      box-shadow: 0 0 5px $c;
     }
     
     ._s.__inactive{
@@ -154,14 +161,14 @@ display: none;
 // library
 
 #library{
-  background: #000;
+  background: $c;
   color:#fff;
   padding: 1em;
 }
 
 
 #library .library-objects .objtoadd{
-  background: #000;
+  background: $c;
   margin: 0;
   padding: .25em;
   border: 1px solid #fff;

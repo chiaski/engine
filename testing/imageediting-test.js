@@ -57,7 +57,27 @@ $("input[type='color']").change(function () {
 
 });
 
-// object controls
+
+
+
+
+
+
+/* 
+
+
+
+
+      OBJECT CONTROLS
+      
+      
+      
+
+
+*/
+
+
+
 const objControls = {
   // t = object
 
@@ -277,6 +297,24 @@ const objControls = {
   }
 
 };
+
+
+
+/* 
+
+
+
+
+      SCENE CONTROLS
+      
+      
+      
+
+
+*/
+
+
+
 
 const sceneControls = {
 

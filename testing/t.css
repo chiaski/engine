@@ -18,9 +18,9 @@ h4 {
 #e {
   position: relative;
   margin: 0 auto;
-  background: #000;
+  background: #000000;
   border: 1px solid #fff;
-  outline: 2px solid #000;
+  outline: 2px solid #000000;
   width: 512px;
   height: 512px;
   overflow: hidden;
@@ -52,19 +52,22 @@ EDITOR
 
 */
 #scene_s h2 {
-  border: 1px solid #000;
+  border: 1px solid #000000;
   padding: 0.25em 0;
 }
 #scene_s #scene_selector {
-  outline: 1px solid #000;
+  outline: 1px solid #000000;
   padding: 0.5em;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+#scene_s #scene_selector ._whatscene {
+  border-left: 1px solid #000000;
+}
 #scene_s #scene_selector ._s {
   padding: 0.25em;
-  background: #000;
+  background: #000000;
   color: #fff;
   display: inline-block;
   width: 25px;
@@ -83,7 +86,7 @@ EDITOR
 #scene_s #scene_selector ._s.__active {
   opacity: 1;
   border: 1px solid #fff;
-  box-shadow: 0 0 5px #000;
+  box-shadow: 0 0 5px #000000;
 }
 #scene_s #scene_selector ._s.__inactive {
   opacity: 0.75;
@@ -108,13 +111,13 @@ EDITOR
 }
 
 #library {
-  background: #000;
+  background: #000000;
   color: #fff;
   padding: 1em;
 }
 
 #library .library-objects .objtoadd {
-  background: #000;
+  background: #000000;
   margin: 0;
   padding: 0.25em;
   border: 1px solid #fff;
