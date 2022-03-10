@@ -21,19 +21,15 @@ const mapNavigation = {
 
 // scene change
 
-
+// TODO: Will need to change coloring/rendering system once map is rendered based on scene data as opposed to inherently being on the DOM
 $("#engine #scene_selector ._s").click(function (){
   
   // Good time to save scene here
   objControls.saveObjects();
   
-  
-  console.log(this);
-  
+//  console.log(this);
   // do simple index mapping
-  
-  console.log( $(this).attr("data-scene") );
-  
+//  console.log( $(this).attr("data-scene") );
   
   
   // this is the converted index, i think
@@ -63,17 +59,17 @@ $("#engine #scene_selector ._s").click(function (){
     // Updating active scene text
     $("._whatscene").text(coord);
     
+    
     alert("Scene created!");
     return;
     
   }
   
   // The scene exists, let's switch to it 
-  
   console.log("Switching scene");
   sceneControls.switchScene(i);
-      
-  // Actively on scene 
+  
+  alert("Switched to " + coord);
   
 });
 

@@ -25,8 +25,6 @@ $("#library .library-objects .objtoadd").dblclick(function () {
 
   let o = objControls.addObj($(this).attr("src"));
 
-  console.log("hi " + o);
-
   objControls.moveObj(o);
 });
 
@@ -135,7 +133,7 @@ const objControls = {
     objControls.clearSelected();
 
     console.log("adding" + " " + src + x, y, size);
-
+    
     // makey thingy
 
     let newSrc;
@@ -161,6 +159,8 @@ const objControls = {
 
     newSrc += "'>";
 
+    active_scene.object_count++; // increment object_count of active scene
+    
     let newObj = $(newSrc).fadeIn("slow").appendTo("#e");
 
     return newObj;
