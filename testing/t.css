@@ -55,15 +55,17 @@ EDITOR
   border: 1px solid #000000;
   padding: 0.25em 0;
 }
+#scene_s ._whatscene {
+  border-left: 1px solid #000000;
+  display: inline-block;
+  padding-left: 0.5em;
+}
 #scene_s #scene_selector {
   outline: 1px solid #000000;
   padding: 0.5em;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-#scene_s #scene_selector ._whatscene {
-  border-left: 1px solid #000000;
 }
 #scene_s #scene_selector ._s {
   padding: 0.25em;

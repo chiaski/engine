@@ -1,8 +1,6 @@
 // create a temporary scene
-var scene = new Scene(0, 0, true, 0);
-scenes.s[0] = scene;
-scenes.s[1] = new Scene(0, 0, false, 0);
-var active_scene = scene;
+scenes.s[0] = new Scene(0, 0, true, 0);
+var active_scene = scenes.s[0]; // always begin with this as the active scene
 
 /* 
   Adding objects from the library
@@ -56,11 +54,6 @@ $("input[type='color']").change(function () {
   console.log(active_scene.color);
 
 });
-
-
-
-
-
 
 
 /* 
@@ -318,9 +311,28 @@ const objControls = {
 
 const sceneControls = {
 
-  switchScene: function (x, y) {
+  /*
+  
+    switchScene
+    i: index of new scene (NOT coordinate value)
+    o: index of old scene
+  
+  */
+  switchScene: function (i, o) {
 
-    // 2d to 1d array mapping here baby
+    objControls.saveObjects();
+    sceneControls.clearScene();
+    
+    // set to new active scene
+    active_scene = scenes.s[i];
+    
+    sceneControls.loadColor();
+    sceneControls.loadObjects();
+    
+    console.log("Switched scene to " + active_scene.x + "," + active_scene.y);
+    
+    // Updating active scene text
+    $("._whatscene").text( active_scene.x + "," + active_scene.y );
 
   },
 

@@ -23,6 +23,11 @@ const mapNavigation = {
 
 
 $("#engine #scene_selector ._s").click(function (){
+  
+  // Good time to save scene here
+  objControls.saveObjects();
+  
+  
   console.log(this);
   
   // do simple index mapping
@@ -40,8 +45,33 @@ $("#engine #scene_selector ._s").click(function (){
   // Does this scene exist? If not, create it!
   if( typeof scenes.s[i] == 'undefined' ){
     
+    if( !confirm("Do you want to create a new scene at " + coord + "?") ){
+      return;
+    }
+    
+    
+    objControls.saveObjects();
+    sceneControls.clearScene();
+    
+    
+    // creating a new scene at that indice
+    scenes.s[i] = new Scene(0, 0, false, 0);
+    
+    // switching to the new scene
+    active_scene = scenes.s[i];
+    
+    // Updating active scene text
+    $("._whatscene").text(coord);
+    
+    alert("Scene created!");
+    return;
+    
   }
   
+  // The scene exists, let's switch to it 
+  
+  console.log("Switching scene");
+  sceneControls.switchScene(i);
       
   // Actively on scene 
   
@@ -58,7 +88,6 @@ $("select[name='scene_no']").change(function () {
   sceneControls.clearScene();
   
   // set active scene
-  active_scene = scenes.s[ $("select[name='scene_no']").val() ];
   
   sceneControls.loadColor();
   sceneControls.loadObjects();

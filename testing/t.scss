@@ -81,6 +81,13 @@ EDITOR
     padding: .25em 0;
   }
   
+  
+    ._whatscene{
+      border-left: 1px solid $c;
+      display:inline-block;
+      padding-left: .5em;
+    }
+
 
   #scene_selector{
 
@@ -91,10 +98,6 @@ EDITOR
     flex-wrap: wrap;
     justify-content: space-between;
     
-    ._whatscene{
-      border-left: 1px solid $c;
-    }
-
     ._s{
       padding: .25em;
       background: $c;
