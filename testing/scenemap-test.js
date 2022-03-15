@@ -11,7 +11,6 @@
 
 // make this easier for me
 
-
 var SCENE_AREA = $("#engine #scene_selector");
 
 const mapNavigation = {
@@ -27,17 +26,12 @@ $("#engine #scene_selector ._s").click(function (){
   // Good time to save scene here
   objControls.saveObjects();
   
-//  console.log(this);
-  // do simple index mapping
-//  console.log( $(this).attr("data-scene") );
-  
-  
   // this is the converted index, i think
   let coord = $(this).attr("data-scene").split(',');
   
   let i = (parseInt(coord[0]) * globals.MAP_width) + parseInt(coord[1]); 
   
-
+  // ROUTE 1
   // Does this scene exist? If not, create it!
   if( typeof scenes.s[i] == 'undefined' ){
     
@@ -45,16 +39,23 @@ $("#engine #scene_selector ._s").click(function (){
       return;
     }
     
-    
     objControls.saveObjects();
     sceneControls.clearScene();
     
     
+    
+    // remove the old scene
+    $("#scene_selector ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
+    
+    
     // creating a new scene at that indice
-    scenes.s[i] = new Scene(0, 0, false, 0);
+    scenes.s[i] = new Scene(parseInt(coord[0]), parseInt(coord[1]), true, 0, 0);
     
     // switching to the new scene
     active_scene = scenes.s[i];
+    
+    // update the new scene
+    $("#scene_selector ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__unused").addClass("__active");
     
     // Updating active scene text
     $("._whatscene").text(coord);
@@ -65,9 +66,24 @@ $("#engine #scene_selector ._s").click(function (){
     
   }
   
+  // ROUTE 2
   // The scene exists, let's switch to it 
+  
   console.log("Switching scene");
+  $("#scene_selector ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
+  
   sceneControls.switchScene(i);
+  
+  // apply color
+  
+  console.log(coord);
+  
+  // clear all the __active classes
+  $("#scene_selector ._s").each(function(i, item){
+    $(item).removeClass("__active")
+  });
+  
+  $("#scene_selector ._s[data-scene='" + coord + "']").removeClass("__unused").removeClass("__inactive").addClass("__active");
   
   alert("Switched to " + coord);
   

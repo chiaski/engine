@@ -310,6 +310,34 @@ const objControls = {
 
 
 const sceneControls = {
+  
+  /* 
+    getScene
+    give x, y
+    returns the index based on simple formula
+    
+  */
+  
+  getSceneIndex: function(x,y){
+    let i = (parseInt(x) * globals.MAP_width) + parseInt(y); 
+    
+    return i;
+    
+  },
+  
+  /* 
+    getScene
+    give x, y
+    returns scene object
+  */
+  
+  
+  getScene:function(x,y){
+    
+    let i = (parseInt(x) * globals.MAP_width) + parseInt(y); 
+    
+    return scenes.s[i];
+  },
 
   /*
   

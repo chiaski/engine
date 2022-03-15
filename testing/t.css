@@ -91,7 +91,7 @@ EDITOR
   box-shadow: 0 0 5px #000000;
 }
 #scene_s #scene_selector ._s.__inactive {
-  opacity: 0.75;
+  opacity: 0.5;
 }
 #scene_s #scene_selector ._s.__unused {
   opacity: 0.25;
