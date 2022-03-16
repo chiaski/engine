@@ -1,14 +1,194 @@
 
+
+@font-face {
+  font-family: 'Times Now';
+  src: url('./assets/fonts/TimesNow-LightItalic.woff2') format('woff2'),
+    url('./assets/fonts/TimesNow-LightItalic.woff') format('woff');
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Times Now';
+  src: url('./assets/fonts/TimesNow-Light.woff2') format('woff2'),
+    url('./assets/fonts/TimesNow-Light.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+@font-face {
+  font-family: 'Apercu Pro Mono';
+  src: url('./assets/fonts/ApercuPro-Mono.woff2') format('woff2'), url('./assets/fonts/ApercuPro-Mono.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 $c: #000000; // MAIN COLOR
+$l: #f7f7f7; // light color
+
+$g1: #b6b7b7;
+$g2: #868c8e;
+
+$p: #eb80ff; 
+
+$mono: "Apercu Pro Mono";
+
+*{
+  box-sizing: border-box;
+}
 
 body{
-  padding: 2em;
+  background: $g1;
+  padding: 2.5em;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+}
+
+h1{
+  font-family: "Times Now";
+  font-size: 5.6em;
+  letter-spacing: -2px;
+  display: block;
+  text-align: center;
+}
+
+
+h1._title{
+  font-size: 5.6em + 2em;
+  letter-spacing: -5px;
+}
+
+h2{
+  width: 100%;
+  display: block;
+  border-bottom: 1.5px solid $c;
+  font-family: $mono;
+  text-transform: uppercase;
+  font-size: .8em;
+  padding: 1em .25em;
+  
+  span{
+    border-right: 1.5px solid $c;
+    padding: 0 1em;
+  }
+  
 }
 
 h4{
   padding: .5em;
+}
+
+button{
+  border: 1.5px solid $c;
+  background: $l;
+  padding: 1em;
+  margin: 1em;
+}
+
+button:hover{
+  background: $c;
+  color: $l;
+  cursor: pointer;
+  box-shadow: 0 0 20px $g2;
+}
+
+
+/* 
+
+    EFFECTS
+
+
+*/
+
+.fx{
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  top: 0;
+  left: 0;
+  
+}
+
+.fx._1{
+  background-image: url(https://i.gifer.com/origin/c5/c50bb597295cf9c1cacc417a2c2927ea_w200.gif);
+  opacity: 0.08;
+  mix-blend-mode: colorburn;
+}
+
+.fx._p{
+  background: #ffe6eb;
+  opacity: 1;
+  mix-blend-mode: exclusion;
+  display: none;
+}
+
+
+
+/* 
+
+    CONSISTENT WINDOWS
+
+
+*/
+
+
+.window{
+  position: relative;
+  background: $l;
+  box-shadow: 0 0 20px $g2;
+  border: 1.5px solid $c;
+  width: 100%;
+  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 2.5vh 0;
+}
+
+
+.panel{
+  border-top: 1.5px solid $c;
+  border-bottom: 1.5px solid $c;
+  
+  padding: .25em .5em;
+  margin: 1em 0;
+  
+  p{
+    padding: 1em 0;
+    font-size: .9em;
+  }
+  
+}
+
+.panel._full{
+ border: 1.5px solid $c; 
+}
+
+
+.panel._tutorial{
+  
+  box-shadow: 0 0 20px $g2;
+  transform: translateX(2em);
+  right: 0;
+  
+  max-width: 250px;
+  z-index: 1;
+  position: absolute;
+  background: $l;
+  color:$c;
+  
 }
 
 #engine{
@@ -24,7 +204,6 @@ h4{
 #e{
   
   position: relative;
-  margin: 0 auto;
   background: $c;
   border: 1px solid #fff;
   outline: 2px solid $c;
@@ -53,6 +232,13 @@ h4{
   box-shadow: 0 0 20px #fff;
 }
 
+
+#help{
+  border-left: 2px solid $c;
+  width: 220px;
+  min-height: 200px;
+}
+
 // map view
 
 /* 
@@ -72,6 +258,104 @@ EDITOR
 // VIEW
 // –––––––––
 
+
+#scene_s, #map{
+  
+  #scene_selector{
+    
+    margin: 1em 0;
+    
+    ._s{
+    display: inline-block;
+      padding: .25em;
+      background: $c;
+      color:#fff;
+      vertical-align: middle;
+    }
+    
+    ._s.__start{
+      border: 1px solid $p;
+    }
+    
+    ._s.__active{
+      opacity: 1;
+//      border: 1px solid #fff;
+      outline: 2ox solid $p;
+      box-shadow: 0 0 5px $c;
+    }
+    
+    ._s.__inactive{
+      opacity: .5;
+    }
+    
+    
+    ._s.__unused{
+      opacity: 0.25;
+    }
+    
+    ._s:hover{
+      filter: invert(1);
+      cursor: pointer;
+    }
+    
+  }
+  
+  
+}
+
+// OVERALL MAP
+
+#map{
+  
+  width: 100%;
+  border: 1.5px solid #000;
+  
+  #scene_selector{
+    
+    
+  display: flex;
+  flex-wrap: wrap;
+    justify-content: center;
+    
+    hr{
+      height: 0;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      padding: 0;
+      margin: 0;
+    }
+    
+  
+  ._s{
+    
+    width: 80px;
+    height: 80px;
+    padding: .5em;
+    margin: .2em;
+    font-size: 1em;
+    vertical-align: middle;
+    text-align: center;
+  }
+    
+    
+    
+    ._s.__start::after{
+      padding: .5em 0;
+      display: block;
+      content:"Start";
+      color:#fff;
+      font-family: $mono;
+      text-transform: uppercase;
+      font-size: .6em;
+    }
+    
+    
+  }
+  
+}
+
+// PER SCENE MAP
 
 #scene_s{
   
@@ -99,10 +383,6 @@ EDITOR
     justify-content: space-between;
     
     ._s{
-      padding: .25em;
-      background: $c;
-      color:#fff;
-      display: inline-block;
       width: 25px;
       height: 25px;
       font-size: .5em;
@@ -117,25 +397,6 @@ transition: all .13s linear;
       box-shadow: 0 0 5px #fff;
     }
     
-    ._s.__active{
-      opacity: 1;
-      border: 1px solid #fff;
-      box-shadow: 0 0 5px $c;
-    }
-    
-    ._s.__inactive{
-      opacity: .5;
-    }
-    
-    
-    ._s.__unused{
-      opacity: 0.25;
-    }
-    
-    ._s:hover{
-      filter: invert(1);
-      cursor: pointer;
-    }
     
   }
   

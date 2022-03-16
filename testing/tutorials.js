@@ -13,10 +13,10 @@ THE GREAT TUTORIALS BANK
 const tutorials = {
   
   
-  scene_creation: {
+  scene_creation: [
     "test",
     "test"
-  }
+  ]
   
   
   
