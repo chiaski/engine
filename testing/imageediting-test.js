@@ -1,6 +1,9 @@
+console.log("imageediting-test.js loaded");
+
 // create a temporary scene
 scenes.s[0] = new Scene(0, 0, true, 0);
 var active_scene = scenes.s[0]; // always begin with this as the active scene
+
 
 /* 
   Adding objects from the library

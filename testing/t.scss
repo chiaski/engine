@@ -71,7 +71,7 @@ h2{
   font-family: $mono;
   text-transform: uppercase;
   font-size: .8em;
-  padding: 1em .25em;
+  padding: 1em 0;
   
   span{
     border-right: 1.5px solid $c;
@@ -162,7 +162,7 @@ button:hover{
   border-top: 1.5px solid $c;
   border-bottom: 1.5px solid $c;
   
-  padding: .25em .5em;
+  padding: .25em;
   margin: 1em 0;
   
   p{
@@ -170,10 +170,22 @@ button:hover{
     font-size: .9em;
   }
   
+  h2{
+    width: 100%;
+    padding: .5em 0;
+    margin: 0;
+  }
+  
 }
 
 .panel._full{
  border: 1.5px solid $c; 
+}
+
+.panel._sidebar{
+  width: 100%;
+  border-top: none;
+  margin: 1em 0;
 }
 
 
@@ -191,6 +203,51 @@ button:hover{
   
 }
 
+
+
+/* PANELS & SIDEBARS */
+
+
+.sidebar{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+
+// –––––––––
+// EDITOR
+// CONTROLS
+// –––––––––
+
+
+#controls{
+  width: 200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+#controls .controls-selected{
+display: none;
+}
+
+
+
+// –––––––––
+// HELP
+// CONTROLS
+// –––––––––
+
+#help{
+  width: 220px;
+}
+
+
+
+/* ENGINE */
+
 #engine{
   display: flex;
   justify-content: center;
@@ -199,15 +256,12 @@ button:hover{
 }
 
 
-// scene colors
-
 #e{
   
   position: relative;
   background: $c;
   border: 1px solid #fff;
-  outline: 2px solid $c;
-  
+  outline: 1.5px solid $c;
   width: 512px;
   height: 512px;
   overflow: hidden;
@@ -232,12 +286,6 @@ button:hover{
   box-shadow: 0 0 20px #fff;
 }
 
-
-#help{
-  border-left: 2px solid $c;
-  width: 220px;
-  min-height: 200px;
-}
 
 // map view
 
@@ -264,6 +312,7 @@ EDITOR
   #scene_selector{
     
     margin: 1em 0;
+    text-align: center;
     
     ._s{
     display: inline-block;
@@ -359,24 +408,18 @@ EDITOR
 
 #scene_s{
   
-  
-  h2{
-    border: 1px solid $c;
-    padding: .25em 0;
-  }
-  
-  
     ._whatscene{
-      border-left: 1px solid $c;
       display:inline-block;
       padding-left: .5em;
+      border-right: 0;
     }
+  
 
 
   #scene_selector{
 
     outline: 1px solid $c;
-    padding: .5em;
+    padding: .25em;
 
     display: flex;
     flex-wrap: wrap;
@@ -406,25 +449,6 @@ transition: all .13s linear;
   
 }
 
-
-
-
-// –––––––––
-// EDITOR
-// CONTROLS
-// –––––––––
-
-
-#controls{
-  width: 200px;
-  margin: 0 auto;
-  padding: 1em;
-  text-align: center;
-}
-
-#controls .controls-selected{
-display: none;
-}
 
 
 

@@ -1,3 +1,4 @@
+console.log("tutorials.js loaded");
 
 /*
 

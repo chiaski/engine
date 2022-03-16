@@ -49,7 +49,7 @@ h2 {
   font-family: "Apercu Pro Mono";
   text-transform: uppercase;
   font-size: 0.8em;
-  padding: 1em 0.25em;
+  padding: 1em 0;
 }
 h2 span {
   border-right: 1.5px solid #000000;
@@ -129,16 +129,27 @@ button:hover {
 .panel {
   border-top: 1.5px solid #000000;
   border-bottom: 1.5px solid #000000;
-  padding: 0.25em 0.5em;
+  padding: 0.25em;
   margin: 1em 0;
 }
 .panel p {
   padding: 1em 0;
   font-size: 0.9em;
 }
+.panel h2 {
+  width: 100%;
+  padding: 0.5em 0;
+  margin: 0;
+}
 
 .panel._full {
   border: 1.5px solid #000000;
+}
+
+.panel._sidebar {
+  width: 100%;
+  border-top: none;
+  margin: 1em 0;
 }
 
 .panel._tutorial {
@@ -152,6 +163,30 @@ button:hover {
   color: #000000;
 }
 
+/* PANELS & SIDEBARS */
+.sidebar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+#controls {
+  width: 200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+#controls .controls-selected {
+  display: none;
+}
+
+#help {
+  width: 220px;
+}
+
+/* ENGINE */
 #engine {
   display: flex;
   justify-content: center;
@@ -163,7 +198,7 @@ button:hover {
   position: relative;
   background: #000000;
   border: 1px solid #fff;
-  outline: 2px solid #000000;
+  outline: 1.5px solid #000000;
   width: 512px;
   height: 512px;
   overflow: hidden;
@@ -185,12 +220,6 @@ button:hover {
   box-shadow: 0 0 20px #fff;
 }
 
-#help {
-  border-left: 2px solid #000000;
-  width: 220px;
-  min-height: 200px;
-}
-
 /* 
 
 
@@ -202,6 +231,7 @@ EDITOR
 */
 #scene_s #scene_selector, #map #scene_selector {
   margin: 1em 0;
+  text-align: center;
 }
 #scene_s #scene_selector ._s, #map #scene_selector ._s {
   display: inline-block;
@@ -265,18 +295,14 @@ EDITOR
   font-size: 0.6em;
 }
 
-#scene_s h2 {
-  border: 1px solid #000000;
-  padding: 0.25em 0;
-}
 #scene_s ._whatscene {
-  border-left: 1px solid #000000;
   display: inline-block;
   padding-left: 0.5em;
+  border-right: 0;
 }
 #scene_s #scene_selector {
   outline: 1px solid #000000;
-  padding: 0.5em;
+  padding: 0.25em;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -297,17 +323,6 @@ EDITOR
   transition: all 0.13s linear;
   border: 1px solid #fff;
   box-shadow: 0 0 5px #fff;
-}
-
-#controls {
-  width: 200px;
-  margin: 0 auto;
-  padding: 1em;
-  text-align: center;
-}
-
-#controls .controls-selected {
-  display: none;
 }
 
 #library {

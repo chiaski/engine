@@ -1,3 +1,4 @@
+console.log("map.js loaded");
 
 /*
 
@@ -15,6 +16,7 @@ const mapControls = {
   
   MASTER: "sss",
   SIDE: "engine #scene_selector",
+  SCENE_DISPLAY: "_whatscene",
   
   /* 
   
@@ -26,7 +28,6 @@ const mapControls = {
   // x & y == coordinate of start, if any
   initMap: function(x, y){
 
-    
     var map_html = "";
     
     console.log("init at: " + x + "," + y);
@@ -113,7 +114,7 @@ const mapControls = {
     $("#" + mapControls.SIDE + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__unused").addClass("__active");
     
     // Updating active scene text
-    $("._whatscene").text(coord);
+    $('.' + mapControls.SCENE_AREA).text(coord);
     
     
     alert("Scene created!");
@@ -127,9 +128,28 @@ const mapControls = {
     // Scene exists
     // –––––––––––––––––––
     
+    console.log("Switching scene");
+    
+    // remove the old scene
+    $("#" + mapControls.MASTER + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
+    $("#" + mapControls.SIDE + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
+    
+    // switch to scene i
+    sceneControls.switchScene(i);
     
     
+  // clear all the __active classes
+  $("#" + mapControls.MASTER + " ._s").each(function(i, item){
+    $(item).removeClass("__active")
+  });
+  $("#" + mapControls.SIDE + " ._s").each(function(i, item){
+    $(item).removeClass("__active")
+  });
     
+    
+  $("#" + mapControls.MASTER + " ._s[data-scene='" + coord + "']").removeClass("__unused").removeClass("__inactive").addClass("__active");
+    
+  $("#" + mapControls.SIDE + " ._s[data-scene='" + coord + "']").removeClass("__unused").removeClass("__inactive").addClass("__active");
     
   }
   
@@ -183,6 +203,7 @@ $("#engine #scene_selector ._s").click(function (){
   $("#scene_selector ._s").each(function(i, item){
     $(item).removeClass("__active")
   });
+  
   
   $("#scene_selector ._s[data-scene='" + coord + "']").removeClass("__unused").removeClass("__inactive").addClass("__active");
   
