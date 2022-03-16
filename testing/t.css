@@ -281,9 +281,12 @@ EDITOR
   flex-wrap: wrap;
   justify-content: space-between;
 }
+#scene_s #scene_selector hr {
+  margin: 0;
+  display: block;
+}
 #scene_s #scene_selector ._s {
-  width: 25px;
-  height: 25px;
+  flex-basis: 22%;
   font-size: 0.5em;
   line-height: 25px;
   margin: 0.25em;

@@ -382,9 +382,13 @@ EDITOR
     flex-wrap: wrap;
     justify-content: space-between;
     
+    hr{
+      margin: 0;
+      display: block;
+    }
+    
     ._s{
-      width: 25px;
-      height: 25px;
+      flex-basis: 22%;
       font-size: .5em;
       line-height: 25px;
       margin: .25em;
