@@ -336,14 +336,14 @@ EDITOR
   width: 400px;
   flex-grow: 2;
   margin: 0;
-  padding: 1em;
 }
 #library .library-controls {
   display: flex;
   flex-wrap: wrap;
 }
 #library .library-controls button._filter {
-  padding: 0.25em;
+  padding: 0.5em;
+  text-transform: uppercase;
 }
 #library .library-selector {
   padding: 1em 0;

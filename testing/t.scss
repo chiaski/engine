@@ -494,7 +494,6 @@ transition: all .13s linear;
   width: 400px;
   flex-grow: 2;
   margin: 0;
-  padding: 1em;
   
   .library-controls{
     
@@ -502,7 +501,8 @@ transition: all .13s linear;
     flex-wrap: wrap;
     
     button._filter{
-      padding: .25em;
+      padding: .5em;
+      text-transform: uppercase;
       
     }
     
