@@ -16,8 +16,6 @@ console.log("scene.js loaded");
 */
 
 
-
-
 const sceneControls = {
   
   /* 
@@ -119,6 +117,25 @@ const sceneControls = {
     })
 
 
+  },
+  
+  initColorpicker: function() {
+
+    $("input[type='color']").change(function () {
+
+      $("#e").css("background", $(" input[type='color']").val());
+      $("body").css("background", $(" input[type='color']").val());
+
+      active_scene.color = $(" input[type='color']").val();
+
+      console.log(active_scene.color);
+
+    });
+
+
+
   }
 
 };
+
+sceneControls.initColorpicker();

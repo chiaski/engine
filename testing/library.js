@@ -63,7 +63,7 @@ const libraryControls = {
     
     
     // add onclick events
-      $("#" + libraryControls.$LIBRARY_OBJECTS).on("dblclick", "div._toadd", libraryControls.clicktoadd );
+      $("#library .library-selector").on("dblclick", "img._toadd", libraryControls.clicktoadd );
   }
   
   
@@ -266,8 +266,45 @@ const objControls = {
       // x
 
     });
+  },
+
+  // render all information from the scene
+  getSceneInfo: function () {
+
+    console.log(active_scene);
+
+  },
+
+  // OTHER HANDLERS
+
+  updatePos: function (t) {
+    let pos = $(t).position();
+    console.log(pos);
+
+    $(".__x").text(pos.left);
+    $(".__y").text(pos.top);
+  },
+
+  // resets all objects on dom
+  clearSelected: function () {
+
+    $(".controls-selected").hide();
+
+    // reset position
+
+    $(".__x").text("");
+    $(".__y").text("");
+
+    $("#e .obj").each(function () {
+      $(this)
+        .css("box-shadow", "none")
+        .attr("data-selected", "0")
+            .draggable('disable');
+    });
+
   }
-}
+
+};
 
 
 /*

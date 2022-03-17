@@ -28,6 +28,29 @@
 }
 
 
+/*
+
+  TRANSITIONS
+
+*/
+
+
+#e, body{
+
+  -webkit-transition: background .15s linear;
+-moz-transition: background .15s linear;
+-ms-transition: background .15s linear;
+-o-transition: background .15s linear;
+transition: background .15s linear;
+}
+
+
+/*
+
+  COLORS
+
+*/
+
 $c: #000000; // MAIN COLOR
 $l: #f7f7f7; // light color
 
@@ -44,10 +67,11 @@ $mono: "Apercu Pro Mono";
 
 body{
   background: $g1;
-  padding: 2.5em;
+  padding: 2em;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 10vh;
 }
 
 h1{
@@ -304,7 +328,9 @@ display: none;
   box-shadow: 0 0 20px #fff;
 }
 
-
+#e img[data-selected="1"]:hover{
+  cursor: pointer;
+}
 // map view
 
 /* 
