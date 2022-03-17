@@ -189,7 +189,6 @@ button:hover{
   border-top: 1.5px solid $c;
   border-bottom: 1.5px solid $c;
   
-  padding: .25em;
   margin: 1em 0;
   
   p{
@@ -279,7 +278,11 @@ display: none;
   margin: 1em auto;
   display: block;
   width: 100%;
-  height: 80px;
+  height: 50px;
+}
+
+#controls #colorpicker input[type=color]:hover{
+ cursor: pointer; 
 }
 
 
@@ -371,7 +374,7 @@ EDITOR
   #scene_selector{
     
     
-    margin: 1em 0;
+    margin: 1em auto;
     text-align: center;
     
     
@@ -551,6 +554,9 @@ transition: all .13s linear;
       text-align: center;
     }
     
+    select:hover{
+cursor: pointer;}
+    
     button._filter{
       padding: .25em;
       text-transform: uppercase;
@@ -560,9 +566,16 @@ transition: all .13s linear;
   }
   
   .library-selector{
-    padding: 1em 0;
+    padding: 1em;
+    margin: 0;
     background: #000;
     width: 100%;
+    
+    img{
+      // so it looks like one continuous grid
+      margin: -.1em;
+    }
+    
   }
   
   

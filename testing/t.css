@@ -152,7 +152,6 @@ button:hover {
 .panel {
   border-top: 1.5px solid #000000;
   border-bottom: 1.5px solid #000000;
-  padding: 0.25em;
   margin: 1em 0;
 }
 .panel p {
@@ -211,7 +210,11 @@ button:hover {
   margin: 1em auto;
   display: block;
   width: 100%;
-  height: 80px;
+  height: 50px;
+}
+
+#controls #colorpicker input[type=color]:hover {
+  cursor: pointer;
 }
 
 #help {
@@ -272,7 +275,7 @@ EDITOR
 
 */
 #scene_s #scene_selector, #map #scene_selector {
-  margin: 1em 0;
+  margin: 1em auto;
   text-align: center;
 }
 #scene_s #scene_selector hr, #map #scene_selector hr {
@@ -383,14 +386,21 @@ EDITOR
   margin: 1em auto;
   text-align: center;
 }
+#library .library-controls select:hover {
+  cursor: pointer;
+}
 #library .library-controls button._filter {
   padding: 0.25em;
   text-transform: uppercase;
 }
 #library .library-selector {
-  padding: 1em 0;
+  padding: 1em;
+  margin: 0;
   background: #000;
   width: 100%;
+}
+#library .library-selector img {
+  margin: -0.1em;
 }
 #library ._toadd {
   background: #000000;
