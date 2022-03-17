@@ -21,6 +21,16 @@ const library = {
   
 };
 
+function thingy(x, y, img, filter, size, interaction) {
+  this.x = x;
+  this.y = y;
+  this.img = img;
+  this.filter = filter;
+  this.size = size;
+  this.interaction = interaction;
+}
+
+
 const libraryControls = {
   
   $LIBRARY_OBJECTS: "library-objects",

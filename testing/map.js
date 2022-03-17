@@ -62,6 +62,8 @@ const mapControls = {
     
     // add onclick events
       $('#' + mapControls.MASTER).on("click", "div._s", mapControls.mapSwitch );
+      $('#' + mapControls.SIDE).on("click", "div._s", mapControls.mapSwitch );
+    
 //    
     
     
@@ -108,6 +110,8 @@ const mapControls = {
     // switching to the new scene
     active_scene = scenes.s[i];
     
+   // scroll to engine
+    document.getElementById("e").scrollIntoView();
       
     // update the new scene
     $("#" + mapControls.MASTER + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__unused").addClass("__active");
@@ -177,7 +181,6 @@ $("#engine #scene_selector ._s").click(function (){
     
     objControls.saveObjects();
     sceneControls.clearScene();
-    
     
     
     // remove the old scene

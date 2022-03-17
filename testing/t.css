@@ -22,6 +22,10 @@
   TRANSITIONS
 
 */
+html, body {
+  scroll-behavior: smooth;
+}
+
 #e, body {
   -webkit-transition: background 0.15s linear;
   -moz-transition: background 0.15s linear;
@@ -262,6 +266,14 @@ EDITOR
   margin: 1em 0;
   text-align: center;
 }
+#scene_s #scene_selector hr, #map #scene_selector hr {
+  height: 0;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+}
 #scene_s #scene_selector ._s, #map #scene_selector ._s {
   display: inline-block;
   padding: 0.25em;
@@ -296,14 +308,6 @@ EDITOR
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-#map #scene_selector hr {
-  height: 0;
-  width: 100%;
-  border: 0;
-  outline: 0;
-  padding: 0;
-  margin: 0;
 }
 #map #scene_selector ._s {
   width: 80px;

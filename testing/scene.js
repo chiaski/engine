@@ -66,6 +66,10 @@ const sceneControls = {
     
     console.log("Switched scene to " + active_scene.x + "," + active_scene.y);
     
+    
+   // scroll to engine
+    document.getElementById("e").scrollIntoView();
+    
     // Updating active scene text
     $("._whatscene").text( active_scene.x + "," + active_scene.y );
 
