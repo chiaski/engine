@@ -193,6 +193,7 @@ button:hover {
   align-items: flex-start;
   align-content: flex-start;
   flex-wrap: wrap;
+  border-bottom: none;
 }
 
 #controls {
@@ -203,6 +204,14 @@ button:hover {
 
 #controls .controls-selected {
   display: none;
+}
+
+#controls #colorpicker input[type=color] {
+  padding: 0.5em;
+  margin: 1em auto;
+  display: block;
+  width: 100%;
+  height: 80px;
 }
 
 #help {

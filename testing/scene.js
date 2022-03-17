@@ -126,12 +126,17 @@ const sceneControls = {
   initColorpicker: function() {
 
     $("input[type='color']").change(function () {
+      
+      let c = $(" input[type='color']").val();
 
-      $("#e").css("background", $(" input[type='color']").val());
-      $("body").css("background", $(" input[type='color']").val());
+      $("#e").css("background", c);
+      $("body").css("background", c);
 
-      active_scene.color = $(" input[type='color']").val();
+      active_scene.color = c;
 
+      // change color of tile in map
+      $("#scene_selector div._s.__active").css("background", c);
+      
       console.log(active_scene.color);
 
     });
