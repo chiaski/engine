@@ -32,6 +32,24 @@ const libraryControls = {
     
   },
   
+  clicktoadd: function(){
+    
+    console.log( $(this) );
+    
+    // Make sure there are no more than 10 objects
+    if (active_scene.object_count >= globals.MAX_object_count) {
+    alert("Sorry, you can't add any more.")
+    return;
+  } else {
+    active_scene.object_count++;
+  }
+
+    let o = objControls.addObj( $(this).attr("src") );
+
+    objControls.moveObj(o);
+
+  },
+  
   load: function(what){
     
         
@@ -41,14 +59,216 @@ const libraryControls = {
       
       $("#" + libraryControls.$LIBRARY_OBJECTS).append("<img class='_toadd' src='assets/image/" + what + "/" + e + ".gif'>" );
       
-      
-      
-    });
+    });  
     
+    
+    // add onclick events
+      $("#" + libraryControls.$LIBRARY_OBJECTS).on("dblclick", "div._toadd", libraryControls.clicktoadd );
   }
   
   
 }
+
+
+
+
+/* 
+
+
+
+
+      OBJECT CONTROLS
+      
+      
+      
+
+
+*/
+
+
+
+const objControls = {
+  // t = object
+
+  // SET LISTENERS FOR CONTROLS
+
+
+  // SIMPLE HANDLERS
+
+
+  // SELECT/DESELECT via double-click
+  selectObj: function (t) {
+
+    //    console.log("double clicked");
+
+    // I am double-clicking the image I currently selected
+    if ($(this).attr("data-selected") == "1") {
+
+      console.log("deselecting image");
+      objControls.clearSelected();
+      return;
+
+    } else {
+      console.log("selecting image");
+
+      objControls.clearSelected();
+      objControls.moveObj(this);
+      return;
+
+    }
+
+  },
+
+  // moving object
+  moveObj: function (t) {
+
+
+    // fade in controls
+    $(".controls-selected").fadeIn("slow");
+
+    $(t)
+      .bind("dblclick", objControls.selectObj)
+      .css("box-shadow", "0 0 20px #fff")
+      .attr("data-selected", "1")
+      .draggable({
+        disabled: false,
+        grid: [40, 40],
+        containment: "#e",
+        stop: function () {
+          objControls.updatePos(t);
+        }
+      });
+
+    return;
+
+  },
+
+  // add object
+  addObj: function (src, x, y, filter, size, interaction) {
+
+    // first, deselect all objects
+
+    objControls.clearSelected();
+
+    console.log("adding" + " " + src + x, y, size);
+    
+    // makey thingy
+
+    let newSrc;
+
+
+    newSrc = "<img class='obj' data-selected='0' src='" + src + "' style='";
+
+    if (x && y) {
+      newSrc += "top:" + y + "px; left:" + x + "px;";
+    }
+
+    if (filter) {
+      newSrc += "filter:" + filter + ";";
+    }
+
+    if (size) {
+      newSrc += "width:" + size + "; height:" + size + ";";
+    }
+
+    if (interaction) {
+      // TO-DO!
+    }
+
+    newSrc += "'>";
+
+    active_scene.object_count++; // increment object_count of active scene
+    
+    let newObj = $(newSrc).fadeIn("slow").appendTo("#e");
+
+    return newObj;
+
+  },
+
+  // remove object 
+  delObj: function (t) {
+
+    if (t) {
+      t.remove();
+    } else {
+      console.log("Object removed");
+      $("#e .obj[data-selected='1']").remove();
+    }
+
+    // add error handling here, catch if no objec twas removed
+
+    $(".controls-selected").fadeOut("slow");
+
+  },
+
+  size: function (how) {
+
+    let t = $("#e img.obj[data-selected='1']");
+    console.log(t);
+
+    if (how == "up") {
+
+      console.log("grow");
+
+      console.log(t.css("width"));
+
+      t.css("width", t.width() * 1.25 + "px");
+      t.css("height", t.height() * 1.25 + "px");
+
+    } else {
+
+      console.log("shrink");
+
+      t.css("width", t.width() * 0.75 + "px");
+      t.css("height", t.height() * 0.75 + "px");
+    }
+
+  },
+
+  effect: function (how) {
+
+    let t = $("#e img.obj[data-selected='1']");
+
+    switch (how) {
+
+      case "invert":
+
+        console.log($(t).css("filter"));
+
+        if (($(t).css("filter") == 'invert(1)')) {
+          $(t).css("filter", "invert(0)");
+        } else {
+          $(t).css("filter", "invert(1)");
+        }
+
+        break;
+
+    }
+
+  },
+
+  // write all positions of objects in engine dom to array of objects, and get it in scene
+  saveObjects: function () {
+
+//    console.log(active_scene);
+    
+    // first clear objects in the existing scene
+    active_scene.objects = [];
+
+    $("#e .obj").each(function () {
+      // width and height are always equa, so we only need to fetch one of these values for size
+      // doesn't add interaction for now
+
+      (active_scene.objects).push(new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width')));
+
+      console.log("object created");
+
+      // x
+
+    });
+  }
+}
+
 
 /*
 

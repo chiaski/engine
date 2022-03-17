@@ -77,7 +77,7 @@ const mapControls = {
   
   mapSwitch: function(t){
     
-    objControls.saveObjects(); // first, save objects in curr scene
+    objControls.saveObjects(); // first, savef objects in curr scene
     
     let coord = $(this).attr("data-scene").split(',');
     let i = (parseInt(coord[0]) * globals.MAP_width) + parseInt(coord[1]); // indice in scenes
