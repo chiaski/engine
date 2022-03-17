@@ -329,7 +329,6 @@ EDITOR
   
   #scene_selector{
     
-    max-width: 250px;
     margin: 1em 0;
     text-align: center;
     
@@ -437,6 +436,7 @@ EDITOR
 
   #scene_selector{
 
+    max-width: 250px;
     outline: 1px solid $c;
     padding: .25em;
 
@@ -499,9 +499,16 @@ transition: all .13s linear;
     
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    
+    select{
+      padding: .25em;
+      margin: 1em auto;
+      text-align: center;
+    }
     
     button._filter{
-      padding: .5em;
+      padding: .25em;
       text-transform: uppercase;
       
     }
@@ -514,19 +521,28 @@ transition: all .13s linear;
     width: 100%;
   }
   
+  
+  // LIBRARY OBJECTS
+
+  ._toadd{
+    background: $c;
+    padding: .25em;
+    border: .5px solid #fff;
+    object-fit: contain;
+    width: 50px;
+    height: 50px;
+    max-width: 50px;
+    height: 50px;
+  }
+
+    ._toadd:hover{
+      filter:invert(1);
+      cursor: pointer;
+    }
+
 }
 
 
-#library .library-objects .objtoadd{
-  background: $c;
-  margin: 0;
-  padding: .25em;
-  border: 1px solid #fff;
-  width: 50px;
-  height: 50px;
-  max-width: 50px;
-  height: 50px;
-}
 
 #library .library-objects .objtoadd:hover{
   filter: invert(1);
