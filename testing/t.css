@@ -352,7 +352,7 @@ PLAY
   position: fixed;
   display: block;
   background: #fff;
-  opacity: 0.3;
+  opacity: 0.1;
   background-blend-mode: blur(3px);
 }
 #play #e-controls a.___n, #play #e-controls a.___s {
@@ -370,16 +370,16 @@ PLAY
   bottom: 0;
 }
 #play #e-controls a.-inaccessible {
-  opacity: 0.1;
+  opacity: 0.05;
 }
 #play #e-controls a:hover {
   transform: scale(1.02);
   cursor: pointer;
   background: hotpink;
-  opacity: 0.9;
+  opacity: 0.6;
 }
 #play #e-controls a.-inaccessible:hover {
-  opacity: 0.3;
+  opacity: 0.1;
   cursor: not-allowed;
 }
 #play h2 {

@@ -30,6 +30,10 @@ const state = {
 const scenes = {
   
   scene_count: 1,
+  start_scene: {
+    x: 0,
+    y: 0
+  },
   
   // ALL THE SCENESKMFAKSF
   s: new Array( globals.MAP_width * globals.MAP_height )
