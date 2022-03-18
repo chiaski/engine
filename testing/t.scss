@@ -323,7 +323,9 @@ display: none;
     padding: 0;
   }
   
-  #e{
+}
+
+  #e, #e-play{
   display: block;
   position: relative;
   background: $c;
@@ -333,14 +335,8 @@ display: none;
   height: 512px;
   margin: 0;
   overflow: hidden;
-    
   }
   
-}
-
-#e{
-  
-}
 
 
 #e .obj{
@@ -363,7 +359,39 @@ display: none;
 #e img[data-selected="1"]:hover{
   cursor: pointer;
 }
-// map view
+
+
+
+/* 
+
+
+
+PLAY 
+
+
+
+*/
+
+#play{
+  
+  background: pink;
+  
+  .play-overlay{
+    position: fixed;
+    pointer-events: none;
+    width: 100%;
+    height: 100vh;
+    font-size: 3em;
+  }
+  
+  h2{
+    color: #fff;
+    border-bottom: 1px solid #fff;
+  }
+  
+}
+
+
 
 /* 
 
@@ -454,8 +482,6 @@ EDITOR
   display: flex;
   flex-wrap: wrap;
     justify-content: center;
-    
-    
   
   ._s{
     
