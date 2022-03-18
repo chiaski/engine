@@ -322,7 +322,7 @@ max-width: 190px;
   padding: 1em;
 }
 
-#controls .controls-selected{
+ .controls-selected{
 display: none;
 }
 
@@ -390,7 +390,7 @@ display: none;
   
 
 
-#e .obj{
+#e .obj, #e-play .obj{
   position: absolute;
   width: 128px;
   height: 128px;
@@ -429,6 +429,7 @@ PLAY
     position: relative;
   max-width: 512px;
   animation: pulse-black-engine 10s infinite;
+  overflow: hidden;
   
   .play-overlay{
     position: absolute;
@@ -436,6 +437,59 @@ PLAY
     width: 100%;
     height: 100%;
     z-index: 9;
+  }
+  
+  // map navigation
+  #e-controls{
+    position: fixed;
+    width: 100%;
+    height: 512px;
+    z-index: 12;
+    bottom: 0;
+    
+    a{
+      position: fixed;
+      display: block;
+      background: #fff;
+      opacity: 0.3;
+      background-blend-mode: blur(3px);
+    }
+    
+    a.___n, a.___s{
+      width: 100%;
+      height: 30px;
+    }
+    
+    a.___e, a.___w{
+      width: 30px;
+      height: 512px;
+    }
+    
+    
+    a.___e{
+      right: 0;
+    }
+    
+    a.___s{
+      bottom: 0;
+    }
+    
+    a.-inaccessible{
+      opacity: 0.1;
+    }
+    
+    a:hover{
+      transform: scale(1.02);
+      cursor: pointer;
+      background: hotpink;
+      opacity: 0.9;
+    }
+    
+    a.-inaccessible:hover{
+      opacity: 0.3;
+      cursor:not-allowed;
+    }
+    
   }
   
   #e-play{
@@ -750,17 +804,17 @@ transition: all .13s linear;
 
 @keyframes pulse-black-engine {
   0% {
-    transform: scale(0.98);
+    transform: scale(0.90);
     box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
   }
   
   70% {
-    transform: scale(1);
+    transform: scale(1.05);
     box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
   }
   
   100% {
-    transform: scale(0.98);
+    transform: scale(0.9);
     box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
   }
 }

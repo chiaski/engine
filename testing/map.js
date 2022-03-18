@@ -84,8 +84,6 @@ const mapControls = {
     let coord = $(this).attr("data-scene").split(',');
     let i = (parseInt(coord[0]) * globals.MAP_width) + parseInt(coord[1]); // indice in scenes
     
-    console.log("coord: " + coord[0] + "," + coord[1]);
-    
     // –––––––––––––––––––
     // Scene does not exist
     // –––––––––––––––––––

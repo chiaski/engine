@@ -38,14 +38,12 @@ const libraryControls = {
   
   init: function(){
     
-    console.log(library);
+//    console.log(library)
 
     
   },
   
   clicktoadd: function(){
-    
-    console.log( $(this) );
     
     // Make sure there are no more than 10 objects
     if (active_scene.object_count >= globals.MAX_object_count) {
@@ -66,8 +64,6 @@ const libraryControls = {
     
         
     library[what].forEach(function(e, i){
-      
-      console.log(e);
       
       $("#" + libraryControls.$LIBRARY_OBJECTS).prepend("<img class='_toadd' src='assets/image/" + what + "/" + e + ".gif'>" );
       
@@ -91,6 +87,7 @@ $("#library .library-selector").fadeIn("slow");
 
 
     $("#library select[name='library-category']").change(function () {
+      
       
       let n =  $("#library select[name='library-category']").val();
       
@@ -193,7 +190,7 @@ const objControls = {
 
     objControls.clearSelected();
 
-    console.log("adding" + " " + src + x, y, size);
+//    console.log("adding" + " " + src + x, y, size);
     
     // makey thingy
 
@@ -310,8 +307,6 @@ const objControls = {
       // doesn't add interaction for now
 
       (active_scene.objects).push(new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width') ));
-
-      console.log("object created");
 
       // x
 
