@@ -155,12 +155,14 @@ button:hover {
   margin: 1em 0;
 }
 .panel p {
-  padding: 1em 0;
-  font-size: 0.9em;
+  padding: 1em;
+  font-weight: normal;
+  font-size: 0.85em;
+  line-height: 120%;
 }
 .panel h2 {
   width: 100%;
-  padding: 0.5em 0;
+  padding: 0.5em 1em;
   margin: 0;
 }
 
@@ -369,6 +371,12 @@ EDITOR
   transition: all 0.13s linear;
   border: 1px solid #fff;
   box-shadow: 0 0 5px #fff;
+}
+
+#texttool input[type=text] {
+  margin: 1em auto;
+  width: 80%;
+  padding: 0.25em;
 }
 
 #library {

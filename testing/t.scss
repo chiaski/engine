@@ -192,13 +192,15 @@ button:hover{
   margin: 1em 0;
   
   p{
-    padding: 1em 0;
-    font-size: .9em;
+    padding: 1em;
+    font-weight: normal;
+    font-size: .85em;
+    line-height: 120%;
   }
   
   h2{
     width: 100%;
-    padding: .5em 0;
+    padding: .5em 1em;
     margin: 0;
   }
   
@@ -530,6 +532,20 @@ transition: all .13s linear;
 
 // –––––––––––––––––––––––––––––––––––––––
 
+
+// text tools
+
+#texttool{
+  
+  
+  input[type=text]{
+    margin: 1em auto;
+    width: 80%;
+    padding: .25em;
+    
+  }
+  
+}
 
 
 // library
