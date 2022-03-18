@@ -65,10 +65,11 @@ const libraryControls = {
       
       console.log(e);
       
-      $("#" + libraryControls.$LIBRARY_OBJECTS).append("<img class='_toadd' src='assets/image/" + what + "/" + e + ".gif'>" );
+      $("#" + libraryControls.$LIBRARY_OBJECTS).prepend("<img class='_toadd' src='assets/image/" + what + "/" + e + ".gif'>" );
       
     });  
     
+$("#library .library-selector").fadeIn("slow");
     
     // add onclick events
       $("#library .library-selector").on("dblclick", "img._toadd", libraryControls.clicktoadd );
@@ -76,7 +77,6 @@ const libraryControls = {
   
   clear: function(){
     
-    $()
     
   }
   
@@ -93,6 +93,7 @@ const libraryControls = {
       console.log( n );
       
       libraryControls.load(n);
+      
 //      
 //      let c = $(" input[type='color']").val();
 //

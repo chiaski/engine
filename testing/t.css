@@ -130,6 +130,37 @@ button:hover {
 
 /* 
 
+
+
+START AND EXTRAS 
+
+
+
+*/
+#start {
+  background-image: url(assets/bg-min.gif);
+  background-size: cover;
+  color: #fff;
+  min-height: 50vh;
+  padding: 20vh 0;
+  margin: 15vh 0;
+}
+#start .window-wrapper {
+  mix-blend-mode: difference;
+  text-align: center;
+}
+#start .window-wrapper p {
+  font-size: 1.8em;
+  letter-spacing: -1px;
+}
+#start .window-wrapper button {
+  font-size: 1.2em;
+  font-family: "Times New Roman";
+  font-family: "Helvetica";
+}
+
+/* 
+
     CONSISTENT WINDOWS
 
 
@@ -150,8 +181,8 @@ button:hover {
 }
 
 .panel {
-  border-top: 1.5px solid #000000;
-  border-bottom: 1.5px solid #000000;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
   margin: 1em 0;
 }
 .panel p {
@@ -195,6 +226,10 @@ button:hover {
   align-content: flex-start;
   flex-wrap: wrap;
   border-bottom: none;
+}
+
+.sidebar-left {
+  max-width: 190px;
 }
 
 #controls-top {
@@ -442,10 +477,15 @@ EDITOR
   text-transform: uppercase;
 }
 #library .library-selector {
-  padding: 1em;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
   margin: 0;
   background: #000;
   width: 100%;
+  max-height: 188px;
+  overflow-y: scroll;
+  display: none;
 }
 #library .library-selector img {
   margin: -0.1em;

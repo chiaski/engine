@@ -31,17 +31,23 @@
 
         <p>Engine is an experimental experience maker. On your computer,</p>
 
-        <button>Create new game</button>
-        <button>Send me feedback</button>
+        <button id="tempplay">Create new game</button>
+        <button onclick="showDialog('feedback)">Send me feedback</button>
+
 
       </div>
     </div>
   </div>
 
+  
+  
 <!--  WINDOW: MAP  -->
   
   
   
+  
+  
+  <a id="window-map" style="display: block;height: 15vh;width: 100%;"></a>
   <div id="map" class="window">
 
     <h2>
@@ -52,7 +58,7 @@
     <div class="panel _full _tutorial">
       <h2>Tips</h2>
       
-      <p class="-helptext">Welcome to the map view, you are useless. This is where you can find the scene.</p>
+      <p class="-helptext">Welcome to the map view. Your world begins at <strong>0,0</strong>. Click to  create new scenes.</p>
     </div>
 
 
@@ -65,11 +71,6 @@
      
       <hr>
       <hr>
-      
-      
-          <select name="scene_no">
-            
-          </select>
       
       
     </div>
@@ -147,7 +148,9 @@
           
           <hr>
           
-        current x, y of selected img: <span class="__x"></span>, <span class="__y"></span>
+          <center>
+            <span class="__x"></span>, <span class="__y"></span>
+            </center>
           
           </div>
         
