@@ -15,9 +15,9 @@ console.log("library.js loaded");
 
 const library = {
   
-  environment: ["stone-1", "flower-1", "stone-2", "moon-1", "moon-2", "moon-3", "leaf", "leaf-2"],
-  faces: ["8D", "blank", "fear", "hmm", "kiss", "nerd", "ninja", "rage", "sad", "tear", "vomit", "worry"],
-  
+  environment: ["stone-1", "flower-1", "stone-2", "moon-1", "moon-2", "moon-3", "leaf", "leaf-2", "twig", "leaf-3", "rock", "bush", "bush-2"],
+  faces: ["8D", "blank", "fear", "joy", "hmm", "kiss", "nerd", "ninja", "rage", "sad", "tear", "vomit", "worry"],
+  digital: ["bomb", "case", "clock", "computer-2", "computer", "cursor", "dude", "exclamation", "package", "paint", "paper", "pointer", "save", "stack", "trash"],
   clouds: ["1"]
   
 };
@@ -336,9 +336,9 @@ const objControls = {
     $("#e .obj").each(function () {
       $(this)
         .css("box-shadow", "none")
-        .attr("data-selected", "0")
-      .draggable()
-            .draggable('disable');
+        .attr("data-selected", "0");
+//      .draggable()
+//            .draggable('disable');
     });
 
   }
@@ -357,6 +357,4 @@ const objControls = {
 */
 
 libraryControls.init();
-libraryControls.load('environment');
-
 

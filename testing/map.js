@@ -113,7 +113,7 @@ const mapControls = {
       
     
    // scroll to engine
-    document.getElementById("e").scrollIntoView();
+    document.getElementById("window-engine").scrollIntoView();
       
     // update the new scene
     $("#" + mapControls.MASTER + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__unused").addClass("__active");

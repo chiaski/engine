@@ -36,10 +36,10 @@
 
 html, body{
   scroll-behavior: smooth;
+  
 }
 
 #e, body, #e-play{
-
   -webkit-transition: background .15s linear;
 -moz-transition: background .15s linear;
 -ms-transition: background .15s linear;
@@ -333,10 +333,14 @@ display: none;
   height: 512px;
   margin: 0;
   overflow: hidden;
+    
   }
   
 }
 
+#e{
+  
+}
 
 
 #e .obj{
@@ -412,7 +416,7 @@ EDITOR
     ._s.__active{
       opacity: 1;
 //      border: 1px solid #fff;
-      outline: 2ox solid pink;
+      outline: 2ox solid hotpink;
       box-shadow: 0 0 5px $c;
       
   animation: pulse-black 2s infinite;

@@ -304,7 +304,7 @@ EDITOR
 }
 #scene_s #scene_selector ._s.__active, #map #scene_selector ._s.__active {
   opacity: 1;
-  outline: 2ox solid pink;
+  outline: 2ox solid hotpink;
   box-shadow: 0 0 5px #000000;
   animation: pulse-black 2s infinite;
 }

@@ -93,8 +93,15 @@ const sceneControls = {
     console.log("Switched scene to " + active_scene.x + "," + active_scene.y);
     
     
+    $("#e .obj").each(function () {
+     $( this )
+      .bind("dblclick", objControls.selectObj);
+    });
+    
+    
    // scroll to engine
-    document.getElementById("e").scrollIntoView();
+    document.getElementById("window-engine").scrollIntoView();
+
     
      
     // Updating active scene text
