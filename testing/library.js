@@ -16,6 +16,7 @@ console.log("library.js loaded");
 const library = {
   
   environment: ["stone-1", "flower-1", "stone-2", "moon-1"],
+  faces: ["8D", "blank", "fear", "hmm", "kiss", "nerd", "ninja", "rage", "sad", "tear", "vomit", "worry"],
   
   clouds: ["1"]
   
@@ -79,6 +80,30 @@ const libraryControls = {
   
 }
 
+
+
+
+    $("#library select[name='library-category']").change(function () {
+      
+      let n =  $("#library select[name='library-category']").val();
+      
+      console.log( n );
+      
+      libraryControls.load(n);
+//      
+//      let c = $(" input[type='color']").val();
+//
+//      $("#e").css("background", c);
+//      $("body").css("background", c);
+//
+//      active_scene.color = c;
+//
+//      // change color of tile in map
+//      $("#scene_selector div._s.__active").css("background", c);
+//      
+//      console.log(active_scene.color);
+
+    });
 
 
 

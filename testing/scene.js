@@ -70,6 +70,7 @@ const sceneControls = {
    // scroll to engine
     document.getElementById("e").scrollIntoView();
     
+     
     // Updating active scene text
     $("._whatscene").text( active_scene.x + "," + active_scene.y );
 
@@ -94,7 +95,7 @@ const sceneControls = {
 
   },
 
-  loadColor: function (whatscene) {
+  loadColor: function () {
 
     if(active_scene.color == 0){
       // defaults to black if color isn't set

@@ -109,6 +109,8 @@ const mapControls = {
     
     // switching to the new scene
     active_scene = scenes.s[i];
+    active_scene.color = $("body").css("background"); // retain scene color
+      
     
    // scroll to engine
     document.getElementById("e").scrollIntoView();
@@ -117,6 +119,9 @@ const mapControls = {
     $("#" + mapControls.MASTER + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__unused").addClass("__active");
     $("#" + mapControls.SIDE + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__unused").addClass("__active");
     
+      
+    $("#scene_selector div._s.__active").css("background", active_scene.color); //retain scene color 
+      
     // Updating active scene text
     $('.' + mapControls.SCENE_AREA).text(coord);
     
