@@ -118,6 +118,9 @@ const mapControls = {
     // update the new scene
     $("#" + mapControls.MASTER + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__unused").addClass("__active");
     $("#" + mapControls.SIDE + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__unused").addClass("__active");
+      
+    
+    $("." + mapControls.SCENE_DISPLAY).text(coord[0] + "," + coord[1]); // update scene
     
       
     $("#scene_selector div._s.__active").css("background", active_scene.color); //retain scene color 
@@ -154,6 +157,8 @@ const mapControls = {
   $("#" + mapControls.SIDE + " ._s").each(function(i, item){
     $(item).removeClass("__active")
   });
+    
+    $("." + mapControls.SCENE_DISPLAY).text(coord[0] + "," + coord[1]); // update scene
     
     
   $("#" + mapControls.MASTER + " ._s[data-scene='" + coord + "']").removeClass("__unused").removeClass("__inactive").addClass("__active");

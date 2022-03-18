@@ -51,10 +51,7 @@ const libraryControls = {
     if (active_scene.object_count >= globals.MAX_object_count) {
     alert("Sorry, you can't add any more.")
     return;
-  } else {
-    active_scene.object_count++;
-  }
-
+  } 
     let o = objControls.addObj( $(this).attr("src") );
 
     objControls.moveObj(o);
@@ -75,6 +72,12 @@ const libraryControls = {
     
     // add onclick events
       $("#library .library-selector").on("dblclick", "img._toadd", libraryControls.clicktoadd );
+  },
+  
+  clear: function(){
+    
+    $()
+    
   }
   
   
@@ -294,7 +297,7 @@ const objControls = {
       // width and height are always equa, so we only need to fetch one of these values for size
       // doesn't add interaction for now
 
-      (active_scene.objects).push(new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width')));
+      (active_scene.objects).push(new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width') ));
 
       console.log("object created");
 
@@ -334,6 +337,7 @@ const objControls = {
       $(this)
         .css("box-shadow", "none")
         .attr("data-selected", "0")
+      .draggable()
             .draggable('disable');
     });
 

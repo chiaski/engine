@@ -87,7 +87,14 @@
       
   <!-- LEFT SIDEBAR AND CONTROLS HERE --> 
       <div id="controls" class="panel sidebar sidebar-left">
-
+      
+        
+        
+        <div class="panel _sidebar" id="texttool">
+        <h2>Text</h2>
+          <input type="text" class="_textmaker" value="peepoopeepoo">
+        
+        </div>
         
 
         <!-- LIBRARY PANEL -->
@@ -104,6 +111,7 @@
               <option value="misc">misc</option>
             </select>
           
+            
 <!--
             <button class="_filter" data-category="environment">Environment</button>
             <button class="_filter" data-category="clouds">Clouds</button>
@@ -180,12 +188,9 @@
   
   <script type="text/javascript" src="library.js"></script>
   
-  
-<!--  THIS FILE  TESTS PLAY-TEST.JS -->
-  
-  <script type="text/javascript" src="play-test.js"></script>
-  
   <script type="text/javascript">
+  console.log("imageediting-test.js loaded");
+
 // create a temporary scene
 scenes.s[0] = new Scene(0, 0, true, 0);
 var active_scene = scenes.s[0]; // always begin with this as the active scene

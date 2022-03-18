@@ -36,28 +36,3 @@ const scenes = {
   
 };
 
-
-/*
-
-  SCENE CONSTRUCTOR
-  x, y: variable
-  active
-  
-  
-*/
-
-function Scene(x, y, active, color, object_count){
-  
-  // scene coordinates
-  this.x = x;
-  this.y = y;
-  
-  // has this scene been edited?
-  this.active = active; 
-  
-  // background color of the scene
-  this.color = color;
-  this.object_count = object_count;
-  this.objects = [];
-  
-}

@@ -264,6 +264,15 @@ button:hover{
 // –––––––––
 
 
+// CONTROLS TOP
+
+#controls-top{
+  height: 100px;
+}
+
+
+// MAIN CONTROLS
+
 #controls{
   width: 200px;
   margin: 0 auto;
@@ -306,12 +315,16 @@ display: none;
   width: 100%;
   display: flex;
   justify-content: center;
-  
+  padding-bottom: 1em;
   
   .sidebar{
-    width: calc( ((100% - 512px) / 2) - 2em);
-    margin: 0;
+    min-width: calc( ((100% - 512px) / 2) - 2em);
+    margin: 0 auto;
     padding: 0;
+  }
+  
+  #e{
+    width: 512px;
   }
   
 }
@@ -325,7 +338,7 @@ display: none;
   outline: 1.5px solid $c;
   width: 512px;
   height: 512px;
-  margin: 0 2em;
+  margin: 0;
   overflow: hidden;
 }
 
@@ -404,7 +417,7 @@ EDITOR
     ._s.__active{
       opacity: 1;
 //      border: 1px solid #fff;
-      outline: 2ox solid $p;
+      outline: 2ox solid pink;
       box-shadow: 0 0 5px $c;
     }
     

@@ -80,6 +80,25 @@
     
       <div id="controls-top">
       hello. other tools go here
+        
+    <div class="controls-selected">
+
+      <button data-action="delete" onclick="objControls.delObj();">delete</button>
+      
+      <button data-action="" onclick="objControls.size('up');">grow</button>
+      <button data-action="" onclick="objControls.size('down');">shrink</button>
+      
+      <button data-action="" onclick="objControls.effect('invert');">invert</button>
+      
+      <select name="obj-interaction">
+        <option value="jump">jump</option>
+        <option value="title">title</option>
+        <option value="random">random</option>
+      </select>
+      
+      <button data-action="" onclick="objControls.clearSelected();">finish editing</button>
+    </div>
+        
       </div>
     
     <div id="engine">
@@ -111,6 +130,7 @@
               <option value="misc">misc</option>
             </select>
           
+            
 <!--
             <button class="_filter" data-category="environment">Environment</button>
             <button class="_filter" data-category="clouds">Clouds</button>
