@@ -21,7 +21,7 @@ function Scene(x, y, active, color, object_count){
   
   // background color of the scene
   this.color = color;
-  this.object_count = object_count;
+  this.object_count = 0;
   this.objects = [];
   
 }
@@ -102,6 +102,7 @@ const sceneControls = {
    // scroll to engine
     document.getElementById("window-engine").scrollIntoView();
 
+    $("._howmany").text(active_scene.object_count);
     
      
     // Updating active scene text

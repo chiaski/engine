@@ -232,6 +232,10 @@ START AND EXTRAS
   max-width: 190px;
 }
 
+._howmany::after {
+  content: "/15";
+}
+
 #controls-top {
   padding: 0.5em 0;
 }

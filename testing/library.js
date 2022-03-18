@@ -18,7 +18,7 @@ const library = {
   environment: ["stone-1", "flower-1", "stone-2", "moon-1", "moon-2", "moon-3", "leaf", "leaf-2", "twig", "leaf-3", "rock", "bush", "bush-2"],
   faces: ["8D", "blank", "fear", "joy", "hmm", "kiss", "nerd", "ninja", "rage", "sad", "tear", "vomit", "worry"],
   digital: ["bomb", "case", "clock", "computer-2", "computer", "cursor", "dude", "exclamation", "package", "paint", "paper", "pointer", "save", "stack", "trash"],
-  clouds: ["1"]
+  clouds: ["1", "2", "3", "4", "5", "6", "7"]
   
 };
 
@@ -51,7 +51,11 @@ const libraryControls = {
     if (active_scene.object_count >= globals.MAX_object_count) {
     alert("Sorry, you can't add any more.")
     return;
-  } 
+  } else{
+    active_scene.object_count++;
+     $("._howmany").text(active_scene.object_count);
+    
+  }
     let o = objControls.addObj( $(this).attr("src") );
 
     objControls.moveObj(o);
@@ -216,9 +220,12 @@ const objControls = {
 
     newSrc += "'>";
 
-    active_scene.object_count++; // increment object_count of active scene
     
-    let newObj = $(newSrc).fadeIn("slow").appendTo("#e");
+//    active_scene.object_count++; // increment object_count of active scene
+    
+    let newObj = $(newSrc).hide().fadeIn(2000);
+    
+    $("#e").append(newObj);
 
     return newObj;
 
@@ -233,6 +240,10 @@ const objControls = {
       console.log("Object removed");
       $("#e .obj[data-selected='1']").remove();
     }
+    
+    active_scene.object_count--;
+    $("._howmany").text(active_scene.object_count);
+    
 
     // add error handling here, catch if no objec twas removed
 

@@ -302,6 +302,10 @@ max-width: 190px;
 // CONTROLS
 // –––––––––
 
+._howmany::after{
+  content: "/15";
+}
+
 
 // CONTROLS TOP
 

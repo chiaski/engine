@@ -112,6 +112,10 @@ const mapControls = {
     active_scene.color = $("body").css("background"); // retain scene color
       
     
+   // new object count
+      $("._howmany").text(active_scene.object_count);
+    
+      
    // scroll to engine
     document.getElementById("window-engine").scrollIntoView();
       
