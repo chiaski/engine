@@ -289,15 +289,17 @@ PLAY
 
 */
 #play {
-  background: pink;
+  background: #000;
+  position: relative;
   max-width: 512px;
+  animation: pulse-black-engine 10s infinite;
 }
 #play .play-overlay {
-  position: fixed;
+  position: absolute;
   pointer-events: none;
   width: 100%;
-  height: 100vh;
-  font-size: 3em;
+  height: 100%;
+  z-index: 9;
 }
 #play h2 {
   color: #fff;
@@ -480,6 +482,20 @@ EDITOR
   100% {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+@keyframes pulse-black-engine {
+  0% {
+    transform: scale(0.98);
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: scale(0.98);
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
   }
 }
 
