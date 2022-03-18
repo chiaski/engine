@@ -15,7 +15,7 @@ console.log("library.js loaded");
 
 const library = {
   
-  environment: ["stone-1", "flower-1", "stone-2", "moon-1"],
+  environment: ["stone-1", "flower-1", "stone-2", "moon-1", "moon-2", "moon-3", "leaf", "leaf-2"],
   faces: ["8D", "blank", "fear", "hmm", "kiss", "nerd", "ninja", "rage", "sad", "tear", "vomit", "worry"],
   
   clouds: ["1"]

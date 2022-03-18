@@ -26,7 +26,7 @@ html, body {
   scroll-behavior: smooth;
 }
 
-#e, body {
+#e, body, #e-play {
   -webkit-transition: background 0.15s linear;
   -moz-transition: background 0.15s linear;
   -ms-transition: background 0.15s linear;
@@ -198,7 +198,7 @@ button:hover {
 }
 
 #controls-top {
-  height: 100px;
+  padding: 0.5em 0;
 }
 
 #controls {
@@ -240,10 +240,6 @@ button:hover {
   padding: 0;
 }
 #engine #e {
-  width: 512px;
-}
-
-#e {
   display: block;
   position: relative;
   background: #000000;
@@ -310,6 +306,7 @@ EDITOR
   opacity: 1;
   outline: 2ox solid pink;
   box-shadow: 0 0 5px #000000;
+  animation: pulse-black 2s infinite;
 }
 #scene_s #scene_selector ._s.__inactive, #map #scene_selector ._s.__inactive {
   opacity: 0.5;
@@ -435,6 +432,22 @@ EDITOR
 
 #library .library-objects .objtoadd:hover {
   filter: invert(1);
+}
+
+/* ANIMATIONS */
+@keyframes pulse-black {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 7px rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
 }
 
 /*# sourceMappingURL=t.css.map */

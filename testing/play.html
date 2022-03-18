@@ -21,6 +21,9 @@
   <div class="fx _1"></div>
   <div class="fx _p"></div>
 
+<!--  WINDOW: START  -->
+  
+  
   <div id="start" class="window">
     <div class="window-wrapper">
       <div>
@@ -35,6 +38,10 @@
     </div>
   </div>
 
+<!--  WINDOW: MAP  -->
+  
+  
+  
   <div id="map" class="window">
 
     <h2>
@@ -50,9 +57,6 @@
 
 
     <div id="scene_selector">
-
-      
-      <button onclick="mapControls.render();">Dynamically render available scenes</button>
       
       <hr>
       
@@ -72,6 +76,9 @@
 
   </div>
 
+<!--  WINDOW: ENGINE  -->
+  
+  
   <div class="window">
     <h2>
       <span>Editor View</span> Editing Scene  <span class="_whatscene">0,0</span>
@@ -79,7 +86,25 @@
     
     
       <div id="controls-top">
-      hello. other tools go here
+        
+    <div class="controls-selected">
+
+      <button data-action="delete" onclick="objControls.delObj();">delete</button>
+      
+      <button data-action="" onclick="objControls.size('up');">grow</button>
+      <button data-action="" onclick="objControls.size('down');">shrink</button>
+      
+      <button data-action="" onclick="objControls.effect('invert');">invert</button>
+      
+      <select name="obj-interaction">
+        <option value="jump">jump</option>
+        <option value="title">title</option>
+        <option value="random">random</option>
+      </select>
+      
+      <button data-action="" onclick="objControls.clearSelected();">finish editing</button>
+    </div>
+        
       </div>
     
     <div id="engine">
@@ -88,13 +113,6 @@
   <!-- LEFT SIDEBAR AND CONTROLS HERE --> 
       <div id="controls" class="panel sidebar sidebar-left">
       
-        
-        
-        <div class="panel _sidebar" id="texttool">
-        <h2>Text</h2>
-          <input type="text" class="_textmaker" value="peepoopeepoo">
-        
-        </div>
         
 
         <!-- LIBRARY PANEL -->
@@ -124,6 +142,8 @@
           
           
           </div>
+          
+          <hr>
           
         current x, y of selected img: <span class="__x"></span>, <span class="__y"></span>
           
@@ -177,6 +197,23 @@
   </div>
   
   
+  
+<!--  WINDOW: PLAY  -->
+  
+  
+  <div class="window" id="play">
+    <h2>
+      <span>Play View</span> 
+    </h2>
+    
+    <div id="e-play">
+    
+    
+    </div>
+    
+    
+  </div>
+  
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
   <script src="//code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
   <script src="//code.jquery.com/ui/1.13.0/jquery-ui.min.js" type="text/javascript"></script>
@@ -187,6 +224,10 @@
   <script type="text/javascript" src="scene.js"></script>
   
   <script type="text/javascript" src="library.js"></script>
+  
+  
+  
+  <script type="text/javascript" src="play-test.js"></script>
   
   <script type="text/javascript">
   console.log("imageediting-test.js loaded");
