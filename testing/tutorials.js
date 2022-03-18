@@ -1,6 +1,9 @@
 console.log("tutorials.js loaded");
 
 
+// You'll know.
+var chaos = 0;
+
 /*
 
 THE GREAT TUTORIALS BANK
