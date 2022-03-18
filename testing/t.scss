@@ -311,6 +311,10 @@ display: none;
 
 /* ENGINE */
 
+#engine-window{
+  max-width: 900px;
+}
+
 #engine{
   width: 100%;
   display: flex;
@@ -321,6 +325,10 @@ display: none;
     min-width: calc( ((100% - 512px) / 2) - 2em);
     margin: 0 auto;
     padding: 0;
+  }
+  
+  .sidebar.sidebar-right{
+    max-width: 150px;
   }
   
 }
@@ -375,6 +383,7 @@ PLAY
 #play{
   
   background: pink;
+  max-width: 512px;
   
   .play-overlay{
     position: fixed;

@@ -228,6 +228,10 @@ button:hover {
 }
 
 /* ENGINE */
+#engine-window {
+  max-width: 900px;
+}
+
 #engine {
   width: 100%;
   display: flex;
@@ -238,6 +242,9 @@ button:hover {
   min-width: calc( ((100% - 512px) / 2) - 2em);
   margin: 0 auto;
   padding: 0;
+}
+#engine .sidebar.sidebar-right {
+  max-width: 150px;
 }
 
 #e, #e-play {
@@ -283,6 +290,7 @@ PLAY
 */
 #play {
   background: pink;
+  max-width: 512px;
 }
 #play .play-overlay {
   position: fixed;
