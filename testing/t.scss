@@ -252,7 +252,7 @@ START AND EXTRAS
 .panel._sidebar{
   width: 100%;
   border-top: none;
-  margin: 1em 0;
+  margin: 0 0 1em 0;
 }
 
 
@@ -292,7 +292,7 @@ max-width: 190px;
 }
 
 .sidebar-right{
-  
+  max-width: 150px;
 }
 
 
@@ -310,7 +310,7 @@ max-width: 190px;
 // CONTROLS TOP
 
 #controls-top{
-  padding: .5em 0;
+  width: 100%;
 }
 
 
@@ -324,6 +324,7 @@ max-width: 190px;
 
  .controls-selected{
 display: none;
+   text-align: center;
 }
 
 
@@ -346,9 +347,6 @@ display: none;
 // CONTROLS
 // –––––––––
 
-#help{
-  width: 220px;
-}
 
 
 
@@ -356,22 +354,19 @@ display: none;
 
 #engine-window{
   max-width: 900px;
+  height: auto;
 }
 
 #engine{
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-bottom: 1em;
+  border-bottom: 1.5px solid $c;
   
   .sidebar{
     min-width: calc( ((100% - 512px) / 2) - 2em);
     margin: 0 auto;
     padding: 0;
-  }
-  
-  .sidebar.sidebar-right{
-    max-width: 150px;
   }
   
 }
@@ -628,6 +623,8 @@ EDITOR
 
 #scene_s{
   
+  margin-top: 0;
+  
     ._whatscene{
       display:inline-block;
       padding-left: .5em;
@@ -635,16 +632,17 @@ EDITOR
     }
   
 
-
   #scene_selector{
 
     max-width: 250px;
-    outline: 1px solid $c;
     padding: .25em;
 
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    
+    margin: 0;
+    border-top: 0;
     
     hr{
       margin: 0;

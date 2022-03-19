@@ -79,7 +79,7 @@
 
 <!--  WINDOW: ENGINE  -->
   
-  <a id="window-engine" style="display: block;height: 10vh;width: 100%;"></a>
+  <a id="window-engine" style="display: block;height: 6vh;width: 100%;"></a>
   
   <div class="window" id="engine-window">
     <h2>
@@ -87,27 +87,6 @@
     </h2>
     
     
-      <div id="controls-top">
-        
-    <div class="controls-selected">
-
-      <button data-action="delete" onclick="objControls.delObj();">delete</button>
-      
-      <button data-action="" onclick="objControls.size('up');">grow</button>
-      <button data-action="" onclick="objControls.size('down');">shrink</button>
-      
-      <button data-action="" onclick="objControls.effect('invert');">invert</button>
-      
-      <select name="obj-interaction">
-        <option value="jump">jump</option>
-        <option value="title">title</option>
-        <option value="random">random</option>
-      </select>
-      
-      <button data-action="" onclick="objControls.clearSelected();">finish editing</button>
-    </div>
-        
-      </div>
     
     <div id="engine">
       
@@ -145,8 +124,6 @@
           
           
           </div>
-          
-          <hr>
           
           <center>
             <span class="__x"></span>, <span class="__y"></span>
@@ -196,9 +173,31 @@
       
     
     </div>
-      
-
     </div>
+    
+     <div id="controls-top">
+        
+    <div class="controls-selected">
+
+      <button data-action="delete" onclick="objControls.delObj();">delete</button>
+      
+      <button data-action="" onclick="objControls.size('up');">grow</button>
+      <button data-action="" onclick="objControls.size('down');">shrink</button>
+      
+      <button data-action="" onclick="objControls.effect('invert');">invert</button>
+      
+      <select name="obj-interaction">
+        <option value="jump">jump</option>
+        <option value="title">title</option>
+        <option value="random">random</option>
+      </select>
+      
+      <button data-action="" onclick="objControls.clearSelected();">finish editing</button>
+    </div>
+        
+      </div>
+    
+    
   </div>
   
   
