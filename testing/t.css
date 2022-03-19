@@ -297,7 +297,7 @@ START AND EXTRAS
   overflow: hidden;
 }
 
-#e .obj, #e-play .obj {
+#e .obj, #e-play .obj, #e-cartridge .obj {
   position: absolute;
   width: 128px;
   height: 128px;
@@ -339,6 +339,14 @@ PLAY
   width: 100%;
   height: 100%;
   z-index: 9;
+}
+#play #e-cartridge {
+  position: fixed;
+  width: 512px;
+  height: 512px;
+  bottom: 0;
+  z-index: 15;
+  background: pink;
 }
 #play #e-controls {
   position: fixed;

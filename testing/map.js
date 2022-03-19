@@ -100,7 +100,7 @@ const mapControls = {
       objControls.saveObjects();
       sceneControls.clearScene();
       
-      // remove the old scene
+      // remove active scenes
       $("#" + mapControls.MASTER + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
       $("#" + mapControls.SIDE + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
       

@@ -106,6 +106,7 @@ const sceneControls = {
     
      
     // Updating active scene text
+    $("._whatscenetype").text("Scene");
     $("._whatscene").text( active_scene.x + "," + active_scene.y );
 
   },
@@ -113,9 +114,7 @@ const sceneControls = {
   
   /* saveScene writes all objects and settings to the active scene */
   saveScene: function () {
-
   objControls.saveObjects();
-
   },
   /* clearScene deletes all objects from the scene */
   clearScene: function () {
@@ -172,14 +171,102 @@ const sceneControls = {
       // change color of tile in map
       $("#scene_selector div._s.__active").css("background", c);
       
-      console.log(active_scene.color);
-
     });
 
 
 
+  },
+  
+  editCartridge: function(){
+    
+    let c = scenes.cartridge;
+    
+    // make cartridge for the first time
+    if(c == null){
+      scenes.cartridge = new Scene(-1, -1, true, "#000000", 0);      
+      
+      // reset colors
+      $("#e").css("background", "#000000");
+      $("body").css("background", "#000000");
+      $("input[type='color']").val("#000000");
+      
+    } else{
+      
+      // load the cartridge into the editor
+      
+    }
+
+    // MAP:remove the old scene
+    $("#" + mapControls.MASTER + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
+    $("#" + mapControls.SIDE + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
+    
+    // MAP: clear all the __active classes
+    $("#" + mapControls.MASTER + " ._s").each(function(i, item){
+      $(item).removeClass("__active")
+    });
+    $("#" + mapControls.SIDE + " ._s").each(function(i, item){
+      $(item).removeClass("__active")
+    });
+      
+    
+    active_scene = scenes.cartridge;
+    
+    $("._whatscenetype").text("Cartridge");
+    $(".whatscene").text("");
+    
+  },
+  
+  saveCartridge: function(){
+    
+    console.log("saving cartridge");
+    objControls.saveObjects();    
+    
+     (active_scene.objects).forEach(function (e) {
+      let newSrc = "";
+      newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
+
+      if (e.x && e.y) {
+        newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
+      }
+
+      if (e.filter) {
+        newSrc += "filter:" + e.filter + ";";
+      }
+
+      if (e.size) {
+        newSrc += "width:" + e.size + "; height:" + e.size + ";";
+      }
+
+      newSrc += "'>";
+      
+      let newObj = $(newSrc).hide().fadeIn(2000);
+      $("#e-cartridge").append(newObj);
+    });
+    
+    // update the colo
+      $("#e-cartridge").css("background", (scenes.cartridge).color);
+    
+    sceneControls.clearScene();
+    
   }
 
 };
 
 sceneControls.initColorpicker();
+
+
+
+$("#btn-cartridge").on("click", function () {
+
+  sceneControls.editCartridge();
+  alert("now editing the game cartridge. saves automatically!");
+
+});
+
+
+$("#btn-savecartridge").on("click", function () {
+
+  sceneControls.saveCartridge();
+  alert("game cartridge saved!");
+
+});

@@ -66,14 +66,17 @@
       
       <hr>
       
+      
       <div id="sss"></div>
       
      
       <hr>
       <hr>
       
+      <button id="btn-cartridge">edit cartridge (game cover)</button>
       
     </div>
+    
 
   </div>
 
@@ -83,7 +86,7 @@
   
   <div class="window" id="engine-window">
     <h2>
-      <span>Editor View</span> Editing Scene  <span class="_whatscene">0,0</span> Objects left  <span class="_howmany">0</span>
+      <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span>  <span class="_whatscene">0,0</span> Objects left  <span class="_howmany">0</span>
     </h2>
     
     
@@ -194,6 +197,10 @@
       
       <button data-action="" onclick="objControls.clearSelected();">finish editing</button>
     </div>
+       
+       <div class="controls-cartridge">
+       <button id="btn-savecartridge">save cartridge</button>
+       </div>
         
       </div>
     
@@ -208,14 +215,18 @@
   <a id="window-play" style="display: block;height: 15vh;width: 100%;"></a>
   
   <div class="window" id="play">
-    <div class="play-overlay" style=" background-image:url(assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.5;"></div>
+    <div class="play-overlay" style=" background-image:url(assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.9;"></div>
     <h2>
       <span>Play View</span> 
       <span class="_playwhatscene"></span>
     </h2>
     
-    <button id="load-play">PLAY</button>
-    <button id="load-clear">CLEAR</button>
+    <button id="btn-play">PLAY</button>
+    <button id="btn-clear">CLEAR</button>
+    
+    <div id="e-cartridge">
+      
+    </div>
     
     <div id="e-controls">
       <a data-direction="n" data-target="null" class="___n -inaccessible"></a>

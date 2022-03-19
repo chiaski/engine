@@ -171,8 +171,7 @@ const Tplayer = {
 
     // add objects
     ((Tplayer.active).objects).forEach(function (e) {
-      var newSrc = "";
-
+      let newSrc = "";
       newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
 
       if (e.x && e.y) {
@@ -187,16 +186,10 @@ const Tplayer = {
         newSrc += "width:" + e.size + "; height:" + e.size + ";";
       }
 
-
       newSrc += "'>";
-
-
-      var newObj = $(newSrc).hide().fadeIn(2000);
-
+      
+      let newObj = $(newSrc).hide().fadeIn(2000);
       $("#e-play").append(newObj);
-
-      // HELL YAAA
-
     })
 
 
@@ -249,11 +242,15 @@ const Tplayer = {
 };
 
 function loadPlay(x, y) {
+  
+  
+  // first, fade out cartridge very slowly lol
+  $("#e-cartridge").delay(3000).fadeOut(3000);
+  $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(5000).css("pointer-events", "auto");
 
   Tplayer.active = scenes.s[sceneControls.getSceneIndex(x, y)];
 
   Tplayer.loadScene(x, y);
-
 
   $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
 
@@ -264,14 +261,14 @@ function loadPlay(x, y) {
 
 
 
-$("#load-play").on("click", function () {
+$("#btn-play").on("click", function () {
 
   objControls.saveObjects();
   loadPlay(scenes.start_scene.x, scenes.start_scene.y);
 
 });
 
-$("#load-clear").on("click", function () {
+$("#btn-clear").on("click", function () {
 
   $("#e-play").html("");
   $("#e-play").css("background", "#000000");

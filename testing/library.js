@@ -79,8 +79,6 @@ $("#library .library-selector").fadeIn("slow");
     
     
   }
-  
-  
 }
 
 
@@ -296,21 +294,17 @@ const objControls = {
 
   // write all positions of objects in engine dom to array of objects, and get it in scene
   saveObjects: function () {
-
-//    console.log(active_scene);
     
     // first clear objects in the existing scene
     active_scene.objects = [];
 
     $("#e .obj").each(function () {
-      // width and height are always equa, so we only need to fetch one of these values for size
-      // doesn't add interaction for now
+      // NOTE: width and height are always equal, so we only need to fetch one of these values for size
+      // TODO: interactions, once that's implemented
 
       (active_scene.objects).push(new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width') ));
-
-      // x
-
     });
+    
   },
 
   // render all information from the scene
