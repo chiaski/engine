@@ -352,7 +352,7 @@ PLAY
   position: fixed;
   display: block;
   background: #fff;
-  opacity: 0.1;
+  opacity: 0.5;
   background-blend-mode: blur(3px);
 }
 #play #e-controls a.___n, #play #e-controls a.___s {

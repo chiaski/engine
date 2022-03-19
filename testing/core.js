@@ -4,7 +4,7 @@
 const globals = {
   
   // maximum objects allowed per scene
-  MAX_object_count: 10,
+  MAX_object_count: 15,
   
   // map width (columns)
   MAP_width: 4,
