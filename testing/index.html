@@ -44,9 +44,6 @@
 <!--  WINDOW: MAP  -->
   
   
-  
-  
-  
   <a id="window-map" style="display: block;height: 15vh;width: 100%;"></a>
   <div id="map" class="window">
 
@@ -89,10 +86,7 @@
       <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span>  <span class="_whatscene">0,0</span> Objects left  <span class="_howmany">0</span>
     </h2>
     
-    
-    
     <div id="engine">
-      
       
   <!-- LEFT SIDEBAR AND CONTROLS HERE --> 
       <div id="controls" class="panel sidebar sidebar-left">
@@ -100,7 +94,6 @@
         
 
         <!-- LIBRARY PANEL -->
-
         <div class="panel _sidebar" id="library">
           <h2>Asset Library</h2>
           
@@ -195,7 +188,7 @@
         <option value="random">random</option>
       </select>
       
-      <button data-action="" onclick="objControls.clearSelected();">finish editing</button>
+      <button id="btn-finishediting" data-action="" onclick="objControls.clearSelected();">finish editing</button>
     </div>
        
        <div class="controls-cartridge">
@@ -216,6 +209,7 @@
   
   <div class="window" id="play">
     <div class="play-overlay" style=" background-image:url(assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.9;"></div>
+    
     <h2>
       <span>Play View</span> 
       <span class="_playwhatscene"></span>

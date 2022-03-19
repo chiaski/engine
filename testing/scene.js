@@ -176,6 +176,8 @@ const sceneControls = {
   editCartridge: function(){
     
     $("#btn-savecartridge").fadeIn("slow");
+    $("#btn-finishediting").fadeOut("slow");
+    $(".sidebar-right").fadeOut("slow");
     
     objControls.saveObjects();    
     sceneControls.clearScene();
@@ -247,7 +249,9 @@ const sceneControls = {
     
     // update the colo
     $("#e-cartridge").css("background", (scenes.cartridge).color);
-    $("#btn-savecartridge").fadeIn("slow");
+    $("#btn-savecartridge").fadeOut("slow");
+    
+    $(".sidebar-right").fadeIn("slow");
     
   }
 

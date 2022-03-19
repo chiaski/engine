@@ -12,18 +12,29 @@ $("#e-play");
 
 // LOAD CARTRIDGE
 
-
-$("#e-controls a").on("click", function () {
-
-
-
-});
-
-
-
 const Tplayer = {
 
   active: scenes.s[0],
+
+  
+  /* 
+    clearGame
+    deletes and clears the game
+  */
+  
+  clearGame: function(){
+    
+    // clear all visual styles
+    $("#e-controls a").each(function (i, e) {
+      $(this)
+        .removeClass("-inaccessible")
+        .addClass("-inaccessible")
+        .attr("data-target", "null")
+        .unbind("click", Tplayer.loadTarget);
+    });
+    
+    Tplayer.clearScene();
+  },
 
   loadGame: function () {
 
@@ -243,11 +254,27 @@ const Tplayer = {
 
 function loadPlay(x, y) {
   
+  $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
   
-  // first, fade out cartridge very slowly lol
-  $("#e-cartridge").delay(3000).fadeOut(3000);
-  $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(5000).css("pointer-events", "auto");
+  setTimeout(function(){
 
+$("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
+
+},8000);
+  
+  $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(5000).css("pointer-events", "auto").css("cursor", "auto");
+  
+  // load the cartridge, if this is a replay
+  if( $("#e-cartridge").css("display") == "none" ){
+  $("#e-cartridge").fadeIn(1500).delay(5000).fadeOut(3000);
+
+  } else{
+     // first, fade out cartridge very slowly lol
+  $("#e-cartridge").delay(3000).fadeOut(3000);
+  }
+  
+  
+ 
   Tplayer.active = scenes.s[sceneControls.getSceneIndex(x, y)];
 
   Tplayer.loadScene(x, y);
@@ -272,5 +299,7 @@ $("#btn-clear").on("click", function () {
 
   $("#e-play").html("");
   $("#e-play").css("background", "#000000");
+  
+  Tplayer.clearGame();
 
 });

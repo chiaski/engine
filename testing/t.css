@@ -229,7 +229,7 @@ START AND EXTRAS
 }
 
 .sidebar-left {
-  max-width: 190px;
+  width: 190px;
 }
 
 .sidebar-right {
@@ -275,18 +275,19 @@ START AND EXTRAS
 
 /* ENGINE */
 #engine-window {
+  display: inline-block;
+  width: auto;
   max-width: 900px;
   height: auto;
 }
 
 #engine {
-  width: 100%;
   display: flex;
+  align-items: flex-start;
   justify-content: center;
   border-bottom: 1.5px solid #000000;
 }
 #engine .sidebar {
-  min-width: calc( ((100% - 512px) / 2) - 2em);
   margin: 0 auto;
   padding: 0;
 }
@@ -333,6 +334,7 @@ PLAY
 
 */
 #play {
+  outline: 1.25px solid #fff;
   background: #000;
   position: relative;
   max-width: 512px;
@@ -352,7 +354,6 @@ PLAY
   height: 512px;
   bottom: 0;
   z-index: 15;
-  background: pink;
 }
 #play #e-controls {
   position: fixed;
@@ -519,7 +520,6 @@ EDITOR
 
 #library {
   width: 400px;
-  flex-grow: 2;
   margin: 0;
 }
 #library .library-controls {
