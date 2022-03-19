@@ -175,6 +175,9 @@ const sceneControls = {
   
   editCartridge: function(){
     
+    $("#btn-savecartridge").fadeIn("slow");
+    
+    objControls.saveObjects();    
     sceneControls.clearScene();
     let c = scenes.cartridge;
  
@@ -193,6 +196,7 @@ const sceneControls = {
        // make cartridge for the first time
     if(c == null){
       scenes.cartridge = new Scene(-1, -1, true, "#000000", 0);      
+      active_scene = scenes.cartridge;
       
       // reset colors
       $("#e").css("background", "#000000");
@@ -243,6 +247,7 @@ const sceneControls = {
     
     // update the colo
     $("#e-cartridge").css("background", (scenes.cartridge).color);
+    $("#btn-savecartridge").fadeIn("slow");
     
   }
 
