@@ -230,7 +230,7 @@ START AND EXTRAS
 }
 
 .sidebar-left {
-  width: 190px;
+  max-width: 190px;
 }
 
 .sidebar-right {
@@ -339,7 +339,7 @@ PLAY
   background: #000;
   position: relative;
   max-width: 512px;
-  animation: pulse-black-engine 10s infinite;
+  animation: pulse-black-engine 30s infinite;
   overflow: hidden;
 }
 #play .play-overlay {
@@ -520,7 +520,6 @@ EDITOR
 }
 
 #library {
-  width: 400px;
   margin: 0;
 }
 #library .library-controls {
@@ -546,8 +545,9 @@ EDITOR
   flex-wrap: wrap;
   margin: 0;
   background: #000;
-  width: 100%;
+  padding: 0;
   max-height: 188px;
+  max-width: 190px;
   overflow-y: scroll;
   display: none;
 }
@@ -590,15 +590,15 @@ EDITOR
 }
 @keyframes pulse-black-engine {
   0% {
-    transform: scale(0.9);
+    transform: scale(0.95);
     box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
   }
   70% {
-    transform: scale(1.05);
+    transform: scale(1.02);
     box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
   }
   100% {
-    transform: scale(0.9);
+    transform: scale(0.98);
     box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
   }
 }

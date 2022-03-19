@@ -48,17 +48,18 @@ const Tplayer = {
 
   loadTarget: function () {
 
-
     let target = $(this).attr("data-target");
     let x = target.split(',')[0];
     let y = target.split(',')[1];
 
-
     if (x == null || y == null) {
       return;
-    } else {
-      Tplayer.loadScene(x, y);
     }
+    
+    // success
+    Tplayer.loadScene(x, y);
+    // little animation
+    $("#play").css("transform", "scale(1.5)");
 
   },
 
