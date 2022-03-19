@@ -256,11 +256,7 @@ function loadPlay(x, y) {
   
   $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
   
-  setTimeout(function(){
 
-$("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
-
-},8000);
   
   $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(5000).css("pointer-events", "auto").css("cursor", "auto");
   
@@ -273,13 +269,19 @@ $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
   $("#e-cartridge").delay(3000).fadeOut(3000);
   }
   
-  
  
   Tplayer.active = scenes.s[sceneControls.getSceneIndex(x, y)];
+  
+  // change text
+  setTimeout(function(){
 
+$("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
+  $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
+    
+},4000);
+  
   Tplayer.loadScene(x, y);
 
-  $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
 
   $("#e-play").css("background", (Tplayer.active).color);
 
