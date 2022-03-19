@@ -112,6 +112,7 @@ $("#library select[name='library-category']").change(function () {
 
 
 
+
 /* 
 
 
@@ -335,7 +336,18 @@ const objControls = {
       //            .draggable('disable');
     });
 
+  },
+  
+  /*
+  
+    OBJECT INTERACTIONS
+    
+    
+  */
+  addInteraction(){
+    
   }
+  
 
 };
 
@@ -350,4 +362,5 @@ const objControls = {
 
 */
 
-libraryControls.init();
+libraryControls.load("faces");
+

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TESTING: Map</title>
   <meta name="description" content="description" />
@@ -10,6 +11,7 @@
     .body {
       width: auto;
     }
+
   </style>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css" />
@@ -21,9 +23,9 @@
   <div class="fx _1"></div>
   <div class="fx _p"></div>
 
-<!--  WINDOW: START  -->
-  
-  
+  <!--  WINDOW: START  -->
+
+
   <div id="start" class="window">
     <div class="window-wrapper">
       <div>
@@ -39,11 +41,11 @@
     </div>
   </div>
 
-  
-  
-<!--  WINDOW: MAP  -->
-  
-  
+
+
+  <!--  WINDOW: MAP  -->
+
+
   <a id="window-map" style="display: block;height: 15vh;width: 100%;"></a>
   <div id="map" class="window">
 
@@ -54,103 +56,119 @@
 
     <div class="panel _full _tutorial">
       <h2>Tips</h2>
-      
-      <p class="-helptext">Welcome to the map view. Your world begins at <strong>0,0</strong>. Click to  create new scenes.</p>
+
+      <p class="-helptext">Welcome to the map view. Your world begins at <strong>0,0</strong>. Click to create new scenes.</p>
     </div>
 
 
     <div id="scene_selector">
-      
+
       <hr>
-      
-      
+
+
       <div id="sss"></div>
-      
-     
+
+
       <hr>
       <hr>
-      
+
       <button id="btn-cartridge">edit cartridge (game cover)</button>
-      
+
     </div>
-    
+
 
   </div>
 
-<!--  WINDOW: ENGINE  -->
-  
+  <!--  WINDOW: ENGINE  -->
+
   <a id="window-engine" style="display: block;height: 6vh;width: 100%;"></a>
-  
+
   <div class="window" id="engine-window">
     <h2>
-      <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span>  <span class="_whatscene">0,0</span> Objects left  <span class="_howmany">0</span>
+      <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span> <span class="_whatscene">0,0</span> Objects left <span class="_howmany">0</span>
     </h2>
-    
+
     <div id="engine">
-      
-  <!-- LEFT SIDEBAR AND CONTROLS HERE --> 
+
+      <!-- LEFT SIDEBAR AND CONTROLS HERE -->
       <div id="controls" class="panel sidebar sidebar-left">
-      
-        
+
+
 
         <!-- LIBRARY PANEL -->
         <div class="panel _sidebar" id="library">
           <h2>Asset Library</h2>
-          
+
           <div class="library-controls">
-            
+
             <select name="library-category" class="_library-category">
+        <option value="none" selected disabled hidden>pick category</option>
               <option value="environment">environment</option>
               <option value="faces">faces</option>
               <option value="clouds">clouds</option>
               <option value="digital">digital</option>
               <option value="misc">misc</option>
             </select>
-          
-            
-<!--
+
+
+            <!--
             <button class="_filter" data-category="environment">Environment</button>
             <button class="_filter" data-category="clouds">Clouds</button>
             <button class="_filter" data-category="clouds">Misc</button>
 -->
-            
+
           </div>
-          
+
           <div class="library-selector" id="library-objects">
-          
-          
+
+
           </div>
-          
+
           <center>
             <span class="__x"></span>, <span class="__y"></span>
-            </center>
-          
-          </div>
-        
-        <div class="panel _sidebar" id="colorpicker">
-          <h2>Color Picker</h2>
-          
-    <input type="color" name="scenecolorpicker" value="#000">
+          </center>
+
         </div>
 
-      </div>
+        <div class="panel _sidebar" id="colorpicker">
+          <h2>Scene Color</h2>
+          <input type="color" name="scenecolorpicker" value="#000">
+        </div>
 
-    
-  <!-- MAIN ENGINE HERE -->
-      
-      
-      <div id="e">
-
+        <div class="panel _sidebar" id="objectinteractions">
+        <h2>Object Interactions</h2>
+          
+        <select name="objinteraction-select">
+        <option value="none" selected disabled hidden>pick interaction</option>
+          <option value="jump">jump</option>
+          <option value="title">title</option>
+          <option value="random">random</option>
+        </select>
+          
+        <select name="objinteraction-parameter">
+        </select>
+          
+        </div>
+        
         
       </div>
-      
-      
-      
-  <!-- RIGHT SIDEBAR AND TUTORIALS HERE -->
-      
-      
-    <div id="help" class="panel sidebar sidebar-right">
-    
+
+
+      <!-- MAIN ENGINE HERE -->
+
+
+      <div id="e">
+
+
+      </div>
+
+
+
+      <!-- RIGHT SIDEBAR AND TUTORIALS HERE -->
+
+
+      <div id="help" class="panel sidebar sidebar-right">
+
         <!-- MAP PANEL -->
         <div id="scene_s" class="panel _sidebar">
           <h2><span>Map</span> <span class="_whatscene">0,0</span></h2>
@@ -158,87 +176,82 @@
 
           </div>
         </div>
-  
-          <!-- HELP PANEL -->
-      
-      <div class="panel _sidebar">
-        <h2>Tutorial</h2>
-    
-        <p class="!tutorial-text">Double-click to add an object to the screen, doofus.</p>
-      </div>
-      
-    
-    </div>
-    </div>
-    
-     <div id="controls-top">
-        
-    <div class="controls-selected">
 
-      <button data-action="delete" onclick="objControls.delObj();">delete</button>
-      
-      <button data-action="" onclick="objControls.size('up');">grow</button>
-      <button data-action="" onclick="objControls.size('down');">shrink</button>
-      
-      <button data-action="" onclick="objControls.effect('invert');">invert</button>
-      
-      <select name="obj-interaction">
-        <option value="jump">jump</option>
-        <option value="title">title</option>
-        <option value="random">random</option>
-      </select>
-      
-      <button id="btn-finishediting" data-action="" onclick="objControls.clearSelected();">finish editing</button>
-    </div>
-       
-       <div class="controls-cartridge">
-       <button id="btn-savecartridge">save cartridge</button>
-       </div>
-        
+        <!-- HELP PANEL -->
+
+        <div class="panel _sidebar">
+          <h2>Tutorial</h2>
+
+          <p class="!tutorial-text">Double-click to add an object to the screen, doofus.</p>
+        </div>
+
+
       </div>
-    
-    
+    </div>
+
+    <div id="controls-top">
+
+      <div class="controls-selected">
+
+        <button data-action="delete" onclick="objControls.delObj();">delete</button>
+
+        <button data-action="" onclick="objControls.size('up');">grow</button>
+        <button data-action="" onclick="objControls.size('down');">shrink</button>
+
+        <button data-action="" onclick="objControls.effect('invert');">invert</button>
+
+
+        <button id="btn-finishediting" data-action="" onclick="objControls.clearSelected();">finish editing</button>
+      </div>
+
+      <div class="controls-cartridge">
+        <button id="btn-savecartridge">save cartridge</button>
+      </div>
+
+    </div>
+
+
   </div>
-  
-  
-  
-<!--  WINDOW: PLAY  -->
-  
-  
+
+
+
+  <!--  WINDOW: PLAY  -->
+
+
   <a id="window-play" style="display: block;height: 15vh;width: 100%;"></a>
-  
+
   <div class="window" id="play">
     <div class="play-overlay" style=" background-image:url(assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.9;"></div>
-    
+
     <h2>
-      <span>Play View</span> 
+      <span>Play View</span>
       <span class="_playwhatscene"></span>
     </h2>
-    
+
     <button id="btn-play">PLAY</button>
     <button id="btn-clear">CLEAR</button>
-    
+
     <!-- THE 'START SCREEN' FOR GAMES   -->
-    
+
     <div id="e-cartridge">
     </div>
-    
+
     <div id="e-controls">
       <a data-direction="n" data-target="null" class="___n -inaccessible"></a>
       <a data-direction="e" data-target="null" class="___e -inaccessible"></a>
       <a data-direction="w" data-target="null" class="___w -inaccessible"></a>
       <a data-direction="s" data-target="null" class="___s -inaccessible"></a>
     </div>
-    
+
     <!--  PLAY AREA GOES HERE  -->
-    
+
     <div id="e-play">
-      
+
     </div>
-    
-    
+
+
   </div>
-  
+
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
   <script src="//code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
   <script src="//code.jquery.com/ui/1.13.0/jquery-ui.min.js" type="text/javascript"></script>
@@ -247,20 +260,22 @@
 
   <script type="text/javascript" src="map.js"></script>
   <script type="text/javascript" src="scene.js"></script>
-  
-  <script type="text/javascript" src="library.js"></script>
-  
-  
-  
-  <script type="text/javascript" src="play-test.js"></script>
-  
-  <script type="text/javascript">
-  console.log("imageediting-test.js loaded");
 
-// create a temporary scene
-scenes.s[0] = new Scene(0, 0, true, 0);
-var active_scene = scenes.s[0]; // always begin with this as the active scene
+  <script type="text/javascript" src="library.js"></script>
+
+
+
+  <script type="text/javascript" src="play-test.js"></script>
+
+  <script type="text/javascript">
+    console.log("imageediting-test.js loaded");
+
+    // create a temporary scene
+    scenes.s[0] = new Scene(0, 0, true, 0);
+    var active_scene = scenes.s[0]; // always begin with this as the active scene
 
   </script>
 
-</body></html>
+</body>
+
+</html>
