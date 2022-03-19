@@ -194,11 +194,7 @@ $("#engine #scene_selector ._s").click(function (){
     }
     
     objControls.saveObjects();
-    sceneControls.clearScene();
-    
-    
-    // remove the old scene
-    
+    sceneControls.clearScene(); // remove the old scene
     
     return;
     

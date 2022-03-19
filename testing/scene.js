@@ -144,16 +144,12 @@ const sceneControls = {
   */
 
   loadObjects: function () {
-
     
     // iterate over each object
     (active_scene.objects).forEach(function (e) {
 //      console.log(e);
-
       objControls.addObj(e.img, e.x, e.y, e.filter, e.size);
-      // HELL YAAA
     })
-
 
   },
   
@@ -179,23 +175,9 @@ const sceneControls = {
   
   editCartridge: function(){
     
+    sceneControls.clearScene();
     let c = scenes.cartridge;
-    
-    // make cartridge for the first time
-    if(c == null){
-      scenes.cartridge = new Scene(-1, -1, true, "#000000", 0);      
-      
-      // reset colors
-      $("#e").css("background", "#000000");
-      $("body").css("background", "#000000");
-      $("input[type='color']").val("#000000");
-      
-    } else{
-      
-      // load the cartridge into the editor
-      
-    }
-
+ 
     // MAP:remove the old scene
     $("#" + mapControls.MASTER + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
     $("#" + mapControls.SIDE + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
@@ -207,9 +189,23 @@ const sceneControls = {
     $("#" + mapControls.SIDE + " ._s").each(function(i, item){
       $(item).removeClass("__active")
     });
-      
     
-    active_scene = scenes.cartridge;
+       // make cartridge for the first time
+    if(c == null){
+      scenes.cartridge = new Scene(-1, -1, true, "#000000", 0);      
+      
+      // reset colors
+      $("#e").css("background", "#000000");
+      $("body").css("background", "#000000");
+      $("input[type='color']").val("#000000");
+      
+    } else{
+      // load the cartridge into the editor
+      console.log("cartridge exists", scenes.cartridge);
+      active_scene = scenes.cartridge;
+      sceneControls.loadObjects();
+    }
+    
     
     $("._whatscenetype").text("Cartridge");
     $(".whatscene").text("");
@@ -218,8 +214,10 @@ const sceneControls = {
   
   saveCartridge: function(){
     
-    console.log("saving cartridge");
+    console.log("saving cartridge", active_scene);
+    $("#e-cartridge").html("");
     objControls.saveObjects();    
+    scenes.cartridge = active_scene;
     
      (active_scene.objects).forEach(function (e) {
       let newSrc = "";
@@ -244,9 +242,7 @@ const sceneControls = {
     });
     
     // update the colo
-      $("#e-cartridge").css("background", (scenes.cartridge).color);
-    
-    sceneControls.clearScene();
+    $("#e-cartridge").css("background", (scenes.cartridge).color);
     
   }
 
