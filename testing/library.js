@@ -21,13 +21,14 @@ const library = {
 
 };
 
-function thingy(x, y, img, filter, size, interaction) {
+function thingy(x, y, img, filter, size, interaction, interaction_target) {
   this.x = x;
   this.y = y;
   this.img = img;
   this.filter = filter;
   this.size = size;
   this.interaction = interaction;
+  this.interaction_target = interaction_target;
 }
 
 
@@ -53,7 +54,7 @@ const libraryControls = {
       $("._howmany").text(active_scene.object_count);
 
     }
-    let o = objControls.addObj($(this).attr("src"));
+    let o = objControls.addObj( $(this).attr("src") );
 
     objControls.moveObj(o);
 
@@ -94,7 +95,7 @@ $("#library select[name='library-category']").change(function () {
   console.log(n);
 
   libraryControls.load(n);
-
+  
   //      
   //      let c = $(" input[type='color']").val();
   //
@@ -108,6 +109,16 @@ $("#library select[name='library-category']").change(function () {
   //      
   //      console.log(active_scene.color);
 
+});
+
+
+$("#objectinteractions select[name='objinteraction-select']").change(function () {
+  
+  let how = $("#objectinteractions select[name='objinteraction-select']").val();
+
+  $("#e img.obj[data-selected='1']").attr("data-interaction", how);
+  
+  
 });
 
 
@@ -185,14 +196,13 @@ const objControls = {
   },
 
   // add object
-  addObj: function (src, x, y, filter, size, interaction) {
+  addObj: function (src, x, y, filter, size, interaction, interaction_target) {
 
     // first, deselect all objects
     objControls.clearSelected();
 
-    //    console.log("adding" + " " + src + x, y, size);
+      console.log("adding" + " " + src + x, y, size, interaction, interaction_target);
 
-    // makey thingy
     let newSrc;
     newSrc = "<img class='obj' data-selected='0' src='" + src + "' style='";
 
@@ -207,12 +217,19 @@ const objControls = {
     if (size) {
       newSrc += "width:" + size + "; height:" + size + ";";
     }
+    
+    newSrc += "'";
 
     if (interaction) {
-      // TO-DO!
+      
+      newSrc += " data-interaction='" + interaction + "'";
+      
+      newSrc += "data-interaction-target='" + interaction_target + "'";
     }
     
-    newSrc += "'>";
+    newSrc += ">";
+    
+    console.log(newSrc);
 
     let newObj = $(newSrc).hide().fadeIn(2000);
     $("#e").append(newObj);
@@ -295,8 +312,11 @@ const objControls = {
     $("#e .obj").each(function () {
       // NOTE: width and height are always equal, so we only need to fetch one of these values for size
       // TODO: interactions, once that's implemented
+      
+      let e = $(this);
 
-      (active_scene.objects).push(new thingy($(this).position().left, $(this).position().top, $(this).attr('src'), $(this).css('filter'), $(this).css('width')));
+      (active_scene.objects).push(new thingy(e.position().left, e.position().top, e.attr('src'), e.css('filter'), e.css('width'), e.attr('data-interaction'), e.attr('data-target')));
+      
     });
 
   },
