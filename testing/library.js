@@ -1,5 +1,89 @@
 console.log("library.js loaded");
 
+/*
+
+
+  TEXT TEST
+  
+
+*/
+
+
+
+
+/* 
+
+  libraryText 
+  handles all text editing functions...
+  
+  
+*/
+
+
+
+const libraryText = {
+  
+  init: function(){
+    
+    // edit text
+    $("button#btn-edittextoverlay").on("click", function(){
+
+      $("._whatscenetype").text("Text");
+      
+      libraryText.loadText();
+
+      $("#e #e-text textarea").css("pointer-events", "all");
+        
+      $(this).fadeOut("slow");
+      $("button#btn-savetextoverlay").delay(600).fadeIn(700);
+      
+    });
+    
+    
+    // save text
+    $("button#btn-savetextoverlay").on("click", function(){
+
+      // TEMPORARY: Check what saving and displaying a text overlay looks like!
+
+      active_scene.textoverlay = $("#e #e-text textarea").val();
+      console.log(active_scene.textoverlay);
+      
+      $("._whatscenetype").text("Scene");
+      
+      $("#e #e-text textarea").css("pointer-events", "none");
+      
+      
+        
+      $(this).fadeOut("slow");
+      $("button#btn-edittextoverlay").delay(600).fadeIn(1000);
+      
+    });
+    
+    
+  },
+  
+  // loadText: laod text into active scene
+  loadText: function(){
+      $("#e-text textarea").hide().fadeIn(100).val(active_scene.textoverlay);
+  },
+  
+  clearText: function(){
+    $("#e-text textarea").val("");
+  },
+  
+  // saveText: save text into active scene
+  saveText: function(){
+    
+      active_scene.textoverlay = $("#e #e-text textarea").val();
+    
+    console.log("text saved", active_scene.textoverlay);
+
+  }
+  
+}
+
+libraryText.init();
+
 
 /*
 
@@ -9,6 +93,8 @@ console.log("library.js loaded");
 
 */
 
+
+// LOADS LIBRARY SHIT
 
 // pathing: environment / ...
 
@@ -21,6 +107,8 @@ const library = {
 
 };
 
+// object constructor
+
 function thingy(x, y, img, filter, size, interaction, interaction_target) {
   this.x = x;
   this.y = y;
@@ -31,6 +119,16 @@ function thingy(x, y, img, filter, size, interaction, interaction_target) {
   this.interaction_target = interaction_target;
 }
 
+
+
+
+/* 
+
+  libraryControls
+  Handles the library objects that appear
+  
+  
+*/
 
 const libraryControls = {
 

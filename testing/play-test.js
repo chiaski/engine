@@ -74,7 +74,6 @@ const Tplayer = {
     Tplayer.loadScene(x, y);
     // little animation
     $("#play")
-      .animation()
       .css("transform", "scale(1.5)");
 
   },
@@ -196,6 +195,8 @@ const Tplayer = {
 
     console.log(Tplayer.active);
 
+    // add text
+    $("#e-play textarea").hide().delay(2000).fadeIn("slow").val(Tplayer.active.textoverlay);
 
     // add objects
     ((Tplayer.active).objects).forEach(function (e) {
@@ -253,7 +254,10 @@ const Tplayer = {
     // first, save objects on scene
     //    objControls.saveObjects();
 
-    $("#e-play *").each(function () {
+    
+    libraryText.clearText();
+    
+    $("#e-play img.obj").each(function () {
       $(this).remove();
     });
 

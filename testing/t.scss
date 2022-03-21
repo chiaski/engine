@@ -358,28 +358,41 @@ display: none;
 
 /* ENGINE */
 
-#engine-editor-text{
+#e-text{
   background: none;
-  
   position: absolute;
-  bottom: 0;
   height: 512px;
   width: 512px;
+  top: 0;
   left: 0;
+  mix-blend-mode: difference;
   
   z-index: 999;
   
   textarea{
-    padding: 1em;
+    padding: .5em;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0);
     color:#fff;
-    font-size: 2em;
+    font-size: 1.9em;
     mix-blend-mode: exclusion;
+    white-space: pre-wrap;
+    overflow-y: hidden;
+    cursor: text;
   }
   
 }
+
+
+.library-text-controls{
+  
+  button#btn-savetextoverlay{
+    display: none;
+  }
+  
+}
+
 
 
 
@@ -457,8 +470,8 @@ PLAY
   
   outline: 1.25px solid #fff;
   background: #000;
-    position: relative;
-  max-width: 512px;
+  position: relative;
+  width: 512px;
   animation: pulse-engine 5s infinite;
   overflow: hidden;
   
@@ -477,10 +490,23 @@ transition: all .13s linear;
   
   // cartridge
   #e-cartridge{ 
+    position: absolute;
     width: 512px;
     height: 512px;
     bottom: 0;
     z-index: 15;
+  }
+  
+  #e-text{
+    position: absolute;
+    top: 0;
+    z-index: 15;
+    pointer-events: none;
+    
+    textarea{
+      pointer-events: none !important;
+    }
+    
   }
   
   // map navigation

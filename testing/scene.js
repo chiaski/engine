@@ -21,6 +21,10 @@ function Scene(x, y, active, color, object_count){
   
   // background color of the scene
   this.color = color;
+  // any textoverlay
+  this.textoverlay = "";
+  
+  
   this.object_count = 0;
   this.objects = [];
   
@@ -81,13 +85,16 @@ const sceneControls = {
   */
   switchScene: function (i, o) {
 
-    objControls.saveObjects();
+    // first, save scene
+    sceneControls.saveScene();
+    
     sceneControls.clearScene();
     
     // set to new active scene
     active_scene = scenes.s[i];
     
     sceneControls.loadColor();
+    sceneControls.loadText();
     sceneControls.loadObjects();
     
     console.log("Switched scene to " + active_scene.x + "," + active_scene.y);
@@ -114,7 +121,8 @@ const sceneControls = {
   
   /* saveScene writes all objects and settings to the active scene */
   saveScene: function () {
-  objControls.saveObjects();
+    libraryText.saveText();
+    objControls.saveObjects();
   },
   /* clearScene deletes all objects from the scene */
   clearScene: function () {
@@ -122,7 +130,8 @@ const sceneControls = {
     // first, save objects on scene
 //    objControls.saveObjects();
 
-    $("#e *").each( function(){
+    libraryText.clearText();
+    $("#e img.obj").each( function(){
       $(this).remove();
     });
 
@@ -137,6 +146,14 @@ const sceneControls = {
     
     $("#e").css("background", active_scene.color);
 
+  },
+  
+  loadText: function(){
+    
+    console.log(active_scene.textoverlay);
+   
+ $("textarea").hide().delay(100).fadeIn("slow").val(active_scene.textoverlay);
+    
   },
 
   /*
@@ -197,7 +214,7 @@ const sceneControls = {
     
        // make cartridge for the first time
     if(c == null){
-      scenes.cartridge = new Scene(-1, -1, true, "#000000", 0);      
+      scenes.cartridge = new Scene(-1, -1, true, "#000000", "", 0);      
       active_scene = scenes.cartridge;
       
       // reset colors
