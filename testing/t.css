@@ -282,8 +282,6 @@ START AND EXTRAS
   height: 512px;
   width: 512px;
   left: 0;
-  background: pink;
-  pointer-events: none;
   z-index: 999;
 }
 #engine-editor-text textarea {
@@ -374,7 +372,6 @@ PLAY
   z-index: 9;
 }
 #play #e-cartridge {
-  position: fixed;
   width: 512px;
   height: 512px;
   bottom: 0;

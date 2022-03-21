@@ -367,8 +367,6 @@ display: none;
   width: 512px;
   left: 0;
   
-  background: pink;
-  pointer-events: none;
   z-index: 999;
   
   textarea{
@@ -478,8 +476,7 @@ transition: all .13s linear;
   }
   
   // cartridge
-  #e-cartridge{
-    position: fixed;    
+  #e-cartridge{ 
     width: 512px;
     height: 512px;
     bottom: 0;
