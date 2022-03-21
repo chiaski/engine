@@ -7,7 +7,21 @@ $("#tempplay").click(function () {
 });
 
 
-$("#e-play");
+
+
+function animationtest(){
+  
+  console.log("run animationtest");
+  let $w = $("#play"); // set to play window
+  
+  $w.css("transform", "scale(1.05)");
+  
+  setTimeout(function(){
+  $w.css("transform", "scale(0.99)");
+},2000);
+  
+  
+}
 
 
 // LOAD CARTRIDGE
@@ -59,7 +73,9 @@ const Tplayer = {
     // success
     Tplayer.loadScene(x, y);
     // little animation
-    $("#play").css("transform", "scale(1.5)");
+    $("#play")
+      .animation()
+      .css("transform", "scale(1.5)");
 
   },
 
