@@ -282,6 +282,8 @@ START AND EXTRAS
   height: 512px;
   width: 512px;
   left: 0;
+  background: pink;
+  pointer-events: none;
   z-index: 999;
 }
 #engine-editor-text textarea {
@@ -290,7 +292,7 @@ START AND EXTRAS
   height: 100%;
   background: rgba(0, 0, 0, 0);
   color: #fff;
-  font-size: 1.5em;
+  font-size: 2em;
   mix-blend-mode: exclusion;
 }
 
@@ -379,15 +381,15 @@ PLAY
   z-index: 15;
 }
 #play #e-controls {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 512px;
   z-index: 12;
   bottom: 0;
 }
 #play #e-controls a {
-  position: fixed;
-  display: block;
+  position: absolute;
+  display: inline-block;
   background: #fff;
   opacity: 0.5;
   background-blend-mode: blur(3px);
@@ -404,6 +406,7 @@ PLAY
   right: 0;
 }
 #play #e-controls a.___s {
+  position: absolute;
   bottom: 0;
 }
 #play #e-controls a.-inaccessible {
