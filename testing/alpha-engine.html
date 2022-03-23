@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engine Alpha</title>
+  <meta name="description" content="A tiny storytelling tool." />
+  <meta name="author" content="Chia" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css" />
+  <link rel="stylesheet" href="t.css" />
+</head>
+
+<body>
+
+  <div class="fx _1"></div>
+  <div class="fx _p"></div>
+
+  <!--  WINDOW: START  -->
+
+
+  <div id="start" class="window">
+    <div class="window-wrapper">
+      <div>
+        <h1 class="_title">Engine</h1>
+
+
+        <button id="tempplay">Create new game</button>
+        <button id="tempplay" onclick="location.href = 'player.html';">Load cartridge</button>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!--  WINDOW: MAP  -->
+
+
+  <a id="window-map" style="display: block;height: 15vh;width: 100%;"></a>
+  <div id="map" class="window">
+
+    <h2>
+      <span>Map View</span>
+      Viewing the Map of the World
+    </h2>
+
+    <div class="panel _full _tutorial">
+      <h2>Tips</h2>
+
+      <p class="-helptext">Welcome to the map view. Your world begins at <strong>0,0</strong>. Click to create new scenes.</p>
+    </div>
+
+
+    <div id="scene_selector">
+
+      <hr>
+
+
+      <div id="sss"></div>
+
+
+      <hr>
+      <hr>
+
+      <button id="btn-cartridge">edit cartridge (game cover)</button>
+
+    </div>
+
+
+  </div>
+
+  <!--  WINDOW: ENGINE  -->
+
+  <a id="window-engine" style="display: block;height: 6vh;width: 100%;"></a>
+
+  <div class="window" id="engine-window">
+    <h2>
+      <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span> <span class="_whatscene">0,0</span> Objects left <span class="_howmany">0</span>
+    </h2>
+    
+
+    <div id="engine">
+
+      <!-- LEFT SIDEBAR AND CONTROLS HERE -->
+      <div id="controls" class="panel sidebar sidebar-left">
+
+
+        <!--  TEXT OVERLAY PANEL -->
+        <div class="panel _sidebar" id="tool-textoverlay">
+        
+          <h2>Text</h2>
+          
+          <div class="library-text-controls">
+          <button id="btn-toggletext">Toggle Text Editor</button>
+          </div>
+        </div>
+        
+        
+        <!-- LIBRARY PANEL -->
+        
+        
+        <div class="panel _sidebar" id="library">
+          
+          
+          <h2>Asset Library</h2>
+
+          <div class="library-controls">
+
+            <select name="library-category" class="_library-category">
+        <option value="none" selected disabled hidden>pick category</option>
+              <option value="environment">environment</option>
+              <option value="faces">faces</option>
+              <option value="clouds">clouds</option>
+              <option value="digital">digital</option>
+              <option value="misc">misc</option>
+            </select>
+
+
+            <!--
+            <button class="_filter" data-category="environment">Environment</button>
+            <button class="_filter" data-category="clouds">Clouds</button>
+            <button class="_filter" data-category="clouds">Misc</button>
+-->
+
+          </div>
+
+          <div class="library-selector" id="library-objects">
+
+
+          </div>
+
+          <center>
+            <span class="__x"></span>, <span class="__y"></span>
+          </center>
+
+        </div>
+
+        <div class="panel _sidebar" id="colorpicker">
+          <h2>Scene Color</h2>
+          <input type="color" name="scenecolorpicker" value="#000">
+        </div>
+      </div>
+
+
+      <!-- MAIN ENGINE HERE -->
+
+      <div id="e">
+
+    <div id="e-text">
+      <textarea id="texteditor" maxlength="550"></textarea>
+    </div>
+        
+      </div>
+
+
+
+      <!-- RIGHT SIDEBAR AND TUTORIALS HERE -->
+
+
+      <div id="help" class="panel sidebar sidebar-right">
+
+        <!-- MAP PANEL -->
+        <div id="scene_s" class="panel _sidebar">
+          <h2><span>Map</span> <span class="_whatscene">0,0</span></h2>
+          <div id="scene_selector">
+
+          </div>
+        </div>
+
+        <!-- HELP PANEL -->
+
+        <div class="panel _sidebar">
+          <h2>Tutorial</h2>
+
+          <p class="!tutorial-text">Double-click to add an object to the screen, doofus.</p>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div id="controls-top">
+
+      <div class="controls-selected">
+
+        <button data-action="delete" onclick="objControls.delObj();">delete</button>
+
+        <button data-action="" onclick="objControls.size('up');">grow</button>
+        <button data-action="" onclick="objControls.size('down');">shrink</button>
+
+        <button data-action="" onclick="objControls.effect('invert');">invert</button>
+
+
+        <button id="btn-finishediting" data-action="" onclick="objControls.clearSelected();">finish editing</button>
+      </div>
+
+      <div class="controls-cartridge">
+        <button id="btn-savecartridge">save cartridge</button>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!--  WINDOW: PLAY  -->
+
+
+  <a id="window-play" style="display: block;height: 15vh;width: 100%;"></a>
+
+  <div class="window" id="play">
+    <div class="play-overlay" style=" background-image:url(assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.9;"></div>
+
+    <h2>
+      <span>Play View</span>
+      <span class="_playwhatscene"></span>
+    </h2>
+
+    <!-- THE 'START SCREEN' FOR GAMES   -->
+
+    <div id="e-cartridge">
+    </div>
+
+    <div id="e-controls">
+      <a data-direction="n" data-target="null" class="___n -inaccessible"></a>
+      <a data-direction="e" data-target="null" class="___e -inaccessible"></a>
+      <a data-direction="w" data-target="null" class="___w -inaccessible"></a>
+      <a data-direction="s" data-target="null" class="___s -inaccessible"></a>
+    </div>
+    
+
+        
+
+    <!--  PLAY AREA GOES HERE  -->
+
+    <div id="e-play">
+      
+    <div id="e-text">
+      <textarea id="texteditor" maxlength="550"></textarea>
+    </div>
+
+    </div>
+
+
+  </div>
+  
+  
+  <div class="engine-buttons">
+    <button id="btn-play">PLAY</button>
+    <button id="btn-clear">CLEAR</button>
+    <button id="btn-download">DOWNLOAD</button>
+    <button id="btn-getcode">GET CODE</button>
+  </div>
+  
+  <div id="downloader">
+  
+  </div>
+  
+  <iframe id="downloader_game" src="blank-cartridge.html"></iframe>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+  <script src="//code.jquery.com/ui/1.13.0/jquery-ui.min.js" type="text/javascript"></script>
+
+  <script type="text/javascript" src="core.js"></script>
+
+  <script type="text/javascript" src="map.js"></script>
+  <script type="text/javascript" src="scene.js"></script>
+  <script type="text/javascript" src="library.js"></script>
+  <script type="text/javascript" src="playerpreview.js"></script>
+  <script type="text/javascript" src="downloader.js"></script>
+
+  <script type="text/javascript">
+    console.log("Initializing Engine");
+
+    scenes.s[0] = new Scene(0, 0, true, 0);
+    var active_scene = scenes.s[0];
+  </script>
+
+</body>
+
+</html>
