@@ -1,3 +1,19 @@
+/* 
+
+
+
+
+
+
+PLAYER
+
+
+
+
+
+
+*/
+
 
 /*
 
@@ -13,20 +29,10 @@ $g2: #868c8e;
 
 $p: #eb80ff; 
 
-$mono: "Apercu Pro Mono";
+$mono: "Courier New";
 
 *{
   box-sizing: border-box;
-}
-
-
-
-@font-face {
-  font-family: 'Apercu Pro Mono';
-  src: url('./assets/fonts/ApercuPro-Mono.woff2') format('woff2'), url('./assets/fonts/ApercuPro-Mono.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
 }
 
 
@@ -49,7 +55,6 @@ html, body{
   align-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background: #000;
 }
 
 .engine-controls{

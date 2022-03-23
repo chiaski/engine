@@ -1,3 +1,18 @@
+/* 
+
+
+
+
+
+
+PLAYER
+
+
+
+
+
+
+*/
 /*
 
   COLORS, FONTS
@@ -7,13 +22,6 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: "Apercu Pro Mono";
-  src: url("./assets/fonts/ApercuPro-Mono.woff2") format("woff2"), url("./assets/fonts/ApercuPro-Mono.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 html, body {
   scroll-behavior: smooth;
 }
@@ -31,7 +39,6 @@ html, body {
   align-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background: #000;
 }
 
 .engine-controls {
@@ -76,7 +83,7 @@ h2 {
   width: 100%;
   display: block;
   border-bottom: 1.5px solid #000000;
-  font-family: "Apercu Pro Mono";
+  font-family: "Courier New";
   text-transform: uppercase;
   font-size: 0.8em;
   padding: 1em 0;

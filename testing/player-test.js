@@ -148,6 +148,7 @@ const Tplayer = {
     })
 
     $("#e-cartridge").css("background", scenes.cartridge.color);
+    $("body").css("background", scenes.cartridge.color);
 
   },
 
@@ -163,13 +164,10 @@ const Tplayer = {
 
       $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
       $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
+      Tplayer.loadScene(x, y);
 
     }, 3000);
 
-    Tplayer.loadScene(x, y);
-
-
-    $("#e-play").css("background", (Tplayer.active).color);
   },
 
   /* 
@@ -372,6 +370,8 @@ const Tplayer = {
       // defaults to black if color isn't set
       c = "#000000";
     }
+    
+    console.log(c);
 
     $("#e-play").css("background", c);
     $("body").css("background", c);
