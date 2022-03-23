@@ -1,18 +1,23 @@
 
 
 $("#btn-download").on("click", function(){
-  alert("Downloading HTML file of game!");
-  
+//  alert("Downloading HTML file of game!");
   console.log("Downloading game to cartridge...");
   
-  $("iframe#downloader_game").html().find('#cartridge').html(JSON.stringify( scenes ));
-//  $("iframe#downloader_game").contents().find('#cartridge').html(JSON.stringify( scenes ));
+  var $iframe = $("iframe#downloader_game");
+  var cartridge_code = JSON.stringify( scenes );
   
+  console.log("cartridge code: ", cartridge_code);
+  
+  // replace content with cartridge code
+  $iframe.contents().find('html #cartridge').html(cartridge_code);
+  
+//  
   let link = document.createElement('a');
   link.setAttribute('download', "myCartridge.html");
-  link.setAttribute('href', 'data:text/plain' + ';charset=utf-8,' + encodeURIComponent( $("iframe#downloader_game").html() ));
+  link.setAttribute('href', 'data:text/plain' + ';charset=utf-8,' + encodeURIComponent( $iframe.contents().find("html").html() ));
   link.click(); 
-  
+//  
 });
 
 

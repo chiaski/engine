@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engine Player</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css" />
+  <link rel="stylesheet" href="engine.css" />
+</head>
+
+<body>
+  
+  
+  <div class="wrapper">
+  <div class="window" id="play">
+    <div class="play-overlay" style=" background-image:url(assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.9;"></div>
+
+    <h2>
+      <span>ENGINE</span>
+      <span class="_playwhatscene"></span>
+    </h2>
+
+    <!-- THE 'START SCREEN' FOR GAMES   -->
+
+    <div id="e-cartridge">
+    </div>
+
+    <div id="e-controls">
+      <a data-direction="n" data-target="null" class="___n -inaccessible"></a>
+      <a data-direction="e" data-target="null" class="___e -inaccessible"></a>
+      <a data-direction="w" data-target="null" class="___w -inaccessible"></a>
+      <a data-direction="s" data-target="null" class="___s -inaccessible"></a>
+    </div>
+        
+
+    <!--  PLAY AREA GOES HERE  -->
+
+    <div id="e-play">
+      
+    <div id="e-text">
+      <textarea maxlength="550"></textarea>
+    </div>
+
+    </div>
+
+
+  </div>
+    
+    
+    <!--  CONTROLS  -->
+    
+    <div class="engine-controls">
+      <button id="btn-play">PLAY</button>  
+    </div>
+    </div>
+  
+  
+  <div id="cartridge"></div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="engine.js"></script>
+  
+  </body>
+</html>
+  

@@ -1,0 +1,64 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engine Player</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css">
+  <style type="text/css">
+  *{box-sizing:border-box}@font-face{font-family:"Apercu Pro Mono";src:url("./assets/fonts/ApercuPro-Mono.woff2") format("woff2"),url("./assets/fonts/ApercuPro-Mono.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}body,html{scroll-behavior:smooth}.wrapper{position:absolute;width:100vw;height:100vh;top:0;left:0;text-align:center;display:flex;justify-content:center;vertical-align:center;align-content:center;align-items:center;flex-wrap:wrap;background:#000}.engine-controls{width:100%}#e-play,body{-webkit-transition:background .15s linear;-moz-transition:background .15s linear;-ms-transition:background .15s linear;-o-transition:background .15s linear;transition:background .15s linear}.window{position:relative;box-shadow:0 0 20px #868c8e;border:1.5px solid #000;width:100%;min-height:30vh;display:flex;justify-content:center;vertical-align:middle;align-items:center;flex-wrap:wrap}h1{font-family:"Times Now";font-size:5.6em;letter-spacing:-2px;display:block;text-align:center}h1._title{font-size:7.6em;letter-spacing:-5px}h2{width:100%;display:block;border-bottom:1.5px solid #000;font-family:"Apercu Pro Mono";text-transform:uppercase;font-size:.8em;padding:1em 0}h2 span{border-right:1.5px solid #000;padding:0 1em}h4{padding:.5em}button{border:1.5px solid #000;background:#f7f7f7;padding:1em;margin:1em}button:hover{background:#000;color:#f7f7f7;cursor:pointer;box-shadow:0 0 20px #868c8e}body{background:#b6b7b7;padding:2em;display:flex;flex-wrap:wrap;justify-content:center;margin-bottom:10vh}#e-play{display:block;position:relative;background:#000;border:1px solid #fff;outline:1.5px solid #000000;width:512px;height:512px;margin:0;overflow:hidden}#e-cartridge .obj,#e-play .obj{position:absolute;width:128px;height:128px;mix-blend-mode:exclusion;-webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-drag:none}#play{outline:1.25px solid #fff;background:#000;position:relative;width:512px;animation:pulse-engine 5s infinite;overflow:hidden;margin:auto;-webkit-transition:all .3s linear;transition:all .13s linear}#play .play-overlay{position:absolute;pointer-events:none;width:100%;height:100%;z-index:9}#play #e-cartridge{position:absolute;width:512px;height:512px;bottom:0;z-index:15}#play #e-text{position:absolute;top:0;z-index:15;pointer-events:none}#play #e-text textarea{pointer-events:none!important}#play #e-controls{position:absolute;width:512px;height:512px;z-index:12;bottom:0}#play #e-controls a{position:absolute;display:inline-block;background:#fff;opacity:.5;background-blend-mode:blur(3px)}#play #e-controls a.___n,#play #e-controls a.___s{width:100%;height:30px}#play #e-controls a.___e,#play #e-controls a.___w{width:30px;height:512px}#play #e-controls a.___e{right:0}#play #e-controls a.___w{left:0}#play #e-controls a.___s{bottom:0;left:0}#play #e-controls a.___n{top:0;left:0}#play #e-controls a.-inaccessible{opacity:.05}#play #e-controls a:hover{transform:scale(1.02);cursor:pointer;background:green;opacity:.6}#play #e-controls a.-inaccessible:hover{opacity:.1;cursor:not-allowed}#play h2{color:#fff;border-bottom:1px solid #fff}#e-text{background:0 0;position:absolute;height:512px;width:512px;top:0;left:0;mix-blend-mode:difference;z-index:999;pointer-events:none}#e-text textarea{padding:.5em;width:100%;height:100%;background:rgba(0,0,0,0);color:#fff;font-size:1.9em;mix-blend-mode:exclusion;white-space:pre-wrap;overflow-y:hidden;cursor:text}#cartridge{display:none}
+  </style>
+</head>
+
+<body>
+  
+  <div class="wrapper">
+  <div class="window" id="play">
+    <div class="play-overlay" style="background-image:url(assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.9;"></div>
+
+    <h2>
+      <span>ENGINE</span>
+      <span class="_playwhatscene"></span>
+    </h2>
+
+    <!-- THE 'START SCREEN' FOR GAMES   -->
+
+    <div id="e-cartridge">
+    </div>
+
+    <div id="e-controls">
+      <a data-direction="n" data-target="null" class="___n -inaccessible"></a>
+      <a data-direction="e" data-target="null" class="___e -inaccessible"></a>
+      <a data-direction="w" data-target="null" class="___w -inaccessible"></a>
+      <a data-direction="s" data-target="null" class="___s -inaccessible"></a>
+    </div>
+    
+
+        
+
+    <!--  PLAY AREA GOES HERE  -->
+    <div id="e-play">
+      
+    <div id="e-text">
+      <textarea maxlength="550"></textarea>
+    </div>
+
+    </div>
+
+
+  </div>
+    
+    
+    <!--  CONTROLS  -->
+    <div class="engine-controls">
+      <button id="btn-play">PLAY</button>  
+    </div>
+    </div>
+  
+  
+  <div id="cartridge">{"scene_count":1,"start_scene":{"x":0,"y":0},"cartridge":{"x":-1,"y":-1,"active":true,"color":"#000000","textoverlay":"","object_count":1,"objects":[{"x":-0.000003501953131035407,"y":-0.0000035019531878788257,"img":"assets/image/faces/hmm.gif","filter":"none","size":"127.995px"}]},"s":[{"x":0,"y":0,"active":true,"color":0,"textoverlay":"","object_count":1,"objects":[{"x":0.000027015624993964593,"y":-0.0000035019531878788257,"img":"assets/image/faces/tear.gif","filter":"none","size":"127.995px"}]},null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]}</div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript">console.log("loaded engine.js, Engine's playmode");const cartridge=$("#cartridge").text();var scenes=null;if(!testJSON(cartridge))throw $("#play h2").text("Corrupted or empty game"),new Error;if(!(scenes=JSON.parse(cartridge)))throw $("#play h2").text("Corrupted or empty game"),new Error;function testJSON(e){if("string"!=typeof e)return!1;try{return"object"==typeof JSON.parse(e)}catch(e){return!1}}console.log("Loaded: ",scenes),$("#btn-play").on("click",function(){Tplayer.init(),$(this).text("RELOAD")});const globals={MAX_object_count:15,MAP_width:4,MAP_height:4},c={getSceneIndex:function(e,t){return parseInt(e)*globals.MAP_width+parseInt(t)},getScene:function(e,t){let a=parseInt(e)*globals.MAP_width+parseInt(t);return scenes.s[a]},textConvert:function(e){return e.replace(/\\n/g,"\n")}},Tplayer={active:scenes.s[0],init:function(){Tplayer.clearGame(),Tplayer.loadCartridge(),$("#e-cartridge").fadeIn(1e3),setTimeout(function(){$("#e-cartridge").fadeOut("slow"),$("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> "),$("._playwhatscene").text(Tplayer.active.x+","+Tplayer.active.y)},3e3),$("#play").css("cursor","not-allowed").css("pointer-events","none").delay(4e3).css("pointer-events","auto").css("cursor","auto"),Tplayer.loadPlay(scenes.start_scene.x,scenes.start_scene.y)},loadCartridge:function(){$("#play h2").text("Starting game..."),scenes.cartridge.objects.forEach(function(e){let t="";t="<img class='obj' data-selected='0' src='"+e.img+"' style='",e.x&&e.y&&(t+="top:"+e.y+"px; left:"+e.x+"px;"),e.filter&&(t+="filter:"+e.filter+";"),e.size&&(t+="width:"+e.size+"; height:"+e.size+";"),t+="'>";let a=$(t).hide().fadeIn(500);$("#e-cartridge").append(a)}),$("#e-cartridge").css("background",scenes.cartridge.color)},loadPlay:function(e,t){$("#play h2").html("<span>Starting Game...</span>").fadeIn("slow"),Tplayer.active=scenes.s[c.getSceneIndex(e,t)],setTimeout(function(){$("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> "),$("._playwhatscene").text(Tplayer.active.x+","+Tplayer.active.y)},3e3),Tplayer.loadScene(e,t),$("#e-play").css("background",Tplayer.active.color)},clearGame:function(){$("#e-cartridge").html(""),$("#e-controls a").each(function(e,t){$(this).removeClass("-inaccessible").addClass("-inaccessible").attr("data-target","null").unbind("click",Tplayer.loadTarget)}),Tplayer.clearScene()},loadTarget:function(){let e=$(this).attr("data-target"),t=e.split(",")[0],a=e.split(",")[1];null!=t&&null!=a&&(Tplayer.loadScene(t,a),Tplayer.animatePulse())},animatePulse:function(){let e=$("#play");e.css("transform","scale(1.03)"),setTimeout(function(){e.css("transform","scale(0.99)")},500)},updateSceneNavigation(){$("#e-controls a").each(function(e,t){$(this).removeClass("-inaccessible").attr("data-target","null").unbind("click",Tplayer.loadTarget);var a=$(this).data("direction"),l=Tplayer.convertCoord(a,Tplayer.active.x,Tplayer.active.y);if(null!=l){let e=l.toString().split(",");if(null==c.getScene(e[0],e[1]))return void $(this).addClass("-inaccessible");$(this).attr("data-target",e[0]+","+e[1]).bind("click",Tplayer.loadTarget)}else $(this).addClass("-inaccessible")})},convertCoord:function(e,t,a){let l,n;switch(e){case"n":l=t>0?t-1:null,n=a;break;case"e":n=a<globals.MAP_width-1?a+1:null,l=t;break;case"w":n=a>0?a-1:null,l=t;break;case"s":l=t<globals.MAP_height-1?t+1:null,n=a}return null==l||null==n?null:[l+","+n]},loadScene:function(e,t){Tplayer.clearScene(),Tplayer.active=c.getScene(e,t),$("#e-play textarea").hide().delay(2e3).fadeIn("slow").val(c.textConvert(Tplayer.active.textoverlay)),Tplayer.active.objects.forEach(function(e){let t="";t="<img class='obj' data-selected='0' src='"+e.img+"' style='",e.x&&e.y&&(t+="top:"+e.y+"px; left:"+e.x+"px;"),e.filter&&(t+="filter:"+e.filter+";"),e.size&&(t+="width:"+e.size+"; height:"+e.size+";"),t+="'>";let a=$(t).hide().fadeIn(2e3);$("#e-play").append(a)}),$("._playwhatscene").text(Tplayer.active.x+","+Tplayer.active.y),Tplayer.loadColor(),Tplayer.updateSceneNavigation()},loadColor:function(){let e=Tplayer.active.color;0==e&&(e="#000000"),$("#e-play").css("background",e),$("body").css("background",e)},clearScene:function(){$("#e-text textarea").val(""),$("#e-play img.obj").each(function(){$(this).remove()})}};
+</script>
+  
+  
+</body>
