@@ -14,13 +14,6 @@ const globals = {
   
 }
 
-const state = {
-  
-  // what scene am i currently on?
-  active_scene: [0, 0]
-  
-}
-
 
 
 /* SCENES */

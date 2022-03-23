@@ -276,30 +276,29 @@ function loadPlay(x, y) {
   $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(5000).css("pointer-events", "auto").css("cursor", "auto");
   
   // load the cartridge, if this is a replay
-  if( $("#e-cartridge").css("display") == "none" ){
-  $("#e-cartridge").fadeIn(1500).delay(5000).fadeOut(3000);
+  if( $("#e-cartridge").css("display") == "none" ){$("#e-cartridge").fadeIn(1500).delay(5000).fadeOut(3000);
 
-  } else{
-     // first, fade out cartridge very slowly lol
-  $("#e-cartridge").delay(3000).fadeOut(3000);
   }
-  
- 
-  Tplayer.active = scenes.s[sceneControls.getSceneIndex(x, y)];
-  
-  // change text
-  setTimeout(function(){
+  else {
+    // first, fade out cartridge very slowly lol
+    $("#e-cartridge").delay(3000).fadeOut(3000);
+  }
 
-$("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
-  $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
-    
-},4000);
-  
+
+  Tplayer.active = scenes.s[sceneControls.getSceneIndex(x, y)];
+
+  // change text
+  setTimeout(function () {
+
+    $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
+    $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
+
+  }, 4000);
+
   Tplayer.loadScene(x, y);
 
 
   $("#e-play").css("background", (Tplayer.active).color);
-
 
 }
 
@@ -311,6 +310,7 @@ $("#btn-play").on("click", function () {
   loadPlay(scenes.start_scene.x, scenes.start_scene.y);
 
 });
+
 
 $("#btn-clear").on("click", function () {
 

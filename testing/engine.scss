@@ -1,0 +1,334 @@
+
+/*
+
+  COLORS, FONTS
+
+*/
+
+$c: #000000; // MAIN COLOR
+$l: #f7f7f7; // light color
+
+$g1: #b6b7b7;
+$g2: #868c8e;
+
+$p: #eb80ff; 
+
+$mono: "Apercu Pro Mono";
+
+*{
+  box-sizing: border-box;
+}
+
+
+
+@font-face {
+  font-family: 'Apercu Pro Mono';
+  src: url('./assets/fonts/ApercuPro-Mono.woff2') format('woff2'), url('./assets/fonts/ApercuPro-Mono.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+// RESET
+
+html, body{
+  scroll-behavior: smooth;
+}
+
+.wrapper{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  vertical-align: center;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #000;
+}
+
+.engine-controls{
+  width: 100%;
+}
+
+ body, #e-play{
+  -webkit-transition: background .15s linear;
+-moz-transition: background .15s linear;
+-ms-transition: background .15s linear;
+-o-transition: background .15s linear;
+transition: background .15s linear;
+}
+
+
+.window{
+  position: relative;
+  box-shadow: 0 0 20px $g2;
+  border: 1.5px solid $c;
+  width: 100%;
+  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+h1{
+  font-family: "Times Now";
+  font-size: 5.6em;
+  letter-spacing: -2px;
+  display: block;
+  text-align: center;
+}
+
+
+h1._title{
+  font-size: 5.6em + 2em;
+  letter-spacing: -5px;
+}
+
+h2{
+  width: 100%;
+  display: block;
+  border-bottom: 1.5px solid $c;
+  font-family: $mono;
+  text-transform: uppercase;
+  font-size: .8em;
+  padding: 1em 0;
+  
+  span{
+    border-right: 1.5px solid $c;
+    padding: 0 1em;
+  }
+  
+}
+
+h4{
+  padding: .5em;
+}
+
+button{
+  border: 1.5px solid $c;
+  background: $l;
+  padding: 1em;
+  margin: 1em;
+}
+
+button:hover{
+  background: $c;
+  color: $l;
+  cursor: pointer;
+  box-shadow: 0 0 20px $g2;
+}
+
+
+
+body{
+  background: $g1;
+  padding: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10vh;
+}
+
+
+// 
+
+
+  #e-play{
+  display: block;
+  position: relative;
+  background: $c;
+  border: 1px solid #fff;
+  outline: 1.5px solid $c;
+  width: 512px;
+  height: 512px;
+  margin: 0;
+  overflow: hidden;
+  }
+  
+
+
+#e-play .obj, #e-cartridge .obj{
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  mix-blend-mode: exclusion;
+  
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+
+/* 
+
+
+
+PLAY 
+
+
+
+*/
+
+#play{
+  outline: 1.25px solid #fff;
+  background: #000;
+  position: relative;
+  width: 512px;
+  animation: pulse-engine 5s infinite;
+  overflow: hidden;
+  margin: auto;
+  
+  // handles pulse animation transitions
+  
+  -webkit-transition: all .3s linear;
+transition: all .13s linear;
+  
+  .play-overlay{
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+  }
+  
+  // cartridge
+  #e-cartridge{ 
+    position: absolute;
+    width: 512px;
+    height: 512px;
+    bottom: 0;
+    z-index: 15;
+  }
+  
+  #e-text{
+    position: absolute;
+    top: 0;
+    z-index: 15;
+    pointer-events: none;
+    
+    textarea{
+      pointer-events: none !important;
+    }
+    
+  }
+  
+  // map navigation
+  #e-controls{
+    position: absolute;
+    width: 512px;
+    height: 512px;
+    z-index: 12;
+    bottom: 0;
+    
+    a{
+      position: absolute;
+      display: inline-block;
+      background: #fff;
+      opacity: 0.5;
+      background-blend-mode: blur(3px);
+    }
+    
+    a.___n, a.___s{
+      width: 100%;
+      height: 30px;
+    }
+    
+    a.___e, a.___w{
+      width: 30px;
+      height: 512px;
+    }
+    
+    a.___e{
+      right: 0;
+    }
+    
+    a.___w{
+      left: 0;
+    }
+    
+    a.___s{
+      bottom: 0;
+      left: 0;
+    }
+    
+    a.___n{
+      top: 0;
+      left: 0;
+    }
+    
+    a.-inaccessible{
+      opacity: 0.05;
+    }
+    
+    a:hover{
+      transform: scale(1.02);
+      cursor: pointer;
+      background: green;
+      opacity: 0.6;
+    }
+    
+    a.-inaccessible:hover{
+      opacity: 0.1;
+      cursor:not-allowed;
+    }
+    
+  }
+  
+  #e-play{
+    
+  }
+  
+  h2{
+    color: #fff;
+    border-bottom: 1px solid #fff;
+  }
+  
+}
+
+
+/* TEXT */
+
+#e-text{
+  background: none;
+  position: absolute;
+  height: 512px;
+  width: 512px;
+  top: 0;
+  left: 0;
+  mix-blend-mode: difference;
+  
+  z-index: 999;
+  pointer-events: none;
+  
+  textarea{
+    padding: .5em;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    color:#fff;
+    font-size: 1.9em;
+    mix-blend-mode: exclusion;
+    white-space: pre-wrap;
+    overflow-y: hidden;
+    cursor: text;
+  }
+  
+}
+
+
+/* CARTRIDGE */
+
+#cartridge{
+  display: none;
+}
