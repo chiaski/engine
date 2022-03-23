@@ -882,7 +882,18 @@ transition: all .13s linear;
 }
 
 
+#downloader_game{
+  width: 1px;
+  height: 1px;
+  display: inline-block;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
 #downloader{
+  width: 1px;
+  height: 1px;
+  display: inline-block;
   pointer-events: none !important;
   opacity: 0 !important;
 }

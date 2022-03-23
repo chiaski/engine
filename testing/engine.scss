@@ -28,15 +28,11 @@ $g1: #b6b7b7;
 $g2: #868c8e;
 
 $p: #eb80ff; 
-
 $mono: "Courier New";
 
 *{
   box-sizing: border-box;
 }
-
-
-// RESET
 
 html, body{
   scroll-behavior: smooth;
@@ -286,12 +282,7 @@ transition: all .13s linear;
     a.-inaccessible:hover{
       opacity: 0.1;
       cursor:not-allowed;
-    }
-    
-  }
-  
-  #e-play{
-    
+    }  
   }
   
   h2{
@@ -336,4 +327,20 @@ transition: all .13s linear;
 
 #cartridge{
   display: none;
+}
+
+
+
+@keyframes pulse-engine {
+  0% {
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  70% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+  
+  100% {
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+  }
 }

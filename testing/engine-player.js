@@ -1,29 +1,8 @@
-console.log("loaded engine.js, Engine's playmode")
+console.log("player-test.js loaded");
+console.log("Plug and play for Engine");
 
-const cartridge = $("#cartridge").text();
-
+var cartridge = null; 
 var scenes = null;
-
-if (testJSON(cartridge)) {
-  scenes = JSON.parse(cartridge);
-
-  if (scenes) {
-    console.log("Loaded: ", scenes);
-  } else {
-    $("#play h2").text("Corrupted or empty game");
-    throw new Error();
-  }
-
-  $("#btn-play").on("click", function () {
-    Tplayer.init();
-    $(this).text("RELOAD");
-  });
-
-} else {
-  $("#play h2").text("Corrupted or empty game");
-  throw new Error();
-}
-
 
 function testJSON(text) {
   if (typeof text !== "string") {
@@ -36,6 +15,52 @@ function testJSON(text) {
     return false;
   }
 }
+
+$("#btn-loadcartridge").on("click", function(){
+  
+  cartridge = $("#e-loadcartridge textarea").val();
+  cartridge = cartridge.replace(/^\s+|\s+$/g, "")
+                .replace(/\\n/g, "\\n")  
+               .replace(/\\'/g, "\\'")
+               .replace(/\\"/g, '\\"')
+               .replace(/\\&/g, "\\&")
+               .replace(/\\r/g, "\\r")
+               .replace(/\\t/g, "\\t")
+               .replace(/\\b/g, "\\b")
+               .replace(/\\f/g, "\\f");
+  
+  cartridge = cartridge.replace(/[\u0000-\u0019]+/g,""); 
+
+  console.log("Attempting to load: ", cartridge);
+  
+  if (testJSON(cartridge)) {
+
+    scenes = JSON.parse(cartridge);
+
+    if (scenes) {
+      console.log("Loaded: ", scenes);
+      
+    } else {
+      $("#play h2").text("Corrupted or empty cartridge");
+      throw new Error();
+    }
+
+    $("#play h2").text("Loaded cartridge. Press play!");
+    $("#e-loadcartridge").fadeOut();
+    
+    $("#btn-play").css("display", "inline-block").fadeIn("slow").on("click", function () {
+      Tplayer.init();
+      $(this).text("RELOAD");
+    });
+    
+  } else {
+    $("#play h2").text("Corrupted or empty cartridge");
+    throw new Error();
+  }
+
+});
+
+
 
 const globals = {
 
@@ -70,10 +95,10 @@ const c = {
 
 const Tplayer = {
 
-  active: scenes.s[0],
+  active: null,
 
   init: function () {
-
+    
     Tplayer.clearGame();
 
     // load the cartridge
@@ -140,7 +165,9 @@ const Tplayer = {
       $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
       $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       Tplayer.loadScene(x, y);
+
     }, 3000);
+
   },
 
   /* 
