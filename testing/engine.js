@@ -1,13 +1,39 @@
 console.log("loaded engine.js, Engine's playmode")
 
-const scenes = JSON.parse(  $("#cartridge").text() );
+const cartridge = $("#cartridge").text();
+
+const scenes = {};
+
+if( testJSON(cartridge) ){
+  
+    const scenes = JSON.parse( cartridge  );
+  
+  $("#btn-play").on("click", function(){
+    Tplayer.init();
+    $(this).text("RELOAD");
+  });
+  
+} else{
+  $("#play h2").text("Corrupted or empty game");
+  throw new Error();
+}
 
 if(scenes){
   console.log("Loaded: ", scenes);
 }
 
-/* HELPERS */
-
+function testJSON(text){
+    if (typeof text!=="string"){
+        return false;
+    }
+    try{
+        var json = JSON.parse(text);
+        return (typeof json === 'object');
+    }
+    catch (error){
+        return false;
+    }
+}
 
 const globals = {
   
@@ -34,13 +60,9 @@ const c = {
     return scenes.s[i];
   },
   textConvert: function(text){
-//    console.log(text);
-//    console.log(text.replace('\\n', '<br>'));
-//    
     return text.replace(/\\n/g, "\n");
   }
 }
-
 
 /* PLAYER */
 
@@ -338,10 +360,3 @@ const Tplayer = {
   }
 
 };
-
-$("#btn-play").on("click", function(){
-  
-  Tplayer.init();
-  $(this).text("RELOAD");
-  
-})
