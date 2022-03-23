@@ -62,12 +62,11 @@ const Tplayer = {
     animatePulse: function(){
 
     let $w = $("#play"); // set to play window
-
     $w.css("transform", "scale(1.03)");
-
+      
     setTimeout(function(){
     $w.css("transform", "scale(0.99)");
-  },1000);
+  }, 500);
 
 
   },
@@ -271,7 +270,6 @@ function loadPlay(x, y) {
   
   $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
   
-
   
   $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(5000).css("pointer-events", "auto").css("cursor", "auto");
   
@@ -293,7 +291,7 @@ function loadPlay(x, y) {
     $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
     $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
 
-  }, 4000);
+  }, 3000);
 
   Tplayer.loadScene(x, y);
 

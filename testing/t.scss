@@ -882,6 +882,11 @@ transition: all .13s linear;
 }
 
 
+#downloader{
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
 /* ANIMATIONS */
 
 

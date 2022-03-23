@@ -635,6 +635,11 @@ EDITOR
   filter: invert(1);
 }
 
+#downloader {
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
 /* ANIMATIONS */
 @keyframes pulse-black {
   0% {
