@@ -8,12 +8,14 @@ if (testJSON(cartridge)) {
   scenes = JSON.parse(cartridge);
 
   if (scenes) {
+    $("#play h2").text("Engine");
     console.log("Loaded: ", scenes);
   } else {
     $("#play h2").text("Corrupted or empty game");
     throw new Error();
   }
 
+  $("#play h2").text("Engine");
   $("#btn-play").on("click", function () {
     Tplayer.init();
     $(this).text("RELOAD");
