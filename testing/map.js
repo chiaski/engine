@@ -79,7 +79,7 @@ const mapControls = {
   
   mapSwitch: function(t){
     
-    objControls.saveObjects(); // first, savef objects in curr scene
+    sceneControls.saveScene(); // first, let's save the scene
     
     let coord = $(this).attr("data-scene").split(',');
     let i = (parseInt(coord[0]) * globals.MAP_width) + parseInt(coord[1]); // indice in scenes
@@ -92,12 +92,15 @@ const mapControls = {
     
     if( typeof scenes.s[i] == 'undefined'){
       
-
       if( !confirm("Do you want to create a new scene at " + coord + "?") ){
         return;
       }
 
-      sceneControls.saveScene();
+      // reset text controls
+//      libraryText.deloadBtns();
+//      libraryText.disableText();
+//      libraryText.loadEditBtn();
+
       sceneControls.clearScene();
       
       // remove active scenes
@@ -134,9 +137,7 @@ const mapControls = {
     
     
     alert("Scene created!");
-      
       return;
-
     }
     
     
@@ -170,59 +171,59 @@ const mapControls = {
   $("#" + mapControls.SIDE + " ._s[data-scene='" + coord + "']").removeClass("__unused").removeClass("__inactive").addClass("__active");
     
   }
-  
 }
 
 
-// TODO: Will need to change coloring/rendering system once map is rendered based on scene data as opposed to inherently being on the DOM
-$("#engine #scene_selector ._s").click(function (){
-  
-  // Good time to save scene here
-  objControls.saveObjects();
-  
-  // this is the converted index, i think
-  let coord = $(this).attr("data-scene").split(',');
-  
-  let i = (parseInt(coord[0]) * globals.MAP_width) + parseInt(coord[1]); 
-  
-  // ROUTE 1
-  // Does this scene exist? If not, create it!
-  if( typeof scenes.s[i] == 'undefined' ){
-    
-    if( !confirm("Do you want to create a new scene at " + coord + "?") ){
-      return;
-    }
-    
-    objControls.saveObjects();
-    sceneControls.clearScene(); // remove the old scene
-    
-    return;
-    
-  }
-  
-  // ROUTE 2
-  // The scene exists, let's switch to it 
-  
-  console.log("Switching scene");
-  $("#scene_selector ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
-  
-  sceneControls.switchScene(i);
-  
-  // apply color
-  
-  console.log(coord);
-  
-  // clear all the __active classes
-  $("#scene_selector ._s").each(function(i, item){
-    $(item).removeClass("__active")
-  });
-  
-  
-  $("#scene_selector ._s[data-scene='" + coord + "']").removeClass("__unused").removeClass("__inactive").addClass("__active");
-  
-  alert("Switched to " + coord);
-  
-});
-
+//
+//// TODO: Will need to change coloring/rendering system once map is rendered based on scene data as opposed to inherently being on the DOM
+//$("#engine #scene_selector ._s").click(function (){
+//  
+//  // Good time to save scene here
+//  objControls.saveObjects();
+//  
+//  // this is the converted index, i think
+//  let coord = $(this).attr("data-scene").split(',');
+//  
+//  let i = (parseInt(coord[0]) * globals.MAP_width) + parseInt(coord[1]); 
+//  
+//  // ROUTE 1
+//  // Does this scene exist? If not, create it!
+//  if( typeof scenes.s[i] == 'undefined' ){
+//    
+//    if( !confirm("Do you want to create a new scene at " + coord + "?") ){
+//      return;
+//    }
+//    
+//    objControls.saveObjects();
+//    sceneControls.clearScene(); // remove the old scene
+//    
+//    return;
+//    
+//  }
+//  
+//  // ROUTE 2
+//  // The scene exists, let's switch to it 
+//  
+//  console.log("Switching scene");
+//  $("#scene_selector ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
+//  
+//  sceneControls.switchScene(i);
+//  
+//  // apply color
+//  
+//  console.log(coord);
+//  
+//  // clear all the __active classes
+//  $("#scene_selector ._s").each(function(i, item){
+//    $(item).removeClass("__active")
+//  });
+//  
+//  
+//  $("#scene_selector ._s[data-scene='" + coord + "']").removeClass("__unused").removeClass("__inactive").addClass("__active");
+//  
+//  alert("Switched to " + coord);
+//  
+//});
+//
 
 mapControls.initMap();

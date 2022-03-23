@@ -72,7 +72,6 @@ const sceneControls = {
   getScene:function(x,y){
     
     let i = (parseInt(x) * globals.MAP_width) + parseInt(y); 
-    
     return scenes.s[i];
   },
 
@@ -87,6 +86,11 @@ const sceneControls = {
 
     // first, save scene
     sceneControls.saveScene();
+    
+      // reset text controls
+//      libraryText.deloadBtns();
+//      libraryText.disableText();
+//      libraryText.loadEditBtn();
     
     sceneControls.clearScene();
     
@@ -151,8 +155,7 @@ const sceneControls = {
   loadText: function(){
     
     console.log(active_scene.textoverlay);
-   
- $("textarea").hide().delay(100).fadeIn("slow").val(active_scene.textoverlay);
+    $("textarea").hide().delay(100).fadeIn("slow").val(active_scene.textoverlay);
     
   },
 

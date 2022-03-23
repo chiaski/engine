@@ -368,6 +368,7 @@ display: none;
   mix-blend-mode: difference;
   
   z-index: 999;
+  pointer-events: none;
   
   textarea{
     padding: .5em;

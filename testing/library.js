@@ -11,6 +11,9 @@ console.log("library.js loaded");
 
 
 
+
+
+
 /* 
 
   libraryText 
@@ -19,67 +22,57 @@ console.log("library.js loaded");
   
 */
 
-
-
 const libraryText = {
-  
-  init: function(){
-    
-    // edit text
-    $("button#btn-edittextoverlay").on("click", function(){
 
-      $("._whatscenetype").text("Text");
-      
-      libraryText.loadText();
+  $EDITbtn: "#btn-edittextoverlay",
+  $SAVEbtn: "#btn-savetextoverlay",
+  $TEXT_EDITOR: "#e #e-text textarea",
 
-      $("#e #e-text textarea").css("pointer-events", "all");
-        
-      $(this).fadeOut("slow");
-      $("button#btn-savetextoverlay").delay(600).fadeIn(700);
-      
+  init: function () {
+    // click, edit text
+    $("button#btn-toggletext").on("click", function () {
+      libraryText.toggleText();
     });
-    
-    
-    // save text
-    $("button#btn-savetextoverlay").on("click", function(){
-
-      // TEMPORARY: Check what saving and displaying a text overlay looks like!
-
-      active_scene.textoverlay = $("#e #e-text textarea").val();
-      console.log(active_scene.textoverlay);
-      
-      $("._whatscenetype").text("Scene");
-      
-      $("#e #e-text textarea").css("pointer-events", "none");
-      
-      
-        
-      $(this).fadeOut("slow");
-      $("button#btn-edittextoverlay").delay(600).fadeIn(1000);
-      
-    });
-    
-    
   },
   
+  toggleText: function(){
+    
+    if( $("#e #e-text").css("pointer-events") == "none" ){
+      $("#e #e-text").css("pointer-events", "all");
+    } else{
+      $("#e #e-text").css("pointer-events", "none");
+    }
+    
+    libraryText.saveText();
+//    $("#e #e-text textarea").toggle();
+    console.log("text toggled");
+    
+  },
   // loadText: laod text into active scene
-  loadText: function(){
-      $("#e-text textarea").hide().fadeIn(100).val(active_scene.textoverlay);
+  loadText: function () {
+    $("#e-text textarea").hide().fadeIn(100).val(active_scene.textoverlay);
   },
-  
-  clearText: function(){
+
+  clearText: function () {
     $("#e-text textarea").val("");
   },
-  
+
   // saveText: save text into active scene
-  saveText: function(){
-    
-      active_scene.textoverlay = $("#e #e-text textarea").val();
-    
+  saveText: function () {
+
+    active_scene.textoverlay = $("#e #e-text textarea").val();
+
     console.log("text saved", active_scene.textoverlay);
+  },
+  disableText: function(){
+    // first, save
+    libraryText.saveText();
+    
+    // disable text editing
+    $("#e #e-text textarea").css("pointer-events", "none");
+    $("#e #e-text").css("pointer-events", "none");
 
   }
-  
 }
 
 libraryText.init();
@@ -152,7 +145,7 @@ const libraryControls = {
       $("._howmany").text(active_scene.object_count);
 
     }
-    let o = objControls.addObj( $(this).attr("src") );
+    let o = objControls.addObj($(this).attr("src"));
 
     objControls.moveObj(o);
 
@@ -167,11 +160,11 @@ const libraryControls = {
     });
 
     $("#library .library-selector").fadeIn("slow");
-    
-    
+
+
     // clear bindings first
     $("#library .library-selector").unbind("dblclick");
-    
+
     // add onclick events
     $("#library .library-selector").on("dblclick", "img._toadd", libraryControls.clicktoadd);
   },
@@ -193,7 +186,7 @@ $("#library select[name='library-category']").change(function () {
   console.log(n);
 
   libraryControls.load(n);
-  
+
   //      
   //      let c = $(" input[type='color']").val();
   //
@@ -211,12 +204,12 @@ $("#library select[name='library-category']").change(function () {
 
 
 $("#objectinteractions select[name='objinteraction-select']").change(function () {
-  
+
   let how = $("#objectinteractions select[name='objinteraction-select']").val();
 
   $("#e img.obj[data-selected='1']").attr("data-interaction", how);
-  
-  
+
+
 });
 
 
@@ -299,7 +292,7 @@ const objControls = {
     // first, deselect all objects
     objControls.clearSelected();
 
-      console.log("adding" + " " + src + x, y, size, interaction, interaction_target);
+    console.log("adding" + " " + src + x, y, size, interaction, interaction_target);
 
     let newSrc;
     newSrc = "<img class='obj' data-selected='0' src='" + src + "' style='";
@@ -315,18 +308,18 @@ const objControls = {
     if (size) {
       newSrc += "width:" + size + "; height:" + size + ";";
     }
-    
+
     newSrc += "'";
 
     if (interaction) {
-      
+
       newSrc += " data-interaction='" + interaction + "'";
-      
+
       newSrc += "data-interaction-target='" + interaction_target + "'";
     }
-    
+
     newSrc += ">";
-    
+
     console.log(newSrc);
 
     let newObj = $(newSrc).hide().fadeIn(2000);
@@ -410,11 +403,11 @@ const objControls = {
     $("#e .obj").each(function () {
       // NOTE: width and height are always equal, so we only need to fetch one of these values for size
       // TODO: interactions, once that's implemented
-      
+
       let e = $(this);
 
       (active_scene.objects).push(new thingy(e.position().left, e.position().top, e.attr('src'), e.css('filter'), e.css('width'), e.attr('data-interaction'), e.attr('data-target')));
-      
+
     });
 
   },
@@ -455,17 +448,17 @@ const objControls = {
     });
 
   },
-  
+
   /*
   
     OBJECT INTERACTIONS
     
     
   */
-  addInteraction(){
-    
+  addInteraction() {
+
   }
-  
+
 
 };
 
@@ -481,4 +474,3 @@ const objControls = {
 */
 
 libraryControls.load("faces");
-

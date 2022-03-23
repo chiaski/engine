@@ -7,30 +7,12 @@ $("#tempplay").click(function () {
 });
 
 
-
-
-function animationtest(){
-  
-  console.log("run animationtest");
-  let $w = $("#play"); // set to play window
-  
-  $w.css("transform", "scale(1.05)");
-  
-  setTimeout(function(){
-  $w.css("transform", "scale(0.99)");
-},2000);
-  
-  
-}
-
-
 // LOAD CARTRIDGE
 
 const Tplayer = {
 
   active: scenes.s[0],
 
-  
   /* 
     clearGame
     deletes and clears the game
@@ -72,9 +54,21 @@ const Tplayer = {
     
     // success
     Tplayer.loadScene(x, y);
-    // little animation
-    $("#play")
-      .css("transform", "scale(1.5)");
+    
+    Tplayer.animatePulse(); // little animation
+
+  },
+  
+    animatePulse: function(){
+
+    let $w = $("#play"); // set to play window
+
+    $w.css("transform", "scale(1.03)");
+
+    setTimeout(function(){
+    $w.css("transform", "scale(0.99)");
+  },1000);
+
 
   },
 
@@ -320,9 +314,7 @@ $("#btn-play").on("click", function () {
 
 $("#btn-clear").on("click", function () {
 
-  $("#e-play").html("");
   $("#e-play").css("background", "#000000");
-  
   Tplayer.clearGame();
 
 });
