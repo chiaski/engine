@@ -354,6 +354,12 @@ START AND EXTRAS
   cursor: pointer;
 }
 
+.engine-buttons {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
 /* 
 
 
