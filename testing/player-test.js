@@ -19,6 +19,17 @@ function testJSON(text) {
 $("#btn-loadcartridge").on("click", function(){
   
   cartridge = $("#e-loadcartridge textarea").val();
+  cartridge = cartridge.replace(/^\s+|\s+$/g, "")
+                .replace(/\\n/g, "\\n")  
+               .replace(/\\'/g, "\\'")
+               .replace(/\\"/g, '\\"')
+               .replace(/\\&/g, "\\&")
+               .replace(/\\r/g, "\\r")
+               .replace(/\\t/g, "\\t")
+               .replace(/\\b/g, "\\b")
+               .replace(/\\f/g, "\\f");
+  
+  cartridge = cartridge.replace(/[\u0000-\u0019]+/g,""); 
 
   console.log("Attempting to load: ", cartridge);
   
