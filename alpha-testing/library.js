@@ -155,7 +155,7 @@ const libraryControls = {
 
     library[what].forEach(function (e, i) {
 
-      $("#" + libraryControls.$LIBRARY_OBJECTS).prepend("<img class='_toadd' src='assets/image/" + what + "/" + e + ".gif'>");
+      $("#" + libraryControls.$LIBRARY_OBJECTS).prepend("<img class='_toadd' src='https://engine.lol/alpha/assets/image/" + what + "/" + e + ".gif'>");
 
     });
 
