@@ -2,64 +2,67 @@ console.log("loaded engine.js, Engine's playmode")
 
 const cartridge = $("#cartridge").text();
 
-const scenes = {};
+var scenes = null;
 
-if( testJSON(cartridge) ){
-  
-    const scenes = JSON.parse( cartridge  );
-  
-  $("#btn-play").on("click", function(){
+if (testJSON(cartridge)) {
+
+  scenes = JSON.parse(cartridge);
+
+  if (scenes) {
+    console.log("Loaded: ", scenes);
+  } else {
+    $("#play h2").text("Corrupted or empty game");
+    throw new Error();
+  }
+
+  $("#btn-play").on("click", function () {
     Tplayer.init();
     $(this).text("RELOAD");
   });
-  
-} else{
+
+} else {
   $("#play h2").text("Corrupted or empty game");
   throw new Error();
 }
 
-if(scenes){
-  console.log("Loaded: ", scenes);
-}
 
-function testJSON(text){
-    if (typeof text!=="string"){
-        return false;
-    }
-    try{
-        var json = JSON.parse(text);
-        return (typeof json === 'object');
-    }
-    catch (error){
-        return false;
-    }
+function testJSON(text) {
+  if (typeof text !== "string") {
+    return false;
+  }
+  try {
+    var json = JSON.parse(text);
+    return (typeof json === 'object');
+  } catch (error) {
+    return false;
+  }
 }
 
 const globals = {
-  
+
   // maximum objects allowed per scene
   MAX_object_count: 15,
-  
+
   // map width (columns)
   MAP_width: 4,
-  
+
   // map height (rows)
   MAP_height: 4
-  
+
 }
 
 const c = {
-   getSceneIndex: function(x,y){
-    let i = (parseInt(x) * globals.MAP_width) + parseInt(y); 
-    
+  getSceneIndex: function (x, y) {
+    let i = (parseInt(x) * globals.MAP_width) + parseInt(y);
+
     return i;
   },
-  getScene:function(x,y){
-    
-    let i = (parseInt(x) * globals.MAP_width) + parseInt(y); 
+  getScene: function (x, y) {
+
+    let i = (parseInt(x) * globals.MAP_width) + parseInt(y);
     return scenes.s[i];
   },
-  textConvert: function(text){
+  textConvert: function (text) {
     return text.replace(/\\n/g, "\n");
   }
 }
@@ -69,35 +72,35 @@ const c = {
 const Tplayer = {
 
   active: scenes.s[0],
-  
-  init: function(){
-    
+
+  init: function () {
+
     Tplayer.clearGame();
-    
+
     // load the cartridge
     Tplayer.loadCartridge();
-    
+
     $("#e-cartridge").fadeIn(1000);
-    
+
     setTimeout(function () {
-      
+
       $("#e-cartridge").fadeOut("slow");
       $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
       $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
 
     }, 3000);
-    
+
     $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(4000).css("pointer-events", "auto").css("cursor", "auto");
-    
+
     // load in starting scene
     Tplayer.loadPlay(scenes.start_scene.x, scenes.start_scene.y);
-    
+
   },
-  
-  loadCartridge: function(){
-    
+
+  loadCartridge: function () {
+
     $("#play h2").text("Starting game...");
-    
+
     (scenes.cartridge.objects).forEach(function (e) {
       let newSrc = "";
       newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
@@ -115,56 +118,56 @@ const Tplayer = {
       }
 
       newSrc += "'>";
-      
+
       let newObj = $(newSrc).hide().fadeIn(500);
       $("#e-cartridge").append(newObj);
     })
-    
+
     $("#e-cartridge").css("background", scenes.cartridge.color);
-    
+
   },
-  
-  loadPlay: function(x, y) {
-  
-  $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
+
+  loadPlay: function (x, y) {
+
+    $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
 
 
-  Tplayer.active = scenes.s[c.getSceneIndex(x, y)];
+    Tplayer.active = scenes.s[c.getSceneIndex(x, y)];
 
-  // change text
-  setTimeout(function () {
+    // change text
+    setTimeout(function () {
 
-    $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
-    $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
+      $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
+      $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
 
-  }, 3000);
+    }, 3000);
 
-  Tplayer.loadScene(x, y);
+    Tplayer.loadScene(x, y);
 
 
-  $("#e-play").css("background", (Tplayer.active).color);
+    $("#e-play").css("background", (Tplayer.active).color);
   },
 
   /* 
     clearGame
     deletes and clears the game
   */
-  
-  clearGame: function(){
-    
+
+  clearGame: function () {
+
     $("#e-cartridge").html(""); // clear cartridge
-    
-    $("#e-controls a").each(function (i, e) {  // clear controls
+
+    $("#e-controls a").each(function (i, e) { // clear controls
       $(this)
         .removeClass("-inaccessible")
         .addClass("-inaccessible")
         .attr("data-target", "null")
         .unbind("click", Tplayer.loadTarget);
     });
-    
+
     Tplayer.clearScene();
   },
-  
+
   loadTarget: function () {
 
     let target = $(this).attr("data-target");
@@ -174,23 +177,23 @@ const Tplayer = {
     if (x == null || y == null) {
       return;
     }
-    
+
     // success
     Tplayer.loadScene(x, y);
-    
+
     Tplayer.animatePulse(); // little animation
 
   },
-  
-    animatePulse: function(){
+
+  animatePulse: function () {
 
     let $w = $("#play"); // set to play window
 
     $w.css("transform", "scale(1.03)");
 
-    setTimeout(function(){
-    $w.css("transform", "scale(0.99)");
-  },500);
+    setTimeout(function () {
+      $w.css("transform", "scale(0.99)");
+    }, 500);
 
 
   },
@@ -296,12 +299,12 @@ const Tplayer = {
 
     // first, clear scene
     Tplayer.clearScene();
-    
+
     // swap active scene
     Tplayer.active = c.getScene(x, y);
 
     // add text
-    $("#e-play textarea").hide().delay(2000).fadeIn("slow").val( c.textConvert(Tplayer.active.textoverlay) );
+    $("#e-play textarea").hide().delay(2000).fadeIn("slow").val(c.textConvert(Tplayer.active.textoverlay));
 
     // add objects
     ((Tplayer.active).objects).forEach(function (e) {
@@ -321,7 +324,7 @@ const Tplayer = {
       }
 
       newSrc += "'>";
-      
+
       let newObj = $(newSrc).hide().fadeIn(2000);
       $("#e-play").append(newObj);
     })
@@ -353,7 +356,7 @@ const Tplayer = {
   /* clearScene deletes all objects from the scene */
   clearScene: function () {
     $("#e-text textarea").val("");
-    
+
     $("#e-play img.obj").each(function () {
       $(this).remove();
     });
