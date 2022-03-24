@@ -282,3 +282,19 @@ const sceneControls = {
 sceneControls.initColorpicker();
 
 
+$("#btn-cartridge").on("click", function () {
+  
+  
+  objControls.clearSelected();
+  sceneControls.editCartridge();
+  alert("Now editing the game cartridge—your game's cover. Saves automatically!");
+});
+
+
+$("#btn-savecartridge").on("click", function () {
+
+  objControls.clearSelected();
+  sceneControls.saveCartridge();
+  alert("Cartridge saved!");
+});
+

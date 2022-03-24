@@ -21,6 +21,18 @@ PLAYER
 
 */
 
+
+
+
+@font-face {
+    font-family: 'FA Sysfont C';
+    src: url('./assets/fonts/sysfont.woff2') format('woff2'),
+         url('./alpha/assets/fonts/sysfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 $c: #000000; // MAIN COLOR
 $l: #f7f7f7; // light color
 
@@ -31,7 +43,7 @@ $g4: #1c1e1f;
 
 $p: #eb80ff; 
 
-$mono: "Courier New";
+$mono: "FA Sysfont C", monospace;
 $serif: "Times New Roman";
 
 *{
@@ -40,6 +52,7 @@ $serif: "Times New Roman";
 
 html, body{
   scroll-behavior: smooth;
+  font-family: $mono;
 }
 
 .wrapper{
@@ -62,6 +75,7 @@ html, body{
   button{
     font-size: 1.25em;
     padding: .75em 2.5em;
+    border-radius: 16px;
   }
 }
 
@@ -93,7 +107,6 @@ transition: background .15s linear;
 
 
 h1{
-  font-family: "Times Now";
   font-size: 5.6em;
   letter-spacing: -2px;
   display: block;
@@ -111,13 +124,11 @@ h2{
   display: block;
   border-bottom: 1.5px solid $c;
   font-family: $mono;
-  text-transform: uppercase;
-  font-size: .8em;
-  padding: 1em 0;
+  font-size: 1.5em;
+  padding: .5em 0;
   
   span{
-    border-right: 1.5px solid $c;
-    padding: 0 1em;
+    padding: 0 .25em;
   }
   
 }
@@ -135,7 +146,7 @@ button{
   color: $l;
   padding: 1em;
   margin: 1em;
-  font-family: $serif;
+  font-family: $mono;
       -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
 transition: all .19s cubic-bezier(.17,.67,.83,.67);
 }

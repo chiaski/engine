@@ -99,7 +99,9 @@ const library = {
 
   environment: ["stone-1", "flower-1", "stone-2", "moon-1", "moon-2", "moon-3", "leaf", "leaf-2", "twig", "leaf-3", "rock", "bush", "bush-2"],
   faces: ["8D", "blank", "fear", "joy", "hmm", "kiss", "nerd", "ninja", "rage", "sad", "tear", "vomit", "worry"],
-  digital: ["bomb", "case", "clock", "computer-2", "computer", "cursor", "dude", "exclamation", "package", "paint", "paper", "pointer", "save", "stack", "trash"],
+  digital: ["bomb", "case", "clock", "computer-2", "computer", "cursor", "dude", "exclamation", "package", "paint", "paper", "pointer", "save", "stack", "trash", "printer"],
+  monsters: ["chad", "child", "dude", "dude-2", "dude-3", "dude-4", "eye", "flyingfuck", "ghost", "head", "rawr", "skull"],
+  items: ["cash", "cashbag", "clock", "coin", "coin-number", "frame", "gem", "gem-2", "gold", "magnify", "pouch", "sandglass"],
   clouds: ["1", "2", "3", "4", "5", "6", "7"]
 
 };
@@ -268,12 +270,8 @@ const objControls = {
 
   // add object
   addObj: function (src, x, y, filter, size, interaction, interaction_target) {
-
     // first, deselect all objects
     objControls.clearSelected();
-
-    console.log("adding" + " " + src + x, y, size, interaction, interaction_target);
-
     let newSrc;
     newSrc = "<img class='obj' data-selected='0' src='" + src + "' style='";
 
@@ -300,8 +298,6 @@ const objControls = {
 
     newSrc += ">";
 
-    console.log(newSrc);
-
     let newObj = $(newSrc).hide().fadeIn(2000);
     $("#e").append(newObj);
 
@@ -314,7 +310,6 @@ const objControls = {
     if (t) {
       t.remove();
     } else {
-      console.log("Object removed");
       $("#e .obj[data-selected='1']").remove();
     }
 
@@ -331,21 +326,11 @@ const objControls = {
   size: function (how) {
 
     let t = $("#e img.obj[data-selected='1']");
-    console.log(t);
 
     if (how == "up") {
-
-      console.log("grow");
-
-      console.log(t.css("width"));
-
       t.css("width", t.width() * 1.25 + "px");
       t.css("height", t.height() * 1.25 + "px");
-
     } else {
-
-      console.log("shrink");
-
       t.css("width", t.width() * 0.75 + "px");
       t.css("height", t.height() * 0.75 + "px");
     }
@@ -359,8 +344,6 @@ const objControls = {
     switch (how) {
 
       case "invert":
-
-        console.log($(t).css("filter"));
 
         if (($(t).css("filter") == 'invert(1)')) {
           $(t).css("filter", "invert(0)");
@@ -395,7 +378,6 @@ const objControls = {
   // render all information from the scene
   getSceneInfo: function () {
 
-    console.log(active_scene);
 
   },
 
@@ -403,7 +385,6 @@ const objControls = {
 
   updatePos: function (t) {
     let pos = $(t).position();
-    console.log(pos);
 
     $(".__x").text(pos.left);
     $(".__y").text(pos.top);

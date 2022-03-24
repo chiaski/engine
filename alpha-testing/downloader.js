@@ -35,5 +35,5 @@ $("#btn-getcode").on("click", function(){
    document.execCommand("copy");
     window.getSelection().removeAllRanges();
   
-  alert("Copied cartridge code to clipboard! Note that if you have funky characters or if my code was just inadequate, this might have failed... :(");
+  alert("Copied cartridge code to clipboard! Note that if you have funky characters or if my code was just inadequate, this might have failed... :(\nYou can play this in the 'Load Cartridge' page.");
 });
