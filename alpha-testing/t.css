@@ -187,7 +187,7 @@ START AND EXTRAS
 #jump a._small {
   padding: 0.5em;
   margin: 0.5em;
-  display: block;
+  display: inline-block;
   font-size: 0.6em;
 }
 
