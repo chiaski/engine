@@ -74,6 +74,8 @@ $l: #f7f7f7; // light color
 
 $g1: #b6b7b7;
 $g2: #868c8e;
+$g3: #3b4041;
+$g4: #1c1e1f;
 
 $p: #eb80ff; 
 
@@ -134,7 +136,7 @@ button{
 }
 
 button:hover{
-  background: $c;
+  background: $g3;
   color: $l;
   cursor: pointer;
   box-shadow: 0 0 20px $g2;

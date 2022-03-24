@@ -64,10 +64,8 @@ h2 {
   width: 100%;
   display: block;
   border-bottom: 1.5px solid #000000;
-  font-family: "Courier New";
-  text-transform: uppercase;
-  font-size: 0.8em;
-  padding: 1em 0;
+  font-family: "Times New Roman";
+  padding: 0.75em 0;
 }
 h2 span {
   border-right: 1.5px solid #000000;
@@ -82,18 +80,21 @@ button {
   border: 1.5px solid #000000;
   outline: 1px solid #f7f7f7;
   border-radius: 8px;
-  background: #f7f7f7;
+  background: #000000;
+  color: #f7f7f7;
   padding: 1em;
   margin: 1em;
+  font-family: "Times New Roman";
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
 button:hover {
-  background: #000000;
+  transform: translateY(-2.5px);
   color: #f7f7f7;
+  background: #1c1e1f;
   cursor: pointer;
-  box-shadow: 0 0 20px #717374;
+  box-shadow: 0 0 20px #3b4041;
 }
 
 /* 
@@ -166,7 +167,6 @@ START AND EXTRAS
   margin: 0 0.25em;
   text-decoration: none;
   font-family: "Courier New";
-  text-transform: uppercase;
   color: #f7f7f7;
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -258,6 +258,7 @@ START AND EXTRAS
   box-shadow: 0 0 20px #717374;
   transform: translateX(2em);
   right: 0;
+  border-radius: 8px;
   max-width: 250px;
   z-index: 1;
   position: absolute;
@@ -405,6 +406,10 @@ START AND EXTRAS
   width: 100%;
   text-align: center;
 }
+.engine-buttons button {
+  margin: 0 0.25em;
+  padding: 1em 1.75em;
+}
 
 /* 
 
@@ -518,12 +523,12 @@ EDITOR
 }
 #scene_s #scene_selector ._s, #map #scene_selector ._s {
   display: inline-block;
-  border-radius: 6px;
   padding: 0.25em;
   background: #000000;
   color: #f7f7f7;
   border: 1px solid #000000;
   vertical-align: middle;
+  font-family: "Courier New";
 }
 #scene_s #scene_selector ._s.__start, #map #scene_selector ._s.__start {
   border: 1px solid #eb80ff;
@@ -563,6 +568,7 @@ EDITOR
   padding: 0.5em;
   margin: 0.2em;
   font-size: 1em;
+  border-radius: 6px;
   vertical-align: middle;
   text-align: center;
 }
@@ -585,7 +591,7 @@ EDITOR
   border-right: 0;
 }
 #scene_s #scene_selector {
-  max-width: 250px;
+  max-width: 260px;
   padding: 0.25em;
   display: flex;
   flex-wrap: wrap;
@@ -600,14 +606,16 @@ EDITOR
 #scene_s #scene_selector ._s {
   flex-basis: 22%;
   font-size: 0.5em;
-  line-height: 25px;
+  line-height: 24px;
   margin: 0.25em;
+  border-radius: 3px;
   -webkit-transition: all 0.13s linear;
   -moz-transition: all 0.13s linear;
   -ms-transition: all 0.13s linear;
   -o-transition: all 0.13s linear;
   transition: all 0.13s linear;
-  border: 1px solid #f7f7f7;
+  border: 0.6px solid #f7f7f7;
+  outline: 1.4px solid #000000;
   box-shadow: 0 0 5px #f7f7f7;
 }
 
@@ -661,14 +669,16 @@ EDITOR
   height: 50px;
   max-width: 50px;
   height: 50px;
+  -webkit-transition: all 0.24s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.24s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 #library ._toadd:hover {
   filter: invert(1);
+  transform: translateY(-3.5px);
   cursor: pointer;
-}
-
-#library .library-objects .objtoadd:hover {
-  filter: invert(1);
+  border: 0.5px solid #f7f7f7;
+  outline: 1.5px solid #000000;
+  border-radius: 6px;
 }
 
 #downloader_game {

@@ -46,11 +46,13 @@ $l: #f7f7f7; // light color
 
 $g1: #b6b7b7;
 $g2: #717374;
-$g3: #4c565a;
+$g3: #3b4041;
+$g4: #1c1e1f;
 
 $p: #eb80ff; 
 
 $mono: "Courier New";
+$serif: "Times New Roman";
 
 *{
   box-sizing: border-box;
@@ -82,10 +84,8 @@ h2{
   width: 100%;
   display: block;
   border-bottom: 1.5px solid $c;
-  font-family: $mono;
-  text-transform: uppercase;
-  font-size: .8em;
-  padding: 1em 0;
+  font-family: $serif;
+  padding: .75em 0;
   
   span{
     border-right: 1.5px solid $c;
@@ -102,18 +102,21 @@ button{
   border: 1.5px solid $c;
   outline: 1px solid $l;
   border-radius: 8px;
-  background: $l;
+  background: $c;
+  color: $l;
   padding: 1em;
   margin: 1em;
+  font-family: $serif;
       -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
 transition: all .19s cubic-bezier(.17,.67,.83,.67);
 }
 
 button:hover{
-  background: $c;
+  transform: translateY(-2.5px);
   color: $l;
+  background: $g4;
   cursor: pointer;
-  box-shadow: 0 0 20px $g2;
+  box-shadow: 0 0 20px $g3;
 }
 
 
@@ -193,7 +196,6 @@ START AND EXTRAS
     margin: 0 .25em;
     text-decoration: none;
     font-family: $mono;
-    text-transform: uppercase;
     color:$l;
       -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
 transition: all .19s cubic-bezier(.17,.67,.83,.67);
@@ -303,6 +305,7 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
   box-shadow: 0 0 20px $g2;
   transform: translateX(2em);
   right: 0;
+  border-radius: 8px;
   
   max-width: 250px;
   z-index: 1;
@@ -501,6 +504,12 @@ display: none;
   display: block;
   width: 100%;
   text-align: center;
+  
+  button{
+    margin: 0 .25em;
+    padding: 1em 1.75em;
+  }
+  
 }
 
 
@@ -653,7 +662,6 @@ EDITOR
   
   #scene_selector{
     
-    
     margin: 1em auto;
     text-align: center;
     
@@ -668,12 +676,12 @@ EDITOR
     
     ._s{
       display: inline-block;
-      border-radius: 6px;
       padding: .25em;
       background: $c;
       color:$l;
       border: 1px solid $c;
       vertical-align: middle;
+      font-family: $mono;
     }
     
     ._s.__start{
@@ -731,6 +739,7 @@ EDITOR
     padding: .5em;
     margin: .2em;
     font-size: 1em;
+      border-radius: 6px;
     vertical-align: middle;
     text-align: center;
   }
@@ -769,7 +778,7 @@ EDITOR
 
   #scene_selector{
 
-    max-width: 250px;
+    max-width: 260px;
     padding: .25em;
 
     display: flex;
@@ -787,14 +796,16 @@ EDITOR
     ._s{
       flex-basis: 22%;
       font-size: .5em;
-      line-height: 25px;
+      line-height: 24px;
       margin: .25em;
+      border-radius: 3px;
       -webkit-transition: all .13s linear;
 -moz-transition: all .13s linear;
 -ms-transition: all .13s linear;
 -o-transition: all .13s linear;
 transition: all .13s linear;
-      border: 1px solid $l;
+      border: .6px solid $l;
+      outline: 1.4px solid $c;
       box-shadow: 0 0 5px $l;
     }
     
@@ -896,19 +907,18 @@ transition: all .13s linear;
     height: 50px;
     max-width: 50px;
     height: 50px;
+      -webkit-transition: all .24s cubic-bezier(.17,.67,.83,.67);
+transition: all .24s cubic-bezier(.17,.67,.83,.67);
   }
 
     ._toadd:hover{
       filter:invert(1);
+  transform: translateY(-3.5px);
       cursor: pointer;
+      border: .5px solid $l;
+      outline: 1.5px solid $c;
+      border-radius: 6px;
     }
-
-}
-
-
-
-#library .library-objects .objtoadd:hover{
-  filter: invert(1);
 }
 
 
