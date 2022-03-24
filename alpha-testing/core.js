@@ -17,7 +17,6 @@ const globals = {
 
 
 /* SCENES */
-
 // collection of all scenes
 
 const scenes = {
@@ -31,6 +30,5 @@ const scenes = {
   
   // ALL THE SCENESKMFAKSF
   s: new Array( globals.MAP_width * globals.MAP_height )
-  
 };
 

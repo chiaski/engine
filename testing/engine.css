@@ -13,7 +13,6 @@ PLAYER
 
 
 */
-
 /*
 
   COLORS, FONTS
@@ -45,6 +44,10 @@ html, body {
 .engine-controls {
   width: 100%;
 }
+.engine-controls button {
+  font-size: 1.25em;
+  padding: 0.75em 2.5em;
+}
 
 body, #e-play {
   -webkit-transition: background 0.15s linear;
@@ -56,15 +59,19 @@ body, #e-play {
 
 .window {
   position: relative;
-  box-shadow: 0 0 20px #868c8e;
+  background: #f7f7f7;
+  box-shadow: 0 0 100px #717374;
   border: 1.5px solid #000000;
+  outline: 1px solid #f7f7f7;
   width: 100%;
+  border-radius: 15px;
   min-height: 30vh;
   display: flex;
   justify-content: center;
   vertical-align: middle;
   align-items: center;
   flex-wrap: wrap;
+  margin: 2.5vh 5vw;
 }
 
 h1 {
@@ -100,20 +107,27 @@ h4 {
 
 button {
   border: 1.5px solid #000000;
-  background: #f7f7f7;
+  outline: 1px solid #f7f7f7;
+  border-radius: 8px;
+  background: #000000;
+  color: #f7f7f7;
   padding: 1em;
   margin: 1em;
+  font-family: "Times New Roman";
+  -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
 button:hover {
-  background: #000000;
+  transform: translateY(-2.5px);
   color: #f7f7f7;
+  background: #1c1e1f;
   cursor: pointer;
-  box-shadow: 0 0 20px #868c8e;
+  box-shadow: 0 0 20px #3b4041;
 }
 
 body {
-  background: #b6b7b7;
+  background: #717374;
   padding: 2em;
   display: flex;
   flex-wrap: wrap;
@@ -201,6 +215,8 @@ PLAY
   background: #fff;
   opacity: 0.5;
   background-blend-mode: blur(3px);
+  -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 #play #e-controls a.___n, #play #e-controls a.___s {
   width: 100%;

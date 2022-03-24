@@ -13,6 +13,12 @@ EDITOR
 
 
 */
+@font-face {
+  font-family: "FA Sysfont C";
+  src: url("fa-sysfont-c.woff2") format("woff2"), url("fa-sysfont-c.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 /*
 
   TRANSITIONS
@@ -40,7 +46,7 @@ html, body {
 }
 
 body {
-  background: #b6b7b7;
+  background: #717374;
   padding: 2em;
   display: flex;
   flex-wrap: wrap;
@@ -65,11 +71,11 @@ h2 {
   display: block;
   border-bottom: 1.5px solid #000000;
   font-family: "Times New Roman";
-  padding: 0.75em 0;
+  padding: 0.75em;
 }
 h2 span {
   border-right: 1.5px solid #000000;
-  padding: 0 1em;
+  padding: 0 0.25em;
 }
 
 h4 {
@@ -204,12 +210,6 @@ START AND EXTRAS
   font-size: 1.2em;
 }
 
-/* 
-
-    CONSISTENT WINDOWS
-
-
-*/
 .window {
   position: relative;
   background: #f7f7f7;
@@ -231,6 +231,7 @@ START AND EXTRAS
   border-top: 1px solid #000000;
   border-bottom: 1px solid #000000;
   margin: 1em 0;
+  text-align: center;
 }
 .panel p {
   padding: 1em;
@@ -466,6 +467,8 @@ PLAY
   background: #f7f7f7;
   opacity: 0.5;
   background-blend-mode: blur(3px);
+  -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 #play #e-controls a.___n, #play #e-controls a.___s {
   width: 100%;
@@ -527,8 +530,12 @@ EDITOR
   background: #000000;
   color: #f7f7f7;
   border: 1px solid #000000;
+  outline: 1.5px solid #f7f7f7;
   vertical-align: middle;
   font-family: "Courier New";
+  -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transform: scale(0.98);
 }
 #scene_s #scene_selector ._s.__start, #map #scene_selector ._s.__start {
   border: 1px solid #eb80ff;
@@ -548,8 +555,10 @@ EDITOR
   opacity: 0.25;
 }
 #scene_s #scene_selector ._s:hover, #map #scene_selector ._s:hover {
+  transform: scale(1.03);
   filter: invert(1);
   cursor: pointer;
+  transform: translateY(-5px);
 }
 
 #map {
@@ -563,6 +572,7 @@ EDITOR
   justify-content: center;
 }
 #map #scene_selector ._s {
+  color: #f7f7f7;
   width: 70px;
   height: 70px;
   padding: 0.5em;

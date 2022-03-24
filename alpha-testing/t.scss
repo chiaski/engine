@@ -15,6 +15,15 @@ EDITOR
 */
 
 
+@font-face {
+    font-family: 'FA Sysfont C';
+    src: url('fa-sysfont-c.woff2') format('woff2'),
+         url('fa-sysfont-c.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 
 /*
 
@@ -59,7 +68,7 @@ $serif: "Times New Roman";
 }
 
 body{
-  background: $g1;
+  background: $g2;
   padding: 2em;
   display: flex;
   flex-wrap: wrap;
@@ -85,11 +94,11 @@ h2{
   display: block;
   border-bottom: 1.5px solid $c;
   font-family: $serif;
-  padding: .75em 0;
+  padding: .75em;
   
   span{
     border-right: 1.5px solid $c;
-    padding: 0 1em;
+    padding: 0 .25em;
   }
   
 }
@@ -107,7 +116,7 @@ button{
   padding: 1em;
   margin: 1em;
   font-family: $serif;
-      -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
+    -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
 transition: all .19s cubic-bezier(.17,.67,.83,.67);
 }
 
@@ -243,14 +252,6 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
 }
 
 
-/* 
-
-    CONSISTENT WINDOWS
-
-
-*/
-
-
 .window{
   position: relative;
   background: $l;
@@ -273,6 +274,7 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
   border-top: 1px solid $c;
   border-bottom: 1px solid $c;
   margin: 1em 0;
+  text-align: center;
   
   p{
     padding: 1em;
@@ -581,6 +583,8 @@ transition: all .13s linear;
       background: $l;
       opacity: 0.5;
       background-blend-mode: blur(3px);
+      -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
+transition: all .19s cubic-bezier(.17,.67,.83,.67);
     }
     
     a.___n, a.___s{
@@ -680,8 +684,12 @@ EDITOR
       background: $c;
       color:$l;
       border: 1px solid $c;
+      outline: 1.5px solid $l;
       vertical-align: middle;
       font-family: $mono;
+      -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
+transition: all .19s cubic-bezier(.17,.67,.83,.67);
+      transform: scale(0.98);
     }
     
     ._s.__start{
@@ -694,8 +702,7 @@ EDITOR
       border: 1px solid $l;
       outline: 2ox solid $p;
       box-shadow: 0 0 5px $c;
-      
-  animation: pulse-black 2s infinite;
+      animation: pulse-black 2s infinite;
     }
     
     ._s.__inactive{
@@ -708,12 +715,17 @@ EDITOR
     }
     
     ._s:hover{
+      transform: scale(1.03);
       filter: invert(1);
       cursor: pointer;
+      transform: translateY(-5px);
     }
     
   }
   
+//  #scene_selector:hover ._s:not(:hover){
+//    opacity: 0.12;
+//  }
   
 }
 
@@ -733,7 +745,7 @@ EDITOR
     justify-content: center;
   
   ._s{
-    
+    color: $l;
     width: 70px;
     height: 70px;
     padding: .5em;

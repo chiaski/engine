@@ -267,7 +267,7 @@ const objControls = {
 
     $(t)
       .bind("dblclick", objControls.selectObj)
-      .css("box-shadow", "0 0 20px #fff")
+      .css("box-shadow", "0 0 20px #ffffff")
       .attr("data-selected", "1")
       .draggable({
         disabled: false,
