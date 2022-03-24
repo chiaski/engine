@@ -37,6 +37,12 @@ const libraryText = {
   
   toggleText: function(){
     
+    if(  $("button#btn-toggletext").hasClass("__toggled") ){
+      $("button#btn-toggletext").removeClass("__toggled");
+    } else{
+       $("button#btn-toggletext").addClass("__toggled");
+    }
+    
     if( $("#e #e-text").css("pointer-events") == "none" ){
       $("#e #e-text").css("pointer-events", "all");
     } else{
@@ -59,7 +65,6 @@ const libraryText = {
 
   // saveText: save text into active scene
   saveText: function () {
-
     active_scene.textoverlay = $("#e #e-text textarea").val();
 
     console.log("text saved", active_scene.textoverlay);
@@ -71,7 +76,6 @@ const libraryText = {
     // disable text editing
     $("#e #e-text textarea").css("pointer-events", "none");
     $("#e #e-text").css("pointer-events", "none");
-
   }
 }
 
@@ -182,20 +186,6 @@ $("#library select[name='library-category']").change(function () {
   console.log(n);
 
   libraryControls.load(n);
-
-  //      
-  //      let c = $(" input[type='color']").val();
-  //
-  //      $("#e").css("background", c);
-  //      $("body").css("background", c);
-  //
-  //      active_scene.color = c;
-  //
-  //      // change color of tile in map
-  //      $("#scene_selector div._s.__active").css("background", c);
-  //      
-  //      console.log(active_scene.color);
-
 });
 
 
@@ -228,12 +218,6 @@ $("#objectinteractions select[name='objinteraction-select']").change(function ()
 
 const objControls = {
   // t = object
-
-  // SET LISTENERS FOR CONTROLS
-
-
-  // SIMPLE HANDLERS
-
 
   // SELECT/DESELECT via double-click
   selectObj: function (t) {

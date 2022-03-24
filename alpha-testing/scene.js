@@ -240,6 +240,7 @@ const sceneControls = {
   
   saveCartridge: function(){
     
+    objControls.clearSelected();
     console.log("saving cartridge", active_scene);
     $("#e-cartridge").html("");
     objControls.saveObjects();    
@@ -272,6 +273,7 @@ const sceneControls = {
     $("#btn-savecartridge").fadeOut("slow");
     
     $(".sidebar-right").fadeIn("slow");
+
     
   }
 
@@ -280,18 +282,3 @@ const sceneControls = {
 sceneControls.initColorpicker();
 
 
-
-$("#btn-cartridge").on("click", function () {
-
-  sceneControls.editCartridge();
-  alert("now editing the game cartridge. saves automatically!");
-
-});
-
-
-$("#btn-savecartridge").on("click", function () {
-
-  sceneControls.saveCartridge();
-  alert("game cartridge saved!");
-
-});

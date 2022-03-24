@@ -17,30 +17,10 @@ EDITOR
 
 @font-face {
     font-family: 'FA Sysfont C';
-    src: url('fa-sysfont-c.woff2') format('woff2'),
-         url('fa-sysfont-c.woff') format('woff');
+    src: url('./assets/fonts/sysfont.woff2') format('woff2'),
+         url('./alpha/assets/fonts/sysfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
-}
-
-
-/*
-
-  TRANSITIONS
-
-*/
-
-html, body{
-  scroll-behavior: smooth;
-}
-
-#e, body, #e-play{
-  -webkit-transition: background .15s linear;
--moz-transition: background .15s linear;
--ms-transition: background .15s linear;
--o-transition: background .15s linear;
-transition: background .15s linear;
 }
 
 
@@ -60,8 +40,29 @@ $g4: #1c1e1f;
 
 $p: #eb80ff; 
 
-$mono: "Courier New";
+$mono: "FA Sysfont C", monospace;
 $serif: "Times New Roman";
+
+/*
+
+  TRANSITIONS
+
+*/
+
+html, body{
+  scroll-behavior: smooth;
+  font-family: $mono;
+}
+
+#e, body, #e-play{
+  -webkit-transition: background .15s linear;
+-moz-transition: background .15s linear;
+-ms-transition: background .15s linear;
+-o-transition: background .15s linear;
+transition: background .15s linear;
+}
+
+
 
 *{
   box-sizing: border-box;
@@ -73,7 +74,7 @@ body{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 10vh;
+  margin-bottom: 25vh;
 }
 
 h1{
@@ -93,8 +94,10 @@ h2{
   width: 100%;
   display: block;
   border-bottom: 1.5px solid $c;
-  font-family: $serif;
+  font-family: $mono;
+  font-size: .9em;
   padding: .75em;
+  text-align: left;
   
   span{
     border-right: 1.5px solid $c;
@@ -115,7 +118,7 @@ button{
   color: $l;
   padding: 1em;
   margin: 1em;
-  font-family: $serif;
+  font-family: $mono;
     -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
 transition: all .19s cubic-bezier(.17,.67,.83,.67);
 }
@@ -285,7 +288,7 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
   
   h2{
     width: 100%;
-    padding: .5em 1em;
+    padding: .5em .75em;
     margin: 0;
   }
   
@@ -304,6 +307,7 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
 
 .panel._tutorial{
   
+  outline: 1px solid $l;
   box-shadow: 0 0 20px $g2;
   transform: translateX(2em);
   right: 0;
@@ -435,8 +439,10 @@ display: none;
 
 .library-text-controls{
   
-  button#btn-savetextoverlay{
-    display: none;
+  button.__toggled{
+    filter: invert(1);
+    transform: translateY(-5px);
+    display: inline-block;
   }
   
 }
@@ -537,7 +543,7 @@ PLAY
   
   // handles pulse animation transitions
   
-      -webkit-transition: all .3s linear;
+-webkit-transition: all .3s linear;
 transition: all .13s linear;
   
   .play-overlay{
@@ -723,18 +729,14 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
     
   }
   
-//  #scene_selector:hover ._s:not(:hover){
-//    opacity: 0.12;
-//  }
-  
 }
 
 // OVERALL MAP
 
 #map{
   
-  width: 100%;
-  margin: 0 10vw;
+  width: 90%;
+  margin: 0 50px;
   border: 1.5px solid #000;
   
   #scene_selector{
@@ -871,9 +873,15 @@ transition: all .13s linear;
     justify-content: flex-start;
     
     select{
-      padding: .25em;
+      padding: .25em 1em;
       margin: 1em auto;
       text-align: center;
+      border-radius: 8px;
+      outline: 1.5px solid $l;
+      border: 1px solid $c;
+      background: $c;
+      color: $l;
+      font-family: $mono;
     }
     
     select:hover{

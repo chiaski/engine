@@ -15,10 +15,15 @@ EDITOR
 */
 @font-face {
   font-family: "FA Sysfont C";
-  src: url("fa-sysfont-c.woff2") format("woff2"), url("fa-sysfont-c.woff") format("woff");
+  src: url("./assets/fonts/sysfont.woff2") format("woff2"), url("./alpha/assets/fonts/sysfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
+/*
+
+  COLORS
+
+*/
 /*
 
   TRANSITIONS
@@ -26,6 +31,7 @@ EDITOR
 */
 html, body {
   scroll-behavior: smooth;
+  font-family: "FA Sysfont C", monospace;
 }
 
 #e, body, #e-play {
@@ -36,11 +42,6 @@ html, body {
   transition: background 0.15s linear;
 }
 
-/*
-
-  COLORS
-
-*/
 * {
   box-sizing: border-box;
 }
@@ -51,7 +52,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 10vh;
+  margin-bottom: 25vh;
 }
 
 h1 {
@@ -70,8 +71,10 @@ h2 {
   width: 100%;
   display: block;
   border-bottom: 1.5px solid #000000;
-  font-family: "Times New Roman";
+  font-family: "FA Sysfont C", monospace;
+  font-size: 0.9em;
   padding: 0.75em;
+  text-align: left;
 }
 h2 span {
   border-right: 1.5px solid #000000;
@@ -90,7 +93,7 @@ button {
   color: #f7f7f7;
   padding: 1em;
   margin: 1em;
-  font-family: "Times New Roman";
+  font-family: "FA Sysfont C", monospace;
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
@@ -172,7 +175,7 @@ START AND EXTRAS
   padding: 0.25em;
   margin: 0 0.25em;
   text-decoration: none;
-  font-family: "Courier New";
+  font-family: "FA Sysfont C", monospace;
   color: #f7f7f7;
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -241,7 +244,7 @@ START AND EXTRAS
 }
 .panel h2 {
   width: 100%;
-  padding: 0.5em 1em;
+  padding: 0.5em 0.75em;
   margin: 0;
 }
 
@@ -256,6 +259,7 @@ START AND EXTRAS
 }
 
 .panel._tutorial {
+  outline: 1px solid #f7f7f7;
   box-shadow: 0 0 20px #717374;
   transform: translateX(2em);
   right: 0;
@@ -347,8 +351,10 @@ START AND EXTRAS
   cursor: text;
 }
 
-.library-text-controls button#btn-savetextoverlay {
-  display: none;
+.library-text-controls button.__toggled {
+  filter: invert(1);
+  transform: translateY(-5px);
+  display: inline-block;
 }
 
 #engine-window {
@@ -532,7 +538,7 @@ EDITOR
   border: 1px solid #000000;
   outline: 1.5px solid #f7f7f7;
   vertical-align: middle;
-  font-family: "Courier New";
+  font-family: "FA Sysfont C", monospace;
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transform: scale(0.98);
@@ -562,8 +568,8 @@ EDITOR
 }
 
 #map {
-  width: 100%;
-  margin: 0 10vw;
+  width: 90%;
+  margin: 0 50px;
   border: 1.5px solid #000;
 }
 #map #scene_selector {
@@ -587,7 +593,7 @@ EDITOR
   display: block;
   content: "Start";
   color: #f7f7f7;
-  font-family: "Courier New";
+  font-family: "FA Sysfont C", monospace;
   text-transform: uppercase;
   font-size: 0.6em;
 }
@@ -644,9 +650,15 @@ EDITOR
   justify-content: flex-start;
 }
 #library .library-controls select {
-  padding: 0.25em;
+  padding: 0.25em 1em;
   margin: 1em auto;
   text-align: center;
+  border-radius: 8px;
+  outline: 1.5px solid #f7f7f7;
+  border: 1px solid #000000;
+  background: #000000;
+  color: #f7f7f7;
+  font-family: "FA Sysfont C", monospace;
 }
 #library .library-controls select:hover {
   cursor: pointer;
