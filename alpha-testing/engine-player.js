@@ -129,10 +129,16 @@ const Tplayer = {
 
       if (e.x && e.y) {
         newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
+      } else{
+        newSrc += "top:0px; left:0px";
       }
 
       if (e.filter) {
         newSrc += "filter:" + e.filter + ";";
+      }
+      
+      if (e.flip) {
+        newSrc += "transform:" + e.flip + ";"
       }
 
       if (e.size) {
@@ -333,10 +339,16 @@ const Tplayer = {
 
       if (e.x && e.y) {
         newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
+      } else{
+        newSrc += "top:0px; left:0px";
       }
 
       if (e.filter) {
         newSrc += "filter:" + e.filter + ";";
+      }
+      
+      if (e.flip) {
+        newSrc += "transform:" + e.flip + ";"
       }
 
       if (e.size) {

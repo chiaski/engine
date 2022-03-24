@@ -167,7 +167,6 @@ const sceneControls = {
     
     // iterate over each object
     (active_scene.objects).forEach(function (e) {
-//      console.log(e);
       objControls.addObj(e.img, e.x, e.y, e.filter, e.flip, e.size, e.interaction, e.interaction_target);
     })
 

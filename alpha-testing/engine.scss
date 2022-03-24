@@ -189,6 +189,9 @@ body{
 
 #e-play .obj, #e-cartridge .obj{
   position: absolute;
+  display: inline-block;
+  left: 0;
+  top: 0;
   width: 128px;
   height: 128px;
   mix-blend-mode: exclusion;

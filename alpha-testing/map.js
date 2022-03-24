@@ -92,12 +92,7 @@ const mapControls = {
       if( !confirm("Do you want to create a new scene at " + coord + "?") ){
         return;
       }
-
-      // reset text controls
-//      libraryText.deloadBtns();
-//      libraryText.disableText();
-//      libraryText.loadEditBtn();
-
+      
       sceneControls.clearScene();
       
       // remove active scenes
