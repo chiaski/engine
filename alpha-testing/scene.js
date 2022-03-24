@@ -284,15 +284,21 @@ sceneControls.initColorpicker();
 
 $("#btn-cartridge").on("click", function () {
   
+  // disable text
+    if(  $("button#btn-toggletext").hasClass("__toggled") ){
+      $("#e #e-text").css("pointer-events", "none");
+      $("button#btn-toggletext").removeClass("__toggled");
+    }
   
   objControls.clearSelected();
+  $("#tool-textoverlay").fadeOut();
   sceneControls.editCartridge();
   alert("Now editing the game cartridge—your game's cover. Saves automatically!");
 });
 
 
 $("#btn-savecartridge").on("click", function () {
-
+  $("#tool-textoverlay").fadeIn();
   objControls.clearSelected();
   sceneControls.saveCartridge();
   alert("Cartridge saved!");

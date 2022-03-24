@@ -50,7 +50,6 @@ const libraryText = {
     }
     
     libraryText.saveText();
-//    $("#e #e-text textarea").toggle();
     console.log("text toggled");
     
   },
@@ -72,7 +71,7 @@ const libraryText = {
   disableText: function(){
     // first, save
     libraryText.saveText();
-    
+
     // disable text editing
     $("#e #e-text textarea").css("pointer-events", "none");
     $("#e #e-text").css("pointer-events", "none");
