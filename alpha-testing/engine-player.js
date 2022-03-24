@@ -17,7 +17,6 @@ function testJSON(text) {
 }
 
 $("#btn-loadcartridge").on("click", function(){
-  
   cartridge = $("#e-loadcartridge textarea").val();
   cartridge = cartridge.replace(/^\s+|\s+$/g, "")
                 .replace(/\\n/g, "\\n")  
@@ -101,20 +100,22 @@ const Tplayer = {
     
     Tplayer.clearGame();
 
-    // load the cartridge
-    Tplayer.loadCartridge();
+    if(scenes.cartridge !== null){
+      // load the cartridge
+      Tplayer.loadCartridge();
+      $("#e-cartridge").fadeIn(1000);
+      setTimeout(function () {
+        $("#e-cartridge").fadeOut("slow");
+      }, 3000);
 
-    $("#e-cartridge").fadeIn(1000);
 
-    setTimeout(function () {
+    }
+      
 
-      $("#e-cartridge").fadeOut("slow");
-      $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
-      $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
-
-    }, 3000);
-
-    $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(4000).css("pointer-events", "auto").css("cursor", "auto");
+    $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
+    $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
+    
+    $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(3000).css("pointer-events", "auto").css("cursor", "auto");
 
     // load in starting scene
     Tplayer.loadPlay(scenes.start_scene.x, scenes.start_scene.y);
@@ -124,7 +125,7 @@ const Tplayer = {
   loadCartridge: function () {
 
     $("#play h2").text("Starting game...");
-
+    
     (scenes.cartridge.objects).forEach(function (e) {
       let newSrc = "";
       newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
