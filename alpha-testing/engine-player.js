@@ -104,18 +104,15 @@ const Tplayer = {
       // load the cartridge
       Tplayer.loadCartridge();
       $("#e-cartridge").fadeIn(1000);
+      
       setTimeout(function () {
         $("#e-cartridge").fadeOut("slow");
-      }, 3000);
-
-
-    }
-      
-
     $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
     $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
-    
+      }, 3000);
+      
     $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(3000).css("pointer-events", "auto").css("cursor", "auto");
+    }
 
     // load in starting scene
     Tplayer.loadPlay(scenes.start_scene.x, scenes.start_scene.y);

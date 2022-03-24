@@ -3,7 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engine Alpha</title>
+  <title>Engine Alpha 1.0</title>
   <meta name="description" content="A tiny storytelling tool." />
   <meta name="author" content="Chia" />
   
@@ -123,6 +123,7 @@
               <option value="digital">digital</option>
               <option value="clouds">clouds</option>
               <option value="monsters">monsters</option>
+              <option value="chat">chat</option>
             </select>
           </div>
 
@@ -193,7 +194,7 @@
         <button data-action="" onclick="objControls.effect('invert');">invert</button>
 
 
-        <button id="btn-finishediting" data-action="" onclick="objControls.clearSelected();">finish editing</button>
+        <button id="btn-finishediting"  onclick="objControls.clearSelected();objControls.saveObjects();">finish editing</button>
       </div>
 
       <div class="controls-cartridge">

@@ -100,7 +100,8 @@ const library = {
   faces: ["8D", "blank", "fear", "joy", "hmm", "kiss", "nerd", "ninja", "rage", "sad", "tear", "vomit", "worry"],
   digital: ["bomb", "case", "clock", "computer-2", "computer", "cursor", "dude", "exclamation", "package", "paint", "paper", "pointer", "save", "stack", "trash", "printer"],
   monsters: ["chad", "child", "dude", "dude-2", "dude-3", "dude-4", "eye", "flyingfuck", "ghost", "head", "rawr", "skull"],
-  items: ["cash", "cashbag", "clock", "coin", "coin-number", "frame", "gem", "gem-2", "gold", "magnify", "pouch", "sandglass"],
+  items: ["person", "hair", "heart", "heart-half", "cash", "cashbag", "clock", "coin", "coin-number", "frame", "gem", "gem-2", "gold", "magnify", "pouch", "sandglass", "wine", "beer", "coffee", "drink", "note", "megaphone", "shroom", "sword", "pizza", "cake"],
+  chat: ["chat-dot", "chat-exclaim", "chat-line", "chat-no", "chat-yes", "chat-ok", "chat", "gameover", "off", "on"],
   clouds: ["1", "2", "3", "4", "5", "6", "7"]
 
 };
