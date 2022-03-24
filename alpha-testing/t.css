@@ -390,6 +390,7 @@ START AND EXTRAS
 
 #e .obj, #e-play .obj, #e-cartridge .obj {
   position: absolute;
+  display: inline-block;
   width: 128px;
   height: 128px;
   mix-blend-mode: exclusion;

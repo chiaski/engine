@@ -168,7 +168,7 @@ const sceneControls = {
     // iterate over each object
     (active_scene.objects).forEach(function (e) {
 //      console.log(e);
-      objControls.addObj(e.img, e.x, e.y, e.filter, e.size, e.interaction, e.interaction_target);
+      objControls.addObj(e.img, e.x, e.y, e.filter, e.flip, e.size, e.interaction, e.interaction_target);
     })
 
   },
@@ -256,6 +256,10 @@ const sceneControls = {
 
       if (e.filter) {
         newSrc += "filter:" + e.filter + ";";
+      }
+
+      if (e.flip) {
+        newSrc += "transform:" + e.flip + ";"
       }
 
       if (e.size) {

@@ -108,11 +108,12 @@ const library = {
 
 // object constructor
 
-function thingy(x, y, img, filter, size, interaction, interaction_target) {
+function thingy(x, y, img, filter, flip, size, interaction, interaction_target) {
   this.x = x;
   this.y = y;
   this.img = img;
   this.filter = filter;
+  this.flip = flip;
   this.size = size;
   this.interaction = interaction;
   this.interaction_target = interaction_target;
@@ -269,7 +270,7 @@ const objControls = {
   },
 
   // add object
-  addObj: function (src, x, y, filter, size, interaction, interaction_target) {
+  addObj: function (src, x, y, filter, flip, size, interaction, interaction_target) {
     // first, deselect all objects
     objControls.clearSelected();
     let newSrc;
@@ -281,6 +282,10 @@ const objControls = {
 
     if (filter) {
       newSrc += "filter:" + filter + ";";
+    }
+    
+    if (flip) {
+      newSrc += "transform:" + flip + ";"
     }
 
     if (size) {
@@ -344,7 +349,6 @@ const objControls = {
     switch (how) {
 
       case "invert":
-
         if (($(t).css("filter") == 'invert(1)')) {
           $(t).css("filter", "invert(0)");
         } else {
@@ -353,6 +357,19 @@ const objControls = {
 
         break;
 
+      case "flip":
+        
+        console.log("please");
+        
+        console.log($(t).css("transform"));
+        
+        if ( $(t).css("transform") == "scale(-1, 1)" || $(t).css("transform") == "matrix(-1, 0, 0, 1, 0, 0)"  ) {
+          $(t).css("transform", "scale(1,1)");
+        } else {
+          $(t).css("transform", "scale(-1,1)");
+        }
+
+        break;
     }
 
   },
@@ -364,12 +381,12 @@ const objControls = {
     active_scene.objects = [];
 
     $("#e .obj").each(function () {
-      // NOTE: width and height are always equal, so we only need to fetch one of these values for size
+      
       // TODO: interactions, once that's implemented
 
       let e = $(this);
 
-      (active_scene.objects).push(new thingy(e.position().left, e.position().top, e.attr('src'), e.css('filter'), e.css('width'), e.attr('data-interaction'), e.attr('data-target')));
+      (active_scene.objects).push(new thingy(e.position().left, e.position().top, e.attr('src'), e.css('filter'), e.css('transform'), e.css('width'), e.attr('data-interaction'), e.attr('data-target')));
 
     });
 

@@ -188,10 +188,12 @@
 
         <button data-action="delete" onclick="objControls.delObj();">delete</button>
 
-        <button data-action="" onclick="objControls.size('up');">grow</button>
-        <button data-action="" onclick="objControls.size('down');">shrink</button>
+        <button onclick="objControls.size('up');">grow</button>
+        <button onclick="objControls.size('down');">shrink</button>
 
-        <button data-action="" onclick="objControls.effect('invert');">invert</button>
+        <button onclick="objControls.effect('invert');">invert</button>
+        
+        <button onclick="objControls.effect('flip');">flip</button>
 
 
         <button id="btn-finishediting"  onclick="objControls.clearSelected();objControls.saveObjects();">finish editing</button>
