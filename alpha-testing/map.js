@@ -10,8 +10,6 @@ console.log("map.js loaded");
 
 
 
-
-
 const mapControls = {
   
   MASTER: "sss",
@@ -25,7 +23,6 @@ const mapControls = {
     
   */
   
-  // x & y == coordinate of start, if any
   initMap: function(x, y){
 
     var map_html = "";

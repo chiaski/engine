@@ -15,33 +15,6 @@ EDITOR
 */
 
 
-@font-face {
-  font-family: 'Times Now';
-  src: url('./assets/fonts/TimesNow-LightItalic.woff2') format('woff2'),
-    url('./assets/fonts/TimesNow-LightItalic.woff') format('woff');
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Times Now';
-  src: url('./assets/fonts/TimesNow-Light.woff2') format('woff2'),
-    url('./assets/fonts/TimesNow-Light.woff') format('woff');
-  font-style: normal;
-  font-display: swap;
-}
-
-
-
-
-@font-face {
-  font-family: 'Apercu Pro Mono';
-  src: url('./assets/fonts/ApercuPro-Mono.woff2') format('woff2'), url('./assets/fonts/ApercuPro-Mono.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 
 /*
 
@@ -51,7 +24,6 @@ EDITOR
 
 html, body{
   scroll-behavior: smooth;
-  
 }
 
 #e, body, #e-play{
@@ -73,11 +45,12 @@ $c: #000000; // MAIN COLOR
 $l: #f7f7f7; // light color
 
 $g1: #b6b7b7;
-$g2: #868c8e;
+$g2: #717374;
+$g3: #4c565a;
 
 $p: #eb80ff; 
 
-$mono: "Apercu Pro Mono";
+$mono: "Courier New";
 
 *{
   box-sizing: border-box;
@@ -93,7 +66,6 @@ body{
 }
 
 h1{
-  font-family: "Times Now";
   font-size: 5.6em;
   letter-spacing: -2px;
   display: block;
@@ -128,9 +100,13 @@ h4{
 
 button{
   border: 1.5px solid $c;
+  outline: 1px solid $l;
+  border-radius: 8px;
   background: $l;
   padding: 1em;
   margin: 1em;
+      -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
+transition: all .19s cubic-bezier(.17,.67,.83,.67);
 }
 
 button:hover{
@@ -174,6 +150,13 @@ button:hover{
   display: none;
 }
 
+.fx._s{
+  background-image:url(assets/fx-scanline.gif);
+  background-size: 120%;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+}
+
 .fx._cover{
   
   object-fit: contain;
@@ -211,14 +194,14 @@ START AND EXTRAS
     text-decoration: none;
     font-family: $mono;
     text-transform: uppercase;
-    color:#fff;
+    color:$l;
       -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
 transition: all .19s cubic-bezier(.17,.67,.83,.67);
   }
   
   a:hover{
     transform: scale(1.22);
-    text-shadow: 0 0 5px #fff;
+    text-shadow: 0 0 5px $l;
   }
   
   a._small{
@@ -233,10 +216,11 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
 #start{
   background-image: url(assets/bg-min.gif);
   background-size: cover;
-  color:#fff;
+  color:$l;
   min-height: 50vh;
+  max-width: 80vw;
   padding:20vh 0;
-  margin: 15vh 0;
+  margin: 12.5vh 0;
   filter: contrast(5);
   
   .window-wrapper{
@@ -250,8 +234,6 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
     
     button{
       font-size: 1.2em;
-      font-family: "Times New Roman";
-      font-family: "Helvetica";
     }
     
   }
@@ -270,23 +252,24 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
 .window{
   position: relative;
   background: $l;
-  box-shadow: 0 0 20px $g2;
+  box-shadow: 0 0 100px $g2;
   border: 1.5px solid $c;
+  outline: 1px solid $l;
   width: 100%;
+  border-radius: 15px;
   min-height: 30vh;
   display: flex;
   justify-content: center;
   vertical-align: middle;
   align-items: center;
   flex-wrap: wrap;
-  margin: 2.5vh 0;
+  margin: 2.5vh 5vw;
 }
 
 
 .panel{
   border-top: 1px solid $c;
   border-bottom: 1px solid $c;
-  
   margin: 1em 0;
   
   p{
@@ -434,7 +417,7 @@ display: none;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0);
-    color:#fff;
+    color:$l;
     font-size: 1.9em;
     mix-blend-mode: exclusion;
     white-space: pre-wrap;
@@ -483,7 +466,7 @@ display: none;
   display: block;
   position: relative;
   background: $c;
-  border: 1px solid #fff;
+  border: 1px solid $l;
   outline: 1.5px solid $c;
   width: 512px;
   height: 512px;
@@ -507,7 +490,7 @@ display: none;
 }
 
 #e img[data-selected="1"]{
-  box-shadow: 0 0 20px #fff;
+  box-shadow: 0 0 20px $l;
 }
 
 #e img[data-selected="1"]:hover{
@@ -534,7 +517,7 @@ PLAY
 
 #play{
   
-  outline: 1.25px solid #fff;
+  outline: 1.25px solid $l;
   background: #000;
   position: relative;
   width: 512px;
@@ -586,7 +569,7 @@ transition: all .13s linear;
     a{
       position: absolute;
       display: inline-block;
-      background: #fff;
+      background: $l;
       opacity: 0.5;
       background-blend-mode: blur(3px);
     }
@@ -640,8 +623,8 @@ transition: all .13s linear;
   }
   
   h2{
-    color: #fff;
-    border-bottom: 1px solid #fff;
+    color: $l;
+    border-bottom: 1px solid $l;
   }
   
 }
@@ -674,7 +657,6 @@ EDITOR
     margin: 1em auto;
     text-align: center;
     
-    
     hr{
       height: 0;
       width: 100%;
@@ -685,21 +667,24 @@ EDITOR
     }
     
     ._s{
-    display: inline-block;
+      display: inline-block;
+      border-radius: 6px;
       padding: .25em;
       background: $c;
-      color:#fff;
+      color:$l;
+      border: 1px solid $c;
       vertical-align: middle;
     }
     
     ._s.__start{
       border: 1px solid $p;
+      outline: 1.5px solid $c;
     }
     
     ._s.__active{
       opacity: 1;
-//      border: 1px solid #fff;
-      outline: 2ox solid hotpink;
+      border: 1px solid $l;
+      outline: 2ox solid $p;
       box-shadow: 0 0 5px $c;
       
   animation: pulse-black 2s infinite;
@@ -729,6 +714,7 @@ EDITOR
 #map{
   
   width: 100%;
+  margin: 0 10vw;
   border: 1.5px solid #000;
   
   #scene_selector{
@@ -740,8 +726,8 @@ EDITOR
   
   ._s{
     
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     padding: .5em;
     margin: .2em;
     font-size: 1em;
@@ -757,7 +743,7 @@ EDITOR
       padding: .5em 0;
       display: block;
       content:"Start";
-      color:#fff;
+      color:$l;
       font-family: $mono;
       text-transform: uppercase;
       font-size: .6em;
@@ -808,8 +794,8 @@ EDITOR
 -ms-transition: all .13s linear;
 -o-transition: all .13s linear;
 transition: all .13s linear;
-      border: 1px solid #fff;
-      box-shadow: 0 0 5px #fff;
+      border: 1px solid $l;
+      box-shadow: 0 0 5px $l;
     }
     
     
@@ -852,7 +838,7 @@ transition: all .13s linear;
 
 #library{
 //  background: $c;
-//  color:#fff;
+//  color:$l;
   margin: 0;
   
   .library-controls{
@@ -904,7 +890,7 @@ transition: all .13s linear;
   ._toadd{
     background: $c;
     padding: .25em;
-    border: .5px solid #fff;
+    border: .5px solid $l;
     object-fit: contain;
     width: 50px;
     height: 50px;

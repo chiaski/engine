@@ -128,10 +128,6 @@ const libraryControls = {
   $LIBRARY_OBJECTS: "library-objects",
 
   init: function () {
-
-    //    console.log(library)
-
-
   },
 
   clicktoadd: function () {

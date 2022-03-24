@@ -13,25 +13,6 @@ EDITOR
 
 
 */
-@font-face {
-  font-family: "Times Now";
-  src: url("./assets/fonts/TimesNow-LightItalic.woff2") format("woff2"), url("./assets/fonts/TimesNow-LightItalic.woff") format("woff");
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Times Now";
-  src: url("./assets/fonts/TimesNow-Light.woff2") format("woff2"), url("./assets/fonts/TimesNow-Light.woff") format("woff");
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Apercu Pro Mono";
-  src: url("./assets/fonts/ApercuPro-Mono.woff2") format("woff2"), url("./assets/fonts/ApercuPro-Mono.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 /*
 
   TRANSITIONS
@@ -68,7 +49,6 @@ body {
 }
 
 h1 {
-  font-family: "Times Now";
   font-size: 5.6em;
   letter-spacing: -2px;
   display: block;
@@ -84,7 +64,7 @@ h2 {
   width: 100%;
   display: block;
   border-bottom: 1.5px solid #000000;
-  font-family: "Apercu Pro Mono";
+  font-family: "Courier New";
   text-transform: uppercase;
   font-size: 0.8em;
   padding: 1em 0;
@@ -100,16 +80,20 @@ h4 {
 
 button {
   border: 1.5px solid #000000;
+  outline: 1px solid #f7f7f7;
+  border-radius: 8px;
   background: #f7f7f7;
   padding: 1em;
   margin: 1em;
+  -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
 button:hover {
   background: #000000;
   color: #f7f7f7;
   cursor: pointer;
-  box-shadow: 0 0 20px #868c8e;
+  box-shadow: 0 0 20px #717374;
 }
 
 /* 
@@ -143,6 +127,13 @@ button:hover {
   display: none;
 }
 
+.fx._s {
+  background-image: url(assets/fx-scanline.gif);
+  background-size: 120%;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+}
+
 .fx._cover {
   object-fit: contain;
   mix-blend-mode: multiply;
@@ -174,15 +165,15 @@ START AND EXTRAS
   padding: 0.25em;
   margin: 0 0.25em;
   text-decoration: none;
-  font-family: "Apercu Pro Mono";
+  font-family: "Courier New";
   text-transform: uppercase;
-  color: #fff;
+  color: #f7f7f7;
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 #jump a:hover {
   transform: scale(1.22);
-  text-shadow: 0 0 5px #fff;
+  text-shadow: 0 0 5px #f7f7f7;
 }
 #jump a._small {
   padding: 0.5em;
@@ -194,10 +185,11 @@ START AND EXTRAS
 #start {
   background-image: url(assets/bg-min.gif);
   background-size: cover;
-  color: #fff;
+  color: #f7f7f7;
   min-height: 50vh;
+  max-width: 80vw;
   padding: 20vh 0;
-  margin: 15vh 0;
+  margin: 12.5vh 0;
   filter: contrast(5);
 }
 #start .window-wrapper {
@@ -210,8 +202,6 @@ START AND EXTRAS
 }
 #start .window-wrapper button {
   font-size: 1.2em;
-  font-family: "Times New Roman";
-  font-family: "Helvetica";
 }
 
 /* 
@@ -223,16 +213,18 @@ START AND EXTRAS
 .window {
   position: relative;
   background: #f7f7f7;
-  box-shadow: 0 0 20px #868c8e;
+  box-shadow: 0 0 100px #717374;
   border: 1.5px solid #000000;
+  outline: 1px solid #f7f7f7;
   width: 100%;
+  border-radius: 15px;
   min-height: 30vh;
   display: flex;
   justify-content: center;
   vertical-align: middle;
   align-items: center;
   flex-wrap: wrap;
-  margin: 2.5vh 0;
+  margin: 2.5vh 5vw;
 }
 
 .panel {
@@ -263,7 +255,7 @@ START AND EXTRAS
 }
 
 .panel._tutorial {
-  box-shadow: 0 0 20px #868c8e;
+  box-shadow: 0 0 20px #717374;
   transform: translateX(2em);
   right: 0;
   max-width: 250px;
@@ -345,7 +337,7 @@ START AND EXTRAS
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0);
-  color: #fff;
+  color: #f7f7f7;
   font-size: 1.9em;
   mix-blend-mode: exclusion;
   white-space: pre-wrap;
@@ -380,7 +372,7 @@ START AND EXTRAS
   display: block;
   position: relative;
   background: #000000;
-  border: 1px solid #fff;
+  border: 1px solid #f7f7f7;
   outline: 1.5px solid #000000;
   width: 512px;
   height: 512px;
@@ -401,7 +393,7 @@ START AND EXTRAS
 }
 
 #e img[data-selected="1"] {
-  box-shadow: 0 0 20px #fff;
+  box-shadow: 0 0 20px #f7f7f7;
 }
 
 #e img[data-selected="1"]:hover {
@@ -424,7 +416,7 @@ PLAY
 
 */
 #play {
-  outline: 1.25px solid #fff;
+  outline: 1.25px solid #f7f7f7;
   background: #000;
   position: relative;
   width: 512px;
@@ -466,7 +458,7 @@ PLAY
 #play #e-controls a {
   position: absolute;
   display: inline-block;
-  background: #fff;
+  background: #f7f7f7;
   opacity: 0.5;
   background-blend-mode: blur(3px);
 }
@@ -499,8 +491,8 @@ PLAY
   cursor: not-allowed;
 }
 #play h2 {
-  color: #fff;
-  border-bottom: 1px solid #fff;
+  color: #f7f7f7;
+  border-bottom: 1px solid #f7f7f7;
 }
 
 /* 
@@ -526,17 +518,21 @@ EDITOR
 }
 #scene_s #scene_selector ._s, #map #scene_selector ._s {
   display: inline-block;
+  border-radius: 6px;
   padding: 0.25em;
   background: #000000;
-  color: #fff;
+  color: #f7f7f7;
+  border: 1px solid #000000;
   vertical-align: middle;
 }
 #scene_s #scene_selector ._s.__start, #map #scene_selector ._s.__start {
   border: 1px solid #eb80ff;
+  outline: 1.5px solid #000000;
 }
 #scene_s #scene_selector ._s.__active, #map #scene_selector ._s.__active {
   opacity: 1;
-  outline: 2ox solid hotpink;
+  border: 1px solid #f7f7f7;
+  outline: 2ox solid #eb80ff;
   box-shadow: 0 0 5px #000000;
   animation: pulse-black 2s infinite;
 }
@@ -553,6 +549,7 @@ EDITOR
 
 #map {
   width: 100%;
+  margin: 0 10vw;
   border: 1.5px solid #000;
 }
 #map #scene_selector {
@@ -561,8 +558,8 @@ EDITOR
   justify-content: center;
 }
 #map #scene_selector ._s {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   padding: 0.5em;
   margin: 0.2em;
   font-size: 1em;
@@ -573,8 +570,8 @@ EDITOR
   padding: 0.5em 0;
   display: block;
   content: "Start";
-  color: #fff;
-  font-family: "Apercu Pro Mono";
+  color: #f7f7f7;
+  font-family: "Courier New";
   text-transform: uppercase;
   font-size: 0.6em;
 }
@@ -610,8 +607,8 @@ EDITOR
   -ms-transition: all 0.13s linear;
   -o-transition: all 0.13s linear;
   transition: all 0.13s linear;
-  border: 1px solid #fff;
-  box-shadow: 0 0 5px #fff;
+  border: 1px solid #f7f7f7;
+  box-shadow: 0 0 5px #f7f7f7;
 }
 
 #texttool input[type=text] {
@@ -658,7 +655,7 @@ EDITOR
 #library ._toadd {
   background: #000000;
   padding: 0.25em;
-  border: 0.5px solid #fff;
+  border: 0.5px solid #f7f7f7;
   object-fit: contain;
   width: 50px;
   height: 50px;
