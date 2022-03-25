@@ -1,5 +1,4 @@
 // minified version of this goes into blank-cartridge.html
-
 console.log("loaded engine.js, Engine's playmode")
 
 const cartridge = $("#cartridge").text();
@@ -80,20 +79,26 @@ const Tplayer = {
 
     Tplayer.clearGame();
 
-    // load the cartridge
-    Tplayer.loadCartridge();
+    // load the cartridge, if there is one
+    if(scenes.cartridge !== null){
+      Tplayer.loadCartridge();
+      
+       $("#e-cartridge").fadeIn(1000);
 
-    $("#e-cartridge").fadeIn(1000);
+      setTimeout(function () {
 
-    setTimeout(function () {
+        $("#e-cartridge").fadeOut("slow");
+        $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
+        $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
+      }, 2500);
+      
+    } else{ 
+      $("#e-cartridge").fadeOut();
+      $("#play").css("pointer-events", "auto").css("cursor", "auto");
+    }
 
-      $("#e-cartridge").fadeOut("slow");
-      $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
-      $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
-
-    }, 3000);
-
-    $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(4000).css("pointer-events", "auto").css("cursor", "auto");
+   
+    $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(2500).css("pointer-events", "auto").css("cursor", "auto");
 
     // load in starting scene
     Tplayer.loadPlay(scenes.start_scene.x, scenes.start_scene.y);
@@ -103,34 +108,34 @@ const Tplayer = {
   loadCartridge: function () {
 
     $("#play h2").text("Starting game...");
-
-    (scenes.cartridge.objects).forEach(function (e) {
-      let newSrc = "";
-      newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
-
-      if (e.x && e.y) {
-        newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
-      } else{
-        newSrc += "top:0px; left:0px";
-      }
-
-      if (e.filter) {
-        newSrc += "filter:" + e.filter + ";";
-      }
-
-      if (e.flip) {
-        newSrc += "transform:" + e.flip + ";"
-      }
-
-      if (e.size) {
-        newSrc += "width:" + e.size + "; height:" + e.size + ";";
-      }
-
-      newSrc += "'>";
-
-      let newObj = $(newSrc).hide().fadeIn(500);
-      $("#e-cartridge").append(newObj);
-    })
+    
+    Tplayer.loadObjects(scenes.cartridge.objects, "#e-cartridge");
+    
+//    
+//    (scenes.cartridge.objects).forEach(function (e) {
+//      let newSrc = "";
+//      
+//      newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
+//
+//      newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
+//
+//      if (e.filter) {
+//        newSrc += "filter:" + e.filter + ";";
+//      }
+//
+//      if (e.flip) {
+//        newSrc += "transform:" + e.flip + ";"
+//      }
+//
+//      if (e.size) {
+//        newSrc += "width:" + e.size + "; height:" + e.size + ";";
+//      }
+//
+//      newSrc += "'>";
+//
+//      let newObj = $(newSrc).hide().fadeIn(500);
+//      $("#e-cartridge").append(newObj);
+//    })
 
     $("#e-cartridge").css("background", scenes.cartridge.color);
     $("body").css("background", scenes.cartridge.color);
@@ -312,33 +317,32 @@ const Tplayer = {
     $("#e-play textarea").hide().delay(700).fadeIn("slow").val(c.textConvert(Tplayer.active.textoverlay));
 
     // add objects
-    ((Tplayer.active).objects).forEach(function (e) {
-      let newSrc = "";
-      newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
-
-      if (e.x && e.y) {
-        newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
-      } else{
-        newSrc += "top:0px; left:0px";
-      }
-
-      if (e.filter) {
-        newSrc += "filter:" + e.filter + ";";
-      }
-
-      if (e.flip) {
-        newSrc += "transform:" + e.flip + ";"
-      }
-      
-      if (e.size) {
-        newSrc += "width:" + e.size + "; height:" + e.size + ";";
-      }
-
-      newSrc += "'>";
-
-      let newObj = $(newSrc).hide().fadeIn(1400);
-      $("#e-play").append(newObj);
-    })
+    Tplayer.loadObjects(((Tplayer.active).objects), "#e-play");
+    
+//    
+//    ((Tplayer.active).objects).forEach(function (e) {
+//      let newSrc = "";
+//      newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
+//
+//      newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
+//
+//      if (e.filter) {
+//        newSrc += "filter:" + e.filter + ";";
+//      }
+//
+//      if (e.flip) {
+//        newSrc += "transform:" + e.flip + ";"
+//      }
+//      
+//      if (e.size) {
+//        newSrc += "width:" + e.size + "; height:" + e.size + ";";
+//      }
+//
+//      newSrc += "'>";
+//
+//      let newObj = $(newSrc).hide().fadeIn(1400);
+//      $("#e-play").append(newObj);
+//    })
 
     // update text
     $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
@@ -349,6 +353,36 @@ const Tplayer = {
     // update the scene navigation
     Tplayer.updateSceneNavigation();
 
+  }, 
+  
+  // load objects from [objects] to [output-div]
+  loadObjects: function(objects, div){
+    
+      (objects).forEach(function (e) {
+      let newSrc = "";
+      
+      newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
+
+      newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
+
+      if (e.filter) {
+        newSrc += "filter:" + e.filter + ";";
+      }
+
+      if (e.flip) {
+        newSrc += "transform:" + e.flip + ";"
+      }
+
+      if (e.size) {
+        newSrc += "width:" + e.size + "; height:" + e.size + ";";
+      }
+
+      newSrc += "'>";
+
+      let newObj = $(newSrc).hide().fadeIn(500);
+      $(div).append(newObj);
+    })
+    
   },
 
   loadColor: function () {
