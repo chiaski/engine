@@ -47,7 +47,7 @@ html, body {
 }
 
 body {
-  background: #000000;
+  background: #464A4B;
   padding: 2em;
   display: flex;
   flex-wrap: wrap;
@@ -60,11 +60,6 @@ h1 {
   letter-spacing: -2px;
   display: block;
   text-align: center;
-}
-
-h1._title {
-  font-size: 7.6em;
-  letter-spacing: -5px;
 }
 
 h2 {
@@ -87,10 +82,10 @@ h4 {
 
 button {
   border: 1.5px solid #000000;
-  outline: 1px solid #f7f7f7;
+  outline: 1px solid #edede8;
   border-radius: 8px;
   background: #000000;
-  color: #f7f7f7;
+  color: #edede8;
   padding: 1em;
   margin: 1em;
   font-family: "FA Sysfont C", monospace;
@@ -100,7 +95,7 @@ button {
 
 button:hover {
   transform: translateY(-2.5px);
-  color: #f7f7f7;
+  color: #edede8;
   background: #1c1e1f;
   cursor: pointer;
   box-shadow: 0 0 20px #3b4041;
@@ -114,7 +109,7 @@ button:hover {
 */
 .fx {
   position: fixed;
-  z-index: 9999;
+  z-index: 999999;
   pointer-events: none;
   width: 100%;
   height: 100%;
@@ -145,8 +140,8 @@ button:hover {
 }
 
 .fx._cover {
+  z-index: 80;
   object-fit: contain;
-  mix-blend-mode: multiply;
 }
 .fx._cover img {
   width: 100%;
@@ -162,9 +157,25 @@ START AND EXTRAS
 
 
 */
+#info {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  color: #cbc7c6;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  padding: 0.75em;
+}
+#info span {
+  padding: 0.5em;
+}
+
 #jump {
   position: fixed;
-  z-index: 100000;
+  z-index: 100;
   text-align: center;
   opacity: 0.8;
   padding: 1em;
@@ -176,13 +187,13 @@ START AND EXTRAS
   margin: 0 0.25em;
   text-decoration: none;
   font-family: "FA Sysfont C", monospace;
-  color: #f7f7f7;
+  color: #edede8;
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 #jump a:hover {
   transform: scale(1.22);
-  text-shadow: 0 0 5px #f7f7f7;
+  text-shadow: 0 0 5px #edede8;
 }
 #jump a._small {
   padding: 0.5em;
@@ -192,17 +203,19 @@ START AND EXTRAS
 }
 
 #start {
-  background-image: url(assets/bg-min.gif);
-  background-size: cover;
-  color: #f7f7f7;
+  background: #464A4B;
+  color: #edede8;
   min-height: 50vh;
   max-width: 80vw;
   padding: 20vh 0;
   margin: 12.5vh 0;
-  filter: contrast(5);
+}
+#start h1._title {
+  font-size: 7.6em;
+  letter-spacing: -5px;
+  color: #cbc7c6;
 }
 #start .window-wrapper {
-  mix-blend-mode: difference;
   text-align: center;
 }
 #start .window-wrapper p {
@@ -211,14 +224,22 @@ START AND EXTRAS
 }
 #start .window-wrapper button {
   font-size: 1.2em;
+  background: #464A4B;
+  color: #cbc7c6;
+  outline: #cbc7c6 1.5px solid;
+  box-shadow: #3b4041 0 0 40px;
+}
+#start .window-wrapper button:hover {
+  background: #717374;
+  transform: translateY(-6px);
 }
 
 .window {
   position: relative;
-  background: #f7f7f7;
+  background: #edede8;
   box-shadow: 0 0 100px #717374;
   border: 1.5px solid #000000;
-  outline: 1px solid #f7f7f7;
+  outline: 1px solid #edede8;
   width: 100%;
   border-radius: 15px;
   min-height: 30vh;
@@ -259,7 +280,7 @@ START AND EXTRAS
 }
 
 .panel._tutorial {
-  outline: 1px solid #f7f7f7;
+  outline: 1px solid #edede8;
   box-shadow: 0 0 20px #717374;
   transform: translateX(2em);
   right: 0;
@@ -267,7 +288,7 @@ START AND EXTRAS
   max-width: 250px;
   z-index: 1;
   position: absolute;
-  background: #f7f7f7;
+  background: #edede8;
   color: #000000;
 }
 
@@ -342,7 +363,7 @@ START AND EXTRAS
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0);
-  color: #f7f7f7;
+  color: #edede8;
   font-size: 1.9em;
   mix-blend-mode: exclusion;
   white-space: pre-wrap;
@@ -350,8 +371,14 @@ START AND EXTRAS
   cursor: text;
 }
 
+.library-text-controls button {
+  padding: 0.5em;
+}
 .library-text-controls button.__toggled {
-  filter: invert(1);
+  background: #cbc7c6;
+  color: #464A4B;
+  border: 1px solid #cbc7c6;
+  outline: 1.5px solid #464A4B;
   transform: translateY(-5px);
   display: inline-block;
 }
@@ -379,7 +406,7 @@ START AND EXTRAS
   display: block;
   position: relative;
   background: #000000;
-  border: 1px solid #f7f7f7;
+  border: 1px solid #edede8;
   outline: 1.5px solid #000000;
   width: 512px;
   height: 512px;
@@ -401,7 +428,7 @@ START AND EXTRAS
 }
 
 #e img[data-selected="1"] {
-  box-shadow: 0 0 20px #f7f7f7;
+  box-shadow: 0 0 20px #edede8;
 }
 
 #e img[data-selected="1"]:hover {
@@ -428,7 +455,7 @@ PLAY
 
 */
 #play {
-  outline: 1.25px solid #f7f7f7;
+  outline: 1.25px solid #edede8;
   background: #000;
   position: relative;
   width: 512px;
@@ -470,7 +497,7 @@ PLAY
 #play #e-controls a {
   position: absolute;
   display: inline-block;
-  background: #f7f7f7;
+  background: #edede8;
   opacity: 0.5;
   background-blend-mode: blur(3px);
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -505,8 +532,8 @@ PLAY
   cursor: not-allowed;
 }
 #play h2 {
-  color: #f7f7f7;
-  border-bottom: 1px solid #f7f7f7;
+  color: #edede8;
+  border-bottom: 1px solid #edede8;
 }
 
 /* 
@@ -534,9 +561,9 @@ EDITOR
   display: inline-block;
   padding: 0.25em;
   background: #000000;
-  color: #f7f7f7;
+  color: #edede8;
   border: 1px solid #000000;
-  outline: 1.5px solid #f7f7f7;
+  outline: 1.5px solid #edede8;
   vertical-align: middle;
   font-family: "FA Sysfont C", monospace;
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -549,7 +576,7 @@ EDITOR
 }
 #scene_s #scene_selector ._s.__active, #map #scene_selector ._s.__active {
   opacity: 1;
-  border: 1px solid #f7f7f7;
+  border: 1px solid #edede8;
   outline: 2ox solid #eb80ff;
   box-shadow: 0 0 5px #000000;
   animation: pulse-black 2s infinite;
@@ -578,7 +605,7 @@ EDITOR
   justify-content: center;
 }
 #map #scene_selector ._s {
-  color: #f7f7f7;
+  color: #edede8;
   width: 70px;
   height: 70px;
   padding: 0.5em;
@@ -592,7 +619,7 @@ EDITOR
   padding: 0.5em 0;
   display: block;
   content: "Start";
-  color: #f7f7f7;
+  color: #edede8;
   font-family: "FA Sysfont C", monospace;
   text-transform: uppercase;
   font-size: 0.6em;
@@ -630,9 +657,9 @@ EDITOR
   -ms-transition: all 0.13s linear;
   -o-transition: all 0.13s linear;
   transition: all 0.13s linear;
-  border: 0.6px solid #f7f7f7;
+  border: 0.6px solid #edede8;
   outline: 1.4px solid #000000;
-  box-shadow: 0 0 5px #f7f7f7;
+  box-shadow: 0 0 5px #edede8;
 }
 
 #texttool input[type=text] {
@@ -654,10 +681,10 @@ EDITOR
   margin: 1em auto;
   text-align: center;
   border-radius: 8px;
-  outline: 1.5px solid #f7f7f7;
+  outline: 1.5px solid #edede8;
   border: 1px solid #000000;
   background: #000000;
-  color: #f7f7f7;
+  color: #edede8;
   font-family: "FA Sysfont C", monospace;
 }
 #library .library-controls select:hover {
@@ -685,7 +712,7 @@ EDITOR
 #library ._toadd {
   background: #000000;
   padding: 0.25em;
-  border: 0.5px solid #f7f7f7;
+  border: 0.5px solid #edede8;
   object-fit: contain;
   width: 50px;
   height: 50px;
@@ -698,7 +725,7 @@ EDITOR
   filter: invert(1);
   transform: translateY(-3.5px);
   cursor: pointer;
-  border: 0.5px solid #f7f7f7;
+  border: 0.5px solid #edede8;
   outline: 1.5px solid #000000;
   border-radius: 6px;
 }

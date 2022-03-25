@@ -31,7 +31,7 @@ EDITOR
 */
 
 $c: #000000; // MAIN COLOR
-$l: #f7f7f7; // light color
+$l: #edede8; // light color
 
 $g1: #b6b7b7;
 $g2: #717374;
@@ -39,6 +39,10 @@ $g3: #3b4041;
 $g4: #1c1e1f;
 
 $p: #eb80ff; 
+
+// off white
+$off-dark: #464A4B;
+$off-light: #cbc7c6;
 
 $mono: "FA Sysfont C", monospace;
 $serif: "Times New Roman";
@@ -69,7 +73,7 @@ transition: background .15s linear;
 }
 
 body{
-  background: $c;
+  background: $off-dark;
   padding: 2em;
   display: flex;
   flex-wrap: wrap;
@@ -85,10 +89,6 @@ h1{
 }
 
 
-h1._title{
-  font-size: 5.6em + 2em;
-  letter-spacing: -5px;
-}
 
 h2{
   width: 100%;
@@ -141,7 +141,7 @@ button:hover{
 
 .fx{
   position: fixed;
-  z-index: 9999;
+  z-index: 999999;
   pointer-events: none;
   width: 100%;
   height: 100%;
@@ -174,8 +174,8 @@ button:hover{
 
 .fx._cover{
   
+  z-index: 80;
   object-fit: contain;
-  mix-blend-mode: multiply;
   
   img{
     width: 100%;
@@ -194,9 +194,27 @@ START AND EXTRAS
 
 */
 
+#info{
+  position: fixed;
+  width: 100vw;
+  top: 0; left: 0;
+  z-index: 100;
+  color: $off-light;
+  
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  padding: .75em;
+  
+  span{
+    padding: .5em;
+  }
+  
+}
+
 #jump{
   position: fixed;
-  z-index: 100000;
+  z-index: 100;
   text-align: center;
   opacity: 0.8;
   padding: 1em;
@@ -228,17 +246,20 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
 }
 
 #start{
-  background-image: url(assets/bg-min.gif);
-  background-size: cover;
+  background: $off-dark;
   color:$l;
   min-height: 50vh;
   max-width: 80vw;
   padding:20vh 0;
   margin: 12.5vh 0;
-  filter: contrast(5);
+  
+h1._title{
+  font-size: 5.6em + 2em;
+  letter-spacing: -5px;
+  color: $off-light;
+}
   
   .window-wrapper{
-    mix-blend-mode: difference;
     text-align: center;
     
     p{
@@ -248,6 +269,15 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
     
     button{
       font-size: 1.2em;
+      background: $off-dark;
+      color: $off-light;
+      outline: $off-light 1.5px solid;
+      box-shadow: $g3 0 0 40px;
+    }
+    
+    button:hover{
+      background: $g2;
+      transform: translateY(-6px);
     }
     
   }
@@ -438,8 +468,15 @@ display: none;
 
 .library-text-controls{
   
+  button{
+    padding: .5em;
+  }
+  
   button.__toggled{
-    filter: invert(1);
+    background: $off-light;
+    color: $off-dark;
+    border: 1px solid $off-light;
+    outline: 1.5px solid $off-dark;
     transform: translateY(-5px);
     display: inline-block;
   }
