@@ -139,11 +139,7 @@ const Tplayer = {
       let newSrc = "";
       newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
 
-      if (e.x && e.y) {
-        newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
-      } else{
-        newSrc += "top:0px; left:0px";
-      }
+      newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
 
       if (e.filter) {
         newSrc += "filter:" + e.filter + ";";
@@ -181,7 +177,7 @@ const Tplayer = {
       $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       Tplayer.loadScene(x, y);
 
-    }, 3000);
+    }, 1500);
 
   },
 
@@ -348,12 +344,8 @@ const Tplayer = {
       let newSrc = "";
       newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
 
-      if (e.x && e.y) {
-        newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
-      } else{
-        newSrc += "top:0px; left:0px";
-      }
-
+      newSrc += "top:" + e.y + "px; left:" + e.x + "px;"
+        
       if (e.filter) {
         newSrc += "filter:" + e.filter + ";";
       }
