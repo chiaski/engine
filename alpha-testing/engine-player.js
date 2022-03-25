@@ -1,4 +1,3 @@
-console.log("player-test.js loaded");
 console.log("Plug and play for Engine");
 
 var cartridge = null; 
@@ -357,7 +356,7 @@ const Tplayer = {
 
       newSrc += "'>";
 
-      let newObj = $(newSrc).hide().fadeIn(2000);
+      let newObj = $(newSrc).hide().fadeIn(1400);
       $("#e-play").append(newObj);
     })
 
@@ -387,7 +386,7 @@ const Tplayer = {
   },
   /* clearScene deletes all objects from the scene */
   clearScene: function () {
-    $("#e-text textarea").val("");
+    $("#e-play textarea").val("");
 
     $("#e-play img.obj").each(function () {
       $(this).remove();

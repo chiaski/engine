@@ -12,8 +12,6 @@ console.log("library.js loaded");
 
 
 
-
-
 /* 
 
   libraryText 
@@ -33,6 +31,11 @@ const libraryText = {
     $("button#btn-toggletext").on("click", function () {
       libraryText.toggleText();
     });
+    
+    $( "#e-text textarea" ).keyup(function() {
+      libraryText.saveText();
+    });
+
   },
   
   toggleText: function(){
@@ -65,13 +68,11 @@ const libraryText = {
   // saveText: save text into active scene
   saveText: function () {
     active_scene.textoverlay = $("#e #e-text textarea").val();
-
-    console.log("text saved", active_scene.textoverlay);
   },
+  
   disableText: function(){
     // first, save
     libraryText.saveText();
-
     // disable text editing
     $("#e #e-text textarea").css("pointer-events", "none");
     $("#e #e-text").css("pointer-events", "none");
@@ -79,7 +80,6 @@ const libraryText = {
 }
 
 libraryText.init();
-
 
 /*
 

@@ -336,7 +336,7 @@ const Tplayer = {
 
       newSrc += "'>";
 
-      let newObj = $(newSrc).hide().fadeIn(2000);
+      let newObj = $(newSrc).hide().fadeIn(1400);
       $("#e-play").append(newObj);
     })
 

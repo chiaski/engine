@@ -153,9 +153,8 @@ const sceneControls = {
   },
   
   loadText: function(){
-    
     console.log(active_scene.textoverlay);
-    $("textarea").hide().delay(100).fadeIn("slow").val(active_scene.textoverlay);
+    $("#e textarea").hide().delay(100).fadeIn("slow").val(active_scene.textoverlay);
     
   },
 
@@ -198,7 +197,8 @@ const sceneControls = {
     $("#btn-finishediting").fadeOut("slow");
     $(".sidebar-right").fadeOut("slow");
     
-    objControls.saveObjects();    
+    libraryText.saveText();    
+    objControls.saveObjects();  
     sceneControls.clearScene();
     let c = scenes.cartridge;
  
@@ -216,6 +216,7 @@ const sceneControls = {
     
        // make cartridge for the first time
     if(c == null){
+      
       scenes.cartridge = new Scene(-1, -1, true, "#000000", "", 0);      
       active_scene = scenes.cartridge;
       
@@ -226,11 +227,10 @@ const sceneControls = {
       
     } else{
       // load the cartridge into the editor
-      console.log("cartridge exists", scenes.cartridge);
+//      console.log("cartridge exists", scenes.cartridge);
       active_scene = scenes.cartridge;
       sceneControls.loadObjects();
     }
-    
     
     $("._whatscenetype").text("Cartridge");
     $(".whatscene").text("");

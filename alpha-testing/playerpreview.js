@@ -191,7 +191,7 @@ const Tplayer = {
 
       newSrc += "'>";
       
-      let newObj = $(newSrc).hide().fadeIn(2000);
+      let newObj = $(newSrc).hide().fadeIn(1400);
       $("#e-play").append(newObj);
     })
 
@@ -237,7 +237,6 @@ function loadPlay(x, y) {
   
   $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
   
-  
   $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(5000).css("pointer-events", "auto").css("cursor", "auto");
   
   // load the cartridge, if this is a replay
@@ -246,7 +245,7 @@ function loadPlay(x, y) {
   }
   else {
     // first, fade out cartridge very slowly lol
-    $("#e-cartridge").delay(3000).fadeOut(3000);
+    $("#e-cartridge").delay(1500).fadeOut(3000);
   }
 
 
