@@ -86,6 +86,7 @@ h1{
   letter-spacing: -2px;
   display: block;
   text-align: center;
+  pointer-events: none;
 }
 
 
@@ -117,7 +118,7 @@ button{
   background: $c;
   color: $l;
   padding: 1em;
-  margin: 1em;
+  margin: .5em;
   font-family: $mono;
     -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
 transition: all .19s cubic-bezier(.17,.67,.83,.67);
@@ -299,7 +300,7 @@ h1._title{
   vertical-align: middle;
   align-items: center;
   flex-wrap: wrap;
-  margin: 2.5vh 5vw;
+  margin: 2.5vh 2vw;
 }
 
 
@@ -405,7 +406,7 @@ h1._title{
 }
 
  .controls-selected{
-display: none;
+   display: none;
    text-align: center;
 }
 
@@ -502,11 +503,9 @@ display: none;
   border-bottom: 1.5px solid $c;
   
   .sidebar{
-//    min-width: calc( ((100% - 512px) / 2) - 2em);
     margin: 0 auto;
     padding: 0;
   }
-  
 }
 
   #e, #e-play{
@@ -931,6 +930,7 @@ transition: all .13s linear;
       
     }
     
+ 
   }
   
   .library-selector{
@@ -949,8 +949,13 @@ transition: all .13s linear;
       // so it looks like one continuous grid
       margin: -.1em;
     }
-    
   }
+  
+     ._objcoords{
+      display: block;
+      padding: .5em .75em;
+    }
+    
   
   
   // LIBRARY OBJECTS

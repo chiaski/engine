@@ -148,10 +148,10 @@ const libraryControls = {
       $("._howmany").text(active_scene.object_count);
 
     }
-    let o = objControls.addObj($(this).attr("src"));
+    
+    let o = objControls.addObj( $(this).attr("src") );
 
     objControls.moveObj(o);
-
   },
 
   load: function (what) {
@@ -224,19 +224,12 @@ const objControls = {
 
   // SELECT/DESELECT via double-click
   selectObj: function (t) {
-
-    //    console.log("double clicked");
-
+    
     // I am double-clicking the image I currently selected
     if ($(this).attr("data-selected") == "1") {
-
-      console.log("deselecting image");
       objControls.clearSelected();
       return;
-
     } else {
-      console.log("selecting image");
-
       objControls.clearSelected();
       objControls.moveObj(this);
       return;
@@ -248,9 +241,8 @@ const objControls = {
   // moving object
   moveObj: function (t) {
 
-
     // fade in controls
-    $(".controls-selected").fadeIn("slow");
+    $(".controls-selected").show();
 
     $(t)
       .bind("dblclick", objControls.selectObj)
@@ -273,12 +265,14 @@ const objControls = {
   addObj: function (src, x, y, filter, flip, size, interaction, interaction_target) {
     // first, deselect all objects
     objControls.clearSelected();
+    
+    $(".__x").text("0");
+    $(".__y").text("0");
+    
     let newSrc;
     newSrc = "<img class='obj' data-selected='0' src='" + src + "' style='";
 
-    if (x && y) {
-      newSrc += "top:" + y + "px; left:" + x + "px;";
-    }
+    newSrc += "top:" + y + "px; left:" + x + "px;";
 
     if (filter) {
       newSrc += "filter:" + filter + ";";
@@ -303,7 +297,7 @@ const objControls = {
 
     newSrc += ">";
 
-    let newObj = $(newSrc).hide().fadeIn(2000);
+    let newObj = $(newSrc).hide().fadeIn(1000);
     $("#e").append(newObj);
 
     return newObj;
@@ -324,7 +318,7 @@ const objControls = {
 
     // add error handling here, catch if no objec twas removed
 
-    $(".controls-selected").fadeOut("slow");
+    $(".controls-selected").hide();
 
   },
 
@@ -381,9 +375,6 @@ const objControls = {
     active_scene.objects = [];
 
     $("#e .obj").each(function () {
-      
-      // TODO: interactions, once that's implemented
-
       let e = $(this);
 
       (active_scene.objects).push(new thingy(e.position().left, e.position().top, e.attr('src'), e.css('filter'), e.css('transform'), e.css('width'), e.attr('data-interaction'), e.attr('data-target')));
@@ -402,6 +393,8 @@ const objControls = {
 
   updatePos: function (t) {
     let pos = $(t).position();
+    
+    console.log(pos);
 
     $(".__x").text(pos.left);
     $(".__y").text(pos.top);
@@ -421,8 +414,6 @@ const objControls = {
       $(this)
         .css("box-shadow", "none")
         .attr("data-selected", "0");
-      //      .draggable()
-      //            .draggable('disable');
     });
 
   },

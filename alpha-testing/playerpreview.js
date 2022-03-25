@@ -171,9 +171,7 @@ const Tplayer = {
       let newSrc = "";
       newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
 
-      if (e.x && e.y) {
-        newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
-      }
+      newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
 
       if (e.filter) {
         newSrc += "filter:" + e.filter + ";";

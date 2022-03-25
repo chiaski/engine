@@ -60,6 +60,7 @@ h1 {
   letter-spacing: -2px;
   display: block;
   text-align: center;
+  pointer-events: none;
 }
 
 h2 {
@@ -87,7 +88,7 @@ button {
   background: #000000;
   color: #edede8;
   padding: 1em;
-  margin: 1em;
+  margin: 0.5em;
   font-family: "FA Sysfont C", monospace;
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -248,7 +249,7 @@ START AND EXTRAS
   vertical-align: middle;
   align-items: center;
   flex-wrap: wrap;
-  margin: 2.5vh 5vw;
+  margin: 2.5vh 2vw;
 }
 
 .panel {
@@ -708,6 +709,10 @@ EDITOR
 }
 #library .library-selector img {
   margin: -0.1em;
+}
+#library ._objcoords {
+  display: block;
+  padding: 0.5em 0.75em;
 }
 #library ._toadd {
   background: #000000;
