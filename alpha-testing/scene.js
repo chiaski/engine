@@ -87,11 +87,6 @@ const sceneControls = {
     // first, save scene
     sceneControls.saveScene();
     
-      // reset text controls
-//      libraryText.deloadBtns();
-//      libraryText.disableText();
-//      libraryText.loadEditBtn();
-    
     sceneControls.clearScene();
     
     // set to new active scene
@@ -149,7 +144,7 @@ const sceneControls = {
     }
     
     $("#e").css("background", active_scene.color);
-
+    $("body").css("background", active_scene.color);
   },
   
   loadText: function(){

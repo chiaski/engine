@@ -236,28 +236,33 @@ const Tplayer = {
 function loadPlay(x, y) {
   
   $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
-  
-  $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(5000).css("pointer-events", "auto").css("cursor", "auto");
-  
-  // load the cartridge, if this is a replay
-  if( $("#e-cartridge").css("display") == "none" ){$("#e-cartridge").fadeIn(1500).delay(5000).fadeOut(3000);
+   
+  // does the game have a cartridge?
+  if( scenes.cartridge !== null){
+    $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(2000).css("pointer-events", "auto").css("cursor", "auto");
 
-  }
-  else {
-    // first, fade out cartridge very slowly lol
-    $("#e-cartridge").delay(1500).fadeOut(3000);
-  }
+    // load the cartridge, if this is a replay
+    if( $("#e-cartridge").css("display") == "none" ){$("#e-cartridge").fadeIn(800).delay(2000).fadeOut(1000);
 
+    }
+    else {
+      // first, fade out cartridge very slowly lol
+      $("#e-cartridge").delay(1000).fadeOut(1000);
+    }
+  } else{
+    $("#e-cartridge").fadeOut();
+    $("#play").css("pointer-events", "auto").css("cursor", "auto");
+  }
+  
 
   Tplayer.active = scenes.s[sceneControls.getSceneIndex(x, y)];
 
   // change text
   setTimeout(function () {
-
     $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
     $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
 
-  }, 3000);
+  }, 1800);
 
   Tplayer.loadScene(x, y);
 

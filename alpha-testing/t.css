@@ -47,7 +47,7 @@ html, body {
 }
 
 body {
-  background: #717374;
+  background: #000000;
   padding: 2em;
   display: flex;
   flex-wrap: wrap;
@@ -73,7 +73,7 @@ h2 {
   border-bottom: 1.5px solid #000000;
   font-family: "FA Sysfont C", monospace;
   font-size: 0.9em;
-  padding: 0.75em;
+  padding: 0.75em 0.25em;
   text-align: left;
 }
 h2 span {
@@ -244,7 +244,7 @@ START AND EXTRAS
 }
 .panel h2 {
   width: 100%;
-  padding: 0.5em 0.75em;
+  padding: 0.5em;
   margin: 0;
 }
 
@@ -255,7 +255,7 @@ START AND EXTRAS
 .panel._sidebar {
   width: 100%;
   border-top: none;
-  margin: 0 0 1em 0;
+  margin: 0 0 0.5em 0;
 }
 
 .panel._tutorial {
@@ -310,11 +310,10 @@ START AND EXTRAS
 }
 
 #controls #colorpicker input[type=color] {
-  padding: 0.5em;
-  margin: 1em auto;
+  padding: 0.1em;
   display: block;
   width: 100%;
-  height: 50px;
+  height: 40px;
 }
 
 #controls #colorpicker input[type=color]:hover {

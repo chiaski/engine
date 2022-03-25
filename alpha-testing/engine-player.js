@@ -99,6 +99,7 @@ const Tplayer = {
     
     Tplayer.clearGame();
 
+    // cartridge checks
     if(scenes.cartridge !== null){
       // load the cartridge
       Tplayer.loadCartridge();
@@ -108,14 +109,16 @@ const Tplayer = {
         $("#e-cartridge").fadeOut("slow");
     $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
     $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
-      }, 3000);
+      }, 1800);
       
-    $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(3000).css("pointer-events", "auto").css("cursor", "auto");
+    $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(1500).css("pointer-events", "auto").css("cursor", "auto");
+      
+    } else{
+      $("#e-cartridge").fadeOut();
     }
 
     // load in starting scene
     Tplayer.loadPlay(scenes.start_scene.x, scenes.start_scene.y);
-
   },
 
   loadCartridge: function () {
@@ -158,7 +161,6 @@ const Tplayer = {
   loadPlay: function (x, y) {
 
     $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
-
 
     Tplayer.active = scenes.s[c.getSceneIndex(x, y)];
 
