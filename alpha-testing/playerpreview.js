@@ -62,8 +62,6 @@ const Tplayer = {
 
   // iterates through navigation options on the active scene and updates it accordingly based on what's possible
   updateSceneNavigation() {
-
-
     // clear all visual styles
     $("#e-controls a").each(function (i, e) {
       $(this)

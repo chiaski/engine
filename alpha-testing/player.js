@@ -1,4 +1,15 @@
-console.log("Plug and play for Engine");
+/* 
+
+
+      FOR PLAYER.HTML
+      Can eventually be attached
+      to the 'library' of games.
+
+
+*/
+
+
+console.log("Plug and play for Engine: engine.lol/alpha/player.html");
 
 var cartridge = null; 
 var scenes = null;
@@ -32,7 +43,6 @@ $("#btn-loadcartridge").on("click", function(){
   console.log("Attempting to load: ", cartridge);
   
   if (testJSON(cartridge)) {
-
     scenes = JSON.parse(cartridge);
 
     if (scenes) {
