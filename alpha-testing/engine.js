@@ -96,7 +96,6 @@ const Tplayer = {
       $("#e-cartridge").fadeOut();
       $("#play").css("pointer-events", "auto").css("cursor", "auto");
     }
-
    
     $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(2500).css("pointer-events", "auto").css("cursor", "auto");
 
