@@ -679,6 +679,21 @@ EDITOR
   padding: 0.25em;
 }
 
+#library button, #help button {
+  padding: 0.25em;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+#library-scene-controls {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1em;
+}
+#library-scene-controls button {
+  opacity: 0.8;
+}
+
 #library {
   margin: 0;
 }
@@ -702,7 +717,6 @@ EDITOR
   cursor: pointer;
 }
 #library .library-controls button._filter {
-  padding: 0.25em;
   text-transform: uppercase;
 }
 #library .library-selector {

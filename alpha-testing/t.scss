@@ -909,6 +909,23 @@ transition: all .13s linear;
 
 // library
 
+#library button, #help button{
+  padding: .25em;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+#library-scene-controls{
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1em;
+  
+  button{
+    opacity: 0.8;
+  }
+  
+}
+
 #library{
 //  background: $c;
 //  color:$l;
@@ -937,7 +954,6 @@ transition: all .13s linear;
     }
     
     button._filter{
-      padding: .25em;
       text-transform: uppercase;
       
     }
