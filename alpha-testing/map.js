@@ -146,7 +146,6 @@ const mapControls = {
     
     $("#" + mapControls.SIDE + " ._s[data-scene='" + x + "," + y + "']").removeClass("__unused").removeClass("__inactive").addClass("__active");
     
-    
   },
   
   
@@ -196,7 +195,7 @@ const mapControls = {
     
       
    // scroll to engine
-    document.getElementById("window-engine").scrollIntoView();
+//    document.getElementById("window-engine").scrollIntoView();
       
     mapControls.updateActive(active_scene.x, active_scene.y); // add active class
     
