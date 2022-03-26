@@ -148,7 +148,6 @@ const mapControls = {
     
   },
   
-  
   /* 
   
     switchScene
@@ -186,26 +185,13 @@ const mapControls = {
     scenes.s[i] = new Scene(parseInt(coord[0]), parseInt(coord[1]), true, "#000000", "", 0);
     
     // switching to the new scene
-    active_scene = scenes.s[i];
-    active_scene.color = $("body").css("background"); // retain scene color
-    $("#e").css("background", active_scene.color);
-    
-   // new object count
-      $("._howmany").text(active_scene.object_count);
-    
-      
-   // scroll to engine
-//    document.getElementById("window-engine").scrollIntoView();
+    sceneControls.switchScene(i);
       
     mapControls.updateActive(active_scene.x, active_scene.y); // add active class
     
-    $("." + mapControls.SCENE_DISPLAY).text(coord[0] + "," + coord[1]); // update scene
-    
       
     $("#scene_selector div._s.__active").css("background", active_scene.color); //retain scene color 
-      
-    // Updating active scene text
-    $('.' + mapControls.SCENE_AREA).text(coord);
+
     
     alert("Scene created!");
       return;
@@ -221,10 +207,7 @@ const mapControls = {
     $("#" + mapControls.MASTER + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
     $("#" + mapControls.SIDE + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
     
-    // switch to scene i
     sceneControls.switchScene(i);
-    
-  // clear all the __active classes
     mapControls.clearMapActive();
     
     $("." + mapControls.SCENE_DISPLAY).text(coord[0] + "," + coord[1]); // update scene

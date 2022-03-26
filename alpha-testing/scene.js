@@ -249,9 +249,6 @@ const sceneControls = {
   /* clearScene deletes all objects from the scene */
   clearScene: function () {
 
-    // first, save objects on scene
-//    objControls.saveObjects();
-
     libraryText.clearText();
     $("#e img.obj").each( function(){
       $(this).remove();
@@ -271,11 +268,11 @@ const sceneControls = {
   },
   
   loadText: function(){
-    
+    // loads text into editor
     let t = active_scene.textoverlay;
     t = t.replace(/&nbsp;/g, " ");
     
-    $("#e textarea").hide().delay(100).fadeIn("slow").val( t );
+    $("#e #e-text textarea").hide().delay(100).fadeIn("slow").val( t );
     
   },
 
@@ -305,10 +302,7 @@ const sceneControls = {
 
       // change color of tile in map
       $("#scene_selector div._s.__active").css("background", c);
-      
     });
-
-
 
   },
   
@@ -347,8 +341,6 @@ const sceneControls = {
       $("input[type='color']").val("#000000");
       
     } else{
-      // load the cartridge into the editor
-//      console.log("cartridge exists", scenes.cartridge);
       active_scene = scenes.cartridge;
       sceneControls.loadObjects();
     }
@@ -404,7 +396,6 @@ const sceneControls = {
 };
 
 sceneControls.initColorpicker();
-
 
 $("#btn-cartridge").on("click", function () {
   

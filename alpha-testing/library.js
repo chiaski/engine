@@ -24,7 +24,8 @@ const libraryText = {
 
   $EDITbtn: "#btn-edittextoverlay",
   $SAVEbtn: "#btn-savetextoverlay",
-  $TEXT_EDITOR: "#e #e-text textarea",
+  $TEXT_EDITOR: "e textarea",
+  $TEXT: "e #e-text",
 
   init: function () {
     // click, edit text
@@ -32,7 +33,7 @@ const libraryText = {
       libraryText.toggleText();
     });
     
-    $( "#e-text textarea" ).keyup(function() {
+    $("#" + libraryText.$TEXT_EDITOR).keyup(function() {
       libraryText.saveText();
     });
 
@@ -47,9 +48,9 @@ const libraryText = {
     }
     
     if( $("#e #e-text").css("pointer-events") == "none" ){
-      $("#e #e-text").css("pointer-events", "all");
+      $("#" + libraryText.$TEXT).css("pointer-events", "all");
     } else{
-      $("#e #e-text").css("pointer-events", "none");
+      $("#" + libraryText.$TEXT).css("pointer-events", "none");
     }
     
     libraryText.saveText();
@@ -58,20 +59,24 @@ const libraryText = {
   },
   // loadText: laod text into active scene
   loadText: function () {
-    $("#e-text textarea").hide().fadeIn(100).val(active_scene.textoverlay);
+    $("#" + libraryText.$TEXT_EDITOR).hide().fadeIn(100).val(active_scene.textoverlay);
   },
 
   clearText: function () {
-    $("#e-text textarea").val("");
+    $("#" + libraryText.$TEXT_EDITOR).val("");
   },
 
   // saveText: save text into active scene
   saveText: function () {
     
-    let t = $("#e #e-text textarea").val();
+    let t = $("#" + libraryText.$TEXT_EDITOR).val();
+    console.log(t);
     // preserve whitespace
-    t = t.replace( / /g, "&nbsp;" );
     
+    if(t !== null){
+      t = t.replace( / /g, "&nbsp;" );
+    }
+
     active_scene.textoverlay = t;
   },
   
@@ -79,8 +84,8 @@ const libraryText = {
     // first, save
     libraryText.saveText();
     // disable text editing
-    $("#e #e-text textarea").css("pointer-events", "none");
-    $("#e #e-text").css("pointer-events", "none");
+    $("#" + libraryText.$TEXT_EDITOR).css("pointer-events", "none");
+    $("#" + libraryText.$TEXT).css("pointer-events", "none");
   }
 }
 
