@@ -164,7 +164,7 @@ const Tplayer = {
     Tplayer.active = sceneControls.getScene(x, y);
 
     // add text
-    $("#e-play textarea").hide().delay(2000).fadeIn("slow").val( (Tplayer.active.textoverlay).replace(/\\n/g, "\n").replace(/&nbsp;/g, " ") );
+    $("#e-play textarea").hide().delay(300).fadeIn("slow").val( (Tplayer.active.textoverlay).replace(/\\n/g, "\n").replace(/&nbsp;/g, " ") );
 
     // add objects
     ((Tplayer.active).objects).forEach(function (e) {
@@ -221,13 +221,14 @@ const Tplayer = {
     //    objControls.saveObjects();
 
     
-    libraryText.clearText();
+    $("#e-play textarea")
     
     $("#e-play img.obj").each(function () {
       $(this).remove();
     });
   }
 };
+
 
 function loadPlay(x, y) {
   
@@ -249,7 +250,6 @@ function loadPlay(x, y) {
     $("#e-cartridge").fadeOut();
     $("#play").css("pointer-events", "auto").css("cursor", "auto");
   }
-  
 
   Tplayer.active = scenes.s[sceneControls.getSceneIndex(x, y)];
 
@@ -261,7 +261,6 @@ function loadPlay(x, y) {
   }, 1800);
 
   Tplayer.loadScene(x, y);
-
 
   $("#e-play").css("background", (Tplayer.active).color);
 }
