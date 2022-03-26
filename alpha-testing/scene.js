@@ -111,10 +111,12 @@ $("#btn-remixcartridge").on("click", function(){
       // just checking if this is valid or not
       if (new_scenes.start_scene == null || new_scenes.s == null) {
         alert("Corrupted or empty cartridge!!!!");
+        return;
       }
       
     } else{
         alert("Corrupted or empty cartridge!");
+        return;
     }
     
       console.log("Loaded: ", new_scenes);
