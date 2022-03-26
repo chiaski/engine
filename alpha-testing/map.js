@@ -141,6 +141,7 @@ const mapControls = {
       
       if( scenes.s[indx] == null ){
         
+        $(this).css("background", "#000000");
         $(this).addClass("__unused");
         
       } else if(scenes.s[indx] !== null){
@@ -169,6 +170,7 @@ const mapControls = {
       
 
       if( scenes.s[indx] == null ){
+        $(this).css("background", "#000000");
         $(this).addClass("__unused");
       } else if(scenes.s[indx] !== null){
         // check if it's the active scene
