@@ -437,8 +437,6 @@ const objControls = {
   addInteraction() {
 
   }
-
-
 };
 
 

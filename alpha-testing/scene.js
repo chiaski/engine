@@ -33,7 +33,6 @@ function Scene(x, y, active, color, object_count){
 
 
 
-
 /*
 
 
@@ -184,11 +183,10 @@ const sceneControls = {
     return scenes.s[i];
   },
   
-/* 
+  /* 
     reassignScenes
     give a new scene object
     and update the scenes
-    
   */
   
   reassignScenes: function(new_scene){
@@ -202,6 +200,26 @@ const sceneControls = {
       scenes.cartridge = new_scene.cartridge;
       scenes.s = new_scene.s;
 
+  },
+  
+    /* 
+    checkActive
+    see if given scene is the active scene
+    
+  */
+  
+  checkActive: function(s){
+    
+    if(!s){
+      // you must provide a scene object
+      return false;
+    }
+    
+    if(active_scene.x == s.x && active_scene.y == s.y && active_scene.textoverlay == s.textoverlay && active_scene.color == s.color){
+      return true;
+    }
+    return false;
+    
   },
 
   /*
@@ -398,6 +416,42 @@ const sceneControls = {
   }
 
 };
+
+/*
+
+    SCENE CONTROLS
+    
+    
+*/
+
+$("#library-scene-controls button#btn-scenecontrols-deletescene").on("click", function(){
+  
+  if(active_scene.x == scenes.start_scene.x && active_scene.y == scenes.start_scene.y){
+    alert("You can't delete your starting scene.");
+    return;
+  }
+  
+ if( !confirm("Do you want to delete your active scene, " + active_scene.x + "," + active_scene.y + "?") ){
+   return;
+  }
+  
+  let old_x = active_scene.x;
+  let old_y = active_scene.y;
+  
+  // switch to starting scene
+  
+  sceneControls.switchScene( sceneControls.getSceneIndex(scenes.start_scene.x, scenes.start_scene.y) );
+  scenes.s[ sceneControls.getSceneIndex(old_x, old_y) ] = null;
+      
+  mapControls.updateMap();
+  
+  alert("Scene " + old_x + "," + old_y + " deleted");
+  
+})
+
+
+
+/* ON CLICK LISTENERS */
 
 sceneControls.initColorpicker();
 
