@@ -164,7 +164,7 @@ const Tplayer = {
     Tplayer.active = sceneControls.getScene(x, y);
 
     // add text
-    $("#e-play textarea").hide().delay(2000).fadeIn("slow").val(Tplayer.active.textoverlay);
+    $("#e-play textarea").hide().delay(2000).fadeIn("slow").val( (Tplayer.active.textoverlay).replace(/\\n/g, "\n").replace(/&nbsp;/g, " ") );
 
     // add objects
     ((Tplayer.active).objects).forEach(function (e) {

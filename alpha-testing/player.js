@@ -95,7 +95,7 @@ const c = {
     return scenes.s[i];
   },
   textConvert: function (text) {
-    return text.replace(/\\n/g, "\n");
+    return text.replace(/\\n/g, "\n").replace(/&nbsp;/g, " ");
   }
 }
 

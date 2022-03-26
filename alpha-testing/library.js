@@ -67,7 +67,12 @@ const libraryText = {
 
   // saveText: save text into active scene
   saveText: function () {
-    active_scene.textoverlay = $("#e #e-text textarea").val();
+    
+    let t = $("#e #e-text textarea").val();
+    // preserve whitespace
+    t = t.replace( / /g, "&nbsp;" );
+    
+    active_scene.textoverlay = t;
   },
   
   disableText: function(){

@@ -271,8 +271,11 @@ const sceneControls = {
   },
   
   loadText: function(){
-    console.log(active_scene.textoverlay);
-    $("#e textarea").hide().delay(100).fadeIn("slow").val(active_scene.textoverlay);
+    
+    let t = active_scene.textoverlay;
+    t = t.replace(/&nbsp;/g, " ");
+    
+    $("#e textarea").hide().delay(100).fadeIn("slow").val( t );
     
   },
 

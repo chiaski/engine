@@ -65,7 +65,7 @@ const c = {
     return scenes.s[i];
   },
   textConvert: function (text) {
-    return text.replace(/\\n/g, "\n");
+    return text.replace(/\\n/g, "\n").replace(/&nbsp;/g, " ");
   }
 }
 
@@ -109,32 +109,6 @@ const Tplayer = {
     $("#play h2").text("Starting game...");
     
     Tplayer.loadObjects(scenes.cartridge.objects, "#e-cartridge");
-    
-//    
-//    (scenes.cartridge.objects).forEach(function (e) {
-//      let newSrc = "";
-//      
-//      newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
-//
-//      newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
-//
-//      if (e.filter) {
-//        newSrc += "filter:" + e.filter + ";";
-//      }
-//
-//      if (e.flip) {
-//        newSrc += "transform:" + e.flip + ";"
-//      }
-//
-//      if (e.size) {
-//        newSrc += "width:" + e.size + "; height:" + e.size + ";";
-//      }
-//
-//      newSrc += "'>";
-//
-//      let newObj = $(newSrc).hide().fadeIn(500);
-//      $("#e-cartridge").append(newObj);
-//    })
 
     $("#e-cartridge").css("background", scenes.cartridge.color);
     $("body").css("background", scenes.cartridge.color);
@@ -317,31 +291,6 @@ const Tplayer = {
 
     // add objects
     Tplayer.loadObjects(((Tplayer.active).objects), "#e-play");
-    
-//    
-//    ((Tplayer.active).objects).forEach(function (e) {
-//      let newSrc = "";
-//      newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
-//
-//      newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
-//
-//      if (e.filter) {
-//        newSrc += "filter:" + e.filter + ";";
-//      }
-//
-//      if (e.flip) {
-//        newSrc += "transform:" + e.flip + ";"
-//      }
-//      
-//      if (e.size) {
-//        newSrc += "width:" + e.size + "; height:" + e.size + ";";
-//      }
-//
-//      newSrc += "'>";
-//
-//      let newObj = $(newSrc).hide().fadeIn(1400);
-//      $("#e-play").append(newObj);
-//    })
 
     // update text
     $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
