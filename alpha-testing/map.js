@@ -67,6 +67,10 @@ const mapControls = {
   // note that this doesn't replace the scene data
   loadMap: function(data){
     
+    
+    $('#' + mapControls.MASTER).off("click", "div._s", mapControls.mapSwitch );
+    $('#' + mapControls.SIDE).off("click", "div._s", mapControls.mapSwitch );
+    
     var map_html = "";
     
     // update start scene
@@ -110,8 +114,8 @@ const mapControls = {
     $('#' + mapControls.SIDE).append(map_html); 
     
     // add onclick events
-      $('#' + mapControls.MASTER).on("click", "div._s", mapControls.mapSwitch );
-      $('#' + mapControls.SIDE).on("click", "div._s", mapControls.mapSwitch );
+    $('#' + mapControls.MASTER).on("click", "div._s", mapControls.mapSwitch );
+    $('#' + mapControls.SIDE).on("click", "div._s", mapControls.mapSwitch );
     
   },
   
@@ -136,7 +140,20 @@ const mapControls = {
       $(item).removeClass("__active")
     });
     
+  },  
+  
+  // remove all active scenes
+  clearMapStart: function(){
+
+    $("#" + mapControls.MASTER + " ._s").each(function(i, item){
+      $(item).removeClass("__start")
+    });
+    $("#" + mapControls.SIDE + " ._s").each(function(i, item){
+      $(item).removeClass("__start")
+    });
+    
   },
+  
   
   // update the map's active scene
   updateActive: function(x, y){
@@ -168,14 +185,11 @@ const mapControls = {
     // Scene does not exist
     // –––––––––––––––––––
     
-    if( typeof scenes.s[i] == 'undefined'){
+    if( typeof scenes.s[i] == 'undefined' || scenes.s[i] == null || $(this).hasClass("unused__") ){
       
       if( !confirm("Do you want to create a new scene at " + coord + "?") ){
         return;
       }
-      
-      sceneControls.clearScene();
-      
       
       // remove active scenes
       $("#" + mapControls.MASTER + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
@@ -217,5 +231,47 @@ const mapControls = {
   }
 }
 
+$("#btn-changestartingscene").on("click", function(){
+  
+  $(".blocker").fadeIn();
+  $(".window#map").css("z-index", "10");
+  $("#window-map")[0].scrollIntoView();
+  
+  $("#map-controls").css("pointer-events", "none").css("opacity", "0.5");
+  $("body").css("overflow", "hidden");
+  
+  // add onclick events
+  $('#' + mapControls.MASTER).off("click", "div._s", mapControls.mapSwitch );
+  
+  // any scene that doesn't have unused
+  $('#' + mapControls.MASTER + ' ._s:not(".__unused")').on("click", function(){
+    
+    let coord = $(this).attr("data-scene").split(',');
+    let i = (parseInt(coord[0]) * globals.MAP_width) + parseInt(coord[1]); // indice in scenes
+    
+      if( !confirm("Do you want to change the starting scene to " + coord + "? You'll also switch to it in the Editor.") ){
+        return;
+      }
+    
+    mapControls.clearMapStart();
+    $("#" + mapControls.MASTER + " ._s[data-scene='" + coord[0] + "," + coord[1] + "']").addClass("__start");
+    $("#" + mapControls.SIDE + " ._s[data-scene='" + coord[0] + "," + coord[1] + "']").addClass("__start");
+    
+    scenes.start_scene.x = coord[0];
+    scenes.start_scene.y = coord[1];
+    
+    sceneControls.switchScene(i);
+    
+  $(".blocker").fadeOut();
+  $(".window#map").css("z-index", "1");
+    
+  $("#map-controls").css("pointer-events", "auto").css("opacity", "1");
+  $("body").css("overflow", "auto");
+
+  $('#' + mapControls.MASTER + ' ._s:not(".__unused")').off("click");
+  $('#' + mapControls.MASTER).on("click", "._s", mapControls.mapSwitch);
+  });
+  
+})
 
 mapControls.initMap();

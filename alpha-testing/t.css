@@ -761,6 +761,19 @@ EDITOR
   opacity: 0 !important;
 }
 
+.blocker {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: #464A4B;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+  display: none;
+  z-index: 9;
+}
+
 /* ANIMATIONS */
 @keyframes pulse-black {
   0% {

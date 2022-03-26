@@ -64,6 +64,7 @@ $("#btn-remixcartridge").on("click", function(){
   $(this).hide();
   $("#map textarea#_remix").fadeIn();
   $("#map #sss").hide();
+  $("#btn-changestartingscene").hide();
   $("#btn-cartridge").hide();
   
   $("#map .controls-remixcartridge").fadeIn();
@@ -81,6 +82,7 @@ $("#btn-remixcartridge").on("click", function(){
     $("#map #sss").fadeIn();
     $("#btn-cartridge").fadeIn();
     $("#btn-remixcartridge").fadeIn();
+    $("#btn-changestartingscene").fadeIn();
     
   })
   
@@ -124,7 +126,6 @@ $("#btn-remixcartridge").on("click", function(){
       let i = sceneControls.getSceneIndex(scenes.start_scene.x, scenes.start_scene.y);
     
       sceneControls.switchScene(i);
-    
 
       $("#map .controls-remixcartridge").hide();
 
@@ -132,6 +133,7 @@ $("#btn-remixcartridge").on("click", function(){
       $("#map #sss").fadeIn();
       $("#btn-cartridge").fadeIn();
       $("#btn-remixcartridge").fadeIn();
+      $("#btn-changestartingscene").fadeIn();
     
       alert("Successfully loaded cartridge");
     
