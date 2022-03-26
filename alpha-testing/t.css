@@ -605,6 +605,16 @@ EDITOR
   flex-wrap: wrap;
   justify-content: center;
 }
+#map #scene_selector textarea#_remix {
+  display: none;
+  width: 312px;
+  height: 312px;
+  padding: 1em;
+  border-radius: 8px;
+  font-family: "FA Sysfont C", monospace;
+  border: 1px solid #464A4B;
+  outline: 1.5px solid #cbc7c6;
+}
 #map #scene_selector ._s {
   color: #edede8;
   width: 70px;

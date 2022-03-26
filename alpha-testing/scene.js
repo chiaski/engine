@@ -1,6 +1,7 @@
 console.log("scene.js loaded");
 
 
+
 /*
 
   SCENE CONSTRUCTOR
@@ -32,6 +33,112 @@ function Scene(x, y, active, color, object_count){
 
 
 
+
+/*
+
+
+    LOAD CARTRIDGE
+    
+    
+*/
+
+function testJSON(text) {
+  if (typeof text !== "string") {
+    return false;
+  }
+  try {
+    var json = JSON.parse(text);
+    return (typeof json === 'object');
+  } catch (error) {
+    return false;
+  }
+}
+
+
+$("#btn-remixcartridge").on("click", function(){
+  
+  if( !confirm("Do you want to paste in a cartridge code and start editing an existing game? (Note that this wipes all of your current progress!)") ){
+    return;
+  }
+  
+  $(this).hide();
+  $("#map textarea#_remix").fadeIn();
+  $("#map #sss").hide();
+  $("#btn-cartridge").hide();
+  
+  $("#map .controls-remixcartridge").fadeIn();
+  
+})
+
+
+  // handle controls
+  
+  $("#btn-remixcartridge-back").on("click", function(){
+    
+    $("#map .controls-remixcartridge").hide();
+    
+    $("#map textarea#_remix").val("").hide();
+    $("#map #sss").fadeIn();
+    $("#btn-cartridge").fadeIn();
+    $("#btn-remixcartridge").fadeIn();
+    
+  })
+  
+  // load a cartridge
+  $("#btn-remixcartridge-load").on("click", function(){
+    
+    let new_cartridge = $("#map textarea#_remix").val();
+    new_cartridge = new_cartridge.replace(/^\s+|\s+$/g, "")
+                .replace(/\\n/g, "\\n")  
+               .replace(/\\'/g, "\\'")
+               .replace(/\\"/g, '\\"')
+               .replace(/\\&/g, "\\&")
+               .replace(/\\r/g, "\\r")
+               .replace(/\\t/g, "\\t")
+               .replace(/\\b/g, "\\b")
+               .replace(/\\f/g, "\\f");
+    
+    new_cartridge = new_cartridge.replace(/[\u0000-\u0019]+/g,""); 
+    
+    console.log("Attempting to load: ", new_cartridge);
+    
+    let new_scenes = "";
+    
+    if (testJSON(new_cartridge)) {
+      new_scenes = JSON.parse(new_cartridge);
+      // just checking if this is valid or not
+      if (new_scenes.start_scene == null || new_scenes.s == null) {
+        alert("Corrupted or empty cartridge!!!!");
+      }
+      
+    } else{
+        alert("Corrupted or empty cartridge!");
+    }
+    
+      console.log("Loaded: ", new_scenes);
+    
+      mapControls.clearMap();
+      sceneControls.reassignScenes(new_scenes);
+      mapControls.loadMap(scenes);
+    
+      let i = sceneControls.getSceneIndex(scenes.start_scene.x, scenes.start_scene.y);
+    
+      sceneControls.switchScene(i);
+    
+
+      $("#map .controls-remixcartridge").hide();
+
+      $("#map textarea#_remix").val("").hide();
+      $("#map #sss").fadeIn();
+      $("#btn-cartridge").fadeIn();
+      $("#btn-remixcartridge").fadeIn();
+    
+      alert("Successfully loaded cartridge");
+    
+  });
+
+
+
 /* 
 
 
@@ -59,7 +166,6 @@ const sceneControls = {
     let i = (parseInt(x) * globals.MAP_width) + parseInt(y); 
     
     return i;
-    
   },
   
   /* 
@@ -68,11 +174,30 @@ const sceneControls = {
     returns scene object
   */
   
-  
   getScene:function(x,y){
     
     let i = (parseInt(x) * globals.MAP_width) + parseInt(y); 
     return scenes.s[i];
+  },
+  
+/* 
+    reassignScenes
+    give a new scene object
+    and update the scenes
+    
+  */
+  
+  reassignScenes: function(new_scene){
+    
+    if(!new_scene){
+      return;
+    }
+    
+      scenes.scene_count = new_scene.scene_count;
+      scenes.start_scene = new_scene.start_scene;
+      scenes.cartridge = new_scene.cartridge;
+      scenes.s = new_scene.s;
+
   },
 
   /*
@@ -86,7 +211,6 @@ const sceneControls = {
 
     // first, save scene
     sceneControls.saveScene();
-    
     sceneControls.clearScene();
     
     // set to new active scene
@@ -109,7 +233,6 @@ const sceneControls = {
     document.getElementById("window-engine").scrollIntoView();
 
     $("._howmany").text(active_scene.object_count);
-    
      
     // Updating active scene text
     $("._whatscenetype").text("Scene");

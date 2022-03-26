@@ -781,6 +781,18 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
   display: flex;
   flex-wrap: wrap;
     justify-content: center;
+    
+    
+    textarea#_remix{
+      display: none;
+      width: 312px;
+      height: 312px;
+      padding: 1em;
+      border-radius: 8px;
+      font-family: $mono;
+      border: 1px solid $off-dark;
+      outline:1.5px solid $off-light;
+    }
   
   ._s{
     color: $l;
