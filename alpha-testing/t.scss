@@ -175,7 +175,7 @@ button:hover{
 
 .fx._cover{
   
-  z-index: 80;
+  z-index: 20;
   object-fit: contain;
   
   img{
@@ -890,8 +890,100 @@ transition: all .13s linear;
 
 
 // –––––––––––––––––––––––––––––––––––––––
+// audio tools
 
 
+#audio-player{
+  
+  p{
+    width: 100%;
+    text-align: center;
+  }
+  
+  #player{
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .controls-audio{
+    
+
+    
+    padding: 0 1em;
+    text-align: center;
+    
+    .controls-audio-loader{
+      padding: 1em;
+      
+      *{
+        vertical-align: middle;
+      }
+      
+      input{
+        height: 50px;
+      }
+      
+      button{
+        height: 50px;
+      }
+      
+    }
+    
+    button{
+      margin: 0;
+    }
+    
+  input#_audiosource{
+    display: inline-block;
+    border-radius: 8px;
+    background: $off-dark;
+    width: 350px;
+    border: 1px solid $off-light;
+    outline:1.5px solid $off-dark;
+    color: $off-light;
+  }
+    
+    
+  } 
+}
+
+#audio-player-controller{
+  position: fixed;
+  padding: 1em;
+  z-index: 20;
+  top: 0;
+  width: 100%;
+  
+  text-align: center;
+  
+  h3{
+    display: inline-block;
+    padding: .5em;
+    max-width: 250px;
+    margin: 0 auto;
+    border-radius: 8px;
+    color: $off-light;
+  }
+  
+  button{
+    background: none;
+    border: 0;
+    outline: 0;
+    margin: 0 .5em;
+    padding: .5em;
+  }
+  
+  button:hover{
+    text-shadow: 0 0 5px $l;
+  }
+  
+}
+
+
+
+// –––––––––––––––––––––––––––––––––––––––
 // text tools
 
 #texttool{

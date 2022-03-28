@@ -1,0 +1,46 @@
+$gray: #eee;
+
+body{
+  background: $gray;
+  text-align: center;
+  min-height: 100vh;
+  
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  vertical-align: center;
+  flex-wrap: wrap;
+}
+
+
+
+#painter{
+  
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: calc((40px + 10px) * 8);
+  
+  input[type="checkbox"]{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    padding: .5em;
+    cursor: pointer;
+    margin: .25em;
+  }
+  
+}
+
+#controls{
+  width: 100%;
+  
+  button{
+    margin: 1em;
+    padding: 1em 2.5em;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+}

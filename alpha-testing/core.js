@@ -27,6 +27,7 @@ const scenes = {
     y: 0
   },
   cartridge: null, // will be the starting screen to the game
+  audio: null,
   
   // ALL THE SCENESKMFAKSF
   s: new Array( globals.MAP_width * globals.MAP_height )

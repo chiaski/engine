@@ -141,7 +141,7 @@ button:hover {
 }
 
 .fx._cover {
-  z-index: 80;
+  z-index: 20;
   object-fit: contain;
 }
 .fx._cover img {
@@ -671,6 +671,72 @@ EDITOR
   border: 0.6px solid #edede8;
   outline: 1.4px solid #000000;
   box-shadow: 0 0 5px #edede8;
+}
+
+#audio-player p {
+  width: 100%;
+  text-align: center;
+}
+#audio-player #player {
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+#audio-player .controls-audio {
+  padding: 0 1em;
+  text-align: center;
+}
+#audio-player .controls-audio .controls-audio-loader {
+  padding: 1em;
+}
+#audio-player .controls-audio .controls-audio-loader * {
+  vertical-align: middle;
+}
+#audio-player .controls-audio .controls-audio-loader input {
+  height: 50px;
+}
+#audio-player .controls-audio .controls-audio-loader button {
+  height: 50px;
+}
+#audio-player .controls-audio button {
+  margin: 0;
+}
+#audio-player .controls-audio input#_audiosource {
+  display: inline-block;
+  border-radius: 8px;
+  background: #464A4B;
+  width: 350px;
+  border: 1px solid #cbc7c6;
+  outline: 1.5px solid #464A4B;
+  color: #cbc7c6;
+}
+
+#audio-player-controller {
+  position: fixed;
+  padding: 1em;
+  z-index: 20;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+#audio-player-controller h3 {
+  display: inline-block;
+  padding: 0.5em;
+  max-width: 250px;
+  margin: 0 auto;
+  border-radius: 8px;
+  color: #cbc7c6;
+}
+#audio-player-controller button {
+  background: none;
+  border: 0;
+  outline: 0;
+  margin: 0 0.5em;
+  padding: 0.5em;
+}
+#audio-player-controller button:hover {
+  text-shadow: 0 0 5px #edede8;
 }
 
 #texttool input[type=text] {

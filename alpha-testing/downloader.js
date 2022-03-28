@@ -1,4 +1,4 @@
-
+console.log("downloader.js loaded");
 
 $("#btn-download").on("click", function(){
 //  alert("Downloading HTML file of game!");

@@ -1,0 +1,38 @@
+body {
+  background: #eee;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  vertical-align: center;
+  flex-wrap: wrap;
+}
+
+#painter {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: calc((40px + 10px) * 8);
+}
+#painter input[type=checkbox] {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 0.5em;
+  cursor: pointer;
+  margin: 0.25em;
+}
+
+#controls {
+  width: 100%;
+}
+#controls button {
+  margin: 1em;
+  padding: 1em 2.5em;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */
