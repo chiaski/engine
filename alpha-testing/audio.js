@@ -1,30 +1,17 @@
 console.log("audio.js loaded");
 
+// sorry youtube fucking sucks too much
 
-/* 
 
-
-  Handles songs associated to the game,
-  for the Editor
+const audio_library = {
   
+  // from field recordings
+  environment: [""],
   
-*/
-
-// https://gist.github.com/takien/4077195
-function YouTubeGetID(url){
-  var ID = '';
-  url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
-  if(url[2] !== undefined) {
-    ID = url[2].split(/[^0-9a-z_\-]/i);
-    ID = ID[0];
-  }
-  else {
-    ID = url;
-  }
-    return ID;
-}
-
-
+  // i may not have the rights to these
+  song: [""]
+  
+};
 
 
 
