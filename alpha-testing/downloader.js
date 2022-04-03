@@ -1,13 +1,13 @@
 console.log("downloader.js loaded");
 
 $("#btn-download").on("click", function(){
-//  alert("Downloading HTML file of game!");
-  console.log("Downloading game to cartridge...");
+  alert("Downloading HTML file of game!");
   
   var $iframe = $("iframe#downloader_game");
-  var cartridge_code = JSON.stringify( scenes );
+  var cartridge_code = JSON.stringify( scenes,' ', ' ');
   
-  console.log("cartridge code: ", cartridge_code);
+  
+//  console.log("cartridge code: ", cartridge_code);
   
   // replace content with cartridge code
   $iframe.contents().find('html #cartridge').html(cartridge_code);
@@ -22,13 +22,12 @@ $("#btn-download").on("click", function(){
 
 $("#btn-getcode").on("click", function(){
   
-  console.log("Downloading game to cartridge...");
-  var cartridge_code = JSON.stringify( scenes );
+  var cartridge_code = JSON.stringify( scenes,' ', ' ');
   
   $("#downloader").text(cartridge_code);
   
     var range = document.createRange();
-    range.selectNode(document.getElementById("downloader"));
+  range.selectNode(document.getElementById("downloader"));
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
 

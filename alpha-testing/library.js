@@ -74,7 +74,7 @@ const libraryText = {
     // preserve whitespace
     
     if(t !== null){
-      t = t.replace( / /g, "&nbsp;" );
+//      t = t.replace( / /g, "&nbsp;" );
     }
 
     active_scene.textoverlay = t;
