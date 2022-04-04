@@ -163,7 +163,6 @@ const libraryControls = {
   },
 
   load: function (what) {
-
     library[what].forEach(function (e, i) {
 
       $("#" + libraryControls.$LIBRARY_OBJECTS).prepend("<img class='_toadd' src='https://engine.lol/alpha/assets/image/" + what + "/" + e + ".gif'>");

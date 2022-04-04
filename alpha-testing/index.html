@@ -118,14 +118,22 @@
   
   <div id="audio-player" class="window">
     <h2>Audio Player</h2>
+Add a song to your game!<br>
     
     <div class="controls-audio">
       <div id="player"></div>
       <br>
       
       <div class="controls-audio-loader">
-      <input type="text" id="_audiosource" placeholder="Paste the YouTube link to your song here...">
-      <button id="btn-controls-audio-loadsong">Load YouTube Song</button>
+        
+        
+        <select name="audio-category" class="_audio-category"> 
+        <option value="none" selected disabled hidden>pick category</option>
+              
+        </select>
+        
+      <button id="btn-controls-audio-loadsong">load song</button>
+      <button id="btn-controls-audio-previewsong">preview song</button>
       </div>
       
     </div>
@@ -165,8 +173,7 @@
 
           <div class="library-controls">
 
-            <select name="library-category" class="_library-category">
-              
+            <select name="library-category" class="_library-category"> 
         <option value="none" selected disabled hidden>pick category</option>
               <option value="environment">environment</option>
               <option value="faces">faces</option>
@@ -224,9 +231,7 @@
         </div>
 
         <div id="library-scene-controls">
-          
           scene controls
-          
           <button id="btn-scenecontrols-deletescene" title="You can't delete your starting scene">delete</button>
           
           <button id="btn-scenecontrols-copyscene">copy</button>

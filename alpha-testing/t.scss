@@ -86,6 +86,23 @@ textarea{
   resize: none;
   cols: 17;
 }
+  
+    select{
+      padding: .25em 1em;
+      margin: 1em auto;
+      text-align: center;
+      border-radius: 8px;
+      outline: 1.5px solid $l;
+      border: 1px solid $c;
+      background: $c;
+      color: $l;
+      font-family: $mono;
+    }
+    
+    select:hover{
+      cursor: pointer;
+    }
+
 
 h1{
   font-size: 5.6em;
@@ -1041,22 +1058,6 @@ transition: all .13s linear;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    
-    select{
-      padding: .25em 1em;
-      margin: 1em auto;
-      text-align: center;
-      border-radius: 8px;
-      outline: 1.5px solid $l;
-      border: 1px solid $c;
-      background: $c;
-      color: $l;
-      font-family: $mono;
-    }
-    
-    select:hover{
-      cursor: pointer;
-    }
     
     button._filter{
       text-transform: uppercase;

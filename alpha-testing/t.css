@@ -60,6 +60,22 @@ textarea {
   cols: 17;
 }
 
+select {
+  padding: 0.25em 1em;
+  margin: 1em auto;
+  text-align: center;
+  border-radius: 8px;
+  outline: 1.5px solid #edede8;
+  border: 1px solid #000000;
+  background: #000000;
+  color: #edede8;
+  font-family: "FA Sysfont C", monospace;
+}
+
+select:hover {
+  cursor: pointer;
+}
+
 h1 {
   font-size: 5.6em;
   letter-spacing: -2px;
@@ -778,20 +794,6 @@ EDITOR
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-}
-#library .library-controls select {
-  padding: 0.25em 1em;
-  margin: 1em auto;
-  text-align: center;
-  border-radius: 8px;
-  outline: 1.5px solid #edede8;
-  border: 1px solid #000000;
-  background: #000000;
-  color: #edede8;
-  font-family: "FA Sysfont C", monospace;
-}
-#library .library-controls select:hover {
-  cursor: pointer;
 }
 #library .library-controls button._filter {
   text-transform: uppercase;

@@ -3,68 +3,52 @@ console.log("audio.js loaded");
 // sorry youtube fucking sucks too much
 
 
-const audio_library = {
+const audio_library = ["ambient-1.mp4", "ambient-2.m4a", "ambient-3.m4a", "aphx-1.mp3"];
+
+
+
+
+const audioControls = {
   
-  // from field recordings
-  environment: [""],
   
-  // i may not have the rights to these
-  song: [""]
-  
-};
-
-
-
-$("button#btn-controls-audio-loadsong").on("click", function(){
-
-  var tag = document.createElement('script');
-
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  // 3. This function creates an <iframe> (and YouTube player)
-  //    after the API code downloads.
-  var player;
-
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      height: '1',
-      width: '1',
-      videoId: 'x5CaUlKyJSk',
-      playerVars: {
-        'playsinline': 1,
-        'modestbranding': true
-      },
-      events: {
-        'onReady': onPlayerReady
-      }
-    });
-  }
-
-
-  function onPlayerReady(event) {
-  //  event.target.playVideo();
-  }
-
-  // 5. The API calls this function when the player's state changes.
-  //    The function indicates that when playing a video (state=1),
-  //    the player should play for six seconds and then stop.
-  var done = false;
-
-
-  function stopVideo() {
-    player.stopVideo();
-  }
-
-  let id = YouTubeGetID( $("input#_audiosource").val() );
-  
-  player.loadVideoById(id);
-  
-    setTimeout(function(){
+  init: function(){
     
-      console.log( player.getVideoData() );
-  }, 500);
+    audio_library.forEach(function(e, i){
+      
+      $("._audio-category").append("<option value='" + e + "'>" + e + "</option>");
+      
+    });
+  },
   
+  previewSong: function(what){ window.open("https://engine.lol/alpha/assets/audio/" + what, "", "width=200,height=100"); 
+  },
   
+  setSong: function(what){
+  
+    if(what == null || what == "none"){
+      alert("You need to select a song! They're not that bad.");
+      return;
+    } 
+    
+    scenes.audio = what;
+    alert("Successfully set song as " + what + "!");
+
+
+  }
+  
+}
+
+$("button#btn-controls-audio-previewsong").on("click", function(){
+
+  let s = $("._audio-category").val();
+  
+  if(s == null || s == "none"){
+    alert("You need to select a song! They're not that bad.");
+    return;
+  } 
+  
+  audioControls.previewSong(s);
 })
+
+
+audioControls.init();
