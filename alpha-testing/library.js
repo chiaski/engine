@@ -130,8 +130,6 @@ function thingy(x, y, img, filter, flip, size, interaction, interaction_target) 
 }
 
 
-
-
 /* 
 
   libraryControls

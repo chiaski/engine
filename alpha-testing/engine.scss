@@ -88,6 +88,10 @@ transition: background .15s linear;
 }
 
 
+textarea{
+  resize: none;
+}
+
 .window{
   position: relative;
   background: $l;
@@ -252,6 +256,7 @@ transition: all .13s linear;
     pointer-events: none;
     
     textarea{
+      resize: none !important;
       pointer-events: none !important;
     }
     
@@ -353,6 +358,7 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
     white-space: pre-wrap;
     overflow-y: hidden;
     cursor: text;
+    resize: none !important;
   }
   
 }

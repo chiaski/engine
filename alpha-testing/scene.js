@@ -202,6 +202,16 @@ const sceneControls = {
 
   },
   
+  copyScene: function(target, source){
+    
+    target.x = source.x;
+    target.y = source.y;
+    target.color = source.color;
+    target.object_count = source.object_count;
+    target.objects = source.objects;
+    target.textoverlay = source.textoverlay;
+    
+  },
     /* 
     checkActive
     see if given scene is the active scene
@@ -446,6 +456,67 @@ $("#library-scene-controls button#btn-scenecontrols-deletescene").on("click", fu
   mapControls.updateMap();
   
   alert("Scene " + old_x + "," + old_y + " deleted");
+  
+})
+
+var copy_scene = null;
+
+$("#library-scene-controls button#btn-scenecontrols-copyscene").on("click", function(){
+  
+  copy_scene = null;
+  
+  copy_scene = JSON.parse(JSON.stringify(active_scene));
+  
+  alert("Copied scene " + active_scene.x + "," + active_scene.y + "!");
+
+  $("button#btn-scenecontrols-pastescene").css("opacity", "1");
+  
+})
+
+
+$("#library-scene-controls button#btn-scenecontrols-pastescene").on("click", function(){
+    
+  
+  if(copy_scene == null){
+    alert("You haven't selected a scene to copy!")
+    return;
+  } 
+  
+  
+ if( !confirm("Do you want to replace this scene with contents from " + copy_scene.x + "," + copy_scene.y + "? This overwrites the current scene!") ){
+   return;
+  }
+  
+  sceneControls.clearScene();
+  
+  // loadObjects
+   (copy_scene.objects).forEach(function (e) {
+      objControls.addObj(e.img, e.x, e.y, e.filter, e.flip, e.size, e.interaction, e.interaction_target);
+    })
+  
+  // loadColor
+  
+    if(copy_scene.color == 0){
+      // defaults to black if color isn't set
+      copy_scene.color = "#000000"; 
+    }
+    
+    $("#e").css("background", copy_scene.color);
+    $("body").css("background", copy_scene.color);
+  
+  active_scene.color = copy_scene.color;
+  
+   $("#scene_selector div._s.__active").css("background", copy_scene.color); 
+  
+  // loadText
+  
+    let t = copy_scene.textoverlay;
+    t = t.replace(/&nbsp;/g, " ");
+    
+    $("#e #e-text textarea").hide().delay(100).fadeIn("slow").val( t );
+  
+  
+  alert("Successfully copied scene " + copy_scene.x + "," + copy_scene.y + "!");
   
 })
 
