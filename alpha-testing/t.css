@@ -55,6 +55,11 @@ body {
   margin-bottom: 25vh;
 }
 
+textarea {
+  resize: none;
+  cols: 17;
+}
+
 h1 {
   font-size: 5.6em;
   letter-spacing: -2px;
@@ -360,6 +365,7 @@ START AND EXTRAS
   pointer-events: none;
 }
 #e-text textarea {
+  resize: none;
   padding: 0.5em;
   width: 100%;
   height: 100%;
@@ -486,6 +492,7 @@ PLAY
   pointer-events: none;
 }
 #play #e-text textarea {
+  resize: none;
   pointer-events: none !important;
 }
 #play #e-controls {
@@ -606,6 +613,7 @@ EDITOR
   justify-content: center;
 }
 #map #scene_selector textarea#_remix {
+  resize: none;
   display: none;
   width: 312px;
   height: 312px;
@@ -658,7 +666,7 @@ EDITOR
   display: block;
 }
 #scene_s #scene_selector ._s {
-  flex-basis: 22%;
+  flex-basis: 17%;
   font-size: 0.5em;
   line-height: 24px;
   margin: 0.25em;
@@ -745,6 +753,24 @@ EDITOR
   padding: 0.25em;
 }
 
+#library button, #help button {
+  padding: 0.25em;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+#library-scene-controls {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1em;
+}
+#library-scene-controls button {
+  opacity: 0.8;
+}
+#library-scene-controls button#btn-scenecontrols-pastescene {
+  opacity: 0.1;
+}
+
 #library {
   margin: 0;
 }
@@ -768,7 +794,6 @@ EDITOR
   cursor: pointer;
 }
 #library .library-controls button._filter {
-  padding: 0.25em;
   text-transform: uppercase;
 }
 #library .library-selector {

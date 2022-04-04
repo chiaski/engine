@@ -33,7 +33,6 @@ function Scene(x, y, active, color, object_count){
 
 
 
-
 /*
 
 
@@ -184,11 +183,10 @@ const sceneControls = {
     return scenes.s[i];
   },
   
-/* 
+  /* 
     reassignScenes
     give a new scene object
     and update the scenes
-    
   */
   
   reassignScenes: function(new_scene){
@@ -202,6 +200,36 @@ const sceneControls = {
       scenes.cartridge = new_scene.cartridge;
       scenes.s = new_scene.s;
 
+  },
+  
+  copyScene: function(target, source){
+    
+    target.x = source.x;
+    target.y = source.y;
+    target.color = source.color;
+    target.object_count = source.object_count;
+    target.objects = source.objects;
+    target.textoverlay = source.textoverlay;
+    
+  },
+    /* 
+    checkActive
+    see if given scene is the active scene
+    
+  */
+  
+  checkActive: function(s){
+    
+    if(!s){
+      // you must provide a scene object
+      return false;
+    }
+    
+    if(active_scene.x == s.x && active_scene.y == s.y && active_scene.textoverlay == s.textoverlay && active_scene.color == s.color){
+      return true;
+    }
+    return false;
+    
   },
 
   /*
@@ -398,6 +426,103 @@ const sceneControls = {
   }
 
 };
+
+/*
+
+    SCENE CONTROLS
+    
+    
+*/
+
+$("#library-scene-controls button#btn-scenecontrols-deletescene").on("click", function(){
+  
+  if(active_scene.x == scenes.start_scene.x && active_scene.y == scenes.start_scene.y){
+    alert("You can't delete your starting scene.");
+    return;
+  }
+  
+ if( !confirm("Do you want to delete your active scene, " + active_scene.x + "," + active_scene.y + "?") ){
+   return;
+  }
+  
+  let old_x = active_scene.x;
+  let old_y = active_scene.y;
+  
+  // switch to starting scene
+  
+  sceneControls.switchScene( sceneControls.getSceneIndex(scenes.start_scene.x, scenes.start_scene.y) );
+  scenes.s[ sceneControls.getSceneIndex(old_x, old_y) ] = null;
+      
+  mapControls.updateMap();
+  
+  alert("Scene " + old_x + "," + old_y + " deleted");
+  
+})
+
+var copy_scene = null;
+
+$("#library-scene-controls button#btn-scenecontrols-copyscene").on("click", function(){
+  
+  copy_scene = null;
+  
+  copy_scene = JSON.parse(JSON.stringify(active_scene));
+  
+  alert("Copied scene " + active_scene.x + "," + active_scene.y + "!");
+
+  $("button#btn-scenecontrols-pastescene").css("opacity", "1");
+  
+})
+
+
+$("#library-scene-controls button#btn-scenecontrols-pastescene").on("click", function(){
+    
+  
+  if(copy_scene == null){
+    alert("You haven't selected a scene to copy!")
+    return;
+  } 
+  
+  
+ if( !confirm("Do you want to replace this scene with contents from " + copy_scene.x + "," + copy_scene.y + "? This overwrites the current scene!") ){
+   return;
+  }
+  
+  sceneControls.clearScene();
+  
+  // loadObjects
+   (copy_scene.objects).forEach(function (e) {
+      objControls.addObj(e.img, e.x, e.y, e.filter, e.flip, e.size, e.interaction, e.interaction_target);
+    })
+  
+  // loadColor
+  
+    if(copy_scene.color == 0){
+      // defaults to black if color isn't set
+      copy_scene.color = "#000000"; 
+    }
+    
+    $("#e").css("background", copy_scene.color);
+    $("body").css("background", copy_scene.color);
+  
+  active_scene.color = copy_scene.color;
+  
+   $("#scene_selector div._s.__active").css("background", copy_scene.color); 
+  
+  // loadText
+  
+    let t = copy_scene.textoverlay;
+    t = t.replace(/&nbsp;/g, " ");
+    
+    $("#e #e-text textarea").hide().delay(100).fadeIn("slow").val( t );
+  
+  
+  alert("Successfully copied scene " + copy_scene.x + "," + copy_scene.y + "!");
+  
+})
+
+
+
+/* ON CLICK LISTENERS */
 
 sceneControls.initColorpicker();
 

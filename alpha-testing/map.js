@@ -128,6 +128,69 @@ const mapControls = {
   
   updateMap: function(){
     
+    // first, get the corresponding index based on the data-scene attribute of ._s
+    
+    
+    
+    $("#" + mapControls.MASTER + " ._s").each(function(i, item){
+      
+      let coord = $(this).attr("data-scene").split(',');
+      let indx = sceneControls.getSceneIndex(parseInt(coord[0]), parseInt(coord[1])); // indice in scenes.s[indx]
+      
+      $(this).removeClass("__active").removeClass("__inactive").removeClass("__unused").removeClass("__start")
+      
+      if( scenes.s[indx] == null ){
+        
+        $(this).css("background", "#000000");
+        $(this).addClass("__unused");
+        
+      } else if(scenes.s[indx] !== null){
+        // check if it's the active scene
+        if( sceneControls.checkActive(scenes.s[indx]) ){
+           $(this).addClass("__active");
+        } else{
+          // otherwise it's just inactive
+          $(this).addClass("__inactive");
+        }
+        
+        // check if it's the start scene
+        if( scenes.start_scene.x == coord[0] && scenes.start_scene.y == coord[1]){
+          $(this).addClass("__start");
+        }
+        
+      }
+    });
+    
+       $("#" + mapControls.SIDE + " ._s").each(function(i, item){
+      
+      let coord = $(this).attr("data-scene").split(',');
+      let indx = sceneControls.getSceneIndex(parseInt(coord[0]), parseInt(coord[1])); // indice in scenes.s[indx]
+      
+      $(this).removeClass("__active").removeClass("__inactive").removeClass("__unused").removeClass("__start")
+      
+
+      if( scenes.s[indx] == null ){
+        $(this).css("background", "#000000");
+        $(this).addClass("__unused");
+      } else if(scenes.s[indx] !== null){
+        // check if it's the active scene
+        if( sceneControls.checkActive(scenes.s[indx]) ){
+           $(this).addClass("__active");
+        } else{
+          // otherwise it's just inactive
+          $(this).addClass("__inactive");
+        }
+        
+        // check if it's the start scene
+        if( scenes.start_scene.x == coord[0] && scenes.start_scene.y == coord[1]){
+          $(this).addClass("__start");
+        }
+        
+      }
+    });
+    
+    
+    
   },
   
   // remove all active scenes
@@ -177,7 +240,7 @@ const mapControls = {
     sceneControls.saveScene(); // first, let's save the scene
     
     let coord = $(this).attr("data-scene").split(',');
-    let i = (parseInt(coord[0]) * globals.MAP_width) + parseInt(coord[1]); // indice in scenes
+    let i = sceneControls.getSceneIndex(parseInt(coord[0]), parseInt(coord[1])); // indice in scenes.s[i]
     
     console.log("coord: " + coord[0] + "," + coord[1]);
     
