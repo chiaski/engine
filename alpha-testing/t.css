@@ -29,12 +29,15 @@ EDITOR
   TRANSITIONS
 
 */
-html, body {
+html,
+body {
   scroll-behavior: smooth;
   font-family: "FA Sysfont C", monospace;
 }
 
-#e, body, #e-play {
+#e,
+body,
+#e-play {
   -webkit-transition: background 0.15s linear;
   -moz-transition: background 0.15s linear;
   -ms-transition: background 0.15s linear;
@@ -425,7 +428,8 @@ START AND EXTRAS
   padding: 0;
 }
 
-#e, #e-play {
+#e,
+#e-play {
   display: block;
   position: relative;
   background: #000000;
@@ -437,7 +441,9 @@ START AND EXTRAS
   overflow: hidden;
 }
 
-#e .obj, #e-play .obj, #e-cartridge .obj {
+#e .obj,
+#e-play .obj,
+#e-cartridge .obj {
   position: absolute;
   display: inline-block;
   width: 128px;
@@ -527,11 +533,13 @@ PLAY
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
-#play #e-controls a.___n, #play #e-controls a.___s {
+#play #e-controls a.___n,
+#play #e-controls a.___s {
   width: 100%;
   height: 30px;
 }
-#play #e-controls a.___e, #play #e-controls a.___w {
+#play #e-controls a.___e,
+#play #e-controls a.___w {
   width: 30px;
   height: 512px;
 }
@@ -549,6 +557,7 @@ PLAY
   transform: scale(1.02);
   cursor: pointer;
   background: hotpink;
+  mix-blend-mode: difference;
   opacity: 0.6;
 }
 #play #e-controls a.-inaccessible:hover {
@@ -569,11 +578,13 @@ EDITOR
 
 
 */
-#scene_s #scene_selector, #map #scene_selector {
+#scene_s #scene_selector,
+#map #scene_selector {
   margin: 1em auto;
   text-align: center;
 }
-#scene_s #scene_selector hr, #map #scene_selector hr {
+#scene_s #scene_selector hr,
+#map #scene_selector hr {
   height: 0;
   width: 100%;
   border: 0;
@@ -581,7 +592,8 @@ EDITOR
   padding: 0;
   margin: 0;
 }
-#scene_s #scene_selector ._s, #map #scene_selector ._s {
+#scene_s #scene_selector ._s,
+#map #scene_selector ._s {
   display: inline-block;
   padding: 0.25em;
   background: #000000;
@@ -594,24 +606,29 @@ EDITOR
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transform: scale(0.98);
 }
-#scene_s #scene_selector ._s.__start, #map #scene_selector ._s.__start {
+#scene_s #scene_selector ._s.__start,
+#map #scene_selector ._s.__start {
   border: 1px solid #eb80ff;
   outline: 1.5px solid #000000;
 }
-#scene_s #scene_selector ._s.__active, #map #scene_selector ._s.__active {
+#scene_s #scene_selector ._s.__active,
+#map #scene_selector ._s.__active {
   opacity: 1;
   border: 1px solid #edede8;
   outline: 2ox solid #eb80ff;
   box-shadow: 0 0 5px #000000;
   animation: pulse-black 2s infinite;
 }
-#scene_s #scene_selector ._s.__inactive, #map #scene_selector ._s.__inactive {
+#scene_s #scene_selector ._s.__inactive,
+#map #scene_selector ._s.__inactive {
   opacity: 0.5;
 }
-#scene_s #scene_selector ._s.__unused, #map #scene_selector ._s.__unused {
+#scene_s #scene_selector ._s.__unused,
+#map #scene_selector ._s.__unused {
   opacity: 0.25;
 }
-#scene_s #scene_selector ._s:hover, #map #scene_selector ._s:hover {
+#scene_s #scene_selector ._s:hover,
+#map #scene_selector ._s:hover {
   transform: scale(1.03);
   filter: invert(1);
   cursor: pointer;
@@ -673,7 +690,7 @@ EDITOR
   padding: 0.25em;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0;
   border-top: 0;
 }
@@ -769,7 +786,8 @@ EDITOR
   padding: 0.25em;
 }
 
-#library button, #help button {
+#library button,
+#help button {
   padding: 0.25em;
   margin: 0 auto;
   display: inline-block;

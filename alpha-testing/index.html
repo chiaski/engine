@@ -6,7 +6,7 @@
   <title>Engine Alpha 1.0</title>
   <meta name="description" content="A tiny storytelling tool." />
   <meta name="author" content="Chia" />
-  
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css" />
   <link rel="stylesheet" href="t.css" />
@@ -22,16 +22,14 @@
   <div class="fx _cover">
     <img src="assets/fx-television-off.png">
   </div>
-  
+
 
   <div id="info">
-  
     <span>Engine</span>
-    
+
     <span class="_version">Alpha 1.0</span>
-    
   </div>
-  
+
   <div id="jump">
     <a href="#window-map">Map</a>
     <a href="#window-engine">Editor</a>
@@ -40,15 +38,13 @@
     <a href="player.html" class="_small" target="_blank">Load cartridge</a> <a href="https://discord.com/invite/u5MHYcEV" class="_small" target="_blank">Join Engine Discord</a>
   </div>
 
-  
-  <!--  WINDOW: START  -->
 
+  <!--  WINDOW: START  -->
 
   <div id="start" class="window">
     <div class="window-wrapper">
       <div>
         <h1 class="_title">Engine</h1>
-
 
         <button id="tempplay">Create new game</button>
         <button id="tempplay" onclick="location.href = 'player.html';">Load cartridge</button>
@@ -77,9 +73,9 @@
 
 
     <div id="scene_selector">
-      
+
       <textarea id="_remix" placeholder="paste a cartridge code here to start editing it. note this deletes your existing scene!"></textarea>
-      
+
       <hr>
 
       <div id="sss"></div>
@@ -88,56 +84,51 @@
       <hr>
 
       <div id="map-controls">
-      <button id="btn-changestartingscene">change starting scene</button>
-      <button id="btn-cartridge">edit cartridge (game cover)</button>
-      <button id="btn-remixcartridge">remix cartridge</button>
-      <div class="controls-remixcartridge" style="display: none;">
-      <button id="btn-remixcartridge-back">back</button>
-      <button id="btn-remixcartridge-load">load cartridge</button>
-      </div>
+        <button id="btn-changestartingscene">change starting scene</button>
+        <button id="btn-cartridge">edit cartridge (game cover)</button>
+        <button id="btn-remixcartridge">remix cartridge</button>
+        <div class="controls-remixcartridge" style="display: none;">
+          <button id="btn-remixcartridge-back">back</button>
+          <button id="btn-remixcartridge-load">load cartridge</button>
         </div>
+      </div>
     </div>
 
 
   </div>
-  
-  
+
+
   <a id="window-audio" style="display: block; height: 15vh; width: 100%;"></a>
-  
+
   <div id="audio-player-controller">
-  
+
     <h3>
-    <marquee class="_audiotitle"  onmouseover="this.stop();" onmouseout="this.start();">
-      Here is my silly little song title
+      <marquee class="_audiotitle" onmouseover="this.stop();" onmouseout="this.start();">
+        Here is my silly little song title
       </marquee>
     </h3>
-      <button id="btn-audio-play">▶</button>
-      <button id="btn-audio-stop">◼︎</button>
-    
+    <button id="btn-audio-play">▶</button>
+    <button id="btn-audio-stop">◼︎</button>
+
   </div>
-  
+
   <div id="audio-player" class="window">
-    <h2>Audio Player</h2>
-Add a song to your game!<br>
-    
+    <h2>Cartridge Audio</h2>
     <div class="controls-audio">
-      <div id="player"></div>
-      <br>
-      
+
       <div class="controls-audio-loader">
-        
-        
-        <select name="audio-category" class="_audio-category"> 
-        <option value="none" selected disabled hidden>pick category</option>
-              
+
+        <select name="audio-category" class="_audio-category">
+          <option value="none" selected disabled hidden>pick audio</option>
+
         </select>
-        
-      <button id="btn-controls-audio-loadsong">load song</button>
-      <button id="btn-controls-audio-previewsong">preview song</button>
+
+        <button id="btn-controls-audio-loadsong">load song</button>
+        <button id="btn-controls-audio-previewsong">preview song</button>
       </div>
-      
+
     </div>
-    
+
   </div>
 
   <!--  WINDOW: ENGINE  -->
@@ -157,24 +148,24 @@ Add a song to your game!<br>
 
         <!--  TEXT OVERLAY PANEL -->
         <div class="panel _sidebar" id="tool-textoverlay">
-        
+
           <h2>Text</h2>
-          
+
           <div class="library-text-controls">
-          <button id="btn-toggletext">Toggle Text Editor</button>
+            <button id="btn-toggletext">Toggle Text Editor</button>
           </div>
         </div>
-        
-        
+
+
         <!-- LIBRARY PANEL -->
-        
+
         <div class="panel _sidebar" id="library">
           <h2>Asset Library</h2>
 
           <div class="library-controls">
 
-            <select name="library-category" class="_library-category"> 
-        <option value="none" selected disabled hidden>pick category</option>
+            <select name="library-category" class="_library-category">
+              <option value="none" selected disabled hidden>pick category</option>
               <option value="environment">environment</option>
               <option value="faces">faces</option>
               <option value="items">items</option>
@@ -191,10 +182,10 @@ Add a song to your game!<br>
           </div>
 
           <div class="_objcoords">
-          
+
             <center>
-            <span class="__x">0</span>, <span class="__y">0</span>
-          </center>
+              <span class="__x">0</span>, <span class="__y">0</span>
+            </center>
           </div>
 
         </div>
@@ -209,10 +200,10 @@ Add a song to your game!<br>
 
       <div id="e">
 
-    <div id="e-text">
-      <textarea id="texteditor" maxlength="550" rows="17"></textarea>
-    </div>
-        
+        <div id="e-text">
+          <textarea id="texteditor" maxlength="550" rows="17"></textarea>
+        </div>
+
       </div>
 
 
@@ -233,12 +224,12 @@ Add a song to your game!<br>
         <div id="library-scene-controls">
           scene controls
           <button id="btn-scenecontrols-deletescene" title="You can't delete your starting scene">delete</button>
-          
+
           <button id="btn-scenecontrols-copyscene">copy</button>
-          
+
           <button id="btn-scenecontrols-pastescene">paste</button>
         </div>
-        
+
         <!-- HELP PANEL -->
 
         <div class="panel _sidebar">
@@ -261,11 +252,11 @@ Add a song to your game!<br>
         <button onclick="objControls.size('down');">shrink</button>
 
         <button onclick="objControls.effect('invert');">invert</button>
-        
+
         <button onclick="objControls.effect('flip');">flip</button>
 
 
-        <button id="btn-finishediting"  onclick="objControls.clearSelected();objControls.saveObjects();">finish editing</button>
+        <button id="btn-finishediting" onclick="objControls.clearSelected();objControls.saveObjects();">finish editing</button>
       </div>
 
       <div class="controls-cartridge">
@@ -301,33 +292,33 @@ Add a song to your game!<br>
       <a data-direction="w" data-target="null" class="___w -inaccessible"></a>
       <a data-direction="s" data-target="null" class="___s -inaccessible"></a>
     </div>
-    
 
-        
+
+
 
     <!--  PLAY AREA GOES HERE  -->
 
     <div id="e-play">
-      
-    <div id="e-text">
-      <textarea maxlength="550"></textarea>
-    </div>
+
+      <div id="e-text">
+        <textarea maxlength="550"></textarea>
+      </div>
 
     </div>
 
 
   </div>
-  
-  
+
+
   <div class="engine-buttons">
     <button id="btn-play">Play</button>
     <button id="btn-clear">Clear</button>
     <button id="btn-download">Download</button>
     <button id="btn-getcode">Get Code</button>
   </div>
-  
+
   <div id="downloader"></div>
-  
+
   <iframe id="downloader_game" src="blank-cartridge.html"></iframe>
 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
@@ -350,6 +341,4 @@ Add a song to your game!<br>
     var active_scene = scenes.s[0];
   </script>
 
-</body>
-
-</html>
+</body></html>

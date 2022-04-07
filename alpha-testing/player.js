@@ -11,7 +11,7 @@
 
 console.log("Plug and play for Engine: engine.lol/alpha/player.html");
 
-var cartridge = null; 
+var cartridge = null;
 var scenes = null;
 
 function testJSON(text) {
@@ -26,28 +26,28 @@ function testJSON(text) {
   }
 }
 
-$("#btn-loadcartridge").on("click", function(){
+$("#btn-loadcartridge").on("click", function () {
   cartridge = $("#e-loadcartridge textarea").val();
   cartridge = cartridge.replace(/^\s+|\s+$/g, "")
-                .replace(/\\n/g, "\\n")  
-               .replace(/\\'/g, "\\'")
-               .replace(/\\"/g, '\\"')
-               .replace(/\\&/g, "\\&")
-               .replace(/\\r/g, "\\r")
-               .replace(/\\t/g, "\\t")
-               .replace(/\\b/g, "\\b")
-               .replace(/\\f/g, "\\f");
-  
-  cartridge = cartridge.replace(/[\u0000-\u0019]+/g,""); 
+    .replace(/\\n/g, "\\n")
+    .replace(/\\'/g, "\\'")
+    .replace(/\\"/g, '\\"')
+    .replace(/\\&/g, "\\&")
+    .replace(/\\r/g, "\\r")
+    .replace(/\\t/g, "\\t")
+    .replace(/\\b/g, "\\b")
+    .replace(/\\f/g, "\\f");
+
+  cartridge = cartridge.replace(/[\u0000-\u0019]+/g, "");
 
   console.log("Attempting to load: ", cartridge);
-  
+
   if (testJSON(cartridge)) {
     scenes = JSON.parse(cartridge);
 
     if (scenes) {
       console.log("Loaded: ", scenes);
-      
+
     } else {
       $("#play h2").text("Corrupted or empty cartridge");
       throw new Error();
@@ -55,12 +55,12 @@ $("#btn-loadcartridge").on("click", function(){
 
     $("#play h2").text("Loaded cartridge. Press play!");
     $("#e-loadcartridge").fadeOut();
-    
+
     $("#btn-play").css("display", "inline-block").fadeIn("slow").on("click", function () {
       Tplayer.init();
       $(this).text("RELOAD");
     });
-    
+
   } else {
     $("#play h2").text("Corrupted or empty cartridge");
     throw new Error();
@@ -106,24 +106,24 @@ const Tplayer = {
   active: null,
 
   init: function () {
-    
+
     Tplayer.clearGame();
 
     // cartridge checks
-    if(scenes.cartridge !== null){
+    if (scenes.cartridge !== null) {
       // load the cartridge
       Tplayer.loadCartridge();
       $("#e-cartridge").fadeIn(1000);
-      
+
       setTimeout(function () {
         $("#e-cartridge").fadeOut("slow");
-    $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
-    $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
+        $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
+        $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       }, 1800);
-      
-    $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(1500).css("pointer-events", "auto").css("cursor", "auto");
-      
-    } else{
+
+      $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(1500).css("pointer-events", "auto").css("cursor", "auto");
+
+    } else {
       $("#e-cartridge").fadeOut();
     }
 
@@ -134,7 +134,7 @@ const Tplayer = {
   loadCartridge: function () {
 
     $("#play h2").text("Starting game...");
-    
+
     (scenes.cartridge.objects).forEach(function (e) {
       let newSrc = "";
       newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
@@ -144,7 +144,7 @@ const Tplayer = {
       if (e.filter) {
         newSrc += "filter:" + e.filter + ";";
       }
-      
+
       if (e.flip) {
         newSrc += "transform:" + e.flip + ";"
       }
@@ -345,11 +345,11 @@ const Tplayer = {
       newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
 
       newSrc += "top:" + e.y + "px; left:" + e.x + "px;"
-        
+
       if (e.filter) {
         newSrc += "filter:" + e.filter + ";";
       }
-      
+
       if (e.flip) {
         newSrc += "transform:" + e.flip + ";"
       }

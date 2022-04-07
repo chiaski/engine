@@ -17,9 +17,9 @@ const Tplayer = {
     clearGame
     deletes and clears the game
   */
-  
-  clearGame: function(){
-    
+
+  clearGame: function () {
+
     // clear all visual styles
     $("#e-controls a").each(function (i, e) {
       $(this)
@@ -28,7 +28,7 @@ const Tplayer = {
         .attr("data-target", "null")
         .unbind("click", Tplayer.loadTarget);
     });
-    
+
     Tplayer.clearScene();
   },
   loadTarget: function () {
@@ -40,22 +40,22 @@ const Tplayer = {
     if (x == null || y == null) {
       return;
     }
-    
+
     // success
     Tplayer.loadScene(x, y);
-    
+
     Tplayer.animatePulse(); // little animation
 
   },
-  
-    animatePulse: function(){
+
+  animatePulse: function () {
 
     let $w = $("#play"); // set to play window
     $w.css("transform", "scale(1.03)");
-      
-    setTimeout(function(){
-    $w.css("transform", "scale(0.99)");
-  }, 500);
+
+    setTimeout(function () {
+      $w.css("transform", "scale(0.99)");
+    }, 500);
 
 
   },
@@ -103,6 +103,8 @@ const Tplayer = {
 
     let new_x, new_y;
 
+    var scene_count = Math.sqrt((scenes.s).length);
+
     switch (direction) {
 
       case "n":
@@ -116,7 +118,7 @@ const Tplayer = {
 
       case "e":
 
-        if (y < globals.MAP_width - 1) {
+        if (y < scene_count - 1) {
           new_y = y + 1;
         } else {
           new_y = null;
@@ -136,7 +138,7 @@ const Tplayer = {
 
       case "s":
 
-        if (x < globals.MAP_height - 1) {
+        if (x < scene_count - 1) {
           new_x = x + 1;
         } else {
           new_x = null;
@@ -164,7 +166,7 @@ const Tplayer = {
     Tplayer.active = sceneControls.getScene(x, y);
 
     // add text
-    $("#e-play textarea").hide().delay(300).fadeIn("slow").val( (Tplayer.active.textoverlay).replace(/\\n/g, "\n").replace(/&nbsp;/g, " ") );
+    $("#e-play textarea").hide().delay(300).fadeIn("slow").val((Tplayer.active.textoverlay).replace(/\\n/g, "\n").replace(/&nbsp;/g, " "));
 
     // add objects
     ((Tplayer.active).objects).forEach(function (e) {
@@ -186,7 +188,7 @@ const Tplayer = {
       }
 
       newSrc += "'>";
-      
+
       let newObj = $(newSrc).hide().fadeIn(1400);
       $("#e-play").append(newObj);
     })
@@ -220,9 +222,9 @@ const Tplayer = {
     // first, save objects on scene
     //    objControls.saveObjects();
 
-    
+
     $("#e-play textarea")
-    
+
     $("#e-play img.obj").each(function () {
       $(this).remove();
     });
@@ -231,22 +233,22 @@ const Tplayer = {
 
 
 function loadPlay(x, y) {
-  
+
   $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
-   
+
   // does the game have a cartridge?
-  if( scenes.cartridge !== null){
+  if (scenes.cartridge !== null) {
     $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(2000).css("pointer-events", "auto").css("cursor", "auto");
 
     // load the cartridge, if this is a replay
-    if( $("#e-cartridge").css("display") == "none" ){$("#e-cartridge").fadeIn(800).delay(2000).fadeOut(1000);
+    if ($("#e-cartridge").css("display") == "none") {
+      $("#e-cartridge").fadeIn(800).delay(2000).fadeOut(1000);
 
-    }
-    else {
+    } else {
       // first, fade out cartridge very slowly lol
       $("#e-cartridge").delay(1000).fadeOut(1000);
     }
-  } else{
+  } else {
     $("#e-cartridge").fadeOut();
     $("#play").css("pointer-events", "auto").css("cursor", "auto");
   }

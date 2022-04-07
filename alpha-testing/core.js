@@ -1,17 +1,17 @@
 // CORE
 // Contains globals and such
 
-const globals = {
-  
+var globals = {
+
   // maximum objects allowed per scene
   MAX_object_count: 15,
-  
+
   // map width (columns)
   MAP_width: 5,
-  
+
   // map height (rows)
   MAP_height: 5
-  
+
 }
 
 
@@ -20,7 +20,7 @@ const globals = {
 // collection of all scenes
 
 const scenes = {
-  
+
   scene_count: 1,
   start_scene: {
     x: 0,
@@ -28,8 +28,8 @@ const scenes = {
   },
   cartridge: null, // will be the starting screen to the game
   audio: null,
-  
-  // ALL THE SCENESKMFAKSF
-  s: new Array( globals.MAP_width * globals.MAP_height )
-};
+  audio_loop: true,
 
+  // ALL THE SCENESKMFAKSF
+  s: new Array(globals.MAP_width * globals.MAP_height)
+};

@@ -11,24 +11,24 @@ console.log("scene.js loaded");
   
 */
 
-function Scene(x, y, active, color, object_count){
-  
+function Scene(x, y, active, color, object_count) {
+
   // scene coordinates
   this.x = x;
   this.y = y;
-  
+
   // has this scene been edited?
-  this.active = active; 
-  
+  this.active = active;
+
   // background color of the scene
   this.color = color;
   // any textoverlay
   this.textoverlay = "";
-  
-  
+
+
   this.object_count = 0;
   this.objects = [];
-  
+
 }
 
 
@@ -54,91 +54,107 @@ function testJSON(text) {
 }
 
 
-$("#btn-remixcartridge").on("click", function(){
-  
-  if( !confirm("Do you want to paste in a cartridge code and start editing an existing game? (Note that this wipes all of your current progress!)") ){
+$("#btn-remixcartridge").on("click", function () {
+
+  if (!confirm("Do you want to paste in a cartridge code and start editing an existing game? (Note that this wipes all of your current progress!)")) {
     return;
   }
-  
+
   $(this).hide();
   $("#map textarea#_remix").fadeIn();
   $("#map #sss").hide();
   $("#btn-changestartingscene").hide();
   $("#btn-cartridge").hide();
-  
+
   $("#map .controls-remixcartridge").fadeIn();
-  
+
 })
 
 
-  // handle controls
-  
-  $("#btn-remixcartridge-back").on("click", function(){
-    
-    $("#map .controls-remixcartridge").hide();
-    
-    $("#map textarea#_remix").val("").hide();
-    $("#map #sss").fadeIn();
-    $("#btn-cartridge").fadeIn();
-    $("#btn-remixcartridge").fadeIn();
-    $("#btn-changestartingscene").fadeIn();
-    
-  })
-  
-  // load a cartridge
-  $("#btn-remixcartridge-load").on("click", function(){
-    
-    let new_cartridge = $("#map textarea#_remix").val();
-    new_cartridge = new_cartridge.replace(/^\s+|\s+$/g, "")
-                .replace(/\\n/g, "\\n")  
-               .replace(/\\'/g, "\\'")
-               .replace(/\\"/g, '\\"')
-               .replace(/\\&/g, "\\&")
-               .replace(/\\r/g, "\\r")
-               .replace(/\\t/g, "\\t")
-               .replace(/\\b/g, "\\b")
-               .replace(/\\f/g, "\\f");
-    
-    new_cartridge = new_cartridge.replace(/[\u0000-\u0019]+/g,""); 
-    
-    console.log("Attempting to load: ", new_cartridge);
-    
-    let new_scenes = "";
-    
-    if (testJSON(new_cartridge)) {
-      new_scenes = JSON.parse(new_cartridge);
-      // just checking if this is valid or not
-      if (new_scenes.start_scene == null || new_scenes.s == null) {
-        alert("Corrupted or empty cartridge!!!!");
-        return;
-      }
-      
-    } else{
-        alert("Corrupted or empty cartridge!");
-        return;
+// handle controls
+
+$("#btn-remixcartridge-back").on("click", function () {
+
+  $("#map .controls-remixcartridge").hide();
+
+  $("#map textarea#_remix").val("").hide();
+  $("#map #sss").fadeIn();
+  $("#btn-cartridge").fadeIn();
+  $("#btn-remixcartridge").fadeIn();
+  $("#btn-changestartingscene").fadeIn();
+
+})
+
+// load a cartridge
+$("#btn-remixcartridge-load").on("click", function () {
+
+  let new_cartridge = $("#map textarea#_remix").val();
+  new_cartridge = new_cartridge.replace(/^\s+|\s+$/g, "")
+    .replace(/\\n/g, "\\n")
+    .replace(/\\'/g, "\\'")
+    .replace(/\\"/g, '\\"')
+    .replace(/\\&/g, "\\&")
+    .replace(/\\r/g, "\\r")
+    .replace(/\\t/g, "\\t")
+    .replace(/\\b/g, "\\b")
+    .replace(/\\f/g, "\\f");
+
+  new_cartridge = new_cartridge.replace(/[\u0000-\u0019]+/g, "");
+
+  console.log("Attempting to load: ", new_cartridge);
+
+  let new_scenes = "";
+
+  if (testJSON(new_cartridge)) {
+    new_scenes = JSON.parse(new_cartridge);
+    // just checking if this is valid or not
+    if (new_scenes.start_scene == null || new_scenes.s == null) {
+      alert("Corrupted or empty cartridge!!!!");
+      return;
     }
-    
-      console.log("Loaded: ", new_scenes);
-    
-      mapControls.clearMap();
-      sceneControls.reassignScenes(new_scenes);
-      mapControls.loadMap(scenes);
-    
-      let i = sceneControls.getSceneIndex(scenes.start_scene.x, scenes.start_scene.y);
-    
-      sceneControls.switchScene(i);
 
-      $("#map .controls-remixcartridge").hide();
+  } else {
+    alert("Corrupted or empty cartridge!");
+    return;
+  }
 
-      $("#map textarea#_remix").val("").hide();
-      $("#map #sss").fadeIn();
-      $("#btn-cartridge").fadeIn();
-      $("#btn-remixcartridge").fadeIn();
-      $("#btn-changestartingscene").fadeIn();
-    
-      alert("Successfully loaded cartridge");
-    
-  });
+  console.log("Loaded: ", new_scenes);
+
+  if ((new_scenes.s).length !== (globals.MAP_height * globals.MAP_width)) {
+    alert("This cartridge is sized differently. Adjusting the player...");
+
+    let new_size = (100 / Math.sqrt((new_scenes.s).length)) - 3;
+
+    //    $("#scene_s ._s").css("flex-basis", new_size + "% !important");
+    $("#scene_s #scene_selector ._s").css("flex-basis", "23%");
+    $("#scene_s #scene_selector ._s").css("padding", ".2em .5em");
+
+    let c = Math.sqrt((new_scenes.s).length);
+
+    globals.MAP_width = c;
+    globals.MAP_height = c;
+
+  }
+
+  mapControls.clearMap();
+  sceneControls.reassignScenes(new_scenes);
+  mapControls.loadMap(scenes);
+
+  let i = sceneControls.getSceneIndex(scenes.start_scene.x, scenes.start_scene.y);
+
+  sceneControls.switchScene(i);
+
+  $("#map .controls-remixcartridge").hide();
+
+  $("#map textarea#_remix").val("").hide();
+  $("#map #sss").fadeIn();
+  $("#btn-cartridge").fadeIn();
+  $("#btn-remixcartridge").fadeIn();
+  $("#btn-changestartingscene").fadeIn();
+
+  alert("Successfully loaded cartridge");
+
+});
 
 
 
@@ -157,79 +173,80 @@ $("#btn-remixcartridge").on("click", function(){
 
 
 const sceneControls = {
-  
+
   /* 
     getScene
     give x, y
     returns the index based on simple formula
     
   */
-  
-  getSceneIndex: function(x,y){
-    let i = (parseInt(x) * globals.MAP_width) + parseInt(y); 
-    
+
+  getSceneIndex: function (x, y) {
+
+    let i = (parseInt(x) * globals.MAP_width) + parseInt(y);
+
     return i;
   },
-  
+
   /* 
     getScene
     give x, y
     returns scene object
   */
-  
-  getScene:function(x,y){
-    
-    let i = (parseInt(x) * globals.MAP_width) + parseInt(y); 
+
+  getScene: function (x, y) {
+
+    let i = (parseInt(x) * globals.MAP_width) + parseInt(y);
     return scenes.s[i];
   },
-  
+
   /* 
     reassignScenes
     give a new scene object
     and update the scenes
   */
-  
-  reassignScenes: function(new_scene){
-    
-    if(!new_scene){
+
+  reassignScenes: function (new_scene) {
+
+    if (!new_scene) {
       return;
     }
-    
-      scenes.scene_count = new_scene.scene_count;
-      scenes.start_scene = new_scene.start_scene;
-      scenes.cartridge = new_scene.cartridge;
-      scenes.s = new_scene.s;
+
+    scenes.scene_count = new_scene.scene_count;
+    scenes.start_scene = new_scene.start_scene;
+    scenes.cartridge = new_scene.cartridge;
+    scenes.s = new_scene.s;
 
   },
-  
-  copyScene: function(target, source){
-    
+
+  copyScene: function (target, source) {
+
     target.x = source.x;
     target.y = source.y;
     target.color = source.color;
     target.object_count = source.object_count;
     target.objects = source.objects;
     target.textoverlay = source.textoverlay;
-    
+
   },
-    /* 
+  /* 
     checkActive
     see if given scene is the active scene
     
   */
-  
-  checkActive: function(s){
-    
-    if(!s){
+
+  checkActive: function (s) {
+
+    if (!s) {
       // you must provide a scene object
       return false;
     }
-    
-    if(active_scene.x == s.x && active_scene.y == s.y && active_scene.textoverlay == s.textoverlay && active_scene.color == s.color){
+
+    if (active_scene.x == s.x && active_scene.y == s.y && active_scene.textoverlay == s.textoverlay && active_scene.color == s.color) {
       return true;
     }
     return false;
-    
+
   },
 
   /*
@@ -244,35 +261,35 @@ const sceneControls = {
     // first, save scene
     sceneControls.saveScene();
     sceneControls.clearScene();
-    
+
     // set to new active scene
     active_scene = scenes.s[i];
-    
+
     sceneControls.loadColor();
     sceneControls.loadText();
     sceneControls.loadObjects();
-    
+
     console.log("Switched scene to " + active_scene.x + "," + active_scene.y);
-    
-    
+
+
     $("#e .obj").each(function () {
-     $( this )
-      .bind("dblclick", objControls.selectObj);
+      $(this)
+        .bind("dblclick", objControls.selectObj);
     });
-    
-    
-   // scroll to engine
+
+
+    // scroll to engine
     document.getElementById("window-engine").scrollIntoView();
 
     $("._howmany").text(active_scene.object_count);
-     
+
     // Updating active scene text
     $("._whatscenetype").text("Scene");
-    $("._whatscene").text( active_scene.x + "," + active_scene.y );
+    $("._whatscene").text(active_scene.x + "," + active_scene.y);
 
   },
 
-  
+
   /* saveScene writes all objects and settings to the active scene */
   saveScene: function () {
     libraryText.saveText();
@@ -282,7 +299,7 @@ const sceneControls = {
   clearScene: function () {
 
     libraryText.clearText();
-    $("#e img.obj").each( function(){
+    $("#e img.obj").each(function () {
       $(this).remove();
     });
 
@@ -290,22 +307,22 @@ const sceneControls = {
 
   loadColor: function () {
 
-    if(active_scene.color == 0){
+    if (active_scene.color == 0) {
       // defaults to black if color isn't set
-      active_scene.color = "#000000"; 
+      active_scene.color = "#000000";
     }
-    
+
     $("#e").css("background", active_scene.color);
     $("body").css("background", active_scene.color);
   },
-  
-  loadText: function(){
+
+  loadText: function () {
     // loads text into editor
     let t = active_scene.textoverlay;
     t = t.replace(/&nbsp;/g, " ");
-    
-    $("#e #e-text textarea").hide().delay(100).fadeIn("slow").val( t );
-    
+
+    $("#e #e-text textarea").hide().delay(100).fadeIn("slow").val(t);
+
   },
 
   /*
@@ -313,18 +330,18 @@ const sceneControls = {
   */
 
   loadObjects: function () {
-    
+
     // iterate over each object
     (active_scene.objects).forEach(function (e) {
       objControls.addObj(e.img, e.x, e.y, e.filter, e.flip, e.size, e.interaction, e.interaction_target);
     })
 
   },
-  
-  initColorpicker: function() {
+
+  initColorpicker: function () {
 
     $("input[type='color']").change(function () {
-      
+
       let c = $(" input[type='color']").val();
 
       $("#e").css("background", c);
@@ -337,60 +354,60 @@ const sceneControls = {
     });
 
   },
-  
-  editCartridge: function(){
-    
+
+  editCartridge: function () {
+
     $("#btn-savecartridge").fadeIn("slow");
     $("#btn-finishediting").fadeOut("slow");
     $(".sidebar-right").fadeOut("slow");
-    
-    libraryText.saveText();    
-    objControls.saveObjects();  
+
+    libraryText.saveText();
+    objControls.saveObjects();
     sceneControls.clearScene();
     let c = scenes.cartridge;
- 
+
     // MAP:remove the old scene
     $("#" + mapControls.MASTER + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
     $("#" + mapControls.SIDE + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
-    
+
     // MAP: clear all the __active classes
-    $("#" + mapControls.MASTER + " ._s").each(function(i, item){
+    $("#" + mapControls.MASTER + " ._s").each(function (i, item) {
       $(item).removeClass("__active")
     });
-    $("#" + mapControls.SIDE + " ._s").each(function(i, item){
+    $("#" + mapControls.SIDE + " ._s").each(function (i, item) {
       $(item).removeClass("__active")
     });
-    
-       // make cartridge for the first time
-    if(c == null){
-      
-      scenes.cartridge = new Scene(-1, -1, true, "#000000", "", 0);      
+
+    // make cartridge for the first time
+    if (c == null) {
+
+      scenes.cartridge = new Scene(-1, -1, true, "#000000", "", 0);
       active_scene = scenes.cartridge;
-      
+
       // reset colors
       $("#e").css("background", "#000000");
       $("body").css("background", "#000000");
       $("input[type='color']").val("#000000");
-      
-    } else{
+
+    } else {
       active_scene = scenes.cartridge;
       sceneControls.loadObjects();
     }
-    
+
     $("._whatscenetype").text("Cartridge");
     $(".whatscene").text("");
-    
+
   },
-  
-  saveCartridge: function(){
-    
+
+  saveCartridge: function () {
+
     objControls.clearSelected();
     console.log("saving cartridge", active_scene);
     $("#e-cartridge").html("");
-    objControls.saveObjects();    
+    objControls.saveObjects();
     scenes.cartridge = active_scene;
-    
-     (active_scene.objects).forEach(function (e) {
+
+    (active_scene.objects).forEach(function (e) {
       let newSrc = "";
       newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
 
@@ -411,18 +428,18 @@ const sceneControls = {
       }
 
       newSrc += "'>";
-      
+
       let newObj = $(newSrc).hide().fadeIn(2000);
       $("#e-cartridge").append(newObj);
     });
-    
+
     // update the colo
     $("#e-cartridge").css("background", (scenes.cartridge).color);
     $("#btn-savecartridge").fadeOut("slow");
-    
+
     $(".sidebar-right").fadeIn("slow");
 
-    
+
   }
 
 };
@@ -434,90 +451,90 @@ const sceneControls = {
     
 */
 
-$("#library-scene-controls button#btn-scenecontrols-deletescene").on("click", function(){
-  
-  if(active_scene.x == scenes.start_scene.x && active_scene.y == scenes.start_scene.y){
+$("#library-scene-controls button#btn-scenecontrols-deletescene").on("click", function () {
+
+  if (active_scene.x == scenes.start_scene.x && active_scene.y == scenes.start_scene.y) {
     alert("You can't delete your starting scene.");
     return;
   }
-  
- if( !confirm("Do you want to delete your active scene, " + active_scene.x + "," + active_scene.y + "?") ){
-   return;
+
+  if (!confirm("Do you want to delete your active scene, " + active_scene.x + "," + active_scene.y + "?")) {
+    return;
   }
-  
+
   let old_x = active_scene.x;
   let old_y = active_scene.y;
-  
+
   // switch to starting scene
-  
-  sceneControls.switchScene( sceneControls.getSceneIndex(scenes.start_scene.x, scenes.start_scene.y) );
-  scenes.s[ sceneControls.getSceneIndex(old_x, old_y) ] = null;
-      
+
+  sceneControls.switchScene(sceneControls.getSceneIndex(scenes.start_scene.x, scenes.start_scene.y));
+  scenes.s[sceneControls.getSceneIndex(old_x, old_y)] = null;
+
   mapControls.updateMap();
-  
+
   alert("Scene " + old_x + "," + old_y + " deleted");
-  
+
 })
 
 var copy_scene = null;
 
-$("#library-scene-controls button#btn-scenecontrols-copyscene").on("click", function(){
-  
+$("#library-scene-controls button#btn-scenecontrols-copyscene").on("click", function () {
+
   copy_scene = null;
-  
+
   copy_scene = JSON.parse(JSON.stringify(active_scene));
-  
+
   alert("Copied scene " + active_scene.x + "," + active_scene.y + "!");
 
   $("button#btn-scenecontrols-pastescene").css("opacity", "1");
-  
+
 })
 
 
-$("#library-scene-controls button#btn-scenecontrols-pastescene").on("click", function(){
-    
-  
-  if(copy_scene == null){
+$("#library-scene-controls button#btn-scenecontrols-pastescene").on("click", function () {
+
+
+  if (copy_scene == null) {
     alert("You haven't selected a scene to copy!")
     return;
-  } 
-  
-  
- if( !confirm("Do you want to replace this scene with contents from " + copy_scene.x + "," + copy_scene.y + "? This overwrites the current scene!") ){
-   return;
   }
-  
+
+
+  if (!confirm("Do you want to replace this scene with contents from " + copy_scene.x + "," + copy_scene.y + "? This overwrites the current scene!")) {
+    return;
+  }
+
   sceneControls.clearScene();
-  
+
   // loadObjects
-   (copy_scene.objects).forEach(function (e) {
-      objControls.addObj(e.img, e.x, e.y, e.filter, e.flip, e.size, e.interaction, e.interaction_target);
-    })
-  
+  (copy_scene.objects).forEach(function (e) {
+    objControls.addObj(e.img, e.x, e.y, e.filter, e.flip, e.size, e.interaction, e.interaction_target);
+  })
+
   // loadColor
-  
-    if(copy_scene.color == 0){
-      // defaults to black if color isn't set
-      copy_scene.color = "#000000"; 
-    }
-    
-    $("#e").css("background", copy_scene.color);
-    $("body").css("background", copy_scene.color);
-  
+
+  if (copy_scene.color == 0) {
+    // defaults to black if color isn't set
+    copy_scene.color = "#000000";
+  }
+
+  $("#e").css("background", copy_scene.color);
+  $("body").css("background", copy_scene.color);
+
   active_scene.color = copy_scene.color;
-  
-   $("#scene_selector div._s.__active").css("background", copy_scene.color); 
-  
+
+  $("#scene_selector div._s.__active").css("background", copy_scene.color);
+
   // loadText
-  
-    let t = copy_scene.textoverlay;
-    t = t.replace(/&nbsp;/g, " ");
-    
-    $("#e #e-text textarea").hide().delay(100).fadeIn("slow").val( t );
-  
-  
+
+  let t = copy_scene.textoverlay;
+  t = t.replace(/&nbsp;/g, " ");
+
+  $("#e #e-text textarea").hide().delay(100).fadeIn("slow").val(t);
+
+
   alert("Successfully copied scene " + copy_scene.x + "," + copy_scene.y + "!");
-  
+
 })
 
 
@@ -527,13 +544,13 @@ $("#library-scene-controls button#btn-scenecontrols-pastescene").on("click", fun
 sceneControls.initColorpicker();
 
 $("#btn-cartridge").on("click", function () {
-  
+
   // disable text
-    if(  $("button#btn-toggletext").hasClass("__toggled") ){
-      $("#e #e-text").css("pointer-events", "none");
-      $("button#btn-toggletext").removeClass("__toggled");
-    }
-  
+  if ($("button#btn-toggletext").hasClass("__toggled")) {
+    $("#e #e-text").css("pointer-events", "none");
+    $("button#btn-toggletext").removeClass("__toggled");
+  }
+
   objControls.clearSelected();
   $("#tool-textoverlay").fadeOut();
   sceneControls.editCartridge();
@@ -547,4 +564,3 @@ $("#btn-savecartridge").on("click", function () {
   sceneControls.saveCartridge();
   alert("Cartridge saved!");
 });
-

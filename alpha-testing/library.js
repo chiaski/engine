@@ -32,30 +32,30 @@ const libraryText = {
     $("button#btn-toggletext").on("click", function () {
       libraryText.toggleText();
     });
-    
-    $("#" + libraryText.$TEXT_EDITOR).keyup(function() {
+
+    $("#" + libraryText.$TEXT_EDITOR).keyup(function () {
       libraryText.saveText();
     });
 
   },
-  
-  toggleText: function(){
-    
-    if(  $("button#btn-toggletext").hasClass("__toggled") ){
+
+  toggleText: function () {
+
+    if ($("button#btn-toggletext").hasClass("__toggled")) {
       $("button#btn-toggletext").removeClass("__toggled");
-    } else{
-       $("button#btn-toggletext").addClass("__toggled");
+    } else {
+      $("button#btn-toggletext").addClass("__toggled");
     }
-    
-    if( $("#e #e-text").css("pointer-events") == "none" ){
+
+    if ($("#e #e-text").css("pointer-events") == "none") {
       $("#" + libraryText.$TEXT).css("pointer-events", "all");
-    } else{
+    } else {
       $("#" + libraryText.$TEXT).css("pointer-events", "none");
     }
-    
+
     libraryText.saveText();
     console.log("text toggled");
-    
+
   },
   // loadText: laod text into active scene
   loadText: function () {
@@ -68,19 +68,19 @@ const libraryText = {
 
   // saveText: save text into active scene
   saveText: function () {
-    
+
     let t = $("#" + libraryText.$TEXT_EDITOR).val();
     console.log(t);
     // preserve whitespace
-    
-    if(t !== null){
-//      t = t.replace( / /g, "&nbsp;" );
+
+    if (t !== null) {
+      //      t = t.replace( / /g, "&nbsp;" );
     }
 
     active_scene.textoverlay = t;
   },
-  
-  disableText: function(){
+
+  disableText: function () {
     // first, save
     libraryText.saveText();
     // disable text editing
@@ -142,8 +142,7 @@ const libraryControls = {
 
   $LIBRARY_OBJECTS: "library-objects",
 
-  init: function () {
-  },
+  init: function () {},
 
   clicktoadd: function () {
 
@@ -156,13 +155,16 @@ const libraryControls = {
       $("._howmany").text(active_scene.object_count);
 
     }
-    
-    let o = objControls.addObj( $(this).attr("src") );
+
+    let o = objControls.addObj($(this).attr("src"));
 
     objControls.moveObj(o);
   },
 
   load: function (what) {
+
+    $("#" + libraryControls.$LIBRARY_OBJECTS).html("");
+
     library[what].forEach(function (e, i) {
 
       $("#" + libraryControls.$LIBRARY_OBJECTS).prepend("<img class='_toadd' src='https://engine.lol/alpha/assets/image/" + what + "/" + e + ".gif'>");
@@ -231,7 +233,7 @@ const objControls = {
 
   // SELECT/DESELECT via double-click
   selectObj: function (t) {
-    
+
     // I am double-clicking the image I currently selected
     if ($(this).attr("data-selected") == "1") {
       objControls.clearSelected();
@@ -272,10 +274,10 @@ const objControls = {
   addObj: function (src, x, y, filter, flip, size, interaction, interaction_target) {
     // first, deselect all objects
     objControls.clearSelected();
-    
+
     $(".__x").text("0");
     $(".__y").text("0");
-    
+
     let newSrc;
     newSrc = "<img class='obj' data-selected='0' src='" + src + "' style='";
 
@@ -284,7 +286,7 @@ const objControls = {
     if (filter) {
       newSrc += "filter:" + filter + ";";
     }
-    
+
     if (flip) {
       newSrc += "transform:" + flip + ";"
     }
@@ -359,12 +361,12 @@ const objControls = {
         break;
 
       case "flip":
-        
+
         console.log("please");
-        
+
         console.log($(t).css("transform"));
-        
-        if ( $(t).css("transform") == "scale(-1, 1)" || $(t).css("transform") == "matrix(-1, 0, 0, 1, 0, 0)"  ) {
+
+        if ($(t).css("transform") == "scale(-1, 1)" || $(t).css("transform") == "matrix(-1, 0, 0, 1, 0, 0)") {
           $(t).css("transform", "scale(1,1)");
         } else {
           $(t).css("transform", "scale(-1,1)");
@@ -400,7 +402,7 @@ const objControls = {
 
   updatePos: function (t) {
     let pos = $(t).position();
-    
+
     console.log(pos);
 
     $(".__x").text(pos.left);
