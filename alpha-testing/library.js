@@ -112,8 +112,8 @@ const library = {
   monsters: ["chad", "child", "dude", "dude-2", "dude-3", "dude-4", "eye", "flyingfuck", "ghost", "head", "rawr", "skull"],
   items: ["person", "hair", "heart", "heart-half", "cash", "cashbag", "clock", "coin", "coin-number", "frame", "gem", "gem-2", "gold", "magnify", "pouch", "sandglass", "wine", "beer", "coffee", "drink", "note", "megaphone", "shroom", "sword", "pizza", "cake"],
   chat: ["chat-dot", "chat-exclaim", "chat-line", "chat-no", "chat-yes", "chat-ok", "chat", "gameover", "off", "on"],
-  clouds: ["1", "2", "3", "4", "5", "6", "7"]
-
+  clouds: ["1", "2", "3", "4", "5", "6", "7"],
+  softbank: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67"]
 };
 
 // object constructor
