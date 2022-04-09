@@ -35,7 +35,30 @@
     <a href="#window-engine">Editor</a>
     <a href="#window-play">Player</a>
     <br>
-    <a href="player.html" class="_small" target="_blank">Load cartridge</a> <a href="https://discord.com/invite/u5MHYcEV" class="_small" target="_blank">Join Engine Discord</a>
+    <a href="player.html" class="_small" target="_blank">Player</a>
+
+    <a href="https://discord.com/invite/u5MHYcEV" class="_small" target="_blank">Join Engine Discord</a>
+  </div>
+
+  <div id="outer-modals">
+    <div class="_modal __suggestion" data-type="suggestion" data-action="dismiss">
+      <h3>New tip</h3>
+      <p>Double-click to add an object to the screen, doofus.</p>
+
+      <div class="_options">
+        <button>I'm sorry</button>
+        <button>Okay</button>
+      </div>
+    </div>
+    <div class="_modal __warning" data-type="warning">
+      <h3>New tip</h3>
+      <p>Double-click to add an object to the screen, doofus.</p>
+    </div>
+    <div class="_modal __tip" data-type="tip">
+      <h3>New tip</h3>
+      <p>Double-click to add an object to the screen, doofus.</p>
+    </div>
+
   </div>
 
 
@@ -98,7 +121,7 @@
   </div>
 
 
-  <a id="window-audio" style="display: block; height: 15vh; width: 100%;"></a>
+  <a id="window-audio"></a>
 
   <div id="audio-player-controller">
 
@@ -173,6 +196,7 @@
               <option value="clouds">clouds</option>
               <option value="monsters">monsters</option>
               <option value="chat">chat</option>
+              <option value="softbank">softbank</option>
             </select>
           </div>
 
@@ -222,7 +246,7 @@
         </div>
 
         <div id="library-scene-controls">
-          scene controls
+          scene controls<br>
           <button id="btn-scenecontrols-deletescene" title="You can't delete your starting scene">delete</button>
 
           <button id="btn-scenecontrols-copyscene">copy</button>
@@ -313,11 +337,14 @@
   <div class="engine-buttons">
     <button id="btn-play">Play</button>
     <button id="btn-clear">Clear</button>
+    <br>
     <button id="btn-download">Download</button>
     <button id="btn-getcode">Get Code</button>
+    <button onclick="window.open( 'https://forms.gle/Thifa9CL7fQpbXwT8', '_blank');">Submit to Gallery</button>
   </div>
 
-  <div id="downloader"></div>
+  <div id=" downloader">
+  </div>
 
   <iframe id="downloader_game" src="blank-cartridge.html"></iframe>
 
@@ -333,12 +360,16 @@
   <script type="text/javascript" src="playerpreview.js"></script>
   <script type="text/javascript" src="audio.js"></script>
   <script type="text/javascript" src="downloader.js"></script>
+  <script type="text/javascript" src="tutorial.js"></script>
 
   <script type="text/javascript">
     console.log("Initializing Engine");
 
     scenes.s[0] = new Scene(0, 0, true, 0);
     var active_scene = scenes.s[0];
+
   </script>
 
-</body></html>
+</body>
+
+</html>
