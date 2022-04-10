@@ -57,12 +57,28 @@ body,
 }
 
 body {
-  background: #c3adb1;
+  background: #191b1d;
   padding: 2em;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 25vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ui-tooltip {
+  padding: 0.25em;
+  color: #edede8 !important;
+  background: #000000 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 15px #edede8 !important;
+  outline: 1.5px solid #000000;
+  border: 1px solid #000000;
+  font-family: "FA Sysfont C", monospace !important;
+  font-size: 0.8em !important;
+  font-weight: normal;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -104,11 +120,11 @@ h2 {
   font-family: "Times Now";
   font-size: 1.2em;
   letter-spacing: -0.2px;
-  padding: 0.25em 0.15em;
+  padding: 0.5em 0.25em;
   text-align: left;
 }
 h2 span {
-  border-right: 1.5px solid #000000;
+  border-right: 1px solid #000000;
   padding: 0 0.25em;
 }
 
@@ -178,7 +194,6 @@ button:hover {
 .fx._cover {
   z-index: 20;
   object-fit: contain;
-  mix-blend-mode: overlay;
 }
 .fx._cover img {
   width: 100%;
@@ -219,21 +234,30 @@ START AND EXTRAS
   bottom: 0;
 }
 #jump a {
+  mix-blend-mode: difference !important;
   display: inline-block;
-  padding: 0.25em;
+  padding: 0.5em;
   margin: 0 0.25em;
+  width: 50px;
+  height: 55px;
+  font-size: 0.7em;
+  border-radius: 4px;
   text-decoration: none;
+  text-align: center;
   font-family: "FA Sysfont C", monospace;
   color: #edede8;
-  -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-  transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  -webkit-transition: all 0.12s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.12s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 #jump a:hover {
   transform: scale(1.22);
   text-shadow: 0 0 5px #edede8;
+  color: #fff;
+  outline: 0.75px solid #edede8;
 }
 #jump a._small {
   padding: 0.5em;
+  height: auto;
   margin: 0.5em;
   display: inline-block;
   font-size: 0.6em;
@@ -288,8 +312,12 @@ START AND EXTRAS
   margin: 2.5vh 2vw;
 }
 
+.window h2:first-child {
+  padding: 0.5em 0.25em;
+  border-bottom: 0.5px #000000 solid;
+}
+
 .panel {
-  border-top: 1px solid #000000;
   border-bottom: 1px solid #000000;
   margin: 1em 0;
   text-align: center;
@@ -315,18 +343,9 @@ START AND EXTRAS
   border-top: none;
   margin: 0 0 0.5em 0;
 }
-
-.panel._tutorial {
-  outline: 1px solid #edede8;
-  box-shadow: 0 0 20px #717374;
-  transform: translateX(2em);
-  right: 0;
-  border-radius: 8px;
-  max-width: 250px;
-  z-index: 1;
-  position: absolute;
-  background: #edede8;
-  color: #000000;
+.panel._sidebar h2 {
+  padding: 0.5em 0.25em;
+  font-size: 0.9em;
 }
 
 /* PANELS & SIDEBARS */
@@ -402,7 +421,8 @@ START AND EXTRAS
   height: 100%;
   background: rgba(0, 0, 0, 0);
   color: #edede8;
-  font-size: 1.9em;
+  font-family: "Times Now";
+  font-size: 1.8em;
   mix-blend-mode: exclusion;
   white-space: pre-wrap;
   overflow-y: hidden;
@@ -426,6 +446,7 @@ START AND EXTRAS
   width: auto;
   max-width: 900px;
   height: auto;
+  margin: 10vh auto 20vh auto;
 }
 
 #engine {
@@ -484,6 +505,14 @@ START AND EXTRAS
 .engine-buttons button {
   margin: 0 0.25em;
   padding: 1em 1.75em;
+}
+.engine-buttons button#btn-play {
+  background: #edede8;
+  color: #000000;
+  padding: 1em 5em;
+}
+.engine-buttons button#btn-clear {
+  padding: 1em 2em;
 }
 
 /* 
@@ -694,7 +723,7 @@ EDITOR
 }
 #scene_s ._whatscene {
   display: inline-block;
-  padding-left: 0.5em;
+  padding-left: 0.25em;
   border-right: 0;
 }
 #scene_s #scene_selector {
@@ -727,17 +756,27 @@ EDITOR
 }
 
 #audio-player {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   width: auto;
 }
-#audio-player p {
+#audio-player ._controlstext {
+  display: block;
   width: 100%;
   text-align: center;
+  padding: 1em 0;
+  margin-bottom: -1em;
 }
-#audio-player #player {
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
+#audio-player marquee {
+  text-align: center;
+  margin: 0 auto;
+  display: inline-block;
+  width: 350px;
+  padding: 0.5em;
+  border-radius: 12px;
+  border: 1px solid #edede8;
+  outline: 1px solid #000000;
 }
 #audio-player .controls-audio {
   padding: 0 1em;
@@ -750,10 +789,12 @@ EDITOR
   vertical-align: middle;
 }
 #audio-player .controls-audio .controls-audio-loader input {
-  height: 50px;
+  height: 30px;
+  padding: 0.75em;
 }
 #audio-player .controls-audio .controls-audio-loader button {
-  height: 50px;
+  height: 30px;
+  padding: 0.25em 1em;
 }
 #audio-player .controls-audio button {
   margin: 0;
@@ -778,10 +819,13 @@ EDITOR
 }
 #audio-player-controller h3 {
   display: inline-block;
-  padding: 0.5em;
-  max-width: 250px;
+  padding: 0.2em 0.5em;
+  width: 200px;
+  height: 35px;
+  line-height: 30px;
+  border: 1px solid #edede8;
   margin: 0 auto;
-  border-radius: 8px;
+  border-radius: 16px;
   color: #cbc7c6;
 }
 #audio-player-controller button {
@@ -789,10 +833,16 @@ EDITOR
   border: 0;
   outline: 0;
   margin: 0 0.5em;
+  transform: translateY(-8px);
   padding: 0.5em;
 }
 #audio-player-controller button:hover {
   text-shadow: 0 0 5px #edede8;
+}
+#audio-player-controller button#btn-audio-stop {
+  font-size: 1.2em;
+  line-height: 90%;
+  margin-left: -0.5em;
 }
 
 #texttool input[type=text] {
@@ -823,6 +873,10 @@ EDITOR
 #library {
   margin: 0;
 }
+#library ._assetlibrarytext {
+  font-size: 0.8em;
+  margin-top: 0.75em;
+}
 #library .library-controls {
   display: flex;
   flex-wrap: wrap;
@@ -849,6 +903,7 @@ EDITOR
 #library ._objcoords {
   display: block;
   padding: 0.5em 0.75em;
+  border: 1.5px solid #000000;
 }
 #library ._toadd {
   background: #000000;
@@ -869,6 +924,23 @@ EDITOR
   border: 0.5px solid #edede8;
   outline: 1.5px solid #000000;
   border-radius: 6px;
+}
+
+#gamestatus img {
+  padding: 0.5em 0.25em;
+}
+#gamestatus img:hover {
+  cursor: help;
+}
+#gamestatus p {
+  padding: 0 1em 1em 1em;
+  margin: 0;
+  line-height: 100%;
+  pointer-events: none;
+}
+
+#gamestatus:hover {
+  cursor: help;
 }
 
 #outer-modals {
@@ -898,13 +970,13 @@ EDITOR
   -webkit-transition: all 0.25s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.25s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   pointer-events: all;
+  opacity: 0.9;
 }
 #outer-modals ._modal ._options {
-  background: #b6b7b7;
+  background: #c7c7c7;
   padding: 0.5em;
   text-align: center;
   border-radius: 5px;
-  opacity: 0.6;
 }
 #outer-modals ._modal button {
   font-size: 0.8em;
@@ -922,7 +994,13 @@ EDITOR
 #outer-modals ._modal:hover {
   transform: translateY(-1em);
   cursor: pointer;
+  opacity: 1;
 }
+#outer-modals ._modal.__warning {
+  background: red;
+  outline: 2px solid red;
+}
+
 #downloader_game {
   width: 1px;
   height: 1px;
@@ -994,13 +1072,13 @@ EDITOR
 }
 @keyframes pulse-modal {
   0% {
-    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
   }
   70% {
-    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
   }
   100% {
-    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0);
   }
 }
 

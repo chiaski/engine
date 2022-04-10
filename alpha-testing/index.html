@@ -20,45 +20,43 @@
   <div class="fx _s"></div>
 
   <div class="fx _cover">
-    <img src="assets/fx-television-off.png">
+    <img src="assets/fx-television.png">
   </div>
 
 
   <div id="info">
     <span>Engine</span>
 
-    <span class="_version">Alpha 1.0</span>
+    <span class="_version">Alpha 1.1</span>
   </div>
 
   <div id="jump">
-    <a href="#window-map">Map</a>
-    <a href="#window-engine">Editor</a>
-    <a href="#window-play">Player</a>
+    <a href="#window-map" title="Take a look at your big big game map.">
+      Map<br>
+      <img src="assets/icon-1.gif"></a>
+    <a href="#window-engine" title="Put your scenes together...">
+      Editor<br>
+      <img src="assets/icon-2.png"></a>
+    <a href="#window-play" title="Take a look at how your game looks like on the player!">
+      Preview<br>
+      <img src="assets/icon-3.gif"></a>
     <br>
-    <a href="player.html" class="_small" target="_blank">Player</a>
+    <a href="player.html" class="_small" target="_blank" title="Load in other Engine games by their console code (takes you to a new page!)">Player</a>
+    <a href="https://discord.com/invite/u5MHYcEV" class="_small" target="_blank" title="Chat with the Engine community">Discord</a>
 
-    <a href="https://discord.com/invite/u5MHYcEV" class="_small" target="_blank">Join Engine Discord</a>
+
+    <a href="gallery.html" class="_small" target="_blank" title="Play other Engine games">Gallery</a>
+
+
+    <a href="mailto:hotemogirlfriend@gmail.com" class="_small" target="_blank" title="Are you sure about that?">Complain</a>
+
+
+    <a class="_small" title="Are you really, really sure about that?">Destroy</a>
+
   </div>
 
+  <!-- TIPS GO HERE -->
   <div id="outer-modals">
-    <div class="_modal __suggestion" data-type="suggestion" data-action="dismiss">
-      <h3>New tip</h3>
-      <p>Double-click to add an object to the screen, doofus.</p>
-
-      <div class="_options">
-        <button>I'm sorry</button>
-        <button>Okay</button>
-      </div>
-    </div>
-    <div class="_modal __warning" data-type="warning">
-      <h3>New tip</h3>
-      <p>Double-click to add an object to the screen, doofus.</p>
-    </div>
-    <div class="_modal __tip" data-type="tip">
-      <h3>New tip</h3>
-      <p>Double-click to add an object to the screen, doofus.</p>
-    </div>
-
   </div>
 
 
@@ -88,13 +86,6 @@
       Viewing the Map of the World
     </h2>
 
-    <div class="panel _full _tutorial">
-      <h2>Tips</h2>
-
-      <p class="-helptext">Welcome to the map view. Your world begins at <strong>0,0</strong>. Click to create new scenes.</p>
-    </div>
-
-
     <div id="scene_selector">
 
       <textarea id="_remix" placeholder="paste a cartridge code here to start editing it. note this deletes your existing scene!"></textarea>
@@ -107,8 +98,9 @@
       <hr>
 
       <div id="map-controls">
-        <button id="btn-changestartingscene">change starting scene</button>
+        <button id="btn-changestartingscene" title="I am at the center of everything that happens">change starting scene</button>
         <button id="btn-cartridge">edit cartridge (game cover)</button>
+        <br>
         <button id="btn-remixcartridge">remix cartridge</button>
         <div class="controls-remixcartridge" style="display: none;">
           <button id="btn-remixcartridge-back">back</button>
@@ -130,24 +122,31 @@
         Here is my silly little song title
       </marquee>
     </h3>
+
     <button id="btn-audio-play">▶</button>
     <button id="btn-audio-stop">◼︎</button>
 
+    <audio id="_audio">
+      <source src="" id="_audio_src">
+    </audio>
   </div>
 
   <div id="audio-player" class="window">
     <h2>Cartridge Audio</h2>
-    <div class="controls-audio">
 
+    <div class="_controlstext">
+      <marquee>You can pick a little song for your game... Make sure it's a good song!</marquee>
+    </div>
+
+    <div class="controls-audio">
       <div class="controls-audio-loader">
 
         <select name="audio-category" class="_audio-category">
           <option value="none" selected disabled hidden>pick audio</option>
-
         </select>
 
         <button id="btn-controls-audio-loadsong">load song</button>
-        <button id="btn-controls-audio-previewsong">preview song</button>
+        <button id="btn-controls-audio-previewsong" title="Listen to the song in another window...">preview song</button>
       </div>
 
     </div>
@@ -160,7 +159,7 @@
 
   <div class="window" id="engine-window">
     <h2>
-      <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span> <span class="_whatscene">0,0</span> Objects left <span class="_howmany">0</span>
+      <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span> <span class="_whatscene">0,0&nbsp;</span> Objects left <span class="_howmany">0</span>
     </h2>
 
     <div id="engine">
@@ -189,21 +188,25 @@
 
             <select name="library-category" class="_library-category">
               <option value="none" selected disabled hidden>pick category</option>
-              <option value="environment">environment</option>
-              <option value="faces">faces</option>
-              <option value="items">items</option>
-              <option value="digital">digital</option>
+              <option value="environment" title="Little trees, grass, and flowers... Where do they come from? What's their story?">environment</option>
+              <option value="faces" title="Did you know that I have feelings of my own too...?">faces</option>
+              <option value="items" title="To hold something and become something...">items</option>
+              <option value="digital" title="We get it, you look at early Mac ads and think everything is retro!">digital</option>
               <option value="clouds">clouds</option>
-              <option value="monsters">monsters</option>
-              <option value="chat">chat</option>
-              <option value="softbank">softbank</option>
+              <option value="monsters" title="Why do we call some things monsters? Are monsters truly evil by nature? Are mortals truly good by nature? Are we making blind judgments on good and evil based on what our small minds can conceive?">monsters</option>
+              <option value="chat" title="YES, YES, YES, YES, YES, YES!">chat</option>
+              <option value="softbank" title="The premise where there is a world where all our software is made by people who love us and we can contribute to building it...">softbank</option>
             </select>
           </div>
+
 
           <div class="library-selector" id="library-objects">
 
 
           </div>
+
+          <marquee class="_assetlibrarytext">Double-click an image to add it to the scene!</marquee>
+
 
           <div class="_objcoords">
 
@@ -216,7 +219,7 @@
 
         <div class="panel _sidebar" id="colorpicker">
           <h2>Scene Color</h2>
-          <input type="color" name="scenecolorpicker" value="#000">
+          <input type="color" name="scenecolorpicker" value="#000000" title="Can't the world look like so much more than this?">
         </div>
       </div>
 
@@ -256,12 +259,13 @@
 
         <!-- HELP PANEL -->
 
-        <div class="panel _sidebar">
-          <h2>Tutorial</h2>
+        <div class="panel _sidebar" id="gamestatus">
+          <h2>Game Status</h2>
 
-          <p class="!tutorial-text">Double-click to add an object to the screen, doofus.</p>
+          <img src="assets/status-bleh.gif" class="_gamestatus_mood" title="eh....">
+
+          <p class="_gamestatus_text">Your game has just begun.</p>
         </div>
-
 
       </div>
     </div>
@@ -335,12 +339,15 @@
 
 
   <div class="engine-buttons">
-    <button id="btn-play">Play</button>
-    <button id="btn-clear">Clear</button>
-    <br>
-    <button id="btn-download">Download</button>
-    <button id="btn-getcode">Get Code</button>
-    <button onclick="window.open( 'https://forms.gle/Thifa9CL7fQpbXwT8', '_blank');">Submit to Gallery</button>
+    <button id="btn-play" title="Ready to preview your little game?">
+
+      Play
+    </button>
+    <button id="btn-clear" title="Remove your game preview and clear everything up!">Clear</button>
+    <br><br>
+    <button id="btn-download" title="Download your game into an HTML file that you can play offline...">Download</button>
+    <button id="btn-getcode" title="Get the cartridge code for your game and share it with friends or to the gallery!">Get Code</button>
+    <button onclick="window.open( 'https://forms.gle/Thifa9CL7fQpbXwT8', '_blank');" title="Want to submit your game to the world? Go into the gallery!">Submit to Gallery</button>
   </div>
 
   <div id=" downloader">
@@ -363,6 +370,12 @@
   <script type="text/javascript" src="tutorial.js"></script>
 
   <script type="text/javascript">
+    $(function() {
+      $(document).tooltip({
+        track: true
+      });
+    });
+
     console.log("Initializing Engine");
 
     scenes.s[0] = new Scene(0, 0, true, 0);

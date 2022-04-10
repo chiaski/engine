@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'Times Now';
+  src: url('./assets/fontsTimesNow-ExtraLight.woff2') format('woff2'),
+    url('./assets/fontsTimesNow-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#engine {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  width: 100%;
+  text-align: center;
+  font-family: 'Times Now';
+  font-size: 2.4em;
+  letter-spacing: -1.5px;
+  z-index: 9;
+
+  a {
+    text-decoration: none;
+    color: yellow;
+  }
+
+}
+
+#game {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 80vh;
+  margin: 5vh auto;
+}
+
+
+#webring {
+  position: fixed;
+  height: 12.5vh;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  padding: 3vw;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+
+  a {
+    font-size: 1.5em;
+    padding: .5em 1em;
+    text-decoration: none;
+    transition: all .3s cubic-bezier(.17, .67, .83, .67);
+    color: yellow;
+  }
+
+  a._random {
+    font-size: 2em;
+    margin-top: -.5em;
+  }
+
+  a:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    text-shadow: 0 0 5px yellow;
+  }
+
+}

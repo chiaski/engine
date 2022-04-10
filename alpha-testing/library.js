@@ -162,12 +162,11 @@ const libraryControls = {
   },
 
   load: function (what) {
-
     $("#" + libraryControls.$LIBRARY_OBJECTS).html("");
 
     library[what].forEach(function (e, i) {
 
-      $("#" + libraryControls.$LIBRARY_OBJECTS).prepend("<img class='_toadd' src='https://engine.lol/alpha/assets/image/" + what + "/" + e + ".gif'>");
+      $("#" + libraryControls.$LIBRARY_OBJECTS).prepend("<img class='_toadd' src='https://engine.lol/alpha/assets/image/" + what + "/" + e + ".gif' title='Dbl-click to add " + e + ".gif'>");
 
     });
 
@@ -192,11 +191,11 @@ const libraryControls = {
 
 $("#library select[name='library-category']").change(function () {
 
-
   let n = $("#library select[name='library-category']").val();
 
-  console.log(n);
+  let t = $("#library select[name='library-category']").find(":selected").attr("title");
 
+  $("._assetlibrarytext").text(t);
   libraryControls.load(n);
 });
 
@@ -242,7 +241,6 @@ const objControls = {
       objControls.clearSelected();
       objControls.moveObj(this);
       return;
-
     }
 
   },

@@ -14,7 +14,6 @@ EDITOR
 
 */
 
-
 @font-face {
   font-family: 'FA Sysfont C';
   src: url('./assets/fonts/sysfont.woff2') format('woff2'),
@@ -91,12 +90,28 @@ body,
 }
 
 body {
-  background: #c3adb1;
+  background: #191b1d;
   padding: 2em;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 25vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ui-tooltip {
+  padding: .25em;
+  color: $l !important;
+  background: $c !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 15px $l !important;
+  outline: 1.5px solid $c;
+  border: 1px solid $c;
+  font-family: $mono !important;
+  font-size: .8em !important;
+  font-weight: normal;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -142,11 +157,11 @@ h2 {
   font-family: $serif;
   font-size: 1.2em;
   letter-spacing: -.2px;
-  padding: .25em .15em;
+  padding: .5em .25em;
   text-align: left;
 
   span {
-    border-right: 1.5px solid $c;
+    border-right: 1px solid $c;
     padding: 0 .25em;
   }
 
@@ -222,7 +237,6 @@ button:hover {
 
   z-index: 20;
   object-fit: contain;
-  mix-blend-mode: overlay;
 
   img {
     width: 100%;
@@ -269,23 +283,32 @@ START AND EXTRAS
   bottom: 0;
 
   a {
+    mix-blend-mode: difference !important;
     display: inline-block;
-    padding: .25em;
+    padding: .5em;
     margin: 0 .25em;
+    width: 50px;
+    height: 55px;
+    font-size: .7em;
+    border-radius: 4px;
     text-decoration: none;
+    text-align: center;
     font-family: $mono;
     color: $l;
-    -webkit-transition: all .19s cubic-bezier(.17, .67, .83, .67);
-    transition: all .19s cubic-bezier(.17, .67, .83, .67);
+    -webkit-transition: all .12s cubic-bezier(.17, .67, .83, .67);
+    transition: all .12s cubic-bezier(.17, .67, .83, .67);
   }
 
   a:hover {
     transform: scale(1.22);
     text-shadow: 0 0 5px $l;
+    color: #fff;
+    outline: .75px solid $l;
   }
 
   a._small {
     padding: .5em;
+    height: auto;
     margin: .5em;
     display: inline-block;
     font-size: .6em;
@@ -350,9 +373,13 @@ START AND EXTRAS
   margin: 2.5vh 2vw;
 }
 
+.window h2:first-child {
+  padding: .5em .25em;
+  border-bottom: .5px $c solid;
+}
+
 
 .panel {
-  border-top: 1px solid $c;
   border-bottom: 1px solid $c;
   margin: 1em 0;
   text-align: center;
@@ -380,25 +407,13 @@ START AND EXTRAS
   width: 100%;
   border-top: none;
   margin: 0 0 .5em 0;
-}
 
-
-.panel._tutorial {
-
-  outline: 1px solid $l;
-  box-shadow: 0 0 20px $g2;
-  transform: translateX(2em);
-  right: 0;
-  border-radius: 8px;
-
-  max-width: 250px;
-  z-index: 1;
-  position: absolute;
-  background: $l;
-  color: $c;
+  h2 {
+    padding: .5em .25em;
+    font-size: .9em;
+  }
 
 }
-
 
 
 /* PANELS & SIDEBARS */
@@ -505,7 +520,8 @@ START AND EXTRAS
     height: 100%;
     background: rgba(0, 0, 0, 0);
     color: $l;
-    font-size: 1.9em;
+    font-family: $serif;
+    font-size: 1.8em;
     mix-blend-mode: exclusion;
     white-space: pre-wrap;
     overflow-y: hidden;
@@ -540,6 +556,7 @@ START AND EXTRAS
   width: auto;
   max-width: 900px;
   height: auto;
+  margin: 10vh auto 20vh auto;
 }
 
 #engine {
@@ -603,6 +620,16 @@ START AND EXTRAS
   button {
     margin: 0 .25em;
     padding: 1em 1.75em;
+  }
+
+  button#btn-play {
+    background: $l;
+    color: $c;
+    padding: 1em 5em;
+  }
+
+  button#btn-clear {
+    padding: 1em 2em;
   }
 
 }
@@ -886,7 +913,7 @@ EDITOR
 
   ._whatscene {
     display: inline-block;
-    padding-left: .5em;
+    padding-left: .25em;
     border-right: 0;
   }
 
@@ -949,24 +976,32 @@ EDITOR
 #audio-player {
 
 
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   width: auto;
 
-
-  p {
+  ._controlstext {
+    display: block;
     width: 100%;
     text-align: center;
+    padding: 1em 0;
+    margin-bottom: -1em;
   }
 
-  #player {
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    pointer-events: none;
+  marquee {
+    text-align: center;
+    margin: 0 auto;
+    display: inline-block;
+    width: 350px;
+    padding: .5em;
+    border-radius: 12px;
+    border: 1px solid $l;
+    outline: 1px solid $c;
   }
+
 
   .controls-audio {
-
-
 
     padding: 0 1em;
     text-align: center;
@@ -979,11 +1014,13 @@ EDITOR
       }
 
       input {
-        height: 50px;
+        height: 30px;
+        padding: .75em;
       }
 
       button {
-        height: 50px;
+        height: 30px;
+        padding: .25em 1em;
       }
 
     }
@@ -1012,15 +1049,18 @@ EDITOR
   z-index: 20;
   top: 0;
   width: 100%;
-
   text-align: center;
+
 
   h3 {
     display: inline-block;
-    padding: .5em;
-    max-width: 250px;
+    padding: .2em .5em;
+    width: 200px;
+    height: 35px;
+    line-height: 30px;
+    border: 1px solid $l;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 16px;
     color: $off-light;
   }
 
@@ -1029,11 +1069,18 @@ EDITOR
     border: 0;
     outline: 0;
     margin: 0 .5em;
+    transform: translateY(-8px);
     padding: .5em;
   }
 
   button:hover {
     text-shadow: 0 0 5px $l;
+  }
+
+  button#btn-audio-stop {
+    font-size: 1.2em;
+    line-height: 90%;
+    margin-left: -.5em;
   }
 
 }
@@ -1085,6 +1132,11 @@ EDITOR
   //  color:$l;
   margin: 0;
 
+  ._assetlibrarytext {
+    font-size: .8em;
+    margin-top: .75em;
+  }
+
   .library-controls {
 
     display: flex;
@@ -1120,6 +1172,7 @@ EDITOR
   ._objcoords {
     display: block;
     padding: .5em .75em;
+    border: 1.5px solid $c;
   }
 
 
@@ -1150,6 +1203,32 @@ EDITOR
 }
 
 
+// GAME MOOD
+
+#gamestatus {
+
+  img {
+    padding: .5em .25em;
+  }
+
+  img:hover {
+    cursor: help;
+  }
+
+  p {
+    padding: 0 1em 1em 1em;
+    margin: 0;
+    line-height: 100%;
+    pointer-events: none;
+
+  }
+
+}
+
+#gamestatus:hover {
+  cursor: help;
+}
+
 // MODALS AND TIPS
 
 #outer-modals {
@@ -1179,13 +1258,13 @@ EDITOR
     -webkit-transition: all .25s cubic-bezier(.17, .67, .83, .67);
     transition: all .25s cubic-bezier(.17, .67, .83, .67);
     pointer-events: all;
+    opacity: 0.9;
 
     ._options {
-      background: $g1;
+      background: #c7c7c7;
       padding: .5em;
       text-align: center;
       border-radius: 5px;
-      opacity: 0.6;
     }
 
     button {
@@ -1209,9 +1288,13 @@ EDITOR
   ._modal:hover {
     transform: translateY(-1em);
     cursor: pointer;
+    opacity: 1;
   }
 
-  ._modal.__suggestion {}
+  ._modal.__warning {
+    background: red;
+    outline: 2px solid red;
+  }
 
 }
 
@@ -1304,14 +1387,14 @@ EDITOR
 
 @keyframes pulse-modal {
   0% {
-    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
   }
 
   70% {
-    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
   }
 
   100% {
-    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0);
   }
 }

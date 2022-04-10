@@ -10,7 +10,6 @@ console.log("scene.js loaded");
   
   
 */
-
 function Scene(x, y, active, color, object_count) {
 
   // scene coordinates
@@ -28,9 +27,7 @@ function Scene(x, y, active, color, object_count) {
 
   this.object_count = 0;
   this.objects = [];
-
 }
-
 
 
 /*

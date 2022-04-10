@@ -31,6 +31,24 @@ const Tplayer = {
 
     Tplayer.clearScene();
   },
+  playSong: function (song) {
+
+    // load the song into the player
+
+    let s = null;
+
+    if (!song) {
+      s = scenes.audio;
+    } else {
+      s = song;
+    }
+
+    $("._audiotitle").text(s);
+    $("#_audio").attr("src", s);
+    $("#_audio")[0].play();
+
+
+  },
   loadTarget: function () {
 
     let target = $(this).attr("data-target");
