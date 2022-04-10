@@ -32,6 +32,16 @@ PLAYER
     font-style: normal;
 }
 
+@font-face {
+  font-family: 'Times Now';
+  src: url('./assets/fontsTimesNow-ExtraLight.woff2') format('woff2'),
+    url('./assets/fontsTimesNow-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 
 $c: #000000; // MAIN COLOR
 $l: #f7f7f7; // light color
@@ -44,7 +54,7 @@ $g4: #1c1e1f;
 $p: #eb80ff; 
 
 $mono: "FA Sysfont C", monospace;
-$serif: "Times New Roman";
+$serif: "Times Now";
 
 *{
   box-sizing: border-box;
@@ -127,9 +137,10 @@ h2{
   width: 100%;
   display: block;
   border-bottom: 1.5px solid $c;
-  font-family: $mono;
-  font-size: 1.5em;
-  padding: .5em 0;
+  font-family: $serif;
+  font-size: 1.75em;
+  letter-spacing: -1px;
+  padding: .25em 0;
   
   span{
     padding: 0 .25em;
@@ -142,13 +153,56 @@ h4{
 }
 
 
+#audio-player-controller {
+  position: fixed;
+  padding: 1em;
+  z-index: 20;
+  top: 0;
+  width: 100%;
+  text-align: center;
+
+//  display: none;
+
+  h3 {
+    display: inline-block;
+    padding: .2em .5em;
+    width: 200px;
+    height: 35px;
+    line-height: 30px;
+    border: 1px solid $l;
+    margin: 0 auto;
+    border-radius: 16px;
+    color: $l;
+  }
+
+  button {
+    background: none;
+    border: 0;
+    outline: 0;
+    margin: 0 .5em;
+    transform: translateY(-8px);
+    padding: .5em;
+  }
+
+  button:hover {
+    text-shadow: 0 0 5px $l;
+  }
+
+  button#btn-audio-stop {
+    font-size: 1.2em;
+    line-height: 90%;
+    margin-left: -.5em;
+  }
+}
+
+
 button{
   border: 1.5px solid $c;
   outline: 1px solid $l;
-  border-radius: 8px;
+  border-radius: 12px;
   background: $c;
   color: $l;
-  padding: 1em;
+  padding: 1em 2em;
   margin: 1em;
   font-family: $mono;
       -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
@@ -353,7 +407,9 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
     height: 100%;
     background: rgba(0, 0, 0, 0);
     color:#fff;
-    font-size: 1.9em;
+    font-family: $serif;
+    font-size: 1.8em;
+    line-height: 95%;
     mix-blend-mode: exclusion;
     white-space: pre-wrap;
     overflow-y: hidden;

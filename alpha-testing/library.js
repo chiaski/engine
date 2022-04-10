@@ -70,7 +70,7 @@ const libraryText = {
   saveText: function () {
 
     let t = $("#" + libraryText.$TEXT_EDITOR).val();
-    console.log(t);
+    //    console.log(t);
     // preserve whitespace
 
     if (t !== null) {

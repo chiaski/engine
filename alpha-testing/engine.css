@@ -24,6 +24,13 @@ PLAYER
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Times Now";
+  src: url("./assets/fontsTimesNow-ExtraLight.woff2") format("woff2"), url("./assets/fontsTimesNow-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
 * {
   box-sizing: border-box;
 }
@@ -102,9 +109,10 @@ h2 {
   width: 100%;
   display: block;
   border-bottom: 1.5px solid #000000;
-  font-family: "FA Sysfont C", monospace;
-  font-size: 1.5em;
-  padding: 0.5em 0;
+  font-family: "Times Now";
+  font-size: 1.75em;
+  letter-spacing: -1px;
+  padding: 0.25em 0;
 }
 h2 span {
   padding: 0 0.25em;
@@ -114,13 +122,49 @@ h4 {
   padding: 0.5em;
 }
 
+#audio-player-controller {
+  position: fixed;
+  padding: 1em;
+  z-index: 20;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+#audio-player-controller h3 {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  width: 200px;
+  height: 35px;
+  line-height: 30px;
+  border: 1px solid #f7f7f7;
+  margin: 0 auto;
+  border-radius: 16px;
+  color: #f7f7f7;
+}
+#audio-player-controller button {
+  background: none;
+  border: 0;
+  outline: 0;
+  margin: 0 0.5em;
+  transform: translateY(-8px);
+  padding: 0.5em;
+}
+#audio-player-controller button:hover {
+  text-shadow: 0 0 5px #f7f7f7;
+}
+#audio-player-controller button#btn-audio-stop {
+  font-size: 1.2em;
+  line-height: 90%;
+  margin-left: -0.5em;
+}
+
 button {
   border: 1.5px solid #000000;
   outline: 1px solid #f7f7f7;
-  border-radius: 8px;
+  border-radius: 12px;
   background: #000000;
   color: #f7f7f7;
-  padding: 1em;
+  padding: 1em 2em;
   margin: 1em;
   font-family: "FA Sysfont C", monospace;
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -289,7 +333,9 @@ PLAY
   height: 100%;
   background: rgba(0, 0, 0, 0);
   color: #fff;
-  font-size: 1.9em;
+  font-family: "Times Now";
+  font-size: 1.8em;
+  line-height: 95%;
   mix-blend-mode: exclusion;
   white-space: pre-wrap;
   overflow-y: hidden;

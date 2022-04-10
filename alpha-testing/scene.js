@@ -133,6 +133,10 @@ $("#btn-remixcartridge-load").on("click", function () {
 
   }
 
+  // copy
+  scenes.audio = new_scenes.audio;
+  scenes.font = new_scenes.font;
+  
   mapControls.clearMap();
   sceneControls.reassignScenes(new_scenes);
   mapControls.loadMap(scenes);

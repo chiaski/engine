@@ -37,16 +37,18 @@ const Tplayer = {
 
     let s = null;
 
-    if (!song) {
-      s = scenes.audio;
-    } else {
+    if (song) {
       s = song;
+    } else {
+      s = "https://engine.lol/alpha/assets/audio/" + scenes.audio;
     }
+    
+    $("#_audio")[0].currentTime = 0;
+    
 
     $("._audiotitle").text(s);
     $("#_audio").attr("src", s);
     $("#_audio")[0].play();
-
 
   },
   loadTarget: function () {
@@ -254,6 +256,12 @@ function loadPlay(x, y) {
 
   $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
 
+  
+  // Is there a song?
+  if(scenes.audio !== null){
+    Tplayer.playSong();
+  }
+  
   // does the game have a cartridge?
   if (scenes.cartridge !== null) {
     $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(2000).css("pointer-events", "auto").css("cursor", "auto");

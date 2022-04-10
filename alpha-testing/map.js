@@ -118,13 +118,8 @@ const mapControls = {
     // add onclick events
     $('#' + mapControls.MASTER).on("click", "div._s", mapControls.mapSwitch);
     $('#' + mapControls.SIDE).on("click", "div._s", mapControls.mapSwitch);
-
-    console.log(`
-
-
-
-  `);
-    console.log(map_html);
+    
+//    console.log(map_html);
 
   },
 

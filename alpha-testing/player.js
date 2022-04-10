@@ -53,6 +53,13 @@ $("#btn-loadcartridge").on("click", function () {
       throw new Error();
     }
 
+    // Adjust global map size, as necessary
+    if((scenes.s).length !== (globals.MAP_height * globals.MAP_width)){
+      console.log("This cartridge is sized differently. Adjusting the player...");      
+      globals.MAP_width = Math.sqrt((scenes.s).length);
+      globals.MAP_height = Math.sqrt((scenes.s).length);
+    }
+    
     $("#play h2").text("Loaded cartridge. Press play!");
     $("#e-loadcartridge").fadeOut();
 
@@ -70,16 +77,16 @@ $("#btn-loadcartridge").on("click", function () {
 
 
 
-const globals = {
+var globals = {
 
   // maximum objects allowed per scene
   MAX_object_count: 15,
 
   // map width (columns)
-  MAP_width: 4,
+  MAP_width: 5,
 
   // map height (rows)
-  MAP_height: 4
+  MAP_height: 5
 
 }
 
@@ -108,7 +115,7 @@ const Tplayer = {
   init: function () {
 
     Tplayer.clearGame();
-
+ 
     // cartridge checks
     if (scenes.cartridge !== null) {
       // load the cartridge
@@ -170,6 +177,12 @@ const Tplayer = {
 
     Tplayer.active = scenes.s[c.getSceneIndex(x, y)];
 
+
+    // Is there a song?
+    if(scenes.audio !== null){
+      Tplayer.playSong();
+    }
+
     // change text
     setTimeout(function () {
 
@@ -199,6 +212,27 @@ const Tplayer = {
     });
 
     Tplayer.clearScene();
+  },
+  
+   playSong: function (song) {
+
+    // load the song into the player
+
+    let s = null;
+
+    if (song) {
+      s = song;
+    } else {
+      s = "https://engine.lol/alpha/assets/audio/" + scenes.audio;
+    }
+    
+    $("#_audio")[0].currentTime = 0;
+    
+
+    $("._audiotitle").text(s);
+    $("#_audio").attr("src", s);
+    $("#_audio")[0].play();
+
   },
 
   loadTarget: function () {
@@ -398,3 +432,27 @@ const Tplayer = {
   }
 
 };
+
+
+
+$("button#btn-audio-stop").on("click", function () {
+
+  $("#_audio")[0].currentTime = 0;
+  $("#_audio")[0].pause();
+
+  $("._audiotitle").text("Audio stopped! If there was a sound at all...?");
+
+});
+
+
+$("button#btn-audio-play").on("click", function () {
+
+  if (scenes == null || scenes.audio == null) {
+    $("._audiotitle").text("Nothing to play...");
+    return;
+  }
+
+  $("._audiotitle").text(scenes.audio);
+  $("#_audio")[0].play();
+
+});
