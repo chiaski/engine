@@ -116,7 +116,7 @@ const gamestatus = {
 
     $("#gamestatus ._gamestatus_text").text(msg_random);
 
-    setTimeout(gamestatus.checkmood, interval);
+    setTimeout(gamestatus.checkmood, 30000);
   },
 
   init: function () {
@@ -125,13 +125,13 @@ const gamestatus = {
 }
 
 gamestatus.init();
-
-
-tip("New Tip", "Double-click to add an object to the screen, doofus.", "tip");
-
-tip("New Tip", "Double-click to add an object to the screen, doofus.", "suggestion", 0, "I'm sorry", "OK");
-
-tip("LOL", "Double-click to add an object to the screen, doofus.", "warning");
+//
+//
+//tip("New Tip", "Double-click to add an object to the screen, doofus.", "tip");
+//
+//tip("New Tip", "Double-click to add an object to the screen, doofus.", "suggestion", 0, "I'm sorry", "OK");
+//
+//tip("LOL", "Double-click to add an object to the screen, doofus.", "warning");
 
 
 

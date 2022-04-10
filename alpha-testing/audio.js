@@ -98,7 +98,9 @@ $("button#btn-controls-audio-loadsong").on("click", function () {
     return;
   }
 
+  $("#audio-player-controller").fadeIn();
   audioControls.setSong(s);
+
 })
 
 

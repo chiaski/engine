@@ -816,6 +816,7 @@ EDITOR
   top: 0;
   width: 100%;
   text-align: center;
+  display: none;
 }
 #audio-player-controller h3 {
   display: inline-block;

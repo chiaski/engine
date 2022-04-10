@@ -51,7 +51,7 @@
     <a href="mailto:hotemogirlfriend@gmail.com" class="_small" target="_blank" title="Are you sure about that?">Complain</a>
 
 
-    <a class="_small" title="Are you really, really sure about that?">Destroy</a>
+    <a class="_small" title="Are you really, really sure about that?" onclick="if(!confirm('Everything not saved will be lost')){return;} window.location.reload();">Destroy</a>
 
   </div>
 
@@ -116,7 +116,6 @@
   <a id="window-audio"></a>
 
   <div id="audio-player-controller">
-
     <h3>
       <marquee class="_audiotitle" onmouseover="this.stop();" onmouseout="this.start();">
         Here is my silly little song title
@@ -174,7 +173,7 @@
           <h2>Text</h2>
 
           <div class="library-text-controls">
-            <button id="btn-toggletext">Toggle Text Editor</button>
+            <button id="btn-toggletext" title="Clicky me and you can then type on the screen! And it saves!">Toggle Text Editor</button>
           </div>
         </div>
 
@@ -350,7 +349,7 @@
     <button onclick="window.open( 'https://forms.gle/Thifa9CL7fQpbXwT8', '_blank');" title="Want to submit your game to the world? Go into the gallery!">Submit to Gallery</button>
   </div>
 
-  <div id=" downloader">
+  <div id="downloader">
   </div>
 
   <iframe id="downloader_game" src="blank-cartridge.html"></iframe>
