@@ -31,6 +31,14 @@ const libraryText = {
   init: function () {
     // click, edit text
     $("button#btn-toggletext").on("click", function () {
+      
+      if(chance(.1)){
+        
+        let text_tips = ["Text can be used for speech, but it can also be used for backgrounds... or you can make a text-only game.", "Are you ready for what you have to say to be shown to the world?", "Words are a magical part of our lives...", "Texts can connect us all...", "An asterisk can be a list, a star, a flower...", "I love words. "]
+        
+        tip("Tip on Text", pick(text_tips), "tip");
+      }
+      
       libraryText.toggleText();
     });
 

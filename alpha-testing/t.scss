@@ -155,13 +155,19 @@ h2 {
   display: block;
   border-bottom: 1.5px solid $c;
   font-family: $serif;
-  font-size: 1.2em;
+  font-size: 1em;
   letter-spacing: -.2px;
-  padding: .5em .25em;
+  padding: .75em .25em;
   text-align: left;
+  
+  img{
+    object-fit: contain;
+    width: 18px;
+    display: none;
+  }
 
   span {
-    border-right: 1px solid $c;
+    border-right: .7px solid $c;
     padding: 0 .25em;
   }
 
@@ -478,6 +484,7 @@ START AND EXTRAS
 
 #controls #colorpicker input[type=color] {
   padding: .1em;
+  display: block;
   display: block;
   width: 100%;
   height: 40px;
@@ -860,9 +867,14 @@ EDITOR
 
 #map {
 
-  width: 90%;
-  margin: 0 50px;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 10vh;
   border: 1.5px solid #000;
+  
+  button#btn-remixcartridge{
+    padding: .75em 2.5em;
+  }
 
   #scene_selector {
 
@@ -886,8 +898,8 @@ EDITOR
 
     ._s {
       color: $l;
-      width: 70px;
-      height: 70px;
+      width: 55px;
+      height: 55px;
       padding: .5em;
       margin: .2em;
       font-size: 1em;
@@ -986,6 +998,7 @@ EDITOR
 #audio-player {
 
 
+  max-width: 600px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -1319,6 +1332,7 @@ EDITOR
 }
 
 #downloader {
+  position: absolute;
   width: 1px;
   height: 1px;
   display: inline-block;

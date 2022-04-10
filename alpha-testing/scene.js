@@ -258,6 +258,15 @@ const sceneControls = {
   
   */
   switchScene: function (i, o) {
+    
+    // give a lil tutorial
+      
+      if(chance(.1)){
+        
+        let text_tips = ["We're going to another place!", "What's your favorite map?", "Do you think that the browser can be a world?", "Do you feel the space between us on the internet?", "How weird that one click can bring us nearly everywhere else... there's no need to walk, run, or plan for transport. All you need is a URL and a dream.", "Deeper into the dungeon...", "When does a website begin feeling distant?", "When does a website begin feeling familiar?"];
+        
+        tip("Moving around the map", pick(text_tips), "tip");
+      }
 
     // first, save scene
     sceneControls.saveScene();
