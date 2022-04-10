@@ -4,7 +4,7 @@ $("#btn-download").on("click", function(){
   alert("Downloading HTML file of game!");
   
   var $iframe = $("iframe#downloader_game");
-  var cartridge_code = JSON.stringify( scenes,' ', ' ');
+  var cartridge_code = JSON.stringify( scenes, ' ', '  ');
   
   
 //  console.log("cartridge code: ", cartridge_code);
@@ -22,7 +22,8 @@ $("#btn-download").on("click", function(){
 
 $("#btn-getcode").on("click", function(){
   
-  var cartridge_code = JSON.stringify( scenes,' ', ' ');
+  var cartridge_code = JSON.stringify( scenes); 
+  console.log(cartridge_code);
   
   $("#downloader").text(cartridge_code);
   

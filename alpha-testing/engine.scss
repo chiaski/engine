@@ -140,7 +140,7 @@ h2{
   font-family: $serif;
   font-size: 1.75em;
   letter-spacing: -1px;
-  padding: .25em 0;
+  padding: .5em 0;
   
   span{
     padding: 0 .25em;
@@ -160,8 +160,8 @@ h4{
   top: 0;
   width: 100%;
   text-align: center;
-
-//  display: none;
+  mix-blend-mode: difference;
+  display: none;
 
   h3 {
     display: inline-block;

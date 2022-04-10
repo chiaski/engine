@@ -267,9 +267,12 @@ START AND EXTRAS
   justify-content: space-between;
   pointer-events: none;
   padding: .75em;
+  font-family: $mono;
+  font-size: .8em;
 
   span {
     padding: .5em;
+    pointer-events: all;
   }
 
 }
@@ -521,6 +524,7 @@ START AND EXTRAS
     background: rgba(0, 0, 0, 0);
     color: $l;
     font-family: $serif;
+    line-height: 95%;
     font-size: 1.8em;
     mix-blend-mode: exclusion;
     white-space: pre-wrap;
@@ -544,6 +548,12 @@ START AND EXTRAS
     outline: 1.5px solid $off-dark;
     transform: translateY(-5px);
     display: inline-block;
+  }
+  
+  button#btn-changefonttext{
+    margin-top: -.5em;
+    font-size: .8em;
+    padding: .25em;
   }
 
 }
@@ -1170,7 +1180,7 @@ EDITOR
   }
 
   ._objcoords {
-    display: block;
+    display: none;
     padding: .5em .75em;
     border: 1.5px solid $c;
   }

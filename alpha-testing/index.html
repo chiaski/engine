@@ -3,13 +3,16 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engine Alpha 1.0</title>
-  <meta name="description" content="A tiny storytelling tool." />
+  <title>engine.lol (alpha 1.1)</title>
+  <meta property="og:image" content="https://engine.lol/alpha/preview.png">
+  <meta name="description" content="A tiny storytelling tool that may break at any moment, just like you." />
   <meta name="author" content="Chia" />
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css" />
   <link rel="stylesheet" href="t.css" />
+  
+  
 </head>
 
 <body>
@@ -25,9 +28,9 @@
 
 
   <div id="info">
-    <span>Engine</span>
+    <span title="That's meeee.">Engine</span>
 
-    <span class="_version">Alpha 1.1</span>
+    <span class="_version" title="This is my way of saying that it's not very good right now...">Alpha 1.1</span>
   </div>
 
   <div id="jump">
@@ -68,8 +71,8 @@
       <div>
         <h1 class="_title">Engine</h1>
 
-        <button id="tempplay">Create new game</button>
-        <button id="tempplay" onclick="location.href = 'player.html';">Load cartridge</button>
+        <button id="tempplay" title="You could also just scroll down, really...">Create new game</button>
+        <button id="tempplay" onclick="window.open( 'player.html', '_blank');" title="Go load in other games">Go to player</button>
 
       </div>
     </div>
@@ -102,7 +105,7 @@
         <button id="btn-changestartingscene" title="I am at the center of everything that happens">change starting scene</button>
         <button id="btn-cartridge">edit cartridge (game cover)</button>
         <br>
-        <button id="btn-remixcartridge">remix cartridge</button>
+        <button id="btn-remixcartridge">remix a game</button>
         <div class="controls-remixcartridge" style="display: none;">
           <button id="btn-remixcartridge-back">back</button>
           <button id="btn-remixcartridge-load">load cartridge</button>
@@ -159,7 +162,7 @@
 
   <div class="window" id="engine-window">
     <h2>
-      <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span> <span class="_whatscene">0,0&nbsp;</span> Objects left <span class="_howmany" title="You can only have a limited amount of images in your scene. Beauty in restriction...">0</span>
+      <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span> <span class="_whatscene" title="The coordinates of the scene you're currently editing!">0,0&nbsp;</span> Objects left <span class="_howmany" title="You can only have a limited amount of images in your scene. Beauty in restriction...">0</span>
     </h2>
 
     <div id="engine">
@@ -175,7 +178,11 @@
 
           <div class="library-text-controls">
             <button id="btn-toggletext" title="Clicky me and you can then type on the screen! And it saves!">Toggle Text Editor</button>
+            
+            <button id="btn-changefonttext" title="Spice up the font a lil bit...">change font</button>
+            
           </div>
+          
         </div>
 
 
@@ -340,8 +347,8 @@
 
   <div class="engine-buttons">
     <button id="btn-play" title="Ready to preview your little game?">
-
-      Play
+      <img src="assets/icon-play.gif" style="width:20px;margin: -.5em 0;padding: 0;">
+      Play & Preview
     </button>
     <button id="btn-clear" title="Remove your game preview and clear everything up!">Clear</button>
     <br><br>

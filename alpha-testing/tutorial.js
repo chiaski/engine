@@ -125,6 +125,17 @@ const gamestatus = {
 }
 
 gamestatus.init();
+
+$("button#tempplay").on("click", function(){
+tip("Welcome to Engine", "Engine games are arranged in grids. When playing a game, you can navigate to scenes in adjacent tiles. (Click me to get rid of me!)", "tip");
+  
+  setTimeout(function() {
+    tip("Space is cool", "Because the 'space' of Engine games matter, think about how you can communicate time or what techniques you can use to make stories branch out...", "tip");
+  }, 5000);
+  
+  
+})
+
 //
 //
 //tip("New Tip", "Double-click to add an object to the screen, doofus.", "tip");

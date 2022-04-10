@@ -26,6 +26,7 @@ const libraryText = {
   $SAVEbtn: "#btn-savetextoverlay",
   $TEXT_EDITOR: "e textarea",
   $TEXT: "e #e-text",
+  fonts: ["Times Now", "Comic Sans MS", "Arial", "FA Sysfont C", "Helvetica", "Courier New"],
 
   init: function () {
     // click, edit text
@@ -33,9 +34,19 @@ const libraryText = {
       libraryText.toggleText();
     });
 
+    $("button#btn-changefonttext").on("click", function () {
+      libraryText.changeFont();
+    });
+    
     $("#" + libraryText.$TEXT_EDITOR).keyup(function () {
       libraryText.saveText();
     });
+    
+
+    $("#" + libraryText.$TEXT_EDITOR).keyup(function () {
+      libraryText.saveText();
+    });
+
 
   },
 
@@ -54,12 +65,26 @@ const libraryText = {
     }
 
     libraryText.saveText();
-    console.log("text toggled");
-
   },
+  
+  changeFont: function(){
+    
+     let font_random = libraryText.fonts[Math.floor(Math.random() * (libraryText.fonts).length)];
+    
+    scenes.font = font_random;
+    
+    $("#e textarea").css("font-family", font_random);
+    $("#e-play textarea").css("font-family", font_random);
+    
+  },
+  
   // loadText: laod text into active scene
   loadText: function () {
-    $("#" + libraryText.$TEXT_EDITOR).hide().fadeIn(100).val(active_scene.textoverlay);
+    
+    var t = active_scene.textoverlay;
+    t = t.replace(/\\n/g, "\n").replace(/&nbsp;/g, " ");
+    
+    $("#" + libraryText.$TEXT_EDITOR).hide().fadeIn(100).val(t);
   },
 
   clearText: function () {
@@ -205,7 +230,6 @@ $("#objectinteractions select[name='objinteraction-select']").change(function ()
   let how = $("#objectinteractions select[name='objinteraction-select']").val();
 
   $("#e img.obj[data-selected='1']").attr("data-interaction", how);
-
 
 });
 

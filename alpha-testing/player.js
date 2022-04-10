@@ -178,9 +178,16 @@ const Tplayer = {
     Tplayer.active = scenes.s[c.getSceneIndex(x, y)];
 
 
+    
     // Is there a song?
     if(scenes.audio !== null){
+      $("#audio-player-controller").fadeIn();
       Tplayer.playSong();
+    }
+    
+    // What font?
+    if(scenes.font !== "default"){
+      $("#e-play textarea").css("font-family", scenes.font);
     }
 
     // change text

@@ -16,6 +16,13 @@ if (testJSON(cartridge)) {
     throw new Error();
   }
 
+  // Adjust global map size, as necessary
+    if((scenes.s).length !== (globals.MAP_height * globals.MAP_width)){
+      console.log("This cartridge is sized differently. Adjusting the player...");      
+      globals.MAP_width = Math.sqrt((scenes.s).length);
+      globals.MAP_height = Math.sqrt((scenes.s).length);
+    }
+  
   $("#play h2").text("Engine");
   $("#btn-play").on("click", function () {
     Tplayer.init();
@@ -40,16 +47,16 @@ function testJSON(text) {
   }
 }
 
-const globals = {
+var globals = {
 
   // maximum objects allowed per scene
   MAX_object_count: 15,
 
   // map width (columns)
-  MAP_width: 4,
+  MAP_width: 5,
 
   // map height (rows)
-  MAP_height: 4
+  MAP_height: 5
 
 }
 
