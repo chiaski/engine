@@ -12,15 +12,37 @@ $(".window-samples div._sample").on("click", function () {
       
     case "blipo":
       game = sample_blippo;
+      
+  setTimeout(function() {
+    tip("Exploring Blipo's world", "This is a smaller game made on an older Engine that wasn't as brave and cool as Engine today, but look at the legend of Blipo! The side quests! The color sequence...!", "tip");
+  }, 9000);
       break;
+      
     case "me":
       game = sample_me;
+      
+  setTimeout(function() {
+    tip("On making Engine", "Hey, this one is about how I was made! It spirals around and goes in one direction... What is it preaching?", "tip");
+  }, 9000);
+      
       break;
     case "leaf":
       game = sample_leaf;
+      
+  setTimeout(function() {
+    tip("A day in the life", "I love the colors in this story and the different branches. And there are branches in it! How cool!", "tip");
+  }, 9000);
       break;
       
   }
+  
+  
+  tip("Welcome to Engine (REMIX!!!)", "You are remixing another game, that's awesome!\nThese games are made by my special friends... (Click me to get rid of me!)", "tip");
+  
+  setTimeout(function() {
+    tip("Remixing", "Whether you make a derivative of this game or are just peeking into it to see what other Engine creations are like, I hope you have fun looking into its story...", "tip");
+  }, 5000);
+  
   
   let new_cartridge = game;
   
