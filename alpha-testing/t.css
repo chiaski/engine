@@ -21,7 +21,7 @@ EDITOR
 }
 @font-face {
   font-family: "Times Now";
-  src: url("./assets/fontsTimesNow-ExtraLight.woff2") format("woff2"), url("./assets/fontsTimesNow-ExtraLight.woff") format("woff");
+  src: url("./assets/fonts/TimesNow-ExtraLight.woff2") format("woff2"), url("./assets/fonts/TimesNow-ExtraLight.woff") format("woff");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -56,12 +56,39 @@ body,
   box-sizing: border-box;
 }
 
+#ahhh {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999999;
+  left: 0;
+  top: 0;
+  background: #000;
+  color: #fff;
+  padding: 2em;
+  display: none;
+}
+#ahhh h1 {
+  margin: 5vh;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  line-height: 90%;
+}
+
+@media only screen and (max-width: 950px) {
+  #ahhh {
+    display: block;
+  }
+}
 body {
   background: #191b1d;
   padding: 2em;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-content: center;
+  align-items: center;
   margin-bottom: 25vh;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -76,7 +103,7 @@ body {
   box-shadow: 0 0 15px #edede8 !important;
   outline: 1.5px solid #000000;
   border: 1px solid #000000;
-  font-family: "FA Sysfont C", monospace !important;
+  font-family: "Fa Sysfont C" !important;
   font-size: 0.8em !important;
   font-weight: normal;
   text-rendering: optimizeLegibility;
@@ -93,12 +120,12 @@ select {
   padding: 0.25em 1em;
   margin: 1em auto;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 12px;
   outline: 1.5px solid #edede8;
   border: 1px solid #000000;
   background: #000000;
   color: #edede8;
-  font-family: "FA Sysfont C", monospace;
+  font-family: "Fa Sysfont C";
 }
 
 select:hover {
@@ -140,12 +167,12 @@ h4 {
 button {
   border: 1.5px solid #000000;
   outline: 1px solid #edede8;
-  border-radius: 8px;
+  border-radius: 12px;
   background: #000000;
   color: #edede8;
   padding: 1em;
   margin: 0.5em;
-  font-family: "FA Sysfont C", monospace;
+  font-family: "Fa Sysfont C";
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
@@ -225,7 +252,7 @@ START AND EXTRAS
   justify-content: space-between;
   pointer-events: none;
   padding: 0.75em;
-  font-family: "FA Sysfont C", monospace;
+  font-family: "Fa Sysfont C";
   font-size: 0.8em;
 }
 #info span {
@@ -252,7 +279,7 @@ START AND EXTRAS
   border-radius: 4px;
   text-decoration: none;
   text-align: center;
-  font-family: "FA Sysfont C", monospace;
+  font-family: "Fa Sysfont C";
   color: #edede8;
   -webkit-transition: all 0.12s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.12s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -272,17 +299,47 @@ START AND EXTRAS
 }
 
 #start {
-  background: #464A4B;
+  background: #1c1e1f;
   color: #edede8;
   min-height: 50vh;
   max-width: 80vw;
-  padding: 20vh 0;
-  margin: 12.5vh 0;
+  padding: 5vh 0;
+  margin: 9vh 0;
+  margin-bottom: 25vh;
 }
 #start h1._title {
   font-size: 8.6em;
   letter-spacing: -7px;
   color: #cbc7c6;
+}
+#start .window-samples {
+  font-size: 1.25em;
+  margin: 1em auto;
+  margin-bottom: 0;
+}
+#start .window-samples ._sample {
+  margin: 1em 0.5em;
+  border-radius: 12px;
+  border: 1px solid #000000;
+  outline: 1.25px solid #edede8;
+  display: inline-block;
+  width: 80px;
+  height: 100px;
+  font-size: 0.6em;
+  font-family: "Fa Sysfont C";
+  object-fit: contain;
+  -webkit-transition: all 0.14s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.14s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+#start .window-samples ._sample img {
+  max-width: 100%;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+#start .window-samples ._sample:hover {
+  cursor: pointer;
+  transform: translateY(-6px);
+  box-shadow: 0 5px 15px #464A4B;
 }
 #start .window-wrapper {
   text-align: center;
@@ -292,6 +349,7 @@ START AND EXTRAS
   letter-spacing: -1px;
 }
 #start .window-wrapper button {
+  border-radius: 24px;
   font-size: 1.2em;
   background: #464A4B;
   color: #cbc7c6;
@@ -302,9 +360,13 @@ START AND EXTRAS
   background: #717374;
   transform: translateY(-6px);
 }
+#start .window-wrapper ._smaller button {
+  border-radius: 12px;
+  font-size: 0.8em;
+  padding: 0.75em 1.5em;
+}
 
 .window {
-  position: relative;
   background: #edede8;
   box-shadow: 0 0 100px #717374;
   border: 1.5px solid #000000;
@@ -453,7 +515,7 @@ START AND EXTRAS
 .library-text-controls button#btn-changefonttext {
   margin-top: -0.5em;
   font-size: 0.8em;
-  padding: 0.25em;
+  padding: 0.25em 0.75em;
 }
 
 #engine-window {
@@ -657,7 +719,7 @@ EDITOR
   border: 1px solid #000000;
   outline: 1.5px solid #edede8;
   vertical-align: middle;
-  font-family: "FA Sysfont C", monospace;
+  font-family: "Fa Sysfont C";
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transform: scale(0.98);
@@ -712,7 +774,7 @@ EDITOR
   height: 312px;
   padding: 1em;
   border-radius: 8px;
-  font-family: "FA Sysfont C", monospace;
+  font-family: "Fa Sysfont C";
   border: 1px solid #464A4B;
   outline: 1.5px solid #cbc7c6;
 }
@@ -732,7 +794,7 @@ EDITOR
   display: block;
   content: "Start";
   color: #edede8;
-  font-family: "FA Sysfont C", monospace;
+  font-family: "Fa Sysfont C";
   text-transform: uppercase;
   font-size: 0.6em;
 }
@@ -775,11 +837,9 @@ EDITOR
 }
 
 #audio-player {
-  max-width: 600px;
-  display: flex;
+  width: 450px;
   justify-content: center;
   flex-wrap: wrap;
-  width: auto;
 }
 #audio-player ._controlstext {
   display: block;
@@ -860,11 +920,6 @@ EDITOR
 #audio-player-controller button:hover {
   text-shadow: 0 0 5px #edede8;
 }
-#audio-player-controller button#btn-audio-stop {
-  font-size: 1.2em;
-  line-height: 90%;
-  margin-left: -0.5em;
-}
 
 #texttool input[type=text] {
   margin: 1em auto;
@@ -885,7 +940,10 @@ EDITOR
   margin-bottom: 1em;
 }
 #library-scene-controls button {
+  border-radius: 8px;
   opacity: 0.8;
+  font-size: 0.7em;
+  padding: 0.25em 0.5em;
 }
 #library-scene-controls button#btn-scenecontrols-pastescene {
   opacity: 0.1;

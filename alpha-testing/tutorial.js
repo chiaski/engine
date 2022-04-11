@@ -150,7 +150,7 @@ tip("Welcome to Engine", "Engine games are arranged in grids. When playing a gam
 //
 //tip("New Tip", "Double-click to add an object to the screen, doofus.", "tip");
 //
-tip("New Tip", "Double-click to add an object to the screen, doofus.", "suggestion", 0, "I'm sorry", "OK");
+//tip("New Tip", "Double-click to add an object to the screen, doofus.", "suggestion", 0, "I'm sorry", "OK");
 //
 //tip("LOL", "Double-click to add an object to the screen, doofus.", "warning");
 

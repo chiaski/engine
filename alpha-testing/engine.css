@@ -20,13 +20,13 @@ PLAYER
 */
 @font-face {
   font-family: "FA Sysfont C";
-  src: url("./assets/fonts/sysfont.woff2") format("woff2"), url("./alpha/assets/fonts/sysfont.woff") format("woff");
+  src: url("./assets/fonts/sysfont.woff2") format("woff2"), url("./assets/fonts/sysfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Times Now";
-  src: url("./assets/fontsTimesNow-ExtraLight.woff2") format("woff2"), url("./assets/fontsTimesNow-ExtraLight.woff") format("woff");
+  src: url("./assets/fonts/TimesNow-ExtraLight.woff2") format("woff2"), url("./assets/fonts/TimesNow-ExtraLight.woff") format("woff");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -154,11 +154,6 @@ h4 {
 #audio-player-controller button:hover {
   text-shadow: 0 0 5px #f7f7f7;
 }
-#audio-player-controller button#btn-audio-stop {
-  font-size: 1.2em;
-  line-height: 90%;
-  margin-left: -0.5em;
-}
 
 button {
   border: 1.5px solid #000000;
@@ -272,7 +267,7 @@ PLAY
   position: absolute;
   display: inline-block;
   background: #fff;
-  opacity: 0.5;
+  opacity: 0.3;
   background-blend-mode: blur(3px);
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -304,9 +299,9 @@ PLAY
 }
 #play #e-controls a:hover {
   transform: scale(1.02);
+  mix-blend-mode: difference;
   cursor: pointer;
-  background: green;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 #play #e-controls a.-inaccessible:hover {
   opacity: 0.1;

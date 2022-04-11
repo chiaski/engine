@@ -125,6 +125,13 @@ const Tplayer = {
       setTimeout(function () {
         $("#e-cartridge").fadeOut("slow");
         $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
+       
+        
+    // What font?
+    if(scenes.font !== "default"){
+      $("#e-play textarea").css("font-family", scenes.font);
+    }
+
         $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       }, 1800);
 
@@ -177,7 +184,6 @@ const Tplayer = {
 
     Tplayer.active = scenes.s[c.getSceneIndex(x, y)];
 
-
     
     // Is there a song?
     if(scenes.audio !== null){
@@ -185,17 +191,18 @@ const Tplayer = {
       Tplayer.playSong();
     }
     
-    // What font?
-    if(scenes.font !== "default"){
-      $("#e-play textarea").css("font-family", scenes.font);
-    }
-
     // change text
     setTimeout(function () {
 
       $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
       $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       Tplayer.loadScene(x, y);
+      
+    // What font?
+    if(scenes.font !== "default"){
+      $("#e-play textarea").css("font-family", scenes.font);
+    }
+
 
     }, 1500);
 

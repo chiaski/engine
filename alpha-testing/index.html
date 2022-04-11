@@ -17,6 +17,8 @@
 
 <body>
 
+  
+  
   <div class="blocker"></div>
   <div class="fx _1"></div>
   <div class="fx _p"></div>
@@ -24,6 +26,11 @@
 
   <div class="fx _cover">
     <img src="assets/fx-television.png">
+  </div>
+  
+  
+  <div id="ahhh">
+    <h1>sorry engine only works on web :( or your web is a bit too small...</h1>
   </div>
 
 
@@ -47,7 +54,6 @@
     <a href="player.html" class="_small" target="_blank" title="Load in other Engine games by their console code (takes you to a new page!)">Player</a>
     <a href="https://discord.com/invite/u5MHYcEV" class="_small" target="_blank" title="Chat with the Engine community">Discord</a>
 
-
     <a href="gallery.html" class="_small" target="_blank" title="Play other Engine games">Gallery</a>
 
     <a class="_small" href="https://forms.gle/Thifa9CL7fQpbXwT8" target="_blank" title="Want to submit your game to the world? Go into the gallery!">Submit</a>
@@ -69,12 +75,39 @@
   <div id="start" class="window">
     <div class="window-wrapper">
       <div>
-        <h1 class="_title">Engine</h1>
+        <h1 class="_title">engine.lol</h1>
 
         <button id="tempplay" title="You could also just scroll down, really...">Create new game</button>
-        <button id="tempplay" onclick="window.open( 'player.html', '_blank');" title="Go load in other games">Go to player</button>
-
+        
+        <br>
+        
+        <div class="_smaller">
+          
+        <button id="tempplay" onclick="window.open( 'player.html', '_blank');" title="Go load in other games">Player</button>
+          
+        <button id="tempplay" onclick="window.open( 'player.html', '_blank');" title="Go load in other games">Gallery</button>
+</div>
+      </div><br>
+      <hr>
+      
+      <div class="window-samples">
+      Or start with another game?
+        <br>
+        <div class="_sample" data-cartridge="blipo">
+        <img src="samples/blipo.gif">
+          blipo's world
+        </div>
+        <div class="_sample" data-cartridge="me">
+        <img src="samples/meandengine.gif">
+          me & engine
+        </div>
+        <div class="_sample" data-cartridge="leaf">
+        <img src="samples/leaf.gif">
+          04102022
+        </div>
       </div>
+      
+      
     </div>
   </div>
 
@@ -82,7 +115,7 @@
   <!--  WINDOW: MAP  -->
 
 
-  <a id="window-map"></a>
+  <a id="window-map" style="width: 100vw;display: block;"></a>
   <div id="map" class="window">
 
     <h2>
@@ -126,8 +159,8 @@
       </marquee>
     </h3>
 
-    <button id="btn-audio-play">▶</button>
-    <button id="btn-audio-stop">◼︎</button>
+    <button id="btn-audio-play">play</button>
+    <button id="btn-audio-stop">stop</button>
 
     <audio id="_audio">
       <source src="" id="_audio_src">
@@ -153,7 +186,6 @@
       </div>
 
     </div>
-
   </div>
 
   <!--  WINDOW: ENGINE  -->
@@ -253,10 +285,10 @@
           <div id="scene_selector">
 
           </div>
-        </div>
-
+        </div><br>
+        
         <div id="library-scene-controls">
-          scene controls<br>
+          <h2>Scene Controls</h2><br>
           <button id="btn-scenecontrols-deletescene" title="You can't delete your starting scene.">delete</button>
 
           <button id="btn-scenecontrols-copyscene" title="Copy the contents of this scene and paste it to another... WARNING: BUGGY!">copy</button>
@@ -375,6 +407,7 @@
   <script type="text/javascript" src="audio.js"></script>
   <script type="text/javascript" src="downloader.js"></script>
   <script type="text/javascript" src="tutorial.js"></script>
+  <script type="text/javascript" src="samples.js"></script>
 
   <script type="text/javascript">
     $(function() {

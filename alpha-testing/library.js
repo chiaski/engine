@@ -391,10 +391,7 @@ const objControls = {
         break;
 
       case "flip":
-
-        console.log("please");
-
-        console.log($(t).css("transform"));
+//        console.log($(t).css("transform"));
 
         if ($(t).css("transform") == "scale(-1, 1)" || $(t).css("transform") == "matrix(-1, 0, 0, 1, 0, 0)") {
           $(t).css("transform", "scale(1,1)");
@@ -433,7 +430,7 @@ const objControls = {
   updatePos: function (t) {
     let pos = $(t).position();
 
-    console.log(pos);
+//    console.log(pos);
 
     $(".__x").text(pos.left);
     $(".__y").text(pos.top);
