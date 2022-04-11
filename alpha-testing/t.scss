@@ -815,7 +815,7 @@ PLAY
       position: absolute;
       display: inline-block;
       background: $l;
-      opacity: 0.5;
+      opacity: 0.3;
       background-blend-mode: blur(3px);
       -webkit-transition: all .19s cubic-bezier(.17, .67, .83, .67);
       transition: all .19s cubic-bezier(.17, .67, .83, .67);
@@ -824,25 +824,28 @@ PLAY
     a.___n,
     a.___s {
       width: 100%;
-      height: 30px;
+      height: 18px;
     }
 
     a.___e,
     a.___w {
-      width: 30px;
+      width: 18px;
       height: 512px;
     }
 
-    a.___n {}
+    a.___n {
+      top: 0;
+    }
 
-    a.___w {}
+    a.___w {
+      left: 0;
+    }
 
     a.___e {
       right: 0;
     }
 
     a.___s {
-      position: absolute;
       bottom: 0;
     }
 
