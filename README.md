@@ -1,5 +1,11 @@
 # Engine
-An anti-gamemaker as a game.
+A tiny tool for telling tiny stories that tells you about itself and maybe you, too.
 
+Play:
+https://engine.lol
 
-Working Log: https://chiaski.notion.site/chia-s-thesis-98710296214a4f70bcf07f7bb0c66444
+Working Log: https://futureland.tv/hotemogf/engine
+
+Discord:
+https://engine.lol/discord
+
