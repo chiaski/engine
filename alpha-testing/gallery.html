@@ -41,22 +41,22 @@
   </div>
 
   <div id="engine">
-    <a href="https://engine.lol">
-      engine.lol
+    <a href="https://engine.lol" id="_name" title="that's me">
+      Engine
     </a>
   </div>
 
   <div id="webring">
-    <a href="" class="_previous">previous</a>
+    <a class="_previous nav">previous</a>
 
-    <a href="" class="_random">random</a>
+    <a class="_random" onclick="location.reload()">random</a>
 
-    <a href="" class="_forward">forward</a>
+    <a class="_forward nav">forward</a>
   </div>
 
   <div class="wrapper">
 
-    <iframe id="game" src="cartridges/myCartridge%20(1).html" title="description">
+    <iframe id="game" src="" title="description">
 
 
     </iframe>
@@ -65,7 +65,42 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script type="text/javascript">
-    var proj = [""];
+    
+    
+    var proj = ["bliposworld", "dontbescared", "datenight", "feverdream", "garden", "goodgrief", "killtheclocks", "magmagun", "meandengine"];
+    
+    
+    function swap(what){
+       $("iframe#game").attr("src", "gallery/" + what + ".html");
+      
+        let now = proj.indexOf(active);
+      
+      
+      $("a._forward").attr("data-n", now + 1);
+      $("a._previous").attr("data-n", now - 1);
+      
+        // edge cases
+      if(now == 0){
+      $("a._previous").attr("data-n", proj.length - 1 );
+      }
+      
+       if(now == proj.length - 1){
+      $("a._forward").attr("data-n", 0 );
+      }
+    }
+    // choose a random project to start
+    let active = proj[Math.floor(Math.random()*proj.length)];
+    
+    // set iframe to active
+    swap(active);
+    
+    $("a.nav").on("click", function(){
+      
+      swap( proj[$(this).attr("data-n")] );
+      
+    });
+    
+    
   </script>
 
 </body></html>

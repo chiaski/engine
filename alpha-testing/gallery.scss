@@ -14,14 +14,14 @@
 
 #engine {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   padding: 1em;
   width: 100%;
   text-align: center;
   font-family: 'Times Now';
-  font-size: 2.4em;
-  letter-spacing: -1.5px;
+  font-size: 1.1em;
+  letter-spacing: -1px;
   z-index: 9;
 
   a {
@@ -36,8 +36,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 80vh;
-  margin: 5vh auto;
+  height: 90vh;
 }
 
 
@@ -45,7 +44,7 @@
   position: fixed;
   height: 12.5vh;
   width: 100vw;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
   z-index: 9;
   padding: 3vw;
