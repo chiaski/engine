@@ -34,7 +34,7 @@ const libraryText = {
       
       if(chance(.06)){
         
-        let text_tips = ["Text can be used for speech, but it can also be used for backgrounds... or you can make a text-only game.", "Are you ready for what you have to say to be shown to the world?", "Words are a magical part of our lives...", "Texts can connect us all...", "An asterisk can be a list, a star, a flower...", "I love words.", "Ahh! Sometimes spaces and line breaks don't consistently export. Sorry about that. I'm working on myself.", "You don't always have to say something new...", "What is a word, really?", "What kind of langauge can you shape here?", "I'm listening... I know they'll listen, too."]
+        let text_tips = ["Text can be used for speech, but it can also be used for backgrounds... or you can make a text-only game.", "Are you ready for what you have to say to be shown to the world?", "Words are a magical part of our lives...", "Texts can connect us all...", "An asterisk can be a list, a star, a flower...", "I love words.", "Ahh! Sometimes spaces and line breaks don't consistently export. Sorry about that. I'm working on myself.", "You don't always have to say something new...", "What is a word, really?", "What kind of language can you shape here?", "I'm listening... I know they'll listen, too."]
         
         tip("Tip on Text", pick(text_tips), "tip");
       }
