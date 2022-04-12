@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'Picopixel';
-    src: url('Picopixel.woff2') format('woff2'),
-        url('Picopixel.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
