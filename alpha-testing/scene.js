@@ -137,6 +137,12 @@ $("#btn-remixcartridge-load").on("click", function () {
   scenes.audio = new_scenes.audio;
   scenes.font = new_scenes.font;
   
+    if(scenes.font !== "default"){
+      
+      $("#e-play textarea").css("font-family", scenes.font);
+      $("#e textarea").css("font-family", scenes.font);
+    }
+  
   mapControls.clearMap();
   sceneControls.reassignScenes(new_scenes);
   mapControls.loadMap(scenes);

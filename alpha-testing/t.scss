@@ -1122,6 +1122,7 @@ EDITOR
 
   .controls-audio {
 
+    margin-top: -1em;
     padding: 0 1em;
     text-align: center;
 
@@ -1427,8 +1428,10 @@ EDITOR
 
 #downloader {
   position: absolute;
+  overflow: hidden;
   width: 1px;
   height: 1px;
+  white-space: pre !important;
   display: inline-block;
   pointer-events: none !important;
   opacity: 0 !important;

@@ -23,6 +23,7 @@
   font-size: 1.1em;
   letter-spacing: -1px;
   z-index: 9;
+  mix-blend-mode: screen;
 
   a {
     text-decoration: none;
@@ -36,7 +37,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
 }
 
 
@@ -53,6 +54,7 @@
   display: flex;
   justify-content: center;
   vertical-align: middle;
+  mix-blend-mode: screen;
 
   a {
     font-size: 1.5em;

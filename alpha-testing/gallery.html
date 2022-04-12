@@ -68,6 +68,8 @@
     // set iframe to active
     swap(active);
     
+    $("#_name").text(active);
+    
     $("a.nav").on("click", function(){
       
       swap( proj[$(this).attr("data-n")] );

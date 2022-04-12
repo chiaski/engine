@@ -25,7 +25,7 @@ $("#btn-getcode").on("click", function(){
   var cartridge_code = JSON.stringify( scenes); 
   console.log(cartridge_code);
   
-  $("#downloader").text(cartridge_code);
+  $("#downloader").html(cartridge_code);
   
     var range = document.createRange();
   range.selectNode(document.getElementById("downloader"));
