@@ -247,17 +247,17 @@ PLAY
   position: absolute;
   display: inline-block;
   background: #fff;
-  opacity: 0.4;
+  opacity: 0.3;
   background-blend-mode: blur(3px);
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 #play #e-controls a.___n, #play #e-controls a.___s {
   width: 100%;
-  height: 18px;
+  height: 24px;
 }
 #play #e-controls a.___e, #play #e-controls a.___w {
-  width: 18px;
+  width: 24px;
   height: 512px;
 }
 #play #e-controls a.___e {
@@ -278,10 +278,10 @@ PLAY
   opacity: 0.05;
 }
 #play #e-controls a:hover {
-  transform: scale(1.02);
+  transform: scale(1.04);
   mix-blend-mode: difference;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 #play #e-controls a.-inaccessible:hover {
   opacity: 0.1;
@@ -325,6 +325,17 @@ PLAY
   display: none;
 }
 
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0.99);
+  }
+}
 @keyframes pulse-engine {
   0% {
     box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);

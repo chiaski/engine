@@ -1,10 +1,3 @@
-@font-face {
-  font-family: "Times Now";
-  src: url("./assets/fontsTimesNow-ExtraLight.woff2") format("woff2"), url("./assets/fontsTimesNow-ExtraLight.woff") format("woff");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
 .wrapper {
   width: 100%;
   height: 100%;
@@ -17,9 +10,9 @@
   padding: 1em;
   width: 100%;
   text-align: center;
-  font-family: "Times Now";
-  font-size: 1.1em;
-  letter-spacing: -1px;
+  font-family: "Times New Roman";
+  font-size: 1.2em;
+  letter-spacing: -0.5px;
   z-index: 9;
   mix-blend-mode: screen;
 }
@@ -51,16 +44,19 @@
   vertical-align: middle;
   mix-blend-mode: screen;
 }
+#webring ._tutorial {
+  display: block;
+  width: 100%;
+}
 #webring a {
   font-size: 1.5em;
   padding: 0.5em 1em;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   color: yellow;
 }
 #webring a._random {
-  font-size: 2em;
-  margin-top: -0.5em;
+  font-size: 1.5em;
 }
 #webring a:hover {
   transform: scale(1.1);

@@ -1,11 +1,4 @@
-@font-face {
-  font-family: 'Times Now';
-  src: url('./assets/fontsTimesNow-ExtraLight.woff2') format('woff2'),
-    url('./assets/fontsTimesNow-ExtraLight.woff') format('woff');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
+
 
 .wrapper {
   width: 100%;
@@ -19,9 +12,9 @@
   padding: 1em;
   width: 100%;
   text-align: center;
-  font-family: 'Times Now';
-  font-size: 1.1em;
-  letter-spacing: -1px;
+  font-family: 'Times New Roman';
+  font-size: 1.2em;
+  letter-spacing: -.5px;
   z-index: 9;
   mix-blend-mode: screen;
 
@@ -55,18 +48,23 @@
   justify-content: center;
   vertical-align: middle;
   mix-blend-mode: screen;
+  
+  ._tutorial{
+    display: block;
+    width: 100%;
+    
+  }
 
   a {
     font-size: 1.5em;
     padding: .5em 1em;
     text-decoration: none;
-    transition: all .3s cubic-bezier(.17, .67, .83, .67);
+    transition: all .2s cubic-bezier(.17, .67, .83, .67);
     color: yellow;
   }
 
   a._random {
-    font-size: 2em;
-    margin-top: -.5em;
+    font-size: 1.5em;
   }
 
   a:hover {

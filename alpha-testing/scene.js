@@ -66,6 +66,23 @@ $("#btn-remixcartridge").on("click", function () {
   $("#map .controls-remixcartridge").fadeIn();
 
 })
+$("#btn-remixcartridgestart").on("click", function () {
+
+  if (!confirm("Do you want to paste in a cartridge code and start editing an existing game? (Note that this wipes all of your current progress!)")) {
+    return;
+  }
+  
+  document.getElementById('window-map').scrollIntoView();
+
+  $("#btn-remixcartridge").hide();
+  $("#map textarea#_remix").fadeIn();
+  $("#map #sss").hide();
+  $("#btn-changestartingscene").hide();
+  $("#btn-cartridge").hide();
+
+  $("#map .controls-remixcartridge").fadeIn();
+
+})
 
 
 // handle controls
