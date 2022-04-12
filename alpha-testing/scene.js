@@ -145,6 +145,9 @@ $("#btn-remixcartridge-load").on("click", function () {
 
   sceneControls.switchScene(i);
 
+    document.getElementById("window-engine").scrollIntoView();
+  
+  
   $("#map .controls-remixcartridge").hide();
 
   $("#map textarea#_remix").val("").hide();

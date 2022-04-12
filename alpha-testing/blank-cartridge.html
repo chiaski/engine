@@ -12,6 +12,23 @@
 <body>
   
   <div class="wrapper">
+    
+    
+  <div id="audio-player-controller">
+    <h3>
+      <marquee class="_audiotitle" onmouseover="this.stop();" onmouseout="this.start();">
+        If there's a song, it's going to play here...
+      </marquee>
+    </h3>
+
+    <button id="btn-audio-play">play</button>
+    <button id="btn-audio-stop">stop</button>
+
+    <audio id="_audio">
+      <source src="" id="_audio_src">
+    </audio>
+  </div>
+    
   <div class="window" id="play">
     <div class="play-overlay" style="background-image:url(https://engine.lol/alpha/assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.9;"></div>
 
