@@ -5,6 +5,20 @@ const cartridge = $("#cartridge").text();
 
 var scenes = null;
 
+var globals = {
+
+  // maximum objects allowed per scene
+  MAX_object_count: 15,
+
+  // map width (columns)
+  MAP_width: 5,
+
+  // map height (rows)
+  MAP_height: 5
+
+};
+
+
 if (testJSON(cartridge)) {
   scenes = JSON.parse(cartridge);
 
@@ -47,18 +61,6 @@ function testJSON(text) {
   }
 }
 
-var globals = {
-
-  // maximum objects allowed per scene
-  MAX_object_count: 15,
-
-  // map width (columns)
-  MAP_width: 5,
-
-  // map height (rows)
-  MAP_height: 5
-
-}
 
 const c = {
   getSceneIndex: function (x, y) {
@@ -96,15 +98,20 @@ const Tplayer = {
 
         $("#e-cartridge").fadeOut("slow");
         $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
+       
+        // What font?
+    if(scenes.font !== "default"){
+      $("#e-play textarea").css("font-family", scenes.font);
+    }
         $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
-      }, 2500);
+      }, 1800);
       
     } else{ 
       $("#e-cartridge").fadeOut();
       $("#play").css("pointer-events", "auto").css("cursor", "auto");
     }
    
-    $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(2500).css("pointer-events", "auto").css("cursor", "auto");
+    $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(1500).css("pointer-events", "auto").css("cursor", "auto");
 
     // load in starting scene
     Tplayer.loadPlay(scenes.start_scene.x, scenes.start_scene.y);
@@ -129,13 +136,26 @@ const Tplayer = {
 
     Tplayer.active = scenes.s[c.getSceneIndex(x, y)];
 
+     // Is there a song?
+    if(scenes.audio !== null){
+      $("#audio-player-controller").fadeIn();
+      Tplayer.playSong();
+    }
+    
+    
     // change text
     setTimeout(function () {
 
       $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
       $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       Tplayer.loadScene(x, y);
-    }, 3000);
+      
+       // What font?
+    if(scenes.font !== "default"){
+      $("#e-play textarea").css("font-family", scenes.font);
+    }
+      
+    }, 1500);
   },
 
   /* 
@@ -157,6 +177,28 @@ const Tplayer = {
 
     Tplayer.clearScene();
   },
+    
+  playSong: function (song) {
+
+    // load the song into the player
+
+    let s = null;
+
+    if (song) {
+      s = song;
+    } else {
+      s = "https://engine.lol/alpha/assets/audio/" + scenes.audio;
+    }
+    
+    $("#_audio")[0].currentTime = 0;
+    
+
+    $("._audiotitle").text(s);
+    $("#_audio").attr("src", s);
+    $("#_audio")[0].play();
+
+  },
+
 
   loadTarget: function () {
 
@@ -353,6 +395,7 @@ const Tplayer = {
     $("body").css("background", c);
 
   },
+  
   /* clearScene deletes all objects from the scene */
   clearScene: function () {
     $("#e-text textarea").val("");

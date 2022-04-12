@@ -1,47 +1,17 @@
-/* 
-
-
-
-
-
-
-PLAYER
-
-
-
-
-
-
-*/
-
-
-/*
-
-  COLORS, FONTS
-
-*/
-
-
-
 
 @font-face {
-    font-family: 'FA Sysfont C';
-    src: url('./assets/fonts/sysfont.woff2') format('woff2'),
-         url('./assets/fonts/sysfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "FA Sysfont C";
+  src: url("https://engine.lol/alpha/assets/fonts/sysfont.woff2") format("woff2"), url("https://engine.lol/alpha/assets/fonts/sysfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
 @font-face {
-  font-family: 'Times Now';
-  src: url('./assets/fonts/TimesNow-ExtraLight.woff2') format('woff2'),
-    url('./assets/fonts/TimesNow-ExtraLight.woff') format('woff');
+  font-family: "Times Now";
+  src: url("https://engine.lol/alpha/assets/fonts/TimesNow-Light.woff2") format("woff2"), url("https://engine.lol/alpha/assets/fonts/TimesNow-Light.woff") format("woff");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
-
-
 
 $c: #000000; // MAIN COLOR
 $l: #f7f7f7; // light color
@@ -349,6 +319,7 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
     
     a.___s{
       bottom: 0;
+      left: 0;
     }
     
     a.___n{
