@@ -646,7 +646,7 @@ PLAY
   position: absolute;
   display: inline-block;
   background: #edede8;
-  opacity: 0.3;
+  opacity: 0.4;
   background-blend-mode: blur(3px);
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
