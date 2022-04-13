@@ -114,6 +114,9 @@ body {
 textarea {
   resize: none;
   cols: 17;
+  padding: 0.75em;
+  font-size: 1.75em;
+  line-height: 97.5%;
 }
 
 select {
@@ -497,14 +500,12 @@ START AND EXTRAS
 }
 #e-text textarea {
   resize: none;
-  padding: 0.5em;
+  padding: 0.75em;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0);
   color: #edede8;
   font-family: "Times Now Roman";
-  line-height: 95%;
-  font-size: 1.8em;
   mix-blend-mode: exclusion;
   white-space: pre-wrap;
   overflow-y: hidden;

@@ -38,10 +38,11 @@ if (testJSON(cartridge)) {
     }
   
   $("#play h2").text("Engine");
-  $("#btn-play").on("click", function () {
-    Tplayer.init();
-    $(this).text("RELOAD");
-  });
+  
+    setTimeout(function () {
+      Tplayer.init();
+    }, 1500);
+  
 
 } else {
   $("#play h2").text("Corrupted or empty game");
