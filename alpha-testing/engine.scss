@@ -38,9 +38,10 @@ html, body{
 
 .engine-controls{
   width: 100%;
+  margin: 1em 0;
   button{
-    font-size: 1.25em;
-    padding: .75em 2.5em;
+    font-size: .7em;
+    padding: .5em 2em;
     border-radius: 16px;
   }
 }
@@ -78,20 +79,6 @@ textarea{
   margin: 2.5vh 5vw;
 }
 
-
-h1{
-  font-size: 5.6em;
-  letter-spacing: -2px;
-  display: block;
-  text-align: center;
-}
-
-
-h1._title{
-  font-size: 5.6em + 2em;
-  letter-spacing: -5px;
-}
-
 h2{
   width: 100%;
   display: block;
@@ -106,11 +93,6 @@ h2{
   }
   
 }
-
-h4{
-  padding: .5em;
-}
-
 
 #audio-player-controller {
   position: fixed;
@@ -152,12 +134,11 @@ h4{
 
 button{
   border: 1.5px solid $c;
-  outline: 1px solid $l;
   border-radius: 12px;
   background: $c;
   color: $l;
-  padding: 1em 2em;
-  margin: 1em;
+  padding: .5em 1em;
+  margin: .5em;
   font-family: $mono;
       -webkit-transition: all .19s cubic-bezier(.17,.67,.83,.67);
 transition: all .19s cubic-bezier(.17,.67,.83,.67);
@@ -171,6 +152,17 @@ button:hover{
   box-shadow: 0 0 20px $g3;
 }
 
+#downloader {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  white-space: pre !important;
+  display: inline-block;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
 
 body{
   background: $g2;
@@ -178,11 +170,7 @@ body{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 10vh;
 }
-
-
-// 
 
 
   #e-play{
@@ -197,8 +185,6 @@ body{
   overflow: hidden;
   }
   
-
-
 #e-play .obj, #e-cartridge .obj{
   position: absolute;
   display: inline-block;
@@ -376,21 +362,6 @@ transition: all .19s cubic-bezier(.17,.67,.83,.67);
 #cartridge{
   display: none;
 }
-
-
-@keyframes pulse {
-  0% {
-    transform: scale(0.90);
-  }
-  70% {
-   transform: scale(1.2);
-  }
-  100% {
-      transform: scale(0.99);
-
-  }
-}
-
 
 
 @keyframes pulse-engine {

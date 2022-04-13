@@ -18,7 +18,17 @@ var globals = {
 
 };
 
+// disable..
+var arrow_keys_handler = function(e) {
+    switch(e.code){
+        case "ArrowUp": case "ArrowDown": case "ArrowLeft": case "ArrowRight": 
+            case "Space": e.preventDefault(); break;
+        default: break; // do not block other keys
+    }
+};
+window.addEventListener("keydown", arrow_keys_handler, false);
 
+// parse cartridge
 if (testJSON(cartridge)) {
   scenes = JSON.parse(cartridge);
 
@@ -40,6 +50,7 @@ if (testJSON(cartridge)) {
   $("#play h2").text("Engine");
   
     setTimeout(function () {
+      $("#play").focus();
       Tplayer.init();
     }, 1500);
   
@@ -233,7 +244,10 @@ const Tplayer = {
 
   // iterates through navigation options on the active scene and updates it accordingly based on what's possible
   updateSceneNavigation() {
-
+    
+    // clear keydown queries
+    $("#play").off("keydown");
+    
     // clear all visual styles
     $("#e-controls a").each(function (i, e) {
       $(this)
@@ -258,10 +272,21 @@ const Tplayer = {
           $(this).addClass("-inaccessible");
           return;
         }
+        
+        // okay, scene is accessible
 
         $(this)
           .attr("data-target", target[0] + "," + target[1])
           .bind("click", Tplayer.loadTarget);
+        
+        
+        // add keybinding
+         $("#play").on('keydown', function(event) {
+        if ( (event.keyCode == 38 && direction == "n") || (event.keyCode == 39 && direction == "e") || (event.keyCode == 37 && direction == "w") || (event.keyCode == 40 && direction == "s")) {
+          Tplayer.loadScene(target[0], target[1]);
+        }
+      });
+        
       }
 
     });
@@ -407,3 +432,24 @@ const Tplayer = {
   }
 
 };
+
+
+// downloader 
+function getcode(){
+  
+  var cartridge_code = JSON.stringify( scenes); 
+  console.log(cartridge_code);
+  
+  $("#downloader").html(cartridge_code);
+  
+    var range = document.createRange();
+  range.selectNode(document.getElementById("downloader"));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+
+   document.execCommand("copy");
+    window.getSelection().removeAllRanges();
+  
+  alert("Copied cartridge code to clipboard! Note that if you have funky characters or if my code was just inadequate, this might have failed... :(\nYou can play this in the 'Load Cartridge' page.");
+  
+}

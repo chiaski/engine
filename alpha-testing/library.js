@@ -61,8 +61,10 @@ const libraryText = {
   toggleText: function () {
 
     if ($("button#btn-toggletext").hasClass("__toggled")) {
+      window.addEventListener("keydown", arrow_keys_handler, false);
       $("button#btn-toggletext").removeClass("__toggled");
     } else {
+      window.removeEventListener("keydown", arrow_keys_handler, false);
       $("button#btn-toggletext").addClass("__toggled");
     }
 

@@ -7,6 +7,18 @@ $("#tempplay").click(function () {
 });
 
 
+// arrow key navigation
+
+var arrow_keys_handler = function(e) {
+    switch(e.code){
+        case "ArrowUp": case "ArrowDown": case "ArrowLeft": case "ArrowRight": 
+            case "Space": e.preventDefault(); break;
+        default: break; // do not block other keys
+    }
+};
+
+
+
 // LOAD CARTRIDGE
 
 const Tplayer = {
@@ -82,6 +94,9 @@ const Tplayer = {
 
   // iterates through navigation options on the active scene and updates it accordingly based on what's possible
   updateSceneNavigation() {
+     // clear keydown queries
+    $("#play").off("keydown");
+    
     // clear all visual styles
     $("#e-controls a").each(function (i, e) {
       $(this)
@@ -99,18 +114,29 @@ const Tplayer = {
         return;
       } else {
 
-        let target = (convert.toString()).split(',');
+        var target = (convert.toString()).split(',');
 
         // next, check if a scene exists there
         if (sceneControls.getScene(target[0], target[1]) == null) {
           $(this).addClass("-inaccessible");
           return;
         }
+        
+        // okay, scene is accessible
 
         $(this)
           .attr("data-target", target[0] + "," + target[1])
           .bind("click", Tplayer.loadTarget);
       }
+         // add keybinding
+         $("#play").on('keydown', function(event) {
+        if ( (event.keyCode == 38 && direction == "n") || (event.keyCode == 39 && direction == "e") || (event.keyCode == 37 && direction == "w") || (event.keyCode == 40 && direction == "s")) {
+         Tplayer.loadScene( parseInt(target[0]), parseInt(target[1]));
+        }
+           
+      });
+        
+      
 
     });
 
@@ -295,6 +321,10 @@ function loadPlay(x, y) {
 
 
 $("#btn-play").on("click", function () {
+  
+  $("#play").focus();
+window.addEventListener("keydown", arrow_keys_handler, false);
+  
   objControls.saveObjects();
   loadPlay(scenes.start_scene.x, scenes.start_scene.y);
 });

@@ -143,7 +143,6 @@ body {
   justify-content: center;
   align-content: center;
   align-items: center;
-  margin-bottom: 25vh;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -430,7 +429,6 @@ START AND EXTRAS
         border-top-left-radius: 12px;
         border-top-right-radius: 12px;
       }
-      
     }
     
     ._sample:hover{
@@ -742,8 +740,10 @@ START AND EXTRAS
   text-align: center;
 
   button {
+    background: red;
+    font-size: .8em;
     margin: 0 .25em;
-    padding: 1em 1.75em;
+    padding: .5em 1em;
   }
 
   button#btn-play {
@@ -772,7 +772,6 @@ PLAY
 
 #play {
 
-  outline: 1.25px solid $l;
   background: #000;
   position: relative;
   width: 512px;
@@ -1430,6 +1429,8 @@ EDITOR
 
 
 #downloader_game {
+  overflow: hidden;
+  position: absolute;
   width: 1px;
   height: 1px;
   display: inline-block;

@@ -3,7 +3,7 @@
   <title>engine.lol</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css">
-  <style type="text/css">@font-face{font-family:"FA Sysfont C";src:url("https://engine.lol/alpha/assets/fonts/sysfont.woff2") format("woff2"),url("https://engine.lol/alpha/assets/fonts/sysfont.woff") format("woff");font-weight:400;font-style:normal}@font-face{font-family:"Times Now";src:url("https://engine.lol/alpha/assets/fonts/TimesNow-Light.woff2") format("woff2"),url("https://engine.lol/alpha/assets/fonts/TimesNow-Light.woff") format("woff");font-weight:200;font-style:normal;font-display:swap}*{box-sizing:border-box}body,html{scroll-behavior:smooth;font-family:"FA Sysfont C",monospace}.wrapper{position:absolute;width:100vw;height:100vh;top:0;left:0;text-align:center;display:flex;justify-content:center;vertical-align:center;align-content:center;align-items:center;flex-wrap:wrap}.engine-controls{width:100%}.engine-controls button{font-size:1.25em;padding:.75em 2.5em;border-radius:16px}#e-play,body{-webkit-transition:background .15s linear;-moz-transition:background .15s linear;-ms-transition:background .15s linear;-o-transition:background .15s linear;transition:background .15s linear}textarea{resize:none}.window{position:relative;background:#f7f7f7;box-shadow:0 0 100px #717374;border:1.5px solid #000;outline:1px solid #f7f7f7;width:100%;border-radius:15px;min-height:30vh;display:flex;justify-content:center;vertical-align:middle;align-items:center;flex-wrap:wrap;margin:2.5vh 5vw}h1{font-size:5.6em;letter-spacing:-2px;display:block;text-align:center}h1._title{font-size:7.6em;letter-spacing:-5px}h2{width:100%;display:block;border-bottom:1.5px solid #000;font-family:"Times Now";font-size:1.75em;letter-spacing:-1px;padding:.5em 0}h2 span{padding:0 .25em}h4{padding:.5em}#audio-player-controller{position:fixed;padding:1em;z-index:20;top:0;width:100%;text-align:center;mix-blend-mode:difference;display:none}#audio-player-controller h3{display:inline-block;padding:.2em .5em;width:200px;height:35px;line-height:30px;border:1px solid #f7f7f7;margin:0 auto;border-radius:16px;color:#f7f7f7}#audio-player-controller button{background:0 0;border:0;outline:0;margin:0 .5em;transform:translateY(-8px);padding:.5em}#audio-player-controller button:hover{text-shadow:0 0 5px #f7f7f7}button{border:1.5px solid #000;outline:1px solid #f7f7f7;border-radius:12px;background:#000;color:#f7f7f7;padding:1em 2em;margin:1em;font-family:"FA Sysfont C",monospace;-webkit-transition:all .19s cubic-bezier(.17, .67, .83, .67);transition:all .19s cubic-bezier(.17, .67, .83, .67)}button:hover{transform:translateY(-2.5px);color:#f7f7f7;background:#1c1e1f;cursor:pointer;box-shadow:0 0 20px #3b4041}body{background:#717374;padding:2em;display:flex;flex-wrap:wrap;justify-content:center;margin-bottom:10vh}#e-play{display:block;position:relative;background:#000;border:1px solid #fff;outline:1.5px solid #000000;width:512px;height:512px;margin:0;overflow:hidden}#e-cartridge .obj,#e-play .obj{position:absolute;display:inline-block;left:0;top:0;width:128px;height:128px;mix-blend-mode:exclusion;-webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-drag:none}#play{outline:1.25px solid #fff;background:#000;position:relative;width:512px;animation:pulse-engine 5s infinite;overflow:hidden;margin:auto;-webkit-transition:all .3s linear;transition:all .13s linear}#play .play-overlay{position:absolute;pointer-events:none;width:100%;height:100%;z-index:9}#play #e-cartridge{position:absolute;width:512px;height:512px;bottom:0;z-index:15}#play #e-text{position:absolute;top:0;z-index:15;pointer-events:none}#play #e-text textarea{resize:none!important;pointer-events:none!important}#play #e-controls{position:absolute;width:512px;height:512px;z-index:12;bottom:0}#play #e-controls a{position:absolute;display:inline-block;background:#fff;opacity:.4;background-blend-mode:blur(3px);-webkit-transition:all .19s cubic-bezier(.17, .67, .83, .67);transition:all .19s cubic-bezier(.17, .67, .83, .67)}#play #e-controls a.___n,#play #e-controls a.___s{width:100%;height:18px}#play #e-controls a.___e,#play #e-controls a.___w{width:18px;height:512px}#play #e-controls a.___e{right:0}#play #e-controls a.___w{left:0}#play #e-controls a.___s{bottom:0;left:0}#play #e-controls a.___n{top:0;left:0}#play #e-controls a.-inaccessible{opacity:.05}#play #e-controls a:hover{transform:scale(1.02);mix-blend-mode:difference;cursor:pointer;opacity:.5}#play #e-controls a.-inaccessible:hover{opacity:.1;cursor:not-allowed}#play h2{color:#fff;border-bottom:1px solid #fff}#e-text{background:0 0;position:absolute;height:512px;width:512px;top:0;left:0;mix-blend-mode:difference;z-index:999;pointer-events:none}#e-text textarea{padding:.5em;width:100%;height:100%;background:rgba(0,0,0,0);color:#fff;font-family:"Times Now";font-size:1.8em;line-height:95%;mix-blend-mode:exclusion;white-space:pre-wrap;overflow-y:hidden;cursor:text;resize:none!important}#cartridge{display:none}@keyframes pulse-engine{0%{box-shadow:0 0 0 5px rgba(0,0,0,.3)}70%{box-shadow:0 0 0 20px transparent}100%{box-shadow:0 0 0 5px transparent}}
+  <style type="text/css">*{box-sizing:border-box}body,html{scroll-behavior:smooth;font-family:"Courier New"}.wrapper{position:absolute;width:100vw;height:100vh;top:0;left:0;text-align:center;display:flex;justify-content:center;vertical-align:center;align-content:center;align-items:center;flex-wrap:wrap}.engine-controls{width:100%;margin:1em 0}.engine-controls button{font-size:.7em;padding:.5em 2em;border-radius:16px}#e-play,body{-webkit-transition:background .15s linear;-moz-transition:background .15s linear;-ms-transition:background .15s linear;-o-transition:background .15s linear;transition:background .15s linear}textarea{resize:none;padding:.75em;font-size:1.75em;line-height:97.5%}.window{position:relative;background:#f7f7f7;box-shadow:0 0 100px #717374;border:1.5px solid #000;outline:1px solid #f7f7f7;width:100%;border-radius:15px;min-height:30vh;display:flex;justify-content:center;vertical-align:middle;align-items:center;flex-wrap:wrap;margin:2.5vh 5vw}h2{width:100%;display:block;border-bottom:1.5px solid #000;font-family:"Times New Roman";font-size:1.75em;letter-spacing:-.3px;padding:.5em 0}h2 span{padding:0 .25em}#audio-player-controller{position:fixed;padding:1em;z-index:20;top:0;width:100%;text-align:center;mix-blend-mode:difference;display:none}#audio-player-controller h3{display:inline-block;padding:.2em .5em;width:200px;height:35px;line-height:30px;border:1px solid #f7f7f7;margin:0 auto;border-radius:16px;color:#f7f7f7}#audio-player-controller button{background:0 0;border:0;outline:0;margin:0 .5em;transform:translateY(-8px);padding:.5em}#audio-player-controller button:hover{text-shadow:0 0 5px #f7f7f7}button{border:1.5px solid #000;border-radius:12px;background:#000;color:#f7f7f7;padding:.5em 1em;margin:.5em;font-family:"Courier New";-webkit-transition:all .19s cubic-bezier(.17, .67, .83, .67);transition:all .19s cubic-bezier(.17, .67, .83, .67)}button:hover{transform:translateY(-2.5px);color:#f7f7f7;background:#1c1e1f;cursor:pointer;box-shadow:0 0 20px #3b4041}#downloader{position:absolute;overflow:hidden;width:1px;height:1px;white-space:pre!important;display:inline-block;pointer-events:none!important;opacity:0!important}body{background:#717374;padding:2em;display:flex;flex-wrap:wrap;justify-content:center}#e-play{display:block;position:relative;background:#000;border:1px solid #fff;outline:1.5px solid #000000;width:512px;height:512px;margin:0;overflow:hidden}#e-cartridge .obj,#e-play .obj{position:absolute;display:inline-block;left:0;top:0;width:128px;height:128px;mix-blend-mode:exclusion;-webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-drag:none}#play{outline:1.25px solid #fff;background:#000;position:relative;width:512px;animation:pulse-engine 5s infinite;overflow:hidden;margin:auto;-webkit-transition:all .3s linear;transition:all .13s linear}#play .play-overlay{position:absolute;pointer-events:none;width:100%;height:100%;z-index:9}#play #e-cartridge{position:absolute;width:512px;height:512px;bottom:0;z-index:15}#play #e-text{position:absolute;top:0;z-index:15;pointer-events:none}#play #e-text textarea{resize:none!important;pointer-events:none!important}#play #e-controls{position:absolute;width:512px;height:512px;z-index:12;bottom:0}#play #e-controls a{position:absolute;display:inline-block;background:#fff;opacity:.3;background-blend-mode:blur(3px);-webkit-transition:all .19s cubic-bezier(.17, .67, .83, .67);transition:all .19s cubic-bezier(.17, .67, .83, .67)}#play #e-controls a.___n,#play #e-controls a.___s{width:100%;height:24px}#play #e-controls a.___e,#play #e-controls a.___w{width:24px;height:512px}#play #e-controls a.___e{right:0}#play #e-controls a.___w{left:0}#play #e-controls a.___s{bottom:0;left:0}#play #e-controls a.___n{top:0;left:0}#play #e-controls a.-inaccessible{opacity:.05}#play #e-controls a:hover{transform:scale(1.04);mix-blend-mode:difference;cursor:pointer;opacity:.8}#play #e-controls a.-inaccessible:hover{opacity:.1;cursor:not-allowed}#play h2{color:#fff;border-bottom:1px solid #fff}#e-text{background:0 0;position:absolute;height:512px;width:512px;top:0;left:0;mix-blend-mode:difference;z-index:999;pointer-events:none}#e-text textarea{padding:.75em;width:100%;height:100%;background:rgba(0,0,0,0);color:#fff;font-family:"Times New Roman";mix-blend-mode:exclusion;white-space:pre-wrap;overflow-y:hidden;resize:none!important}#cartridge{display:none}@keyframes pulse-engine{0%{box-shadow:0 0 0 5px rgba(0,0,0,.3)}70%{box-shadow:0 0 0 20px transparent}100%{box-shadow:0 0 0 5px transparent}}
   </style>
 </head>
 
@@ -27,8 +27,8 @@
     </audio>
   </div>
     
-  <div class="window" id="play">
-    <div class="play-overlay" style="background-image:url(https://engine.lol/alpha/assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.15;"></div>
+  <div class="window" tabindex="-1" id="play">
+    <div class="play-overlay" style="background-image:url(https://engine.lol/alpha/assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.1;"></div>
 
     <h2>Corrupted or empty game</h2>
 
@@ -62,1385 +62,1387 @@
     
     <!--  CONTROLS  -->
     <div class="engine-controls">
-      <button id="btn-play">PLAY</button>  
+      <button id="btn-play" onclick="location.reload()">Reload</button>  
+      <button id="btn-code" onclick="getcode()">Get Code</button>  
     </div>
-    </div>
+  </div>
   
   
   <div id="cartridge">{
- "scene_count": 1,
- "start_scene": {
-  "x": 0,
-  "y": 0
- },
- "cartridge": {
-  "x": -1,
-  "y": -1,
-  "active": true,
-  "color": "#000000",
-  "textoverlay": "",
-  "object_count": 5,
-  "objects": [
-   {
-    "x": 240,
-    "y": 200,
-    "img": "https://engine.lol/alpha/assets/image/items/clock.gif",
-    "filter": "none",
-    "flip": "none",
-    "size": "200px"
-   },
-   {
-    "x": 40,
-    "y": 0,
-    "img": "https://engine.lol/alpha/assets/image/items/sword.gif",
-    "filter": "invert(1)",
-    "flip": "none",
-    "size": "312.5px"
-   },
-   {
-    "x": 40,
-    "y": 439.99993896484375,
-    "img": "https://engine.lol/alpha/assets/image/environment/moon-3.gif",
-    "filter": "none",
-    "flip": "none",
-    "size": "54px"
-   },
-   {
-    "x": 200,
-    "y": 439.99993896484375,
-    "img": "https://engine.lol/alpha/assets/image/environment/moon-2.gif",
-    "filter": "none",
-    "flip": "none",
-    "size": "54px"
-   },
-   {
-    "x": 360,
-    "y": 439.99993896484375,
-    "img": "https://engine.lol/alpha/assets/image/environment/moon-1.gif",
-    "filter": "none",
-    "flip": "none",
-    "size": "59.3333px"
-   }
+  "scene_count": 1,
+  "start_scene": {
+    "x": 0,
+    "y": 0
+  },
+  "cartridge": {
+    "x": -1,
+    "y": -1,
+    "active": true,
+    "color": "#000000",
+    "textoverlay": "",
+    "object_count": 5,
+    "objects": [
+      {
+        "x": 240,
+        "y": 200,
+        "img": "https://engine.lol/alpha/assets/image/items/clock.gif",
+        "filter": "none",
+        "flip": "none",
+        "size": "200px"
+      },
+      {
+        "x": 40,
+        "y": 0,
+        "img": "https://engine.lol/alpha/assets/image/items/sword.gif",
+        "filter": "invert(1)",
+        "flip": "none",
+        "size": "312.5px"
+      },
+      {
+        "x": 40,
+        "y": 439.99993896484375,
+        "img": "https://engine.lol/alpha/assets/image/environment/moon-3.gif",
+        "filter": "none",
+        "flip": "none",
+        "size": "54px"
+      },
+      {
+        "x": 200,
+        "y": 439.99993896484375,
+        "img": "https://engine.lol/alpha/assets/image/environment/moon-2.gif",
+        "filter": "none",
+        "flip": "none",
+        "size": "54px"
+      },
+      {
+        "x": 360,
+        "y": 439.99993896484375,
+        "img": "https://engine.lol/alpha/assets/image/environment/moon-1.gif",
+        "filter": "none",
+        "flip": "none",
+        "size": "59.3333px"
+      }
+    ]
+  },
+  "audio": "dgasgsdg.mp3",
+  "audio_loop": true,
+  "font": "FA Sysfont C",
+  "s": [
+    {
+      "x": 0,
+      "y": 0,
+      "active": true,
+      "color": "#2a9d8f",
+      "textoverlay": " \n\n\n\n \n time does not work\n for us anymore\n\n\n\n\n\n we will dissolve it\n in our tender gaze",
+      "object_count": 5,
+      "objects": [
+        {
+          "x": 320,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "160px"
+        },
+        {
+          "x": 400,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 280,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/magnify.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 0,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/sandglass.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "234.383px"
+        },
+        {
+          "x": 360,
+          "y": 0,
+          "img": "https://engine.lol/alpha/assets/image/softbank/60.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        }
+      ]
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "active": true,
+      "color": "#f3a261",
+      "textoverlay": "\n\n each minute is a construct\n\n\n we don't need them\n to be happy",
+      "object_count": 9,
+      "objects": [
+        {
+          "x": 40,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 160,
+          "y": 360.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        },
+        {
+          "x": 200,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "312.5px"
+        },
+        {
+          "x": 240,
+          "y": 400.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "96px"
+        },
+        {
+          "x": 360,
+          "y": 360.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 40,
+          "y": 360.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 80,
+          "y": 400.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "67.5px"
+        },
+        {
+          "x": 320,
+          "y": 440.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "54px"
+        },
+        {
+          "x": 360,
+          "y": 0,
+          "img": "https://engine.lol/alpha/assets/image/softbank/60.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        }
+      ]
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "active": true,
+      "color": "#9b2e28",
+      "textoverlay": " \n\n burn the forest of calendars\n\n\n\n\n\n\n\n\n\n\n\n make space for\n unmeasured feeling",
+      "object_count": 8,
+      "objects": [
+        {
+          "x": 80,
+          "y": 120.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/twig.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 120,
+          "y": 160.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/twig.gif",
+          "filter": "invert(1)",
+          "flip": "matrix(-1, 0, 0, 1, 0, 0)",
+          "size": "128px"
+        },
+        {
+          "x": 160,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/leaf-3.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 0,
+          "y": 120.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 320,
+          "y": 120.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/leaf-2.gif",
+          "filter": "invert(1)",
+          "flip": "matrix(-1, 0, 0, 1, 0, 0)",
+          "size": "200px"
+        },
+        {
+          "x": 360,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/twig.gif",
+          "filter": "invert(1)",
+          "flip": "matrix(-1, 0, 0, 1, 0, 0)",
+          "size": "160px"
+        },
+        {
+          "x": 320,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/moon-3.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "54px"
+        },
+        {
+          "x": 360,
+          "y": 0,
+          "img": "https://engine.lol/alpha/assets/image/softbank/60.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        }
+      ]
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "active": true,
+      "color": "#414833",
+      "textoverlay": "\n\n\n\n\nwe must abandon all horography\n\n\n\n\n\n\n\n let watchwork\n crust and corrode",
+      "object_count": 7,
+      "objects": [
+        {
+          "x": 360,
+          "y": 0,
+          "img": "https://engine.lol/alpha/assets/image/softbank/60.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        },
+        {
+          "x": 80,
+          "y": 120.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/digital/clock.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "390.633px"
+        },
+        {
+          "x": 200,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/bush.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 160,
+          "y": 280.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/bush.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        },
+        {
+          "x": 280,
+          "y": 280.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/bush.gif",
+          "filter": "none",
+          "flip": "matrix(-1, 0, 0, 1, 0, 0)",
+          "size": "96px"
+        },
+        {
+          "x": 280,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/bush.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 120,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/bush.gif",
+          "filter": "none",
+          "flip": "matrix(-1, 0, 0, 1, 0, 0)",
+          "size": "128px"
+        }
+      ]
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "active": true,
+      "color": "#bde0fe",
+      "textoverlay": "\n\n\n\n\n\n\n we'll count only our\n breaths together",
+      "object_count": 5,
+      "objects": [
+        {
+          "x": 40,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "200px"
+        },
+        {
+          "x": 240,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
+          "filter": "invert(0)",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 40,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "140.633px"
+        },
+        {
+          "x": 200,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "187.5px"
+        },
+        {
+          "x": 400,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        }
+      ]
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "active": true,
+      "color": "#14203c",
+      "textoverlay": " \n \n\n\n\n events occur at a disturbing pace\n\n\n\n\n and we can't build\n a home in them",
+      "object_count": 8,
+      "objects": [
+        {
+          "x": 80,
+          "y": 280.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/softbank/8.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "292.983px"
+        },
+        {
+          "x": 320,
+          "y": 160.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/digital/stack.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 360,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/digital/stack.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 400,
+          "y": 160.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/digital/stack.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 120,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/digital/cursor.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 80,
+          "y": 160.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/5.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 240,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/3.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "54px"
+        },
+        {
+          "x": 360,
+          "y": 0,
+          "img": "https://engine.lol/alpha/assets/image/softbank/62.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        }
+      ]
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "active": true,
+      "color": "#adc178",
+      "textoverlay": "\n\n\n\n\n \n \n\n\n\n\n \n we must pull the soon out of focus\n\n succumb to circadian instincts",
+      "object_count": 10,
+      "objects": [
+        {
+          "x": 40,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/monsters/dude-4.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 120,
+          "y": 120.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/monsters/dude-4.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 200,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/monsters/dude-4.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 280,
+          "y": 120.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/monsters/dude-4.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 360,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/monsters/dude-4.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 40,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/moon-1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 240,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        },
+        {
+          "x": 320,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 440,
+          "y": 160.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "67.5px"
+        },
+        {
+          "x": 360,
+          "y": 0,
+          "img": "https://engine.lol/alpha/assets/image/softbank/62.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        }
+      ]
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "active": true,
+      "color": "#ff9e00",
+      "textoverlay": " \n\n\nweeks are a container for misery\n \n\n schedules are a symptom of capital",
+      "object_count": 10,
+      "objects": [
+        {
+          "x": 80,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/frame.gif",
+          "filter": "invert(0)",
+          "flip": "none",
+          "size": "54px"
+        },
+        {
+          "x": 160,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/frame.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "54px"
+        },
+        {
+          "x": 240,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/frame.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "54px"
+        },
+        {
+          "x": 320,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/frame.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "54px"
+        },
+        {
+          "x": 120,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/cashbag.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "312.5px"
+        },
+        {
+          "x": 80,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/cash.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 0,
+          "y": 360.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/cash.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 320,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/cash.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 360,
+          "y": 280.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/cash.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 360,
+          "y": 0,
+          "img": "https://engine.lol/alpha/assets/image/softbank/62.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        }
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "active": true,
+      "color": "#555b6e",
+      "textoverlay": "\n\n\n timekeeping is\n a corrupt endeavour\n\n\n\n\n\n shirk the pursuit of intervals",
+      "object_count": 6,
+      "objects": [
+        {
+          "x": 280,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/digital/pointer.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "200px"
+        },
+        {
+          "x": 360,
+          "y": 160.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/digital/trash.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 280,
+          "y": 160.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/clock.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 80,
+          "y": 360.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/softbank/58.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "120px"
+        },
+        {
+          "x": 80,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "200px"
+        },
+        {
+          "x": 360,
+          "y": 0,
+          "img": "https://engine.lol/alpha/assets/image/softbank/62.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        }
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "active": true,
+      "color": "#bde0fe",
+      "textoverlay": "\n\n\n\n\n\n\n we'll count only our\n breaths together",
+      "object_count": 1,
+      "objects": [
+        {
+          "x": 40,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "200px"
+        },
+        {
+          "x": 240,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
+          "filter": "invert(0)",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 40,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "140.633px"
+        },
+        {
+          "x": 200,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "187.5px"
+        },
+        {
+          "x": 400,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        }
+      ]
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "active": true,
+      "color": "#ffca3a",
+      "textoverlay": "\n\n\n\n i watch you pour dirt\n over the sundial\n\n\n\n\n\n make plausible\n the immediate never",
+      "object_count": 7,
+      "objects": [
+        {
+          "x": 280,
+          "y": 160.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/softbank/26.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "187.5px"
+        },
+        {
+          "x": 280,
+          "y": 160.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/twig.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "160px"
+        },
+        {
+          "x": 320,
+          "y": 360.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/stone-1.gif",
+          "filter": "invert(0)",
+          "flip": "none",
+          "size": "105.467px"
+        },
+        {
+          "x": 0,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/stone-2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "200px"
+        },
+        {
+          "x": 40,
+          "y": 400.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        },
+        {
+          "x": 80,
+          "y": 360.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/leaf-2.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 360,
+          "y": 0,
+          "img": "https://engine.lol/alpha/assets/image/softbank/63.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "150px"
+        }
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "active": true,
+      "color": "#694c93",
+      "textoverlay": "\n\n\n\n\n\n\n\n\n the past does not belong to us\n \n\n\n i have no impulse to wait",
+      "object_count": 9,
+      "objects": [
+        {
+          "x": 0,
+          "y": 120.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/softbank/32.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 120,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/softbank/24.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 240,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/softbank/24.gif",
+          "filter": "invert(0)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 280,
+          "y": 400.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 40,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "67.5px"
+        },
+        {
+          "x": 0,
+          "y": 360.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/4.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        },
+        {
+          "x": 120,
+          "y": 360.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 400,
+          "y": 280.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "72px"
+        },
+        {
+          "x": 360,
+          "y": 0,
+          "img": "https://engine.lol/alpha/assets/image/softbank/63.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        }
+      ]
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "active": true,
+      "color": "#ff5d8f",
+      "textoverlay": "\n \n\n\n rupture the frail boundary\n\n\n\n\n\n\n\n\n\n between when and here",
+      "object_count": 7,
+      "objects": [
+        {
+          "x": 40,
+          "y": 120.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/softbank/66.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "312.5px"
+        },
+        {
+          "x": 80,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/softbank/64.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "150px"
+        },
+        {
+          "x": 200,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/items/sword.gif",
+          "filter": "invert(1)",
+          "flip": "matrix(-1, 0, 0, 1, 0, 0)",
+          "size": "200px"
+        },
+        {
+          "x": 280,
+          "y": 160.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/moon-3.gif",
+          "filter": "none",
+          "flip": "matrix(1, 0, 0, 1, 0, 0)",
+          "size": "54px"
+        },
+        {
+          "x": 360,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/moon-1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "54px"
+        },
+        {
+          "x": 400,
+          "y": 280.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "54px"
+        },
+        {
+          "x": 360,
+          "y": 0,
+          "img": "https://engine.lol/alpha/assets/image/softbank/63.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        }
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "active": true,
+      "color": "#6096ba",
+      "textoverlay": "\n\n\n\n\n kidnap the \n measure of days\n\n \n\n\n\n\n\n\n a jab to the future's windpipe",
+      "object_count": 12,
+      "objects": [
+        {
+          "x": 80,
+          "y": 200.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/bush-2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 120,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/bush-2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "160px"
+        },
+        {
+          "x": 160,
+          "y": 280.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/bush-2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        },
+        {
+          "x": 120,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
+          "filter": "invert(1)",
+          "flip": "matrix(-1, 0, 0, 1, 0, 0)",
+          "size": "98.8833px"
+        },
+        {
+          "x": 200,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        },
+        {
+          "x": 0,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/digital/paper.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 80,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/digital/bomb.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 40,
+          "y": 120.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/digital/paper.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 360,
+          "y": 0,
+          "img": "https://engine.lol/alpha/assets/image/softbank/63.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        },
+        {
+          "x": 360,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/stone-1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "72px"
+        },
+        {
+          "x": 360,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/stone-1.gif",
+          "filter": "invert(1)",
+          "flip": "matrix(-1, 0, 0, 1, 0, 0)",
+          "size": "72px"
+        },
+        {
+          "x": 400,
+          "y": 280.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/stone-2.gif",
+          "filter": "invert(1)",
+          "flip": "matrix(1, 0, 0, 1, 0, 0)",
+          "size": "72px"
+        }
+      ]
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "active": true,
+      "color": "#bde0fe",
+      "textoverlay": "\n\n\n\n\n\n\n we'll count only our\n breaths together",
+      "object_count": 1,
+      "objects": [
+        {
+          "x": 40,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "200px"
+        },
+        {
+          "x": 240,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
+          "filter": "invert(0)",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 40,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "140.633px"
+        },
+        {
+          "x": 200,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "187.5px"
+        },
+        {
+          "x": 400,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        }
+      ]
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "active": true,
+      "color": "#ffa693",
+      "textoverlay": "\n\n\n\n\n\n\n we have nothing\n to lose\n but seconds",
+      "object_count": 1,
+      "objects": [
+        {
+          "x": 40,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "200px"
+        },
+        {
+          "x": 240,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
+          "filter": "invert(0)",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 40,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "140.633px"
+        },
+        {
+          "x": 200,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "187.5px"
+        },
+        {
+          "x": 400,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "90px"
+        }
+      ]
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "active": true,
+      "color": "#ffa693",
+      "textoverlay": "\n\n\n\n\n\n\n we have nothing\n to lose\n but seconds",
+      "object_count": 1,
+      "objects": [
+        {
+          "x": 40,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "200px"
+        },
+        {
+          "x": 240,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
+          "filter": "invert(0)",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 40,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "140.633px"
+        },
+        {
+          "x": 200,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "187.5px"
+        },
+        {
+          "x": 400,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        }
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "active": true,
+      "color": "#ffa693",
+      "textoverlay": "\n\n\n\n\n\n\n we have nothing\n to lose\n but seconds",
+      "object_count": 1,
+      "objects": [
+        {
+          "x": 40,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "200px"
+        },
+        {
+          "x": 240,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
+          "filter": "invert(0)",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 40,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "140.633px"
+        },
+        {
+          "x": 200,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "187.5px"
+        },
+        {
+          "x": 400,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        }
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "active": true,
+      "color": "#ffa693",
+      "textoverlay": "\n\n\n\n\n\n\n we have nothing\n to lose\n but seconds",
+      "object_count": 1,
+      "objects": [
+        {
+          "x": 40,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "200px"
+        },
+        {
+          "x": 240,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
+          "filter": "invert(0)",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 40,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "140.633px"
+        },
+        {
+          "x": 200,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "187.5px"
+        },
+        {
+          "x": 400,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        }
+      ]
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "active": true,
+      "color": "#ffa693",
+      "textoverlay": "\n\n\n\n\n\n\n we have nothing\n to lose\n but seconds",
+      "object_count": 1,
+      "objects": [
+        {
+          "x": 40,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "200px"
+        },
+        {
+          "x": 240,
+          "y": 80.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
+          "filter": "invert(0)",
+          "flip": "none",
+          "size": "250px"
+        },
+        {
+          "x": 40,
+          "y": 240.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "140.633px"
+        },
+        {
+          "x": 200,
+          "y": 320.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "187.5px"
+        },
+        {
+          "x": 400,
+          "y": 40.00001525878906,
+          "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "96px"
+        }
+      ]
+    },
+    null,
+    null,
+    null,
+    null,
+    null
   ]
- },
- "audio": "dgasgsdg.mp3",
- "audio_loop": true,
- "font": "FA Sysfont C",
- "s": [
-  {
-   "x": 0,
-   "y": 0,
-   "active": true,
-   "color": "#2a9d8f",
-   "textoverlay": " \n\n\n\n \n time does not work\n for us anymore\n\n\n\n\n\n we will dissolve it\n in our tender gaze",
-   "object_count": 5,
-   "objects": [
-    {
-     "x": 320,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "160px"
-    },
-    {
-     "x": 400,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 280,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/magnify.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 0,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/sandglass.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "234.383px"
-    },
-    {
-     "x": 360,
-     "y": 0,
-     "img": "https://engine.lol/alpha/assets/image/softbank/60.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "160px"
-    }
-   ]
-  },
-  {
-   "x": 0,
-   "y": 1,
-   "active": true,
-   "color": "#f3a261",
-   "textoverlay": "\n\n each minute is a construct\n\n\n we don't need them\n to be happy",
-   "object_count": 9,
-   "objects": [
-    {
-     "x": 40,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 160,
-     "y": 360.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "160px"
-    },
-    {
-     "x": 200,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "312.5px"
-    },
-    {
-     "x": 240,
-     "y": 400.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "96px"
-    },
-    {
-     "x": 360,
-     "y": 360.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 40,
-     "y": 360.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 80,
-     "y": 400.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "67.5px"
-    },
-    {
-     "x": 320,
-     "y": 440.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "54px"
-    },
-    {
-     "x": 360,
-     "y": 0,
-     "img": "https://engine.lol/alpha/assets/image/softbank/60.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "160px"
-    }
-   ]
-  },
-  {
-   "x": 0,
-   "y": 2,
-   "active": true,
-   "color": "#9b2e28",
-   "textoverlay": " \n\n burn the forest of calendars\n\n\n\n\n\n\n\n\n\n\n\n make space for\n unmeasured feeling",
-   "object_count": 8,
-   "objects": [
-    {
-     "x": 80,
-     "y": 120.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/twig.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 120,
-     "y": 160.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/twig.gif",
-     "filter": "invert(1)",
-     "flip": "matrix(-1, 0, 0, 1, 0, 0)",
-     "size": "128px"
-    },
-    {
-     "x": 160,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/leaf-3.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 0,
-     "y": 120.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 320,
-     "y": 120.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/leaf-2.gif",
-     "filter": "invert(1)",
-     "flip": "matrix(-1, 0, 0, 1, 0, 0)",
-     "size": "200px"
-    },
-    {
-     "x": 360,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/twig.gif",
-     "filter": "invert(1)",
-     "flip": "matrix(-1, 0, 0, 1, 0, 0)",
-     "size": "160px"
-    },
-    {
-     "x": 320,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/moon-3.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "54px"
-    },
-    {
-     "x": 360,
-     "y": 0,
-     "img": "https://engine.lol/alpha/assets/image/softbank/60.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "160px"
-    }
-   ]
-  },
-  {
-   "x": 0,
-   "y": 3,
-   "active": true,
-   "color": "#414833",
-   "textoverlay": "\n\n\n\n\nwe must abandon all horography\n\n\n\n\n\n\n\n let watchwork\n crust and corrode",
-   "object_count": 7,
-   "objects": [
-    {
-     "x": 360,
-     "y": 0,
-     "img": "https://engine.lol/alpha/assets/image/softbank/60.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "160px"
-    },
-    {
-     "x": 80,
-     "y": 120.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/digital/clock.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "390.633px"
-    },
-    {
-     "x": 200,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/bush.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 160,
-     "y": 280.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/bush.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    },
-    {
-     "x": 280,
-     "y": 280.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/bush.gif",
-     "filter": "none",
-     "flip": "matrix(-1, 0, 0, 1, 0, 0)",
-     "size": "96px"
-    },
-    {
-     "x": 280,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/bush.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 120,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/bush.gif",
-     "filter": "none",
-     "flip": "matrix(-1, 0, 0, 1, 0, 0)",
-     "size": "128px"
-    }
-   ]
-  },
-  {
-   "x": 0,
-   "y": 4,
-   "active": true,
-   "color": "#bde0fe",
-   "textoverlay": "\n\n\n\n\n\n\n we'll count only our\n breaths together",
-   "object_count": 5,
-   "objects": [
-    {
-     "x": 40,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "200px"
-    },
-    {
-     "x": 240,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
-     "filter": "invert(0)",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 40,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "140.633px"
-    },
-    {
-     "x": 200,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "187.5px"
-    },
-    {
-     "x": 400,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    }
-   ]
-  },
-  {
-   "x": 1,
-   "y": 0,
-   "active": true,
-   "color": "#14203c",
-   "textoverlay": " \n \n\n\n\n events occur at a disturbing pace\n\n\n\n\n and we can't build\n a home in them",
-   "object_count": 8,
-   "objects": [
-    {
-     "x": 80,
-     "y": 280.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/softbank/8.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "292.983px"
-    },
-    {
-     "x": 320,
-     "y": 160.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/digital/stack.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 360,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/digital/stack.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 400,
-     "y": 160.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/digital/stack.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 120,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/digital/cursor.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 80,
-     "y": 160.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/5.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 240,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/3.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "54px"
-    },
-    {
-     "x": 360,
-     "y": 0,
-     "img": "https://engine.lol/alpha/assets/image/softbank/62.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "160px"
-    }
-   ]
-  },
-  {
-   "x": 1,
-   "y": 1,
-   "active": true,
-   "color": "#adc178",
-   "textoverlay": "\n\n\n\n\n \n \n\n\n\n\n \n we must pull the soon out of focus\n\n succumb to circadian instincts",
-   "object_count": 10,
-   "objects": [
-    {
-     "x": 40,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/monsters/dude-4.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 120,
-     "y": 120.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/monsters/dude-4.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 200,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/monsters/dude-4.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 280,
-     "y": 120.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/monsters/dude-4.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 360,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/monsters/dude-4.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 40,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/moon-1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 240,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    },
-    {
-     "x": 320,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 440,
-     "y": 160.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "67.5px"
-    },
-    {
-     "x": 360,
-     "y": 0,
-     "img": "https://engine.lol/alpha/assets/image/softbank/62.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "160px"
-    }
-   ]
-  },
-  {
-   "x": 1,
-   "y": 2,
-   "active": true,
-   "color": "#ff9e00",
-   "textoverlay": " \n\n\nweeks are a container for misery\n \n\n schedules are a symptom of capital",
-   "object_count": 10,
-   "objects": [
-    {
-     "x": 80,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/frame.gif",
-     "filter": "invert(0)",
-     "flip": "none",
-     "size": "54px"
-    },
-    {
-     "x": 160,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/frame.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "54px"
-    },
-    {
-     "x": 240,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/frame.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "54px"
-    },
-    {
-     "x": 320,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/frame.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "54px"
-    },
-    {
-     "x": 120,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/cashbag.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "312.5px"
-    },
-    {
-     "x": 80,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/cash.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 0,
-     "y": 360.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/cash.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 320,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/cash.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 360,
-     "y": 280.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/cash.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 360,
-     "y": 0,
-     "img": "https://engine.lol/alpha/assets/image/softbank/62.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "160px"
-    }
-   ]
-  },
-  {
-   "x": 1,
-   "y": 3,
-   "active": true,
-   "color": "#555b6e",
-   "textoverlay": "\n\n\n timekeeping is\n a corrupt endeavour\n\n\n\n\n\n shirk the pursuit of intervals",
-   "object_count": 6,
-   "objects": [
-    {
-     "x": 280,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/digital/pointer.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "200px"
-    },
-    {
-     "x": 360,
-     "y": 160.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/digital/trash.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 280,
-     "y": 160.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/clock.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 80,
-     "y": 360.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/softbank/58.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "120px"
-    },
-    {
-     "x": 80,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "200px"
-    },
-    {
-     "x": 360,
-     "y": 0,
-     "img": "https://engine.lol/alpha/assets/image/softbank/62.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "160px"
-    }
-   ]
-  },
-  {
-   "x": 1,
-   "y": 4,
-   "active": true,
-   "color": "#bde0fe",
-   "textoverlay": "\n\n\n\n\n\n\n we'll count only our\n breaths together",
-   "object_count": 1,
-   "objects": [
-    {
-     "x": 40,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "200px"
-    },
-    {
-     "x": 240,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
-     "filter": "invert(0)",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 40,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "140.633px"
-    },
-    {
-     "x": 200,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "187.5px"
-    },
-    {
-     "x": 400,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    }
-   ]
-  },
-  {
-   "x": 2,
-   "y": 0,
-   "active": true,
-   "color": "#ffca3a",
-   "textoverlay": "\n\n\n\n i watch you pour dirt\n over the sundial\n\n\n\n\n\n make plausible\n the immediate never",
-   "object_count": 7,
-   "objects": [
-    {
-     "x": 280,
-     "y": 160.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/softbank/26.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "187.5px"
-    },
-    {
-     "x": 280,
-     "y": 160.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/twig.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "160px"
-    },
-    {
-     "x": 320,
-     "y": 360.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/stone-1.gif",
-     "filter": "invert(0)",
-     "flip": "none",
-     "size": "105.467px"
-    },
-    {
-     "x": 0,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/stone-2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "200px"
-    },
-    {
-     "x": 40,
-     "y": 400.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    },
-    {
-     "x": 80,
-     "y": 360.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/leaf-2.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 360,
-     "y": 0,
-     "img": "https://engine.lol/alpha/assets/image/softbank/63.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "150px"
-    }
-   ]
-  },
-  {
-   "x": 2,
-   "y": 1,
-   "active": true,
-   "color": "#694c93",
-   "textoverlay": "\n\n\n\n\n\n\n\n\n the past does not belong to us\n \n\n\n i have no impulse to wait",
-   "object_count": 9,
-   "objects": [
-    {
-     "x": 0,
-     "y": 120.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/softbank/32.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 120,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/softbank/24.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 240,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/softbank/24.gif",
-     "filter": "invert(0)",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 280,
-     "y": 400.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 40,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "67.5px"
-    },
-    {
-     "x": 0,
-     "y": 360.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/4.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    },
-    {
-     "x": 120,
-     "y": 360.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 400,
-     "y": 280.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "72px"
-    },
-    {
-     "x": 360,
-     "y": 0,
-     "img": "https://engine.lol/alpha/assets/image/softbank/63.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "160px"
-    }
-   ]
-  },
-  {
-   "x": 2,
-   "y": 2,
-   "active": true,
-   "color": "#ff5d8f",
-   "textoverlay": "\n \n\n\n rupture the frail boundary\n\n\n\n\n\n\n\n\n\n between when and here",
-   "object_count": 7,
-   "objects": [
-    {
-     "x": 40,
-     "y": 120.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/softbank/66.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "312.5px"
-    },
-    {
-     "x": 80,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/softbank/64.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "150px"
-    },
-    {
-     "x": 200,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/items/sword.gif",
-     "filter": "invert(1)",
-     "flip": "matrix(-1, 0, 0, 1, 0, 0)",
-     "size": "200px"
-    },
-    {
-     "x": 280,
-     "y": 160.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/moon-3.gif",
-     "filter": "none",
-     "flip": "matrix(1, 0, 0, 1, 0, 0)",
-     "size": "54px"
-    },
-    {
-     "x": 360,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/moon-1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "54px"
-    },
-    {
-     "x": 400,
-     "y": 280.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "54px"
-    },
-    {
-     "x": 360,
-     "y": 0,
-     "img": "https://engine.lol/alpha/assets/image/softbank/63.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "160px"
-    }
-   ]
-  },
-  {
-   "x": 2,
-   "y": 3,
-   "active": true,
-   "color": "#6096ba",
-   "textoverlay": "\n\n\n\n\n kidnap the \n measure of days\n\n \n\n\n\n\n\n\n a jab to the future's windpipe",
-   "object_count": 12,
-   "objects": [
-    {
-     "x": 80,
-     "y": 200.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/bush-2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 120,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/bush-2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "160px"
-    },
-    {
-     "x": 160,
-     "y": 280.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/bush-2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    },
-    {
-     "x": 120,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
-     "filter": "invert(1)",
-     "flip": "matrix(-1, 0, 0, 1, 0, 0)",
-     "size": "98.8833px"
-    },
-    {
-     "x": 200,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/leaf.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    },
-    {
-     "x": 0,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/digital/paper.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 80,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/digital/bomb.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 40,
-     "y": 120.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/digital/paper.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "128px"
-    },
-    {
-     "x": 360,
-     "y": 0,
-     "img": "https://engine.lol/alpha/assets/image/softbank/63.gif",
-     "filter": "invert(1)",
-     "flip": "none",
-     "size": "160px"
-    },
-    {
-     "x": 360,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/stone-1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "72px"
-    },
-    {
-     "x": 360,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/stone-1.gif",
-     "filter": "invert(1)",
-     "flip": "matrix(-1, 0, 0, 1, 0, 0)",
-     "size": "72px"
-    },
-    {
-     "x": 400,
-     "y": 280.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/stone-2.gif",
-     "filter": "invert(1)",
-     "flip": "matrix(1, 0, 0, 1, 0, 0)",
-     "size": "72px"
-    }
-   ]
-  },
-  {
-   "x": 2,
-   "y": 4,
-   "active": true,
-   "color": "#bde0fe",
-   "textoverlay": "\n\n\n\n\n\n\n we'll count only our\n breaths together",
-   "object_count": 1,
-   "objects": [
-    {
-     "x": 40,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "200px"
-    },
-    {
-     "x": 240,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
-     "filter": "invert(0)",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 40,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "140.633px"
-    },
-    {
-     "x": 200,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "187.5px"
-    },
-    {
-     "x": 400,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    }
-   ]
-  },
-  {
-   "x": 3,
-   "y": 0,
-   "active": true,
-   "color": "#ffa693",
-   "textoverlay": "\n\n\n\n\n\n\n we have nothing\n to lose\n but seconds",
-   "object_count": 1,
-   "objects": [
-    {
-     "x": 40,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "200px"
-    },
-    {
-     "x": 240,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
-     "filter": "invert(0)",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 40,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "140.633px"
-    },
-    {
-     "x": 200,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "187.5px"
-    },
-    {
-     "x": 400,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "90px"
-    }
-   ]
-  },
-  {
-   "x": 3,
-   "y": 1,
-   "active": true,
-   "color": "#ffa693",
-   "textoverlay": "\n\n\n\n\n\n\n we have nothing\n to lose\n but seconds",
-   "object_count": 1,
-   "objects": [
-    {
-     "x": 40,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "200px"
-    },
-    {
-     "x": 240,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
-     "filter": "invert(0)",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 40,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "140.633px"
-    },
-    {
-     "x": 200,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "187.5px"
-    },
-    {
-     "x": 400,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    }
-   ]
-  },
-  {
-   "x": 3,
-   "y": 2,
-   "active": true,
-   "color": "#ffa693",
-   "textoverlay": "\n\n\n\n\n\n\n we have nothing\n to lose\n but seconds",
-   "object_count": 1,
-   "objects": [
-    {
-     "x": 40,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "200px"
-    },
-    {
-     "x": 240,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
-     "filter": "invert(0)",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 40,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "140.633px"
-    },
-    {
-     "x": 200,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "187.5px"
-    },
-    {
-     "x": 400,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    }
-   ]
-  },
-  {
-   "x": 3,
-   "y": 3,
-   "active": true,
-   "color": "#ffa693",
-   "textoverlay": "\n\n\n\n\n\n\n we have nothing\n to lose\n but seconds",
-   "object_count": 1,
-   "objects": [
-    {
-     "x": 40,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "200px"
-    },
-    {
-     "x": 240,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
-     "filter": "invert(0)",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 40,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "140.633px"
-    },
-    {
-     "x": 200,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "187.5px"
-    },
-    {
-     "x": 400,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    }
-   ]
-  },
-  {
-   "x": 3,
-   "y": 4,
-   "active": true,
-   "color": "#ffa693",
-   "textoverlay": "\n\n\n\n\n\n\n we have nothing\n to lose\n but seconds",
-   "object_count": 1,
-   "objects": [
-    {
-     "x": 40,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/7.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "200px"
-    },
-    {
-     "x": 240,
-     "y": 80.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/6.gif",
-     "filter": "invert(0)",
-     "flip": "none",
-     "size": "250px"
-    },
-    {
-     "x": 40,
-     "y": 240.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/2.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "140.633px"
-    },
-    {
-     "x": 200,
-     "y": 320.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/clouds/1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "187.5px"
-    },
-    {
-     "x": 400,
-     "y": 40.00001525878906,
-     "img": "https://engine.lol/alpha/assets/image/environment/flower-1.gif",
-     "filter": "none",
-     "flip": "none",
-     "size": "96px"
-    }
-   ]
-  },
-  null,
-  null,
-  null,
-  null,
-  null
- ]
 }</div>
+  <div id="downloader"></div>
   
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script type="text/javascript">console.log("loaded engine.js, Engine's playmode");const cartridge=$("#cartridge").text();var scenes=null,globals={MAX_object_count:15,MAP_width:5,MAP_height:5};if(!testJSON(cartridge))throw $("#play h2").text("Corrupted or empty game"),new Error;if(!(scenes=JSON.parse(cartridge)))throw $("#play h2").text("Corrupted or empty game"),new Error;function testJSON(e){if("string"!=typeof e)return!1;try{return"object"==typeof JSON.parse(e)}catch(e){return!1}}$("#play h2").text("Engine"),console.log("Loaded: ",scenes),scenes.s.length!==globals.MAP_height*globals.MAP_width&&(console.log("This cartridge is sized differently. Adjusting the player..."),globals.MAP_width=Math.sqrt(scenes.s.length),globals.MAP_height=Math.sqrt(scenes.s.length)),$("#play h2").text("Engine"),$("#btn-play").on("click",function(){Tplayer.init(),$(this).text("RELOAD")});const c={getSceneIndex:function(e,t){return parseInt(e)*globals.MAP_width+parseInt(t)},getScene:function(e,t){let a=parseInt(e)*globals.MAP_width+parseInt(t);return scenes.s[a]},textConvert:function(e){return e.replace(/\\n/g,"\n").replace(/&nbsp;/g," ")}},Tplayer={active:scenes.s[0],init:function(){Tplayer.clearGame(),null!==scenes.cartridge?(Tplayer.loadCartridge(),$("#e-cartridge").fadeIn(1e3),setTimeout(function(){$("#e-cartridge").fadeOut("slow"),$("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> "),"default"!==scenes.font&&$("#e-play textarea").css("font-family",scenes.font),$("._playwhatscene").text(Tplayer.active.x+","+Tplayer.active.y)},1800)):($("#e-cartridge").fadeOut(),$("#play").css("pointer-events","auto").css("cursor","auto")),$("#play").css("cursor","not-allowed").css("pointer-events","none").delay(1500).css("pointer-events","auto").css("cursor","auto"),Tplayer.loadPlay(scenes.start_scene.x,scenes.start_scene.y)},loadCartridge:function(){$("#play h2").text("Starting game..."),Tplayer.loadObjects(scenes.cartridge.objects,"#e-cartridge"),$("#e-cartridge").css("background",scenes.cartridge.color),$("body").css("background",scenes.cartridge.color)},loadPlay:function(e,t){$("#play h2").html("<span>Starting Game...</span>").fadeIn("slow"),Tplayer.active=scenes.s[c.getSceneIndex(e,t)],null!==scenes.audio&&($("#audio-player-controller").fadeIn(),Tplayer.playSong()),setTimeout(function(){$("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> "),$("._playwhatscene").text(Tplayer.active.x+","+Tplayer.active.y),Tplayer.loadScene(e,t),"default"!==scenes.font&&$("#e-play textarea").css("font-family",scenes.font)},1500)},clearGame:function(){$("#e-cartridge").html(""),$("#e-controls a").each(function(e,t){$(this).removeClass("-inaccessible").addClass("-inaccessible").attr("data-target","null").unbind("click",Tplayer.loadTarget)}),Tplayer.clearScene()},playSong:function(e){let t=null;t=e||"https://engine.lol/alpha/assets/audio/"+scenes.audio,$("#_audio")[0].currentTime=0,$("._audiotitle").text(t),$("#_audio").attr("src",t),$("#_audio")[0].play()},loadTarget:function(){let e=$(this).attr("data-target"),t=e.split(",")[0],a=e.split(",")[1];null!=t&&null!=a&&(Tplayer.loadScene(t,a),Tplayer.animatePulse())},animatePulse:function(){let e=$("#play");e.css("transform","scale(1.03)"),setTimeout(function(){e.css("transform","scale(0.99)")},500)},updateSceneNavigation(){$("#e-controls a").each(function(e,t){$(this).removeClass("-inaccessible").attr("data-target","null").unbind("click",Tplayer.loadTarget);var a=$(this).data("direction"),l=Tplayer.convertCoord(a,Tplayer.active.x,Tplayer.active.y);if(null!=l){let e=l.toString().split(",");if(null==c.getScene(e[0],e[1]))return void $(this).addClass("-inaccessible");$(this).attr("data-target",e[0]+","+e[1]).bind("click",Tplayer.loadTarget)}else $(this).addClass("-inaccessible")})},convertCoord:function(e,t,a){let l,n;switch(e){case"n":l=t>0?t-1:null,n=a;break;case"e":n=a<globals.MAP_width-1?a+1:null,l=t;break;case"w":n=a>0?a-1:null,l=t;break;case"s":l=t<globals.MAP_height-1?t+1:null,n=a}return null==l||null==n?null:[l+","+n]},loadScene:function(e,t){Tplayer.clearScene(),Tplayer.active=c.getScene(e,t),$("#e-play textarea").hide().delay(700).fadeIn("slow").val(c.textConvert(Tplayer.active.textoverlay)),Tplayer.loadObjects(Tplayer.active.objects,"#e-play"),$("._playwhatscene").text(Tplayer.active.x+","+Tplayer.active.y),Tplayer.loadColor(),Tplayer.updateSceneNavigation()},loadObjects:function(e,t){e.forEach(function(e){let a="";a="<img class='obj' data-selected='0' src='"+e.img+"' style='",a+="top:"+e.y+"px; left:"+e.x+"px;",e.filter&&(a+="filter:"+e.filter+";"),e.flip&&(a+="transform:"+e.flip+";"),e.size&&(a+="width:"+e.size+"; height:"+e.size+";"),a+="'>";let l=$(a).hide().fadeIn(500);$(t).append(l)})},loadColor:function(){let e=Tplayer.active.color;0==e&&(e="#000000"),$("#e-play").css("background",e),$("body").css("background",e)},clearScene:function(){$("#e-text textarea").val(""),$("#e-play img.obj").each(function(){$(this).remove()})}};
+  <script type="text/javascript">console.log("loaded engine.js, Engine's playmode");const cartridge=$("#cartridge").text();var scenes=null,globals={MAX_object_count:15,MAP_width:5,MAP_height:5},arrow_keys_handler=function(e){switch(e.code){case"ArrowUp":case"ArrowDown":case"ArrowLeft":case"ArrowRight":case"Space":e.preventDefault()}};if(window.addEventListener("keydown",arrow_keys_handler,!1),!testJSON(cartridge))throw $("#play h2").text("Corrupted or empty game"),new Error;if(!(scenes=JSON.parse(cartridge)))throw $("#play h2").text("Corrupted or empty game"),new Error;function testJSON(e){if("string"!=typeof e)return!1;try{return"object"==typeof JSON.parse(e)}catch(e){return!1}}$("#play h2").text("Engine"),console.log("Loaded: ",scenes),scenes.s.length!==globals.MAP_height*globals.MAP_width&&(console.log("This cartridge is sized differently. Adjusting the player..."),globals.MAP_width=Math.sqrt(scenes.s.length),globals.MAP_height=Math.sqrt(scenes.s.length)),$("#play h2").text("Engine"),setTimeout(function(){$("#play").focus(),Tplayer.init()},1500);const c={getSceneIndex:function(e,a){return parseInt(e)*globals.MAP_width+parseInt(a)},getScene:function(e,a){let t=parseInt(e)*globals.MAP_width+parseInt(a);return scenes.s[t]},textConvert:function(e){return e.replace(/\\n/g,"\n").replace(/&nbsp;/g," ")}},Tplayer={active:scenes.s[0],init:function(){Tplayer.clearGame(),null!==scenes.cartridge?(Tplayer.loadCartridge(),$("#e-cartridge").fadeIn(1e3),setTimeout(function(){$("#e-cartridge").fadeOut("slow"),$("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> "),"default"!==scenes.font&&$("#e-play textarea").css("font-family",scenes.font),$("._playwhatscene").text(Tplayer.active.x+","+Tplayer.active.y)},1800)):($("#e-cartridge").fadeOut(),$("#play").css("pointer-events","auto").css("cursor","auto")),$("#play").css("cursor","not-allowed").css("pointer-events","none").delay(1500).css("pointer-events","auto").css("cursor","auto"),Tplayer.loadPlay(scenes.start_scene.x,scenes.start_scene.y)},loadCartridge:function(){$("#play h2").text("Starting game..."),Tplayer.loadObjects(scenes.cartridge.objects,"#e-cartridge"),$("#e-cartridge").css("background",scenes.cartridge.color),$("body").css("background",scenes.cartridge.color)},loadPlay:function(e,a){$("#play h2").html("<span>Starting Game...</span>").fadeIn("slow"),Tplayer.active=scenes.s[c.getSceneIndex(e,a)],null!==scenes.audio&&($("#audio-player-controller").fadeIn(),Tplayer.playSong()),setTimeout(function(){$("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> "),$("._playwhatscene").text(Tplayer.active.x+","+Tplayer.active.y),Tplayer.loadScene(e,a),"default"!==scenes.font&&$("#e-play textarea").css("font-family",scenes.font)},1500)},clearGame:function(){$("#e-cartridge").html(""),$("#e-controls a").each(function(e,a){$(this).removeClass("-inaccessible").addClass("-inaccessible").attr("data-target","null").unbind("click",Tplayer.loadTarget)}),Tplayer.clearScene()},playSong:function(e){let a=null;a=e||"https://engine.lol/alpha/assets/audio/"+scenes.audio,$("#_audio")[0].currentTime=0,$("._audiotitle").text(a),$("#_audio").attr("src",a),$("#_audio")[0].play()},loadTarget:function(){let e=$(this).attr("data-target"),a=e.split(",")[0],t=e.split(",")[1];null!=a&&null!=t&&(Tplayer.loadScene(a,t),Tplayer.animatePulse())},animatePulse:function(){let e=$("#play");e.css("transform","scale(1.03)"),setTimeout(function(){e.css("transform","scale(0.99)")},500)},updateSceneNavigation(){$("#play").off("keydown"),$("#e-controls a").each(function(e,a){$(this).removeClass("-inaccessible").attr("data-target","null").unbind("click",Tplayer.loadTarget);var t=$(this).data("direction"),n=Tplayer.convertCoord(t,Tplayer.active.x,Tplayer.active.y);if(null!=n){let e=n.toString().split(",");if(null==c.getScene(e[0],e[1]))return void $(this).addClass("-inaccessible");$(this).attr("data-target",e[0]+","+e[1]).bind("click",Tplayer.loadTarget),$("#play").on("keydown",function(a){(38==a.keyCode&&"n"==t||39==a.keyCode&&"e"==t||37==a.keyCode&&"w"==t||40==a.keyCode&&"s"==t)&&Tplayer.loadScene(e[0],e[1])})}else $(this).addClass("-inaccessible")})},convertCoord:function(e,a,t){let n,l;switch(e){case"n":n=a>0?a-1:null,l=t;break;case"e":l=t<globals.MAP_width-1?t+1:null,n=a;break;case"w":l=t>0?t-1:null,n=a;break;case"s":n=a<globals.MAP_height-1?a+1:null,l=t}return null==n||null==l?null:[n+","+l]},loadScene:function(e,a){Tplayer.clearScene(),Tplayer.active=c.getScene(e,a),$("#e-play textarea").hide().delay(700).fadeIn("slow").val(c.textConvert(Tplayer.active.textoverlay)),Tplayer.loadObjects(Tplayer.active.objects,"#e-play"),$("._playwhatscene").text(Tplayer.active.x+","+Tplayer.active.y),Tplayer.loadColor(),Tplayer.updateSceneNavigation()},loadObjects:function(e,a){e.forEach(function(e){let t="";t="<img class='obj' data-selected='0' src='"+e.img+"' style='",t+="top:"+e.y+"px; left:"+e.x+"px;",e.filter&&(t+="filter:"+e.filter+";"),e.flip&&(t+="transform:"+e.flip+";"),e.size&&(t+="width:"+e.size+"; height:"+e.size+";"),t+="'>";let n=$(t).hide().fadeIn(500);$(a).append(n)})},loadColor:function(){let e=Tplayer.active.color;0==e&&(e="#000000"),$("#e-play").css("background",e),$("body").css("background",e)},clearScene:function(){$("#e-text textarea").val(""),$("#e-play img.obj").each(function(){$(this).remove()})}};function getcode(){var e=JSON.stringify(scenes);console.log(e),$("#downloader").html(e);var a=document.createRange();a.selectNode(document.getElementById("downloader")),window.getSelection().removeAllRanges(),window.getSelection().addRange(a),document.execCommand("copy"),window.getSelection().removeAllRanges(),alert("Copied cartridge code to clipboard! Note that if you have funky characters or if my code was just inadequate, this might have failed... :(\nYou can play this in the 'Load Cartridge' page.")}
 </script>
   
   

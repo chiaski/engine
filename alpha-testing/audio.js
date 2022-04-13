@@ -3,7 +3,7 @@ console.log("audio.js loaded");
 // sorry youtube fucking sucks too much
 
 
-const audio_library = ["ambient-1.mp4", "ambient-2.m4a", "ambient-3.m4a", "ambient-4.m4a", "ambient-5.m4a", "ambient-6.mp3", "aphx-1.mp3", "environment-1.mp3", "lovelolveolvoe.mp3", "dgasgsdg.mp3", "birdsong.mp3", "cutcutcut.mp3", "ennichi.mp3", "birdbird.m4a"];
+const audio_library = ["ambient-1.mp4", "ambient-2.m4a", "ambient-3.m4a", "ambient-4.m4a", "ambient-5.m4a", "ambient-6.mp3", "aphx-1.mp3", "environment-1.mp3", "lovelolveolvoe.mp3", "dgasgsdg.mp3", "birdsong.mp3", "cutcutcut.mp3", "ennichi.mp3", "birdbird.m4a", "goodbye-frog.wav", "sleepingboy.mp3", "morningloop.mp3"];
 
 
 

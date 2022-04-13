@@ -13,6 +13,31 @@
 
 <body>
   
+<img src="tutorial.gif" id="help">
+  
+  <div id="gamelist">
+    <div class="_games">
+      <a class="_close" onclick="$('#gamelist').fadeOut()">click me 2 close the full list of games</a>
+      <a href="https://engine.lol">go back to main engine</a>
+      <a href="https://engine.lol/submit">submit your own game here</a>
+      
+      <div class="__games">
+    <a data-name="04102022">04102022 </a>
+    <a data-name="1979EXCERPT">1979 EXCERPT by evan kirkiles </a>
+    <a data-name="bliposworld">bliposworld by kalo</a>
+    <a data-name="datenight">datenight by deliah</a>
+    <a data-name="dontbescared">dontbescared by toby</a>
+    <a data-name="feverdream">feverdream by frankie yoshi</a>
+    <a data-name="garden">garden by kevin</a>
+    <a data-name="goodgrief">good grief by karren !</a>
+    <a data-name="killtheclocks">kill the clocks by Rory Green</a>
+    <a data-name="magmagun">magmagun</a>
+    <a data-name="manilascorings">manila scorings by sourdoughgames</a>
+    <a data-name="meandengine">me and engine by chia</a>
+        </div>
+      </div>
+  </div>
+  
 
   <div id="engine">
     <a href="https://engine.lol" id="_name" title="that's me">
@@ -25,9 +50,9 @@
   </div>
   
   <div id="webring">
-    <a class="_random" onclick="location.reload()">play random game</a>
-    <a class="_remix" onclick="remix()">get code</a>
-    <div class="_help">how do i play?</div>
+    <a class="_random" onclick="location.reload()">play random game</a><br>
+    <a class="_gallery" onclick="$('#gamelist').fadeIn()">full game list</a>
+    <a class="_help" onclick="help()">how do i play?</a>
   </div>
 
   <div class="wrapper">
@@ -35,19 +60,18 @@
     <iframe id="game" src=""></iframe>
 
   </div>
-
+  
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script type="text/javascript">
     
     
-    var proj = ["bliposworld", "dontbescared", "datenight", "feverdream", "garden", "goodgrief", "killtheclocks", "magmagun", "meandengine"];
+    var proj = ["04102022", "1979EXCERPT", "bliposworld", "dontbescared", "datenight", "feverdream", "garden", "goodgrief", "killtheclocks", "magmagun", "meandengine", "manilascorings"];
     
     
     function swap(what){
        $("iframe#game").attr("src", "gallery/" + what + ".html");
       
         let now = proj.indexOf(active);
-      
       
       $("a._forward").attr("data-n", now + 1);
       $("a._previous").attr("data-n", now - 1);
@@ -75,6 +99,27 @@
       
     });
     
+    // help
+    
+    function help(){
+      $("#help").fadeIn();
+    }
+    
+    $("#help").on("click", function(){
+      $(this).fadeOut();
+    })
+    
+    // game list
+    $("#gamelist .__games a").on("click", function(){
+      
+      let t = $(this).attr("data-name");
+      $("#gamelist").fadeOut();
+      
+      swap(t);
+      $("#_name").text(t);
+      
+      
+    });
     
   </script>
 

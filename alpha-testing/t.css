@@ -89,7 +89,6 @@ body {
   justify-content: center;
   align-content: center;
   align-items: center;
-  margin-bottom: 25vh;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -591,8 +590,10 @@ START AND EXTRAS
   text-align: center;
 }
 .engine-buttons button {
+  background: red;
+  font-size: 0.8em;
   margin: 0 0.25em;
-  padding: 1em 1.75em;
+  padding: 0.5em 1em;
 }
 .engine-buttons button#btn-play {
   background: #edede8;
@@ -613,7 +614,6 @@ PLAY
 
 */
 #play {
-  outline: 1.25px solid #edede8;
   background: #000;
   position: relative;
   width: 512px;
@@ -1098,6 +1098,8 @@ EDITOR
 }
 
 #downloader_game {
+  overflow: hidden;
+  position: absolute;
   width: 1px;
   height: 1px;
   display: inline-block;
