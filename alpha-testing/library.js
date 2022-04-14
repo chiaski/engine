@@ -26,7 +26,7 @@ const libraryText = {
   $SAVEbtn: "#btn-savetextoverlay",
   $TEXT_EDITOR: "e textarea",
   $TEXT: "e #e-text",
-  fonts: ["Times Now", "Comic Sans MS", "Arial", "FA Sysfont C", "Helvetica", "Courier New", "Georgia", "Garamond", "Tahoma", "Arial Black"],
+  fonts: ["Times Now", "Comic Sans MS", "Arial", "FA Sysfont C", "Helvetica", "Courier New", "Georgia", "Garamond", "Tahoma", "Arial Black", "Brush Script MT", "Verdana", "Trebuchet MS"],
 
   init: function () {
     // click, edit text
