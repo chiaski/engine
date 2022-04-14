@@ -94,7 +94,7 @@ padding: 1em;
   position: fixed;
   height: 12.5vh;
   width: 100vw;
-  bottom: 30px;
+  bottom: 50px;
   left: 0;
   z-index: 9;
   padding: 3vw;
@@ -104,11 +104,10 @@ padding: 1em;
   flex-wrap: wrap;
   justify-content: center;
   vertical-align: middle;
-  mix-blend-mode: screen;
+  mix-blend-mode: difference;
   
   ._random{
     display: block;
-    width: 100%;
     font-size: 1.25em;
   }
   
@@ -117,13 +116,24 @@ padding: 1em;
     width: 100%;
     
   }
+  
+  hr{
+    width: 100%;
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
 
   a {
     font-size:.7em;
     padding: .25em 1em;
     text-decoration: none;
     transition: all .2s cubic-bezier(.17, .67, .83, .67);
-    color: yellow;
+    color: #fff;
+    text-shadow: 0 0 10px #fff;
+    border: 1px solid #fff;
+    border-radius: 12px;
+    margin: .25em;
   }
 
   a._random {
@@ -131,6 +141,8 @@ padding: 1em;
   }
 
   a:hover {
+    background:#fff;
+    color: #000;
     transform: scale(1.1);
     cursor: pointer;
     text-shadow: 0 0 5px yellow;

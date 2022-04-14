@@ -84,7 +84,7 @@
   position: fixed;
   height: 12.5vh;
   width: 100vw;
-  bottom: 30px;
+  bottom: 50px;
   left: 0;
   z-index: 9;
   padding: 3vw;
@@ -94,28 +94,39 @@
   flex-wrap: wrap;
   justify-content: center;
   vertical-align: middle;
-  mix-blend-mode: screen;
+  mix-blend-mode: difference;
 }
 #webring ._random {
   display: block;
-  width: 100%;
   font-size: 1.25em;
 }
 #webring ._tutorial {
   display: block;
   width: 100%;
 }
+#webring hr {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
 #webring a {
   font-size: 0.7em;
   padding: 0.25em 1em;
   text-decoration: none;
   transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-  color: yellow;
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
+  border: 1px solid #fff;
+  border-radius: 12px;
+  margin: 0.25em;
 }
 #webring a._random {
   font-size: 1.5em;
 }
 #webring a:hover {
+  background: #fff;
+  color: #000;
   transform: scale(1.1);
   cursor: pointer;
   text-shadow: 0 0 5px yellow;
