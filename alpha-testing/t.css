@@ -118,6 +118,11 @@ textarea {
   line-height: 97.5%;
 }
 
+textarea:focus {
+  border: 15px solid #fff;
+  padding: 0;
+}
+
 select {
   padding: 0.25em 1em;
   margin: 1em auto;
@@ -365,13 +370,9 @@ START AND EXTRAS
 #start .window-wrapper button {
   border-radius: 24px;
   font-size: 1.2em;
-  background: #464A4B;
-  color: #cbc7c6;
-  outline: #cbc7c6 1.5px solid;
   box-shadow: #3b4041 0 0 40px;
 }
 #start .window-wrapper button:hover {
-  background: #717374;
   transform: translateY(-6px);
 }
 #start .window-wrapper ._smaller button {
@@ -509,6 +510,10 @@ START AND EXTRAS
   white-space: pre-wrap;
   overflow-y: hidden;
   cursor: text;
+}
+#e-text textarea.__toggled {
+  border: 0.5em solid rgba(255, 255, 255, 0.45);
+  padding: 0.3em;
 }
 
 .library-text-controls button {

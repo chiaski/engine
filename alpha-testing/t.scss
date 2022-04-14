@@ -173,6 +173,12 @@ textarea {
   line-height: 97.5%;
 }
 
+textarea:focus{
+  border:15px solid #fff;
+  padding:0;
+}
+
+
 select {
   padding: .25em 1em;
   margin: 1em auto;
@@ -450,14 +456,10 @@ START AND EXTRAS
     button {
       border-radius: 24px;
       font-size: 1.2em;
-      background: $off-dark;
-      color: $off-light;
-      outline: $off-light 1.5px solid;
       box-shadow: $g3 0 0 40px;
     }
 
     button:hover {
-      background: $g2;
       transform: translateY(-6px);
     }
     
@@ -643,7 +645,14 @@ START AND EXTRAS
     overflow-y: hidden;
     cursor: text;
   }
-
+  
+  
+  textarea.__toggled{
+    border: .5em solid rgba(255, 255, 255, 0.45);
+    padding: .3em;
+  }
+  
+  
 }
 
 

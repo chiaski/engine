@@ -61,10 +61,17 @@ const libraryText = {
   toggleText: function () {
 
     if ($("button#btn-toggletext").hasClass("__toggled")) {
+     $("button#btn-toggletext").text("Click to edit text"); window.removeEventListener("keydown", arrow_keys_handler, false);
       window.addEventListener("keydown", arrow_keys_handler, false);
       $("button#btn-toggletext").removeClass("__toggled");
+      $("#e #e-text textarea").removeClass("__toggled");
     } else {
+     
+     $("button#btn-toggletext").text("Stop editing text"); 
+    
+      $("#e #e-text textarea").focus();
       window.removeEventListener("keydown", arrow_keys_handler, false);
+      $("#e #e-text textarea").addClass("__toggled");
       $("button#btn-toggletext").addClass("__toggled");
     }
 

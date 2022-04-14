@@ -52,6 +52,15 @@ if (testJSON(cartridge)) {
     setTimeout(function () {
       $("#play").focus();
       Tplayer.init();
+      
+      
+       // What font?
+    if(scenes.font !== "default"){
+      $("#e-play textarea").css("font-family", scenes.font);
+      $("textarea").css("font-family", scenes.font);
+    }
+      
+      
     }, 1500);
   
 
@@ -148,16 +157,16 @@ const Tplayer = {
 
     Tplayer.active = scenes.s[c.getSceneIndex(x, y)];
 
+    
+    // change text
+    setTimeout(function () {
+
      // Is there a song?
     if(scenes.audio !== null){
       $("#audio-player-controller").fadeIn();
       Tplayer.playSong();
     }
-    
-    
-    // change text
-    setTimeout(function () {
-
+      
       $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
       $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       Tplayer.loadScene(x, y);
@@ -165,6 +174,7 @@ const Tplayer = {
        // What font?
     if(scenes.font !== "default"){
       $("#e-play textarea").css("font-family", scenes.font);
+      $("textarea").css("font-family", scenes.font);
     }
       
     }, 1500);
