@@ -1,3 +1,16 @@
 docs/progress shots/*
 .DS_Store
 engine mix.mp3
+*.asd
+alpha-testing/assets/.DS_Store
+alpha-testing/.DS_Store
+CPAR 491 Engine Report, Chia Amisola.pdf
+*.asd
+*.prproj
+*.als
+*.zip
+docs/.DS_Store
+*.mp3
+*.wav
+*.aif
+*.m4a
