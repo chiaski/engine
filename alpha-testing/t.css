@@ -39,7 +39,6 @@ EDITOR
 html,
 body {
   scroll-behavior: smooth;
-  font-family: "Times Now Roman";
 }
 
 #e,
@@ -95,16 +94,17 @@ body {
   justify-content: center;
   align-content: center;
   align-items: center;
+  font-family: "Times New Roman", -apple-system, BlinkMacSystemFont, "Segoe UI", serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .ui-tooltip {
-  padding: 0.25em;
+  padding: 0.5em;
   color: #edede8 !important;
   background: #000000 !important;
-  border-radius: 4px !important;
+  border-radius: 8px !important;
   box-shadow: 0 0 10px #b6b7b7 !important;
   border: 1px solid #edede8;
   font-family: "Times Now Roman" !important;
@@ -154,15 +154,13 @@ h2 {
   display: block;
   border-bottom: 1.5px solid #000000;
   font-family: "Times Now Roman";
-  font-size: 1em;
-  letter-spacing: -0.2px;
-  padding: 0.75em 0.25em;
+  font-size: 1rem;
+  padding: 0.75em 0.5em;
   text-align: left;
 }
 h2 img {
   object-fit: contain;
   width: 18px;
-  display: none;
 }
 h2 span {
   border-right: 0.7px solid #000000;
@@ -174,7 +172,7 @@ h4 {
 }
 
 button {
-  border: 1.5px solid #000000;
+  border: 1px solid #000000;
   border-radius: 12px;
   background: #ddd;
   color: #000000;
@@ -190,7 +188,10 @@ button:hover {
   color: #edede8;
   background: #1c1e1f;
   cursor: pointer;
-  box-shadow: 0 0 10px #717374;
+  box-shadow: 0 0 10px #b6b7b7;
+}
+button:hover img {
+  filter: invert(1);
 }
 
 /* 
@@ -205,8 +206,6 @@ button:hover {
   pointer-events: none;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
   top: 0;
   left: 0;
   display: none;
@@ -263,7 +262,6 @@ START AND EXTRAS
   pointer-events: none;
   padding: 0.75em;
   font-family: "Times Now Roman";
-  font-size: 0.8em;
 }
 #info span {
   padding: 0.5em;
@@ -282,13 +280,10 @@ START AND EXTRAS
   display: inline-block;
   padding: 0.5em;
   margin: 0 0.25em;
-  width: 50px;
+  width: 70px;
   height: 55px;
-  font-size: 0.7em;
-  border-radius: 4px;
-  text-decoration: none;
   text-align: center;
-  font-family: "Fa Sysfont C";
+  text-decoration: none;
   color: #000000;
   -webkit-transition: all 0.12s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.12s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -297,17 +292,14 @@ START AND EXTRAS
   filter: invert(1);
 }
 #jump a:hover {
-  transform: scale(1.22);
-  text-shadow: 0 0 5px #edede8;
-  color: #fff;
-  outline: 0.75px solid #edede8;
+  transform: scale(1.22) translateY(-4px);
 }
 #jump a._small {
   padding: 0.5em;
   height: auto;
   margin: 0.5em;
   display: inline-block;
-  font-size: 0.6em;
+  font-size: 0.8em;
 }
 
 .screen-one {
@@ -386,8 +378,8 @@ START AND EXTRAS
 }
 
 .window {
-  background: #edede8;
-  border: 0.5px solid #464A4B;
+  background: #ddd;
+  border: 0.75px solid #717374;
   width: 100%;
   border-radius: 8px;
   min-height: 5vh;
@@ -400,12 +392,14 @@ START AND EXTRAS
 }
 
 .window h2:first-child {
-  padding: 0.5em 0.25em;
-  border-bottom: 0.5px #000000 solid;
+  color: #3b4041;
+  letter-spacing: 0;
+  padding: 0.5em;
+  border-bottom: 0.5px #717374 solid;
 }
 
 .panel {
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #b6b7b7;
   margin: 1em 0;
   text-align: center;
 }
@@ -414,11 +408,6 @@ START AND EXTRAS
   font-weight: normal;
   font-size: 0.85em;
   line-height: 120%;
-}
-.panel h2 {
-  width: 100%;
-  padding: 0.5em;
-  margin: 0;
 }
 
 .panel._full {
@@ -429,10 +418,6 @@ START AND EXTRAS
   width: 100%;
   border-top: none;
   margin: 0 0 0.5em 0;
-}
-.panel._sidebar h2 {
-  padding: 0.5em 0.25em;
-  font-size: 0.9em;
 }
 
 /* PANELS & SIDEBARS */
@@ -598,13 +583,10 @@ START AND EXTRAS
   margin-bottom: 15vh;
 }
 .engine-buttons button {
-  font-size: 0.8em;
   margin: 0 0.25em;
   padding: 0.5em 1em;
 }
 .engine-buttons button#btn-play {
-  background: #edede8;
-  color: #000000;
   padding: 1em 5em;
 }
 .engine-buttons button#btn-clear {
@@ -949,12 +931,6 @@ hr {
   text-align: center;
   width: 100%;
   margin-bottom: 1em;
-}
-#library-scene-controls button {
-  border-radius: 8px;
-  opacity: 0.8;
-  font-size: 0.7em;
-  padding: 0.25em 0.5em;
 }
 #library-scene-controls button#btn-scenecontrols-pastescene {
   opacity: 0.1;
