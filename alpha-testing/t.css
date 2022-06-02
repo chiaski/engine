@@ -86,8 +86,9 @@ body,
   }
 }
 body {
-  background: #191b1d;
-  padding: 2em;
+  background: #d4d4d4;
+  color: #000000;
+  padding: 1.5em;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -103,11 +104,10 @@ body {
   padding: 0.25em;
   color: #edede8 !important;
   background: #000000 !important;
-  border-radius: 8px !important;
-  box-shadow: 0 0 15px #edede8 !important;
-  outline: 1.5px solid #000000;
-  border: 1px solid #000000;
-  font-family: "Fa Sysfont C" !important;
+  border-radius: 4px !important;
+  box-shadow: 0 0 10px #b6b7b7 !important;
+  border: 1px solid #edede8;
+  font-family: "Times Now Roman" !important;
   font-size: 0.8em !important;
   font-weight: normal;
   text-rendering: optimizeLegibility;
@@ -175,13 +175,12 @@ h4 {
 
 button {
   border: 1.5px solid #000000;
-  outline: 1px solid #edede8;
   border-radius: 12px;
-  background: #000000;
-  color: #edede8;
+  background: #ddd;
+  color: #000000;
   padding: 1em;
   margin: 0.5em;
-  font-family: "Fa Sysfont C";
+  font-family: "Times Now Roman";
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
@@ -191,7 +190,7 @@ button:hover {
   color: #edede8;
   background: #1c1e1f;
   cursor: pointer;
-  box-shadow: 0 0 20px #3b4041;
+  box-shadow: 0 0 10px #717374;
 }
 
 /* 
@@ -210,6 +209,7 @@ button:hover {
   left: 0;
   top: 0;
   left: 0;
+  display: none;
 }
 
 .fx._1 {
@@ -233,6 +233,7 @@ button:hover {
 }
 
 .fx._cover {
+  display: none;
   z-index: 20;
   object-fit: contain;
 }
@@ -256,12 +257,12 @@ START AND EXTRAS
   top: 0;
   left: 0;
   z-index: 100;
-  color: #cbc7c6;
+  color: #464A4B;
   display: flex;
   justify-content: space-between;
   pointer-events: none;
   padding: 0.75em;
-  font-family: "Fa Sysfont C";
+  font-family: "Times Now Roman";
   font-size: 0.8em;
 }
 #info span {
@@ -278,7 +279,6 @@ START AND EXTRAS
   bottom: 0;
 }
 #jump a {
-  mix-blend-mode: difference !important;
   display: inline-block;
   padding: 0.5em;
   margin: 0 0.25em;
@@ -289,9 +289,12 @@ START AND EXTRAS
   text-decoration: none;
   text-align: center;
   font-family: "Fa Sysfont C";
-  color: #edede8;
+  color: #000000;
   -webkit-transition: all 0.12s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.12s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+#jump a img {
+  filter: invert(1);
 }
 #jump a:hover {
   transform: scale(1.22);
@@ -323,15 +326,12 @@ START AND EXTRAS
   outline: 0;
   border-radius: 0;
   box-shadow: 0;
-  color: #edede8;
   max-width: 60vw;
-  padding-bottom: 10vh;
+  padding-bottom: 5vh;
 }
 #start h1._title {
-  font-size: 10em;
-  font-weight: normal;
-  letter-spacing: -6px;
-  color: #cbc7c6;
+  letter-spacing: -5px;
+  color: #3b4041;
 }
 #start .window-samples {
   font-size: 1.25em;
@@ -347,12 +347,13 @@ START AND EXTRAS
   width: 80px;
   height: 100px;
   font-size: 0.6em;
-  font-family: "Fa Sysfont C";
+  font-family: "Times Now Roman";
   object-fit: contain;
   -webkit-transition: all 0.14s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.14s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 #start .window-samples ._sample img {
+  filter: grayscale(100%);
   max-width: 100%;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
@@ -370,9 +371,10 @@ START AND EXTRAS
   letter-spacing: -1px;
 }
 #start .window-wrapper button {
-  border-radius: 24px;
+  background: #ddd;
+  border: 0;
+  outline: 0;
   font-size: 1.2em;
-  box-shadow: #3b4041 0 0 40px;
 }
 #start .window-wrapper button:hover {
   transform: translateY(-6px);
@@ -385,9 +387,9 @@ START AND EXTRAS
 
 .window {
   background: #edede8;
-  border: 1.5px solid #000000;
+  border: 0.5px solid #464A4B;
   width: 100%;
-  border-radius: 15px;
+  border-radius: 8px;
   min-height: 5vh;
   display: flex;
   justify-content: center;
@@ -525,7 +527,6 @@ START AND EXTRAS
   background: #cbc7c6;
   color: #464A4B;
   border: 1px solid #cbc7c6;
-  outline: 1.5px solid #464A4B;
   transform: translateY(-5px);
   display: inline-block;
 }
@@ -561,7 +562,6 @@ START AND EXTRAS
   position: relative;
   background: #000000;
   border: 1px solid #edede8;
-  outline: 1.5px solid #000000;
   width: 512px;
   height: 512px;
   margin: 0;
@@ -724,15 +724,6 @@ EDITOR
   margin: 1em auto;
   text-align: center;
 }
-#scene_s #scene_selector hr,
-#map #scene_selector hr {
-  height: 0;
-  width: 100%;
-  border: 0;
-  outline: 0;
-  padding: 0;
-  margin: 0;
-}
 #scene_s #scene_selector ._s,
 #map #scene_selector ._s {
   display: inline-block;
@@ -740,7 +731,6 @@ EDITOR
   background: #000000;
   color: #edede8;
   border: 1px solid #000000;
-  outline: 1.5px solid #edede8;
   vertical-align: middle;
   font-family: "Fa Sysfont C";
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -750,13 +740,11 @@ EDITOR
 #scene_s #scene_selector ._s.__start,
 #map #scene_selector ._s.__start {
   border: 1px solid #eb80ff;
-  outline: 1.5px solid #000000;
 }
 #scene_s #scene_selector ._s.__active,
 #map #scene_selector ._s.__active {
   opacity: 1;
   border: 1px solid #edede8;
-  outline: 2ox solid #eb80ff;
   box-shadow: 0 0 5px #000000;
   animation: pulse-black 2s infinite;
 }
@@ -780,7 +768,6 @@ EDITOR
   max-width: 500px;
   margin: 0 auto;
   margin-bottom: 10vh;
-  border: 1.5px solid #000;
 }
 #map button#btn-remixcartridge {
   padding: 0.75em 2.5em;
@@ -799,7 +786,6 @@ EDITOR
   border-radius: 8px;
   font-family: "Fa Sysfont C";
   border: 1px solid #464A4B;
-  outline: 1.5px solid #cbc7c6;
 }
 #map #scene_selector ._s {
   color: #edede8;
@@ -822,6 +808,15 @@ EDITOR
   font-size: 0.6em;
 }
 
+hr {
+  height: 0;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+}
+
 #scene_s {
   margin-top: 0;
 }
@@ -839,10 +834,6 @@ EDITOR
   margin: 0;
   border-top: 0;
 }
-#scene_s #scene_selector hr {
-  margin: 0;
-  display: block;
-}
 #scene_s #scene_selector ._s {
   flex-basis: 17%;
   font-size: 0.5em;
@@ -855,7 +846,6 @@ EDITOR
   -o-transition: all 0.13s linear;
   transition: all 0.13s linear;
   border: 0.6px solid #edede8;
-  outline: 1.4px solid #000000;
   box-shadow: 0 0 5px #edede8;
 }
 
@@ -878,8 +868,7 @@ EDITOR
   width: 350px;
   padding: 0.5em;
   border-radius: 12px;
-  border: 1px solid #edede8;
-  outline: 1px solid #000000;
+  border: 1px solid #000000;
 }
 #audio-player .controls-audio {
   margin-top: -1em;
@@ -909,7 +898,6 @@ EDITOR
   background: #464A4B;
   width: 350px;
   border: 1px solid #cbc7c6;
-  outline: 1.5px solid #464A4B;
   color: #cbc7c6;
 }
 
@@ -936,7 +924,6 @@ EDITOR
 #audio-player-controller button {
   background: none;
   border: 0;
-  outline: 0;
   margin: 0 0.5em;
   transform: translateY(-8px);
   padding: 0.5em;
@@ -1027,7 +1014,6 @@ EDITOR
   transform: translateY(-3.5px);
   cursor: pointer;
   border: 0.5px solid #edede8;
-  outline: 1.5px solid #000000;
   border-radius: 6px;
 }
 
@@ -1069,7 +1055,6 @@ EDITOR
   padding: 0.15em;
   border-radius: 8px;
   border: 1px solid #000000;
-  outline: 1.5px solid #edede8;
   animation: pulse-modal 5s infinite;
   cursor: help;
   -webkit-transition: all 0.25s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -1103,7 +1088,6 @@ EDITOR
 }
 #outer-modals ._modal.__warning {
   background: red;
-  outline: 2px solid red;
 }
 
 #downloader_game {
