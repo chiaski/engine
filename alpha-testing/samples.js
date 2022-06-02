@@ -1,6 +1,6 @@
 
 
-$(".window-samples div._sample").on("click", function () {
+$("._sample").on("click", function () {
 
   let game = $(this).attr("data-cartridge");
 

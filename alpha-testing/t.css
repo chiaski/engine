@@ -87,7 +87,6 @@ body,
 body {
   background: #d4d4d4;
   color: #000000;
-  padding: 1.5em;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -104,15 +103,10 @@ body {
   padding: 0.5em;
   color: #edede8 !important;
   background: #000000 !important;
-  border-radius: 8px !important;
-  box-shadow: 0 0 10px #b6b7b7 !important;
-  border: 1px solid #edede8;
+  box-shadow: 0 0 10px #3b4041 !important;
+  border: 0 !important;
   font-family: "Times Now Roman" !important;
-  font-size: 0.8em !important;
-  font-weight: normal;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 0.9em !important;
 }
 
 textarea {
@@ -133,8 +127,9 @@ select {
   margin: 1em auto;
   text-align: center;
   border-radius: 12px;
-  border: 1px solid #000000;
-  font-family: "Fa Sysfont C";
+  border: 1px solid #717374;
+  background: #d4d4d4;
+  font-family: "Times Now Roman";
 }
 
 select:hover {
@@ -313,22 +308,53 @@ START AND EXTRAS
 }
 
 #start {
-  background: none;
+  background: #000000;
   border: 0;
   outline: 0;
   border-radius: 0;
-  box-shadow: 0;
-  max-width: 60vw;
-  padding-bottom: 5vh;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  background-image: url(games.gif);
+  background-size: cover;
+}
+#start #options {
+  min-height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+#start #options a {
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+}
+#start #options a h2 {
+  line-height: 100%;
+  border: 0;
+  color: #edede8;
+  font-size: 4em;
+  text-align: center;
+}
+#start #options a:hover {
+  background: black;
 }
 #start h1._title {
   letter-spacing: -5px;
-  color: #3b4041;
+  width: 100%;
+  display: inline-block;
+  color: #edede8;
+  mix-blend-mode: difference;
+  font-size: 12em;
+  min-height: 50vh;
+  line-height: 50vh;
 }
 #start .window-samples {
   font-size: 1.25em;
   margin: 1em auto;
   margin-bottom: 0;
+  text-align: center;
 }
 #start .window-samples ._sample {
   margin: 1em 0.5em;
@@ -341,6 +367,7 @@ START AND EXTRAS
   font-size: 0.6em;
   font-family: "Times Now Roman";
   object-fit: contain;
+  color: #edede8;
   -webkit-transition: all 0.14s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.14s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
@@ -380,7 +407,7 @@ START AND EXTRAS
 .window {
   background: #ddd;
   border: 0.75px solid #717374;
-  width: 100%;
+  width: 100vw;
   border-radius: 8px;
   min-height: 5vh;
   display: flex;
@@ -388,7 +415,6 @@ START AND EXTRAS
   vertical-align: middle;
   align-items: center;
   flex-wrap: wrap;
-  margin: 2.5vh 2vw;
 }
 
 .window h2:first-child {
@@ -746,28 +772,31 @@ EDITOR
   transform: translateY(-5px);
 }
 
-#map {
-  max-width: 500px;
-  margin: 0 auto;
-  margin-bottom: 10vh;
+#load {
+  max-width: 600px;
 }
-#map button#btn-remixcartridge {
+#load button#btn-remixcartridge {
   padding: 0.75em 2.5em;
 }
-#map #scene_selector {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-#map #scene_selector textarea#_remix {
+#load textarea#_remix {
   resize: none;
   display: none;
   width: 312px;
   height: 312px;
   padding: 1em;
   border-radius: 8px;
-  font-family: "Fa Sysfont C";
   border: 1px solid #464A4B;
+}
+
+#map {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 10vh;
+}
+#map #scene_selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 #map #scene_selector ._s {
   color: #edede8;
@@ -785,7 +814,6 @@ EDITOR
   display: block;
   content: "Start";
   color: #edede8;
-  font-family: "Fa Sysfont C";
   text-transform: uppercase;
   font-size: 0.6em;
 }
@@ -949,9 +977,9 @@ hr {
   justify-content: flex-start;
 }
 #library .library-controls select {
-  margin: 0.5em auto;
-  background: #717374;
-  color: #edede8;
+  margin: 0.5em;
+  color: #000000;
+  width: 100%;
 }
 #library .library-selector {
   display: flex;

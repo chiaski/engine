@@ -75,28 +75,26 @@
 
   <div class="screen-one screen">
   <div id="start" class="window">
-    <div class="window-wrapper">
-      <div>
+    
         <h1 class="_title">Engine</h1>
-
-        <button id="tempplay" title="You could also just scroll down, really...">Create new game</button>
-        
-        <br>
-        
-        <div class="_smaller">
-          
-        <button id="tempplay" onclick="window.open( 'player.html', '_blank');" title="Go load in other games">Player</button>
-          
-        <button id="btn-remixcartridgestart"  title="Go load in other games">Remix a Game</button>
-          
-        <button id="tempplay" onclick="window.open( 'gallery.html', '_blank');" title="Explore other games">Gallery</button>
-</div>
-      </div><br>
-      <hr>
+    
+    <div id="options">
+    
+      <a title="You could also just scroll down, but that's less fun." id="tempplay">
+      <div class="_option">
       
+        <h2>Make new game</h2>
+        
+      </div>
+      </a>
+      
+      <a title="You could also just scroll down, but that's less fun." id="tempplay">
+      <div class="_option">
+      
+        <h2>Remix games</h2>
+        
       <div class="window-samples">
-      Or start with another game?
-        <br>
+        
         <div class="_sample" data-cartridge="blipo" title="I love you Blipo">
         <img src="./samples/blipo.gif">
           blipo's world
@@ -110,16 +108,51 @@
           04102022
         </div>
       </div>
+        
+      </div>
+      </a>
       
+      <a title="You could also just scroll down, but that's less fun." id="tempplay" onclick="window.open( 'gallery.html', '_blank');">
+      <div class="_option">
+      
+        <h2>Play games</h2>
+        
+      </div>
+      </a>
       
     </div>
+
+    
   </div>
     </div>
 
 
+  <!--  WINDOW: LOAD  -->
+  
+    <a id="window-load" style="height: 10vh; display: block;"></a>
+
+   <div id="load" class="window">
+     
+    <h2>
+      Load or Remix Cartridge
+    </h2>
+     
+      <textarea id="_remix" placeholder="paste a cartridge code here to start editing it. note this deletes your existing scene!"></textarea>
+     
+     
+        <button id="btn-remixcartridge" title="Paste in a code and build something">remix a game</button>
+     <br>
+     
+        <div class="controls-remixcartridge" style="display: none;">
+          <button id="btn-remixcartridge-back">back</button>
+          <button id="btn-remixcartridge-load">load cartridge</button>
+        </div>
+     
+  </div>
+  
   <!--  WINDOW: MAP  -->
 
-
+  
   <a id="window-map" style="height: 10vh; display: block;"></a>
   
   <div id="map" class="window">
@@ -131,8 +164,6 @@
 
     <div id="scene_selector">
 
-      <textarea id="_remix" placeholder="paste a cartridge code here to start editing it. note this deletes your existing scene!"></textarea>
-
       <hr>
 
       <div id="sss"></div>
@@ -143,12 +174,6 @@
       <div id="map-controls">
         <button id="btn-changestartingscene" title="I am at the center of everything that happens">change starting scene</button>
         <button id="btn-cartridge">edit cartridge (game cover)</button>
-        <br>
-        <button id="btn-remixcartridge" title="Paste in a code and build something">remix a game</button>
-        <div class="controls-remixcartridge" style="display: none;">
-          <button id="btn-remixcartridge-back">back</button>
-          <button id="btn-remixcartridge-load">load cartridge</button>
-        </div>
       </div>
     </div>
 

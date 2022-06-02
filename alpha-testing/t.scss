@@ -142,7 +142,6 @@ body,
 body {
   background: #d4d4d4; // light gray
   color: $c;
-  padding: 1.5em;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -159,15 +158,10 @@ body {
   padding: .5em;
   color: $l !important;
   background: $c !important;
-  border-radius: 8px !important;
-  box-shadow: 0 0 10px $g1 !important;
-  border: 1px solid $l;
+  box-shadow: 0 0 10px $g3 !important;
+  border: 0 !important;
   font-family: $serif !important;
-  font-size: .8em !important;
-  font-weight: normal;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: .9em !important;
 }
 
 
@@ -190,8 +184,9 @@ select {
   margin: 1em auto;
   text-align: center;
   border-radius: 12px;
-  border: 1px solid $c;
-  font-family: $mono;
+  border: 1px solid $g2;
+  background: #d4d4d4;
+  font-family: $serif;
 }
 
 select:hover {
@@ -394,17 +389,56 @@ START AND EXTRAS
 }
 
 #start {
-  background: none;
+  background: $c;
   border: 0;
   outline: 0;
   border-radius: 0;
-  box-shadow: 0;
-  max-width: 60vw;
-  padding-bottom: 5vh;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+    background-image:url(games.gif);
+    background-size: cover;
+  
+  #options{
+    min-height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+    a{
+      width: 100%;
+      text-decoration: none;
+      cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+      
+      h2{
+        line-height: 100%;
+        border: 0;
+        color:$l;
+        font-size: 4em;
+      text-align: center;
+      }
+      
+    }
+    
+    
+    a:hover{
+    background: rgba(0, 0, 0, 1);
+      
+    }
+    
+  }
+  
 
   h1._title {
     letter-spacing: -5px;
-    color: $g3;
+    width: 100%;
+    display: inline-block;
+    color: $l;
+    mix-blend-mode: difference;
+    font-size: 12em;
+    min-height: 50vh;
+    line-height: 50vh;
   }
   
   
@@ -413,6 +447,7 @@ START AND EXTRAS
     font-size: 1.25em;
     margin: 1em auto;
     margin-bottom: 0;
+      text-align: center;
     
     ._sample{
       margin: 1em .5em;
@@ -425,6 +460,7 @@ START AND EXTRAS
       font-size: .6em;
       font-family: $serif;
         object-fit: contain;
+      color:$l;
       
       -webkit-transition: all .14s cubic-bezier(.17, .67, .83, .67);
       transition: all .14s cubic-bezier(.17, .67, .83, .67);
@@ -481,7 +517,7 @@ START AND EXTRAS
 .window {
   background: $lg;
   border: .75px solid $g2;
-  width: 100%;
+  width: 100vw;
   border-radius: 8px;
   min-height: 5vh;
   display: flex;
@@ -489,7 +525,6 @@ START AND EXTRAS
   vertical-align: middle;
   align-items: center;
   flex-wrap: wrap;
-  margin: 2.5vh 2vw;
 }
 
 .window h2:first-child {
@@ -954,6 +989,30 @@ EDITOR
   }
 
 }
+// REMIX CARTRIDGE
+#load{
+  
+  max-width: 600px;
+  
+  button#btn-remixcartridge{
+    padding: .75em 2.5em;
+  }
+  
+
+    textarea#_remix {
+      resize: none;
+      display: none;
+      width: 312px;
+      height: 312px;
+      padding: 1em;
+      border-radius: 8px;
+      border: 1px solid $off-dark;
+    }
+  
+  
+  
+}
+
 
 // OVERALL MAP
 
@@ -963,9 +1022,6 @@ EDITOR
   margin: 0 auto;
   margin-bottom: 10vh;
   
-  button#btn-remixcartridge{
-    padding: .75em 2.5em;
-  }
 
   #scene_selector {
 
@@ -974,17 +1030,6 @@ EDITOR
     flex-wrap: wrap;
     justify-content: center;
 
-
-    textarea#_remix {
-      resize: none;
-      display: none;
-      width: 312px;
-      height: 312px;
-      padding: 1em;
-      border-radius: 8px;
-      font-family: $mono;
-      border: 1px solid $off-dark;
-    }
 
     ._s {
       color: $l;
@@ -1007,7 +1052,6 @@ EDITOR
       display: block;
       content: "Start";
       color: $l;
-      font-family: $mono;
       text-transform: uppercase;
       font-size: .6em;
     }
@@ -1248,9 +1292,9 @@ EDITOR
     justify-content: flex-start;
   
   select{
-    margin: .5em auto;
-    background: $g2;
-    color:$l;
+    margin: .5em;
+    color:$c;
+    width: 100%;
   }
 
 

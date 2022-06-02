@@ -33,7 +33,8 @@ function Scene(x, y, active, color, object_count) {
 /*
 
 
-    LOAD CARTRIDGE
+    REMIXING A CARTRIDGE
+    / LOADING A CARTRIDGE
     
     
 */
@@ -58,12 +59,11 @@ $("#btn-remixcartridge").on("click", function () {
   }
 
   $(this).hide();
-  $("#map textarea#_remix").fadeIn();
-  $("#map #sss").hide();
+  $("#load textarea#_remix").fadeIn();
   $("#btn-changestartingscene").hide();
   $("#btn-cartridge").hide();
 
-  $("#map .controls-remixcartridge").fadeIn();
+  $("#load .controls-remixcartridge").fadeIn();
 
 })
 $("#btn-remixcartridgestart").on("click", function () {
@@ -72,27 +72,24 @@ $("#btn-remixcartridgestart").on("click", function () {
     return;
   }
   
-  document.getElementById('window-map').scrollIntoView();
+  document.getElementById('window-load').scrollIntoView();
 
   $("#btn-remixcartridge").hide();
-  $("#map textarea#_remix").fadeIn();
-  $("#map #sss").hide();
+  $("#load textarea#_remix").fadeIn();
   $("#btn-changestartingscene").hide();
   $("#btn-cartridge").hide();
 
-  $("#map .controls-remixcartridge").fadeIn();
+  $("#load .controls-remixcartridge").fadeIn();
 
 })
-
 
 // handle controls
 
 $("#btn-remixcartridge-back").on("click", function () {
 
-  $("#map .controls-remixcartridge").hide();
+  $("#load .controls-remixcartridge").hide();
 
-  $("#map textarea#_remix").val("").hide();
-  $("#map #sss").fadeIn();
+  $("#load textarea#_remix").val("").hide();
   $("#btn-cartridge").fadeIn();
   $("#btn-remixcartridge").fadeIn();
   $("#btn-changestartingscene").fadeIn();
@@ -102,7 +99,7 @@ $("#btn-remixcartridge-back").on("click", function () {
 // load a cartridge
 $("#btn-remixcartridge-load").on("click", function () {
 
-  let new_cartridge = $("#map textarea#_remix").val();
+  let new_cartridge = $("#load textarea#_remix").val();
   new_cartridge = new_cartridge.replace(/^\s+|\s+$/g, "")
     .replace(/\\n/g, "\\n")
     .replace(/\\'/g, "\\'")
