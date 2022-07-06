@@ -334,7 +334,7 @@ START AND EXTRAS
   line-height: 100%;
   border: 0;
   color: #edede8;
-  font-size: 4em;
+  font-size: 2em;
   text-align: center;
 }
 #start #options a:hover {
@@ -426,7 +426,7 @@ START AND EXTRAS
 
 .panel {
   border-bottom: 1px solid #b6b7b7;
-  margin: 1em 0;
+  margin: 0.5em 0;
   text-align: center;
 }
 .panel p {
@@ -607,6 +607,7 @@ START AND EXTRAS
   width: 100%;
   text-align: center;
   margin-bottom: 15vh;
+  padding-top: 1em;
 }
 .engine-buttons button {
   margin: 0 0.25em;
@@ -959,6 +960,18 @@ hr {
   text-align: center;
   width: 100%;
   margin-bottom: 1em;
+}
+#library-scene-controls button {
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
+}
+#library-scene-controls button:hover {
+  box-shadow: none;
+  color: gray;
+  background: none;
+  border-radius: 0;
 }
 #library-scene-controls button#btn-scenecontrols-pastescene {
   opacity: 0.1;

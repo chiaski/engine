@@ -35,7 +35,7 @@ $("._sample").on("click", function () {
       break;
       
   }
-  
+
   
   tip("Welcome to Engine (REMIX!!!)", "You are remixing another game, that's awesome!\nThese games are made by my special friends... (Click me to get rid of me!)", "tip");
   

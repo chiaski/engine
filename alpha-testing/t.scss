@@ -415,7 +415,7 @@ START AND EXTRAS
         line-height: 100%;
         border: 0;
         color:$l;
-        font-size: 4em;
+        font-size: 2em;
       text-align: center;
       }
       
@@ -537,7 +537,7 @@ START AND EXTRAS
 
 .panel {
   border-bottom: 1px solid $g1;
-  margin: 1em 0;
+  margin: .5em 0;
   text-align: center;
 
   p {
@@ -772,6 +772,7 @@ START AND EXTRAS
   width: 100%;
   text-align: center;
   margin-bottom: 15vh;
+  padding-top: 1em;
 
   button {
     margin: 0 .25em;
@@ -1267,6 +1268,20 @@ EDITOR
   text-align: center;
   width: 100%;
   margin-bottom: 1em;
+  
+  button{
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+  }
+  
+  button:hover{
+    box-shadow: none;
+    color: gray;
+    background: none;
+    border-radius: 0;
+  }
 
   button#btn-scenecontrols-pastescene {
     opacity: 0.1;
