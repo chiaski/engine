@@ -363,23 +363,18 @@ START AND EXTRAS
   color: #edede8;
   font-family: "Director";
   font-size: 6em;
-  height: 100%;
   line-height: 50vh;
 }
 #start .window-samples {
-  font-size: 1.25em;
-  margin: 1em auto;
-  margin-bottom: 0;
   text-align: center;
 }
 #start .window-samples ._sample {
-  margin: 1em 0.5em;
-  border-radius: 12px;
+  margin: 1em 0.25em;
+  border-radius: 6px;
   border: 1px solid #000000;
-  outline: 1.25px solid #edede8;
   display: inline-block;
   width: 90px;
-  height: 103px;
+  height: 105px;
   font-size: 0.6rem;
   font-family: "Director";
   text-transform: uppercase;
@@ -391,8 +386,8 @@ START AND EXTRAS
 #start .window-samples ._sample img {
   filter: grayscale(100%);
   max-width: 100%;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 #start .window-samples ._sample:hover {
   cursor: pointer;

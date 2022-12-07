@@ -436,26 +436,19 @@ START AND EXTRAS
     color: $l;
     font-family: $serif-alt;
     font-size: 6em;
-    height: 100%;
     line-height: 50vh;
   }
 
-
   .window-samples {
-
-    font-size: 1.25em;
-    margin: 1em auto;
-    margin-bottom: 0;
     text-align: center;
 
     ._sample {
-      margin: 1em .5em;
-      border-radius: 12px;
+      margin: 1em .25em;
+      border-radius: 6px;
       border: 1px solid $c;
-      outline: 1.25px solid $l;
       display: inline-block;
       width: 90px;
-      height: 103px;
+      height: 105px;
       font-size: .6rem;
       font-family: $serif-alt;
       text-transform: uppercase;
@@ -468,8 +461,8 @@ START AND EXTRAS
       img {
         filter: grayscale(100%);
         max-width: 100%;
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
       }
     }
 
@@ -508,11 +501,8 @@ START AND EXTRAS
         padding: .75em 1.5em;
       }
     }
-
   }
-
 }
-
 
 .window {
   background: $lg;

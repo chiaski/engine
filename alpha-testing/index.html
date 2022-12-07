@@ -12,14 +12,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css" />
   <link rel="stylesheet" href="t.css" />
+  <link rel="stylesheet" href="ui.css" />
   
   
 </head>
 
 <body>
 
-  
-  
   <div class="blocker"></div>
   <div class="fx _1"></div>
   <div class="fx _p"></div>
@@ -115,11 +114,9 @@
 </div>
 
 
-  <!-- WORKSPACE -->
+  <!-- CONTAINER: WORKSPACE -->
   
   <div id="workspace">
-  
-  </div>
   
   <!--  WINDOW: LOAD  -->
   
@@ -147,6 +144,7 @@
   <!--  WINDOW: MAP  -->
 
   
+  <section id="-map">
   <a id="window-map" style="height: 10vh; display: block;"></a>
   
   <div id="map" class="window">
@@ -170,13 +168,15 @@
         <button id="btn-cartridge">edit cartridge (game cover)</button>
       </div>
     </div>
-
-
   </div>
+    </section>
 
-
+  
+  <!--  WINDOW: AUDIO PLAYER  -->
+    
   <a id="window-audio"></a>
-
+    
+  <section id="-audio">
   <div id="audio-player-controller">
     <h3>
       <marquee class="_audiotitle" onmouseover="this.stop();" onmouseout="this.start();">
@@ -192,7 +192,8 @@
     </audio>
   </div>
 
-  <div id="audio-player" class="window">
+    
+    <div id="audio-player" class="window">
     <h2>Cartridge Audio</h2>
 
     <div class="_controlstext">
@@ -212,11 +213,14 @@
 
     </div>
   </div>
+    </section>
 
   <!--  WINDOW: ENGINE  -->
 
+    
   <a id="window-engine" style="display: block;height: 5vh;width: 100%;"></a>
 
+  <section id="-editor">
   <div class="window" id="engine-window">
     <h2>
       <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span> <span class="_whatscene" title="The coordinates of the scene you're currently editing!">0,0&nbsp;</span> Objects left: <span class="_howmany" title="You can only have a limited amount of images in your scene. Beauty in restriction...">0</span>
@@ -294,8 +298,6 @@
 
       </div>
 
-
-
       <!-- RIGHT SIDEBAR AND TUTORIALS HERE -->
 
 
@@ -356,7 +358,7 @@
 
     </div>
   </div>
-
+    </section>
 
 
   <!--  WINDOW: PLAY  -->
@@ -364,6 +366,7 @@
 
   <a id="window-play" style="display: block;height: 8vh;width: 100%;"></a>
 
+  <section id="-player">
   <div tabindex="-1" class="window" id="play">
     <div class="play-overlay" style=" background-image:url(assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.2;"></div>
 
@@ -384,9 +387,6 @@
       <a data-direction="s" data-target="null" class="___s -inaccessible"></a>
     </div>
 
-
-
-
     <!--  PLAY AREA GOES HERE  -->
 
     <div id="e-play">
@@ -396,8 +396,6 @@
       </div>
 
     </div>
-
-
   </div>
 
   <div class="engine-buttons">
@@ -411,7 +409,10 @@
     <button id="btn-getcode" title="Get the cartridge code for your game and share it with friends or to the gallery!">Get Cartridge Code</button>
     <button onclick="window.open( 'https://forms.gle/Thifa9CL7fQpbXwT8', '_blank');" title="Want to submit your game to the world? Go into the gallery!">Submit to Gallery</button>
   </div>
-
+  </section>
+    
+  </div>
+    
   <div id="downloader">
   </div>
 
