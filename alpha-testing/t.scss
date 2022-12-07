@@ -1,59 +1,4 @@
-/* 
-
-
-EDITOR
-
-
-*/
-
-@font-face {
-  font-family: 'FA Sysfont C';
-  src: url('./assets/fonts/sysfont.woff2') format('woff2'),
-    url('./alpha/assets/fonts/sysfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Director';
-  src: url('./assets/fonts/Director-Regular.woff2') format('woff2'),
-    url('./assets/fonts/Director-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-
-
-/*
-
-  COLORS
-
-*/
-
-$c: #000000; // MAIN COLOR
-$l: #edede8;
-
-$lg: #ddd;
-
-$g1: #b6b7b7;
-$g2: #717374;
-$g3: #3b4041;
-$g4: #1c1e1f;
-
-$p: #eb80ff;
-
-// off white
-$off-dark: #464A4B;
-$off-light: #cbc7c6;
-
-$sans: "Helvetica",
-"Arial",
-sans-serif;
-
-$mono: "Fa Sysfont C";
-$serif: "Times New Roman";
-$serif-alt: "Director";
+@import "styles";
 
 /*
 
@@ -69,10 +14,6 @@ body {
 #e,
 body,
 #e-play {
-  -webkit-transition: background .15s linear;
-  -moz-transition: background .15s linear;
-  -ms-transition: background .15s linear;
-  -o-transition: background .15s linear;
   transition: background .15s linear;
 }
 
@@ -403,7 +344,7 @@ START AND EXTRAS
 
   #options {
     height: 30vh;
-    min-height:200px;
+    min-height: 200px;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -413,6 +354,7 @@ START AND EXTRAS
       text-decoration: none;
       cursor: pointer;
       background: rgba(0, 0, 0, 0.5);
+
       h2 {
         line-height: 100%;
         border: 0;
@@ -504,25 +446,6 @@ START AND EXTRAS
   }
 }
 
-.window {
-  background: $lg;
-  border: .75px solid $g2;
-  width: 100vw;
-  border-radius: 8px;
-  min-height: 5vh;
-  display: flex;
-  justify-content: center;
-  vertical-align: middle;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.window h2:first-child {
-  color: $g3;
-  letter-spacing: 0;
-  padding: .5em;
-  border-bottom: .5px $g2 solid;
-}
 
 
 .panel {
@@ -612,9 +535,10 @@ START AND EXTRAS
   height: 40px;
   border: none;
   border-color: transparent;
+
   input::-webkit-color-swatch {
     border: none;
-}
+  }
 }
 
 

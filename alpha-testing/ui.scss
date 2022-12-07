@@ -1,0 +1,23 @@
+@import "styles";
+
+#workspace {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.window {
+  background: $white;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  h2:first-child {
+    letter-spacing: 0;
+    padding: .5em;
+    border-bottom: .5px solid;
+  }
+}

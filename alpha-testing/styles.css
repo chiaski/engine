@@ -23,24 +23,5 @@ EDITOR
   COLORS
 
 */
-#workspace {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
-.window {
-  background: #f4f4f4;
-  border-radius: 8px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-.window h2:first-child {
-  letter-spacing: 0;
-  padding: 0.5em;
-  border-bottom: 0.5px solid;
-}
-
-/*# sourceMappingURL=ui.css.map */
+/*# sourceMappingURL=styles.css.map */
