@@ -332,7 +332,8 @@ START AND EXTRAS
   background-size: cover;
 }
 #start #options {
-  min-height: 50vh;
+  height: 30vh;
+  min-height: 200px;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -362,7 +363,7 @@ START AND EXTRAS
   color: #edede8;
   font-family: "Director";
   font-size: 6em;
-  min-height: 50vh;
+  height: 100%;
   line-height: 50vh;
 }
 #start .window-samples {

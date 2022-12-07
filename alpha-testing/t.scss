@@ -399,11 +399,11 @@ START AND EXTRAS
   height: 100vh;
   width: 100vw;
   margin: 0;
-  //    background-image:url(games.gif);
   background-size: cover;
 
   #options {
-    min-height: 50vh;
+    height: 30vh;
+    min-height:200px;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -413,7 +413,6 @@ START AND EXTRAS
       text-decoration: none;
       cursor: pointer;
       background: rgba(0, 0, 0, 0.5);
-
       h2 {
         line-height: 100%;
         border: 0;
@@ -427,11 +426,8 @@ START AND EXTRAS
 
     a:hover {
       background: rgba(0, 0, 0, 1);
-
     }
-
   }
-
 
   h1._title {
     letter-spacing: -5px;
@@ -440,7 +436,7 @@ START AND EXTRAS
     color: $l;
     font-family: $serif-alt;
     font-size: 6em;
-    min-height: 50vh;
+    height: 100%;
     line-height: 50vh;
   }
 
