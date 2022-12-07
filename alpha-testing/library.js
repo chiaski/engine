@@ -31,25 +31,25 @@ const libraryText = {
   init: function () {
     // click, edit text
     $("button#btn-toggletext").on("click", function () {
-      
-      if(chance(.06)){
-        
+
+      if (chance(.06)) {
+
         let text_tips = ["Text can be used for speech, but it can also be used for backgrounds... or you can make a text-only game.", "Are you ready for what you have to say to be shown to the world?", "Words are a magical part of our lives...", "Texts can connect us all...", "An asterisk can be a list, a star, a flower...", "I love words.", "Ahh! Sometimes spaces and line breaks don't consistently export. Sorry about that. I'm working on myself.", "You don't always have to say something new...", "What is a word, really?", "What kind of language can you shape here?", "I'm listening... I know they'll listen, too."]
-        
+
         tip("Tip on Text", pick(text_tips), "tip");
       }
-      
+
       libraryText.toggleText();
     });
 
     $("button#btn-changefonttext").on("click", function () {
       libraryText.changeFont();
     });
-    
+
     $("#" + libraryText.$TEXT_EDITOR).keyup(function () {
       libraryText.saveText();
     });
-    
+
 
     $("#" + libraryText.$TEXT_EDITOR).keyup(function () {
       libraryText.saveText();
@@ -61,14 +61,16 @@ const libraryText = {
   toggleText: function () {
 
     if ($("button#btn-toggletext").hasClass("__toggled")) {
-     $("button#btn-toggletext").text("Click to edit text"); window.removeEventListener("keydown", arrow_keys_handler, false);
+      $("button#btn-toggletext").text("Click to edit text");
+      window.removeEventListener("keydown", arrow_keys_handler, false);
       window.addEventListener("keydown", arrow_keys_handler, false);
       $("button#btn-toggletext").removeClass("__toggled");
       $("#e #e-text textarea").removeClass("__toggled");
     } else {
-     
-     $("button#btn-toggletext").text("Stop editing text"); 
-    
+
+      objControls.clearSelected();
+      objControls.saveObjects();
+      $("button#btn-toggletext").text("Stop editing text");
       $("#e #e-text textarea").focus();
       window.removeEventListener("keydown", arrow_keys_handler, false);
       $("#e #e-text textarea").addClass("__toggled");
@@ -83,24 +85,24 @@ const libraryText = {
 
     libraryText.saveText();
   },
-  
-  changeFont: function(){
-    
-     let font_random = libraryText.fonts[Math.floor(Math.random() * (libraryText.fonts).length)];
-    
+
+  changeFont: function () {
+
+    let font_random = libraryText.fonts[Math.floor(Math.random() * (libraryText.fonts).length)];
+
     scenes.font = font_random;
-    
+
     $("#e textarea").css("font-family", font_random);
     $("#e-play textarea").css("font-family", font_random);
-    
+
   },
-  
+
   // loadText: laod text into active scene
   loadText: function () {
-    
+
     var t = active_scene.textoverlay;
     t = t.replace(/\\n/g, "\n").replace(/&nbsp;/g, " ");
-    
+
     $("#" + libraryText.$TEXT_EDITOR).hide().fadeIn(100).val(t);
   },
 
@@ -400,7 +402,7 @@ const objControls = {
         break;
 
       case "flip":
-//        console.log($(t).css("transform"));
+        //        console.log($(t).css("transform"));
 
         if ($(t).css("transform") == "scale(-1, 1)" || $(t).css("transform") == "matrix(-1, 0, 0, 1, 0, 0)") {
           $(t).css("transform", "scale(1,1)");
@@ -439,7 +441,7 @@ const objControls = {
   updatePos: function (t) {
     let pos = $(t).position();
 
-//    console.log(pos);
+    //    console.log(pos);
 
     $(".__x").text(pos.left);
     $(".__y").text(pos.top);
