@@ -76,14 +76,14 @@
   <div class="screen-one screen">
   <div id="start" class="window">
     
-        <h1 class="_title">engine.lol</h1>
+    <h1 class="_title">engine.lol</h1>
     
     <div id="options">
     
       <a title="You could also just scroll down, but that's less fun." id="tempplay">
       <div class="_option">
       
-        <h2>Make new game</h2>
+        <h2>New game</h2>
         
       </div>
       </a>
@@ -112,7 +112,7 @@
       </div>
       </a>
       
-      <a title="You could also just scroll down, but that's less fun." id="tempplay" onclick="window.open( 'gallery.html', '_blank');">
+      <a title="Check out the gallery!" id="tempplay" onclick="window.open( 'gallery.html', '_blank');">
       <div class="_option">
       
         <h2>Play games</h2>
@@ -127,12 +127,18 @@
     </div>
 
 
+  <!-- WORKSPACE -->
+  
+  <div id="workspace">
+  
+  </div>
+  
   <!--  WINDOW: LOAD  -->
   
     <a id="window-load" style="height: 10vh; display: block;"></a>
+  
 
    <div id="load" class="window">
-     
     <h2>
       Load or Remix Cartridge
     </h2>
@@ -225,7 +231,7 @@
 
   <div class="window" id="engine-window">
     <h2>
-      <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span> <span class="_whatscene" title="The coordinates of the scene you're currently editing!">0,0&nbsp;</span> Objects left <span class="_howmany" title="You can only have a limited amount of images in your scene. Beauty in restriction...">0</span>
+      <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span> <span class="_whatscene" title="The coordinates of the scene you're currently editing!">0,0&nbsp;</span> Objects left: <span class="_howmany" title="You can only have a limited amount of images in your scene. Beauty in restriction...">0</span>
     </h2>
 
     <div id="engine">
@@ -274,9 +280,6 @@
 
 
           </div>
-
-          <marquee class="_assetlibrarytext">Double-click an image to add it to the scene!</marquee>
-
 
           <div class="_objcoords">
 
@@ -431,7 +434,6 @@
   <script src="//code.jquery.com/ui/1.13.0/jquery-ui.min.js" type="text/javascript"></script>
 
   <script type="text/javascript" src="core.js"></script>
-
   <script type="text/javascript" src="map.js"></script>
   <script type="text/javascript" src="scene.js"></script>
   <script type="text/javascript" src="library.js"></script>
@@ -439,6 +441,7 @@
   <script type="text/javascript" src="audio.js"></script>
   <script type="text/javascript" src="downloader.js"></script>
   <script type="text/javascript" src="tutorial.js"></script>
+  <script type="text/javascript" src="ui.js"></script>
   <script type="text/javascript" src="samples.js"></script>
 
   <script type="text/javascript">

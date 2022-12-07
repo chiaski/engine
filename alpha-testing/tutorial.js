@@ -25,7 +25,6 @@ function pick(items){
 function tip(title, text, type, pos, option_one, option_two) {
 
   var _type;
-  
 //  if(duration){
 //    
 //  }

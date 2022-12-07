@@ -1,15 +1,8 @@
+@charset "UTF-8";
 /* 
 
 
-
-
-
-
 EDITOR
-
-
-
-
 
 
 */
@@ -20,9 +13,9 @@ EDITOR
   font-style: normal;
 }
 @font-face {
-  font-family: "Times Now";
-  src: url("./assets/fonts/TimesNow-Light.woff2") format("woff2"), url("./assets/fonts/TimesNow-Light.woff") format("woff");
-  font-weight: 300;
+  font-family: "Director";
+  src: url("./assets/fonts/Director-Regular.woff2") format("woff2"), url("./assets/fonts/Director-Regular.woff") format("woff");
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -78,12 +71,12 @@ body,
   letter-spacing: 0;
   line-height: 90%;
 }
-
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 720px) {
   #ahhh {
     display: block;
   }
 }
+
 body {
   background: #d4d4d4;
   color: #000000;
@@ -105,7 +98,7 @@ body {
   background: #000000 !important;
   box-shadow: 0 0 10px #3b4041 !important;
   border: 0 !important;
-  font-family: "Times Now Roman" !important;
+  font-family: "Times New Roman" !important;
   font-size: 0.9em !important;
 }
 
@@ -129,7 +122,7 @@ select {
   border-radius: 12px;
   border: 1px solid #717374;
   background: #d4d4d4;
-  font-family: "Times Now Roman";
+  font-family: "Times New Roman";
 }
 
 select:hover {
@@ -148,8 +141,10 @@ h2 {
   width: 100%;
   display: block;
   border-bottom: 1.5px solid #000000;
-  font-family: "Times Now Roman";
-  font-size: 1rem;
+  font-family: "Director";
+  font-size: 0.75rem;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
   padding: 0.75em 0.5em;
   text-align: left;
 }
@@ -158,8 +153,16 @@ h2 img {
   width: 18px;
 }
 h2 span {
-  border-right: 0.7px solid #000000;
   padding: 0 0.25em;
+}
+h2 span::after {
+  content: " · ";
+}
+h2 span:last-of-type::after {
+  content: "";
+}
+h2 span:first-of-type {
+  padding: 0 0.25em 0 0;
 }
 
 h4 {
@@ -173,7 +176,7 @@ button {
   color: #000000;
   padding: 1em;
   margin: 0.5em;
-  font-family: "Times Now Roman";
+  font-family: "Times New Roman";
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
@@ -256,7 +259,9 @@ START AND EXTRAS
   justify-content: space-between;
   pointer-events: none;
   padding: 0.75em;
-  font-family: "Times Now Roman";
+  font-family: "Director";
+  font-size: 0.8rem;
+  text-transform: uppercase;
 }
 #info span {
   padding: 0.5em;
@@ -268,7 +273,7 @@ START AND EXTRAS
   z-index: 100;
   text-align: center;
   opacity: 0.8;
-  padding: 1em;
+  padding: 0.75em;
   bottom: 0;
 }
 #jump a {
@@ -279,7 +284,12 @@ START AND EXTRAS
   height: 55px;
   text-align: center;
   text-decoration: none;
-  color: #000000;
+  color: #fff;
+  mix-blend-mode: exclusion;
+  font-size: 0.8rem;
+  font-family: "Director";
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
   -webkit-transition: all 0.12s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.12s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
@@ -294,7 +304,7 @@ START AND EXTRAS
   height: auto;
   margin: 0.5em;
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 0.6rem;
 }
 
 .screen-one {
@@ -307,6 +317,10 @@ START AND EXTRAS
   justify-content: center;
 }
 
+#workspace {
+  min-height: 100vh;
+}
+
 #start {
   background: #000000;
   border: 0;
@@ -315,7 +329,6 @@ START AND EXTRAS
   height: 100vh;
   width: 100vw;
   margin: 0;
-  background-image: url(games.gif);
   background-size: cover;
 }
 #start #options {
@@ -334,7 +347,9 @@ START AND EXTRAS
   line-height: 100%;
   border: 0;
   color: #edede8;
-  font-size: 2em;
+  font-family: "Director";
+  text-transform: uppercase;
+  font-size: 1.6rem;
   text-align: center;
 }
 #start #options a:hover {
@@ -345,8 +360,8 @@ START AND EXTRAS
   width: 100%;
   display: inline-block;
   color: #edede8;
-  mix-blend-mode: difference;
-  font-size: 12em;
+  font-family: "Director";
+  font-size: 6em;
   min-height: 50vh;
   line-height: 50vh;
 }
@@ -362,10 +377,11 @@ START AND EXTRAS
   border: 1px solid #000000;
   outline: 1.25px solid #edede8;
   display: inline-block;
-  width: 80px;
-  height: 100px;
-  font-size: 0.6em;
-  font-family: "Times Now Roman";
+  width: 90px;
+  height: 103px;
+  font-size: 0.6rem;
+  font-family: "Director";
+  text-transform: uppercase;
   object-fit: contain;
   color: #edede8;
   -webkit-transition: all 0.14s cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -425,7 +441,6 @@ START AND EXTRAS
 }
 
 .panel {
-  border-bottom: 1px solid #b6b7b7;
   margin: 0.5em 0;
   text-align: center;
 }
@@ -485,11 +500,14 @@ START AND EXTRAS
 }
 
 #controls #colorpicker input[type=color] {
-  padding: 0.1em;
-  display: block;
   display: block;
   width: 100%;
   height: 40px;
+  border: none;
+  border-color: transparent;
+}
+#controls #colorpicker input[type=color] input::-webkit-color-swatch {
+  border: none;
 }
 
 #controls #colorpicker input[type=color]:hover {
@@ -520,7 +538,7 @@ START AND EXTRAS
   height: 100%;
   background: rgba(0, 0, 0, 0);
   color: #edede8;
-  font-family: "Times Now Roman";
+  font-family: "Times New Roman";
   mix-blend-mode: exclusion;
   white-space: pre-wrap;
   overflow-y: hidden;
@@ -611,7 +629,6 @@ START AND EXTRAS
 }
 .engine-buttons button {
   margin: 0 0.25em;
-  padding: 0.5em 1em;
 }
 .engine-buttons button#btn-play {
   padding: 1em 5em;
@@ -782,9 +799,11 @@ EDITOR
 #load textarea#_remix {
   resize: none;
   display: none;
-  width: 312px;
+  width: 80%;
   height: 312px;
+  font-size: 1rem;
   padding: 1em;
+  margin: 1em 0;
   border-radius: 8px;
   border: 1px solid #464A4B;
 }
@@ -897,7 +916,6 @@ hr {
   padding: 0.75em;
 }
 #audio-player .controls-audio .controls-audio-loader button {
-  height: 30px;
   padding: 0.25em 1em;
 }
 #audio-player .controls-audio button {
@@ -935,9 +953,7 @@ hr {
 #audio-player-controller button {
   background: none;
   border: 0;
-  margin: 0 0.5em;
   transform: translateY(-8px);
-  padding: 0.5em;
 }
 #audio-player-controller button:hover {
   text-shadow: 0 0 5px #edede8;
@@ -947,13 +963,6 @@ hr {
   margin: 1em auto;
   width: 80%;
   padding: 0.25em;
-}
-
-#library button,
-#help button {
-  padding: 0.25em;
-  margin: 0 auto;
-  display: inline-block;
 }
 
 #library-scene-controls {
@@ -977,9 +986,6 @@ hr {
   opacity: 0.1;
 }
 
-#library {
-  margin: 0;
-}
 #library ._assetlibrarytext {
   font-size: 0.8em;
   margin-top: 0.75em;
@@ -1041,9 +1047,10 @@ hr {
   cursor: help;
 }
 #gamestatus p {
-  padding: 0 1em 1em 1em;
+  padding: 0;
   margin: 0;
-  line-height: 100%;
+  font-size: 0.8rem;
+  line-height: 120%;
   pointer-events: none;
 }
 
@@ -1093,8 +1100,12 @@ hr {
 #outer-modals ._modal h3 {
   border-bottom: 1px solid #000000;
   padding: 0.5em 0.25em;
+  text-transform: uppercase;
+  font-family: "Director";
+  font-size: 0.8rem;
 }
 #outer-modals ._modal p {
+  font-size: 0.9rem;
   padding: 0.5em 0.25em;
   line-height: 120%;
 }
