@@ -32,6 +32,7 @@ EDITOR
 .window {
   background: #f4f4f4;
   border-radius: 8px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -41,6 +42,36 @@ EDITOR
   letter-spacing: 0;
   padding: 0.5em;
   border-bottom: 0.5px solid;
+}
+
+button {
+  border: 1px solid #1d1d1d;
+  border-radius: 8px;
+  background: #ddd;
+  color: #1d1d1d;
+  padding: 0.5em 1em;
+  margin: 0.25em;
+  font-family: "Director";
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+button.--small {
+  margin: 0;
+  font-size: 0.6rem;
+}
+
+button:hover {
+  transform: translateY(-2.5px);
+  color: #edede8;
+  background: #1c1e1f;
+  cursor: pointer;
+  box-shadow: 0 0 10px #b6b7b7;
+}
+button:hover img {
+  filter: invert(1);
 }
 
 /*# sourceMappingURL=ui.css.map */

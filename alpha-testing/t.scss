@@ -160,30 +160,6 @@ h4 {
   padding: .5em;
 }
 
-button {
-  border: 1px solid $c;
-  border-radius: 12px;
-  background: $lg;
-  color: $c;
-  padding: 1em;
-  margin: .5em;
-  font-family: $serif;
-  -webkit-transition: all .19s cubic-bezier(.17, .67, .83, .67);
-  transition: all .19s cubic-bezier(.17, .67, .83, .67);
-}
-
-button:hover {
-  transform: translateY(-2.5px);
-  color: $l;
-  background: $g4;
-  cursor: pointer;
-  box-shadow: 0 0 10px $g1;
-
-  img {
-    filter: invert(1);
-  }
-
-}
 
 
 /* 
@@ -611,12 +587,6 @@ START AND EXTRAS
     border: 1px solid $off-light;
     transform: translateY(-5px);
     display: inline-block;
-  }
-
-  button#btn-changefonttext {
-    margin-top: -.5em;
-    font-size: .8em;
-    padding: .25em .75em;
   }
 
 }

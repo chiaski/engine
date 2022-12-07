@@ -165,29 +165,6 @@ h4 {
   padding: 0.5em;
 }
 
-button {
-  border: 1px solid #000000;
-  border-radius: 12px;
-  background: #ddd;
-  color: #000000;
-  padding: 1em;
-  margin: 0.5em;
-  font-family: "Times New Roman";
-  -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-  transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-}
-
-button:hover {
-  transform: translateY(-2.5px);
-  color: #edede8;
-  background: #1c1e1f;
-  cursor: pointer;
-  box-shadow: 0 0 10px #b6b7b7;
-}
-button:hover img {
-  filter: invert(1);
-}
-
 /* 
 
     EFFECTS
@@ -530,11 +507,6 @@ START AND EXTRAS
   border: 1px solid #cbc7c6;
   transform: translateY(-5px);
   display: inline-block;
-}
-.library-text-controls button#btn-changefonttext {
-  margin-top: -0.5em;
-  font-size: 0.8em;
-  padding: 0.25em 0.75em;
 }
 
 #engine-window {
