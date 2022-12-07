@@ -596,7 +596,6 @@ START AND EXTRAS
 
 #engine-window {
   display: inline-block;
-  width: auto;
   max-width: 900px;
   height: auto;
   margin: 10vh auto 20vh auto;
@@ -608,7 +607,6 @@ START AND EXTRAS
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  border-bottom: 1.5px solid $c;
 
   .sidebar {
     margin: 0 auto;
