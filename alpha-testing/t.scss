@@ -703,6 +703,7 @@ PLAY
     }
 
     a.___n {
+      left: 0;
       top: 0;
     }
 
@@ -715,6 +716,7 @@ PLAY
     }
 
     a.___s {
+      left: 0;
       bottom: 0;
     }
 
@@ -726,7 +728,7 @@ PLAY
     a:hover {
       transform: scale(1.02);
       cursor: pointer;
-      background: hotpink;
+      background: yellow;
       mix-blend-mode: difference;
       opacity: 0.6;
     }

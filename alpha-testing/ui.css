@@ -155,11 +155,13 @@ button.--destructive:hover {
 }
 .engine-buttons button.--med {
   border: 0;
-  background: 0;
+  background: #b6b7b7;
+  opacity: 0.6;
 }
 .engine-buttons button.--med:hover {
   box-shadow: none;
   color: #000;
+  opacity: 1;
 }
 
 .engine-buttons:hover > button:not(:hover) {

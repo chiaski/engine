@@ -158,12 +158,14 @@ button.--destructive:hover {
 
   button.--med {
     border: 0;
-    background: 0;
+    background: $g1;
+    opacity: 0.6;
   }
 
   button.--med:hover {
     box-shadow: none;
     color: #000;
+    opacity: 1;
   }
 
 }

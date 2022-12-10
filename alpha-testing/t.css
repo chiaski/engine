@@ -600,6 +600,7 @@ PLAY
   height: 512px;
 }
 #play #e-controls a.___n {
+  left: 0;
   top: 0;
 }
 #play #e-controls a.___w {
@@ -609,6 +610,7 @@ PLAY
   right: 0;
 }
 #play #e-controls a.___s {
+  left: 0;
   bottom: 0;
 }
 #play #e-controls a.-inaccessible {
@@ -617,7 +619,7 @@ PLAY
 #play #e-controls a:hover {
   transform: scale(1.02);
   cursor: pointer;
-  background: hotpink;
+  background: yellow;
   mix-blend-mode: difference;
   opacity: 0.6;
 }
