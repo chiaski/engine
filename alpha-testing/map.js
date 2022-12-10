@@ -1,7 +1,3 @@
-console.log("map.js loaded");
-
-
-
 /*
 
 
@@ -9,6 +5,9 @@ console.log("map.js loaded");
     
     
 */
+console.log("map.js loaded");
+
+
 
 
 const mapControls = {
@@ -118,8 +117,8 @@ const mapControls = {
     // add onclick events
     $('#' + mapControls.MASTER).on("click", "div._s", mapControls.mapSwitch);
     $('#' + mapControls.SIDE).on("click", "div._s", mapControls.mapSwitch);
-    
-//    console.log(map_html);
+
+    //    console.log(map_html);
 
   },
 
@@ -246,7 +245,7 @@ const mapControls = {
     let coord = $(this).attr("data-scene").split(',');
     let i = sceneControls.getSceneIndex(parseInt(coord[0]), parseInt(coord[1])); // indice in scenes.s[i]
 
-//    console.log("coord: " + coord[0] + "," + coord[1]);
+    //    console.log("coord: " + coord[0] + "," + coord[1]);
 
     // –––––––––––––––––––
     // Scene does not exist
@@ -282,7 +281,7 @@ const mapControls = {
     // Scene exists
     // –––––––––––––––––––
 
-//    console.log("Switching scene");
+    //    console.log("Switching scene");
 
     // remove the old scene
     $("#" + mapControls.MASTER + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");

@@ -8,7 +8,6 @@
 
 */
 
-
 console.log("Plug and play for Engine: engine.lol/alpha/player.html");
 
 var cartridge = null;
@@ -54,12 +53,12 @@ $("#btn-loadcartridge").on("click", function () {
     }
 
     // Adjust global map size, as necessary
-    if((scenes.s).length !== (globals.MAP_height * globals.MAP_width)){
-      console.log("This cartridge is sized differently. Adjusting the player...");      
+    if ((scenes.s).length !== (globals.MAP_height * globals.MAP_width)) {
+      console.log("This cartridge is sized differently. Adjusting the player...");
       globals.MAP_width = Math.sqrt((scenes.s).length);
       globals.MAP_height = Math.sqrt((scenes.s).length);
     }
-    
+
     $("#play h2").text("Loaded cartridge. Press play!");
     $("#e-loadcartridge").fadeOut();
 
@@ -72,13 +71,11 @@ $("#btn-loadcartridge").on("click", function () {
     $("#play h2").text("Corrupted or empty cartridge");
     throw new Error();
   }
-
 });
 
 
 
 var globals = {
-
   // maximum objects allowed per scene
   MAX_object_count: 15,
 
@@ -115,7 +112,7 @@ const Tplayer = {
   init: function () {
 
     Tplayer.clearGame();
- 
+
     // cartridge checks
     if (scenes.cartridge !== null) {
       // load the cartridge
@@ -125,12 +122,12 @@ const Tplayer = {
       setTimeout(function () {
         $("#e-cartridge").fadeOut("slow");
         $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
-       
-        
-    // What font?
-    if(scenes.font !== "default"){
-      $("#e-play textarea").css("font-family", scenes.font);
-    }
+
+
+        // What font?
+        if (scenes.font !== "default") {
+          $("#e-play textarea").css("font-family", scenes.font);
+        }
 
         $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       }, 1800);
@@ -184,25 +181,22 @@ const Tplayer = {
 
     Tplayer.active = scenes.s[c.getSceneIndex(x, y)];
 
-    
     // Is there a song?
-    if(scenes.audio !== null){
+    if (scenes.audio !== null) {
       $("#audio-player-controller").fadeIn();
       Tplayer.playSong();
     }
-    
+
     // change text
     setTimeout(function () {
-
       $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
       $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       Tplayer.loadScene(x, y);
-      
-    // What font?
-    if(scenes.font !== "default"){
-      $("#e-play textarea").css("font-family", scenes.font);
-    }
 
+      // What font?
+      if (scenes.font !== "default") {
+        $("#e-play textarea").css("font-family", scenes.font);
+      }
 
     }, 1500);
 
@@ -227,8 +221,8 @@ const Tplayer = {
 
     Tplayer.clearScene();
   },
-  
-   playSong: function (song) {
+
+  playSong: function (song) {
 
     // load the song into the player
 
@@ -239,9 +233,9 @@ const Tplayer = {
     } else {
       s = "https://engine.lol/alpha/assets/audio/" + scenes.audio;
     }
-    
+
     $("#_audio")[0].currentTime = 0;
-    
+
 
     $("._audiotitle").text(s);
     $("#_audio").attr("src", s);
@@ -263,7 +257,6 @@ const Tplayer = {
     Tplayer.loadScene(x, y);
 
     Tplayer.animatePulse(); // little animation
-
   },
 
   animatePulse: function () {
@@ -424,7 +417,6 @@ const Tplayer = {
   },
 
   loadColor: function () {
-
     let c = (Tplayer.active).color;
 
     if (c == 0) {

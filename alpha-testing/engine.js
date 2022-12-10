@@ -19,12 +19,22 @@ var globals = {
 };
 
 // disable..
-var arrow_keys_handler = function(e) {
-    switch(e.code){
-        case "ArrowUp": case "ArrowDown": case "ArrowLeft": case "ArrowRight": 
-            case "Space": e.preventDefault(); break;
-        default: break; // do not block other keys
-    }
+var arrow_keys_handler = function (e) {
+  switch (e.code) {
+    case "ArrowUp":
+    case "ArrowDown":
+    case "ArrowLeft":
+    case "ArrowRight":
+    case "KeyW":
+    case "KeyA":
+    case "KeyS":
+    case "KeyD":
+    case "Space":
+      e.preventDefault();
+      break;
+    default:
+      break; // do not block other keys
+  }
 };
 window.addEventListener("keydown", arrow_keys_handler, false);
 
@@ -41,28 +51,28 @@ if (testJSON(cartridge)) {
   }
 
   // Adjust global map size, as necessary
-    if((scenes.s).length !== (globals.MAP_height * globals.MAP_width)){
-      console.log("This cartridge is sized differently. Adjusting the player...");      
-      globals.MAP_width = Math.sqrt((scenes.s).length);
-      globals.MAP_height = Math.sqrt((scenes.s).length);
-    }
-  
+  if ((scenes.s).length !== (globals.MAP_height * globals.MAP_width)) {
+    console.log("This cartridge is sized differently. Adjusting the player...");
+    globals.MAP_width = Math.sqrt((scenes.s).length);
+    globals.MAP_height = Math.sqrt((scenes.s).length);
+  }
+
   $("#play h2").text("Engine");
-  
-    setTimeout(function () {
-      $("#play").focus();
-      Tplayer.init();
-      
-      
-       // What font?
-    if(scenes.font !== "default"){
+
+  setTimeout(function () {
+    $("#play").focus();
+    Tplayer.init();
+
+
+    // What font?
+    if (scenes.font !== "default") {
       $("#e-play textarea").css("font-family", scenes.font);
       $("textarea").css("font-family", scenes.font);
     }
-      
-      
-    }, 1500);
-  
+
+
+  }, 1500);
+
 
 } else {
   $("#play h2").text("Corrupted or empty game");
@@ -110,28 +120,28 @@ const Tplayer = {
     Tplayer.clearGame();
 
     // load the cartridge, if there is one
-    if(scenes.cartridge !== null){
+    if (scenes.cartridge !== null) {
       Tplayer.loadCartridge();
-      
-       $("#e-cartridge").fadeIn(1000);
+
+      $("#e-cartridge").fadeIn(1000);
 
       setTimeout(function () {
 
         $("#e-cartridge").fadeOut("slow");
         $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
-       
+
         // What font?
-    if(scenes.font !== "default"){
-      $("#e-play textarea").css("font-family", scenes.font);
-    }
+        if (scenes.font !== "default") {
+          $("#e-play textarea").css("font-family", scenes.font);
+        }
         $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       }, 1800);
-      
-    } else{ 
+
+    } else {
       $("#e-cartridge").fadeOut();
       $("#play").css("pointer-events", "auto").css("cursor", "auto");
     }
-   
+
     $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(1500).css("pointer-events", "auto").css("cursor", "auto");
 
     // load in starting scene
@@ -142,7 +152,7 @@ const Tplayer = {
   loadCartridge: function () {
 
     $("#play h2").text("Starting game...");
-    
+
     Tplayer.loadObjects(scenes.cartridge.objects, "#e-cartridge");
 
     $("#e-cartridge").css("background", scenes.cartridge.color);
@@ -157,26 +167,26 @@ const Tplayer = {
 
     Tplayer.active = scenes.s[c.getSceneIndex(x, y)];
 
-    
+
     // change text
     setTimeout(function () {
 
-     // Is there a song?
-    if(scenes.audio !== null){
-      $("#audio-player-controller").fadeIn();
-      Tplayer.playSong();
-    }
-      
+      // Is there a song?
+      if (scenes.audio !== null) {
+        $("#audio-player-controller").fadeIn();
+        Tplayer.playSong();
+      }
+
       $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
       $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       Tplayer.loadScene(x, y);
-      
-       // What font?
-    if(scenes.font !== "default"){
-      $("#e-play textarea").css("font-family", scenes.font);
-      $("textarea").css("font-family", scenes.font);
-    }
-      
+
+      // What font?
+      if (scenes.font !== "default") {
+        $("#e-play textarea").css("font-family", scenes.font);
+        $("textarea").css("font-family", scenes.font);
+      }
+
     }, 1500);
   },
 
@@ -199,7 +209,7 @@ const Tplayer = {
 
     Tplayer.clearScene();
   },
-    
+
   playSong: function (song) {
 
     // load the song into the player
@@ -211,9 +221,9 @@ const Tplayer = {
     } else {
       s = "https://engine.lol/alpha/assets/audio/" + scenes.audio;
     }
-    
+
     $("#_audio")[0].currentTime = 0;
-    
+
 
     $("._audiotitle").text(s);
     $("#_audio").attr("src", s);
@@ -254,10 +264,10 @@ const Tplayer = {
 
   // iterates through navigation options on the active scene and updates it accordingly based on what's possible
   updateSceneNavigation() {
-    
+
     // clear keydown queries
     $("#play").off("keydown");
-    
+
     // clear all visual styles
     $("#e-controls a").each(function (i, e) {
       $(this)
@@ -282,21 +292,21 @@ const Tplayer = {
           $(this).addClass("-inaccessible");
           return;
         }
-        
+
         // okay, scene is accessible
 
         $(this)
           .attr("data-target", target[0] + "," + target[1])
           .bind("click", Tplayer.loadTarget);
-        
-        
+
+
         // add keybinding
-         $("#play").on('keydown', function(event) {
-        if ( (event.keyCode == 38 && direction == "n") || (event.keyCode == 39 && direction == "e") || (event.keyCode == 37 && direction == "w") || (event.keyCode == 40 && direction == "s")) {
-          Tplayer.loadScene(target[0], target[1]);
-        }
-      });
-        
+        $("#play").on('keydown', function (event) {
+          if ((event.keyCode == 38 && direction == "n") || (event.keyCode == 39 && direction == "e") || (event.keyCode == 37 && direction == "w") || (event.keyCode == 40 && direction == "s")) {
+            Tplayer.loadScene(target[0], target[1]);
+          }
+        });
+
       }
 
     });
@@ -386,14 +396,14 @@ const Tplayer = {
     // update the scene navigation
     Tplayer.updateSceneNavigation();
 
-  }, 
-  
+  },
+
   // load objects from [objects] to [output-div]
-  loadObjects: function(objects, div){
-    
-      (objects).forEach(function (e) {
+  loadObjects: function (objects, div) {
+
+    (objects).forEach(function (e) {
       let newSrc = "";
-      
+
       newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
 
       newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
@@ -415,7 +425,7 @@ const Tplayer = {
       let newObj = $(newSrc).hide().fadeIn(500);
       $(div).append(newObj);
     })
-    
+
   },
 
   loadColor: function () {
@@ -431,7 +441,7 @@ const Tplayer = {
     $("body").css("background", c);
 
   },
-  
+
   /* clearScene deletes all objects from the scene */
   clearScene: function () {
     $("#e-text textarea").val("");
@@ -445,21 +455,21 @@ const Tplayer = {
 
 
 // downloader 
-function getcode(){
-  
-  var cartridge_code = JSON.stringify( scenes); 
-  console.log(cartridge_code);
-  
-  $("#downloader").html(cartridge_code);
-  
-    var range = document.createRange();
-  range.selectNode(document.getElementById("downloader"));
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
+function getcode() {
 
-   document.execCommand("copy");
-    window.getSelection().removeAllRanges();
-  
+  var cartridge_code = JSON.stringify(scenes);
+  console.log(cartridge_code);
+
+  $("#downloader").html(cartridge_code);
+
+  var range = document.createRange();
+  range.selectNode(document.getElementById("downloader"));
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+
   alert("Copied cartridge code to clipboard! Note that if you have funky characters or if my code was just inadequate, this might have failed... :(\nYou can play this in the 'Load Cartridge' page.");
-  
+
 }

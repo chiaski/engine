@@ -562,23 +562,6 @@ START AND EXTRAS
   cursor: pointer;
 }
 
-.engine-buttons {
-  display: block;
-  width: 100%;
-  text-align: center;
-  margin-bottom: 15vh;
-  padding-top: 1em;
-}
-.engine-buttons button {
-  margin: 0 0.25em;
-}
-.engine-buttons button#btn-play {
-  padding: 1em 5em;
-}
-.engine-buttons button#btn-clear {
-  padding: 1em 2em;
-}
-
 /* 
 
 
@@ -594,6 +577,7 @@ PLAY
   width: 512px;
   animation: pulse-engine 5s infinite;
   overflow: hidden;
+  margin-bottom: 1em;
   -webkit-transition: all 0.3s linear;
   transition: all 0.13s linear;
 }
@@ -687,10 +671,31 @@ EDITOR
 
 
 */
+#load {
+  min-height: 10vh;
+  max-width: 600px;
+}
+#load textarea#_remix {
+  resize: none;
+  display: none;
+  width: 80%;
+  height: 312px;
+  font-size: 1rem;
+  padding: 1em;
+  margin: 0.5em auto;
+  border-radius: 8px;
+  border: 1px solid #464A4B;
+}
+
 #scene_s #scene_selector,
 #map #scene_selector {
-  margin: 1em auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0.25em 0;
   text-align: center;
+  font-family: "Director";
+  letter-spacing: -1px;
 }
 #scene_s #scene_selector ._s,
 #map #scene_selector ._s {
@@ -699,8 +704,8 @@ EDITOR
   background: #000000;
   color: #edede8;
   border: 1px solid #000000;
+  font-size: 0.8rem;
   vertical-align: middle;
-  font-family: "Fa Sysfont C";
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transform: scale(0.98);
@@ -732,54 +737,43 @@ EDITOR
   transform: translateY(-5px);
 }
 
-#load {
-  max-width: 600px;
+#scene_selector ._s {
+  color: #edede8;
+  flex-basis: 20%;
+  min-height: 30px;
+  display: inline-block;
+  line-height: 100%;
+  padding: 0.5em;
+  margin: 0.1em;
+  border-radius: 2px;
+  text-align: center;
+  transition: all 0.13s linear;
+  box-shadow: 0 0 5px #edede8;
 }
-#load button#btn-remixcartridge {
-  padding: 0.75em 2.5em;
+
+#scene_s #scene_selector {
+  max-width: 260px;
 }
-#load textarea#_remix {
-  resize: none;
-  display: none;
-  width: 80%;
-  height: 312px;
-  font-size: 1rem;
-  padding: 1em;
-  margin: 1em 0;
-  border-radius: 8px;
-  border: 1px solid #464A4B;
+#scene_s #scene_selector ._s {
+  font-size: 0.5em;
+  margin: -0.01em;
+  border-radius: 3px;
 }
 
 #map {
   max-width: 500px;
-  margin: 0 auto;
   margin-bottom: 10vh;
 }
 #map #scene_selector {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 450px;
 }
-#map #scene_selector ._s {
-  color: #edede8;
-  width: 55px;
-  height: 55px;
-  padding: 0.5em;
-  margin: 0.2em;
-  font-size: 1em;
-  border-radius: 6px;
-  vertical-align: middle;
-  text-align: center;
-}
-#map #scene_selector ._s.__start::after {
-  padding: 0.5em 0;
+#map ._s.__start::after {
   display: block;
   content: "Start";
   color: #edede8;
   text-transform: uppercase;
   font-size: 0.6em;
 }
-
 hr {
   height: 0;
   width: 100%;
@@ -789,40 +783,8 @@ hr {
   margin: 0;
 }
 
-#scene_s {
-  margin-top: 0;
-}
-#scene_s ._whatscene {
-  display: inline-block;
-  padding-left: 0.25em;
-  border-right: 0;
-}
-#scene_s #scene_selector {
-  max-width: 260px;
-  padding: 0.25em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0;
-  border-top: 0;
-}
-#scene_s #scene_selector ._s {
-  flex-basis: 17%;
-  font-size: 0.5em;
-  line-height: 24px;
-  margin: 0.25em;
-  border-radius: 3px;
-  -webkit-transition: all 0.13s linear;
-  -moz-transition: all 0.13s linear;
-  -ms-transition: all 0.13s linear;
-  -o-transition: all 0.13s linear;
-  transition: all 0.13s linear;
-  border: 0.6px solid #edede8;
-  box-shadow: 0 0 5px #edede8;
-}
-
 #audio-player {
-  width: 450px;
+  max-width: 450px;
   justify-content: center;
   flex-wrap: wrap;
 }

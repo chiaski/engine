@@ -11,10 +11,18 @@
   background: $white;
   border-radius: 8px;
   margin: 0 auto;
+  margin-bottom: 20vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  min-width: 400px;
+
+  .-content {
+    padding: 2.5vh 0;
+    width: 100%;
+    text-align: center;
+  }
 
   h2:first-child {
     letter-spacing: 0;
@@ -22,6 +30,7 @@
     border-bottom: .5px solid;
   }
 }
+
 
 // COMPONENTS
 
@@ -39,6 +48,8 @@ button {
 }
 
 button.--small {
+  border: 0;
+  background: 0;
   margin: 0;
   font-size: .6rem;
 }
@@ -53,4 +64,51 @@ button:hover {
   img {
     filter: invert(1);
   }
+}
+
+button.--destructive:hover {
+  color: red;
+  background: none;
+  box-shadow: none;
+}
+
+
+// WINDOWS
+
+
+.engine-buttons {
+  text-align: center;
+  margin-bottom: 15vh;
+
+  button {
+    margin: 0 .25em;
+  }
+
+  button#btn-play {
+    padding: 1em 5em;
+    border-radius: 8px;
+  }
+
+  button#btn-clear {
+    margin-top: .5em;
+    padding: .5em 2em;
+  }
+
+
+  button.--med {
+    border: 0;
+    background: 0;
+  }
+
+  button.--med:hover {
+    box-shadow: none;
+    color: #000;
+  }
+
+
+
+}
+
+.engine-buttons:hover > button:not(:hover) {
+  opacity: 0.6;
 }

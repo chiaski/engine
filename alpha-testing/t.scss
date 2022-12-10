@@ -653,27 +653,6 @@ START AND EXTRAS
 }
 
 
-.engine-buttons {
-  display: block;
-  width: 100%;
-  text-align: center;
-  margin-bottom: 15vh;
-  padding-top: 1em;
-
-  button {
-    margin: 0 .25em;
-  }
-
-  button#btn-play {
-    padding: 1em 5em;
-  }
-
-  button#btn-clear {
-    padding: 1em 2em;
-  }
-
-}
-
 
 
 /* 
@@ -693,6 +672,7 @@ PLAY
   width: 512px;
   animation: pulse-engine 5s infinite;
   overflow: hidden;
+  margin-bottom: 1em;
 
   // handles pulse animation transitions
 
@@ -818,6 +798,27 @@ EDITOR
 
 
 
+// REMIX CARTRIDGE
+#load {
+
+  min-height: 10vh;
+  max-width: 600px;
+
+  textarea#_remix {
+    resize: none;
+    display: none;
+    width: 80%;
+    height: 312px;
+    font-size: 1rem;
+    padding: 1em;
+    margin: .5em auto;
+    border-radius: 8px;
+    border: 1px solid $off-dark;
+  }
+
+}
+
+
 // –––––––––
 // MAP
 // VIEW
@@ -829,8 +830,13 @@ EDITOR
 
   #scene_selector {
 
-    margin: 1em auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: .25em 0;
     text-align: center;
+    font-family: $serif-alt;
+    letter-spacing: -1px;
 
     ._s {
       display: inline-block;
@@ -838,8 +844,8 @@ EDITOR
       background: $c;
       color: $l;
       border: 1px solid $c;
+      font-size: .8rem;
       vertical-align: middle;
-      font-family: $mono;
       -webkit-transition: all .19s cubic-bezier(.17, .67, .83, .67);
       transition: all .19s cubic-bezier(.17, .67, .83, .67);
       transform: scale(0.98);
@@ -873,79 +879,63 @@ EDITOR
     }
 
   }
-
 }
 
-// REMIX CARTRIDGE
-#load {
 
-  max-width: 600px;
+// MAPS
 
-  button#btn-remixcartridge {
-    padding: .75em 2.5em;
-  }
+#scene_selector {
 
-  textarea#_remix {
-    resize: none;
-    display: none;
-    width: 80%;
-    height: 312px;
-    font-size: 1rem;
-    padding: 1em;
-    margin: 1em 0;
-    border-radius: 8px;
-    border: 1px solid $off-dark;
+  ._s {
+    color: $l;
+    flex-basis: 20%;
+    min-height: 30px;
+    display: inline-block;
+    line-height: 100%;
+    padding: .5em;
+    margin: .1em;
+    border-radius: 2px;
+    text-align: center;
+    transition: all .13s linear;
+    box-shadow: 0 0 5px $l;
   }
 
 }
 
-
-// OVERALL MAP
-
-#map {
-
-  max-width: 500px;
-  margin: 0 auto;
-  margin-bottom: 10vh;
-
-
+// PER SCENE MAP
+#scene_s {
   #scene_selector {
-
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
+    max-width: 260px;
 
     ._s {
-      color: $l;
-      width: 55px;
-      height: 55px;
-      padding: .5em;
-      margin: .2em;
-      font-size: 1em;
-      border-radius: 6px;
-      vertical-align: middle;
-      text-align: center;
+      font-size: .5em;
+      margin: -0.01em;
+      border-radius: 3px;
     }
-
-    ._s.__active {
-      //      border: 5px solid hotpink;
-    }
-
-    ._s.__start::after {
-      padding: .5em 0;
-      display: block;
-      content: "Start";
-      color: $l;
-      text-transform: uppercase;
-      font-size: .6em;
-    }
+  }
+}
 
 
+#map {
+  max-width: 500px;
+  margin-bottom: 10vh;
+
+  #scene_selector {
+    width: 450px;
   }
 
+  ._s.__start::after {
+    display: block;
+    content: "Start";
+    color: $l;
+    text-transform: uppercase;
+    font-size: .6em;
+  }
+
+  ._s {}
+
 }
+
 
 
 hr {
@@ -957,50 +947,6 @@ hr {
   margin: 0;
 }
 
-// PER SCENE MAP
-
-#scene_s {
-
-  margin-top: 0;
-
-  ._whatscene {
-    display: inline-block;
-    padding-left: .25em;
-    border-right: 0;
-  }
-
-
-  #scene_selector {
-
-    max-width: 260px;
-    padding: .25em;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    margin: 0;
-    border-top: 0;
-
-    ._s {
-      flex-basis: 17%;
-      font-size: .5em;
-      line-height: 24px;
-      margin: .25em;
-      border-radius: 3px;
-      -webkit-transition: all .13s linear;
-      -moz-transition: all .13s linear;
-      -ms-transition: all .13s linear;
-      -o-transition: all .13s linear;
-      transition: all .13s linear;
-      border: .6px solid $l;
-      box-shadow: 0 0 5px $l;
-    }
-
-
-  }
-
-}
 
 
 
@@ -1021,7 +967,7 @@ hr {
 
 #audio-player {
 
-  width: 450px;
+  max-width: 450px;
   justify-content: center;
   flex-wrap: wrap;
 

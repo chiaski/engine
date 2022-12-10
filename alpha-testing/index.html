@@ -4,7 +4,7 @@
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>engine.lol (alpha 1.15)</title>
+  <title>engine.lol (alpha 1.2)</title>
   <meta property="og:image" content="https://engine.lol/alpha/preview.png">
   <meta name="description" content="A tiny storytelling tool that may break at any moment, just like you." />
   <meta name="author" content="Chia" />
@@ -37,7 +37,7 @@
   <div id="info">
     <span title="That's meeee.">Engine</span>
 
-    <span class="_version" title="Please hard refresh regularly! This is my way of saying that it's not very good right now...">Alpha 1.15</span>
+    <span class="_version" title="Please hard refresh regularly! This is my way of saying that it's not very good right now...">Alpha 1.2</span>
   </div>
 
   <div id="jump">
@@ -127,47 +127,17 @@
       <h2>
         Load or Remix Cartridge
       </h2>
+      <div class="-content">
+        <textarea id="_remix" placeholder="paste a cartridge code here to start editing it. note this deletes your existing scene!"></textarea>
 
-      <textarea id="_remix" placeholder="paste a cartridge code here to start editing it. note this deletes your existing scene!"></textarea>
+        <button id="btn-remixcartridge" class="--small" title="Paste in a code and build something">remix a game</button>
 
-      <button id="btn-remixcartridge" title="Paste in a code and build something">remix a game</button>
-      <br>
-
-      <div class="controls-remixcartridge" style="display: none;">
-        <button id="btn-remixcartridge-back">back</button>
-        <button id="btn-remixcartridge-load">load cartridge</button>
-      </div>
-    </div>
-
-    <!--  WINDOW: MAP  -->
-
-
-    <section id="-map">
-      <a id="window-map" style="height: 10vh; display: block;"></a>
-
-      <div id="map" class="window">
-
-        <h2>
-          <span>Map View</span>
-          Viewing the Map of the World
-        </h2>
-
-        <div id="scene_selector">
-
-          <hr>
-
-          <div id="sss"></div>
-
-          <hr>
-          <hr>
-
-          <div id="map-controls">
-            <button id="btn-changestartingscene" title="I am at the center of everything that happens">change starting scene</button>
-            <button id="btn-cartridge">edit cartridge (game cover)</button>
-          </div>
+        <div class="controls-remixcartridge" style="display: none;">
+          <button id="btn-remixcartridge-load">load cartridge</button><br>
+          <button id="btn-remixcartridge-back" class="--small">back</button>
         </div>
       </div>
-    </section>
+    </div>
 
 
     <!--  WINDOW: AUDIO PLAYER  -->
@@ -194,23 +164,57 @@
       <div id="audio-player" class="window">
         <h2>Cartridge Audio</h2>
 
-        <div class="_controlstext">
-          <marquee>You can pick a little song for your game... Make sure it's a good song!</marquee>
-        </div>
-
-        <div class="controls-audio">
-          <div class="controls-audio-loader">
-
-            <select name="audio-category" class="_audio-category">
-              <option value="none" selected disabled hidden>pick audio</option>
-            </select>
-
-            <button id="btn-controls-audio-loadsong">load song</button>
-            <button id="btn-controls-audio-previewsong" title="Listen to the song in another window...">preview song</button>
+        <div class="-content">
+          <div class="_controlstext">
+            <marquee>You can pick a little song for your game... Make sure it's a good song!</marquee>
           </div>
 
+          <div class="controls-audio">
+            <div class="controls-audio-loader">
+
+              <select name="audio-category" class="_audio-category">
+                <option value="none" selected disabled hidden>pick audio</option>
+              </select>
+
+              <button id="btn-controls-audio-loadsong">load song</button>
+              <button id="btn-controls-audio-previewsong" title="Listen to the song in another window...">preview song</button>
+            </div>
+
+          </div>
         </div>
       </div>
+
+      <!--  WINDOW: MAP  -->
+
+
+      <section id="-map">
+        <a id="window-map" style="height: 10vh; display: block;"></a>
+
+        <div id="map" class="window">
+          <h2>
+            <span>Map View</span>
+          </h2>
+
+          <div class="-content">
+            <div id="scene_selector">
+
+              <hr>
+
+              <div id="sss"></div>
+
+              <hr>
+              <hr>
+
+              <div id="map-controls">
+                <button id="btn-changestartingscene" title="I am at the center of everything that happens">change starting scene</button>
+                <button id="btn-cartridge">edit cartridge (game cover)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
     </section>
 
     <!--  WINDOW: ENGINE  -->
@@ -221,7 +225,7 @@
     <section id="-editor">
       <div class="window" id="engine-window">
         <h2>
-          <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span> <span class="_whatscene" title="The coordinates of the scene you're currently editing!">0,0&nbsp;</span> Objects left: <span class="_howmany" title="You can only have a limited amount of images in your scene. Beauty in restriction...">0</span>
+          <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span> <span class="_whatscene" title="The coordinates of the scene you're currently editing!">0,0&nbsp;</span>
         </h2>
 
         <div id="engine">
@@ -337,6 +341,10 @@
 
           <div class="controls-selected">
 
+            <div class="-metadata">
+              Objects left: <span class="_howmany" title="You can only have a limited amount of images in your scene. Beauty in restriction...">0</span>
+            </div>
+
             <button data-action="delete" onclick="objControls.delObj();">delete</button>
 
             <button onclick="objControls.size('up');">grow</button>
@@ -401,11 +409,12 @@
           <img src="assets/icon-play.gif" style="width:20px;margin: -.5em 0;padding: 0;">
           Play & Preview
         </button>
-        <button id="btn-clear" title="Remove your game preview and clear everything up!">Clear</button>
+        <br>
+        <button id="btn-clear" class="--small --destructive" title="Remove your game preview and clear everything up!">Clear</button>
         <br><br>
-        <button id="btn-download" title="Download your game into an HTML file that you can play offline...">Download HTML File</button>
-        <button id="btn-getcode" title="Get the cartridge code for your game and share it with friends or to the gallery!">Get Cartridge Code</button>
-        <button onclick="window.open( 'https://forms.gle/Thifa9CL7fQpbXwT8', '_blank');" title="Want to submit your game to the world? Go into the gallery!">Submit to Gallery</button>
+        <button class="--med" id="btn-download" title="Download your game into an HTML file that you can play offline...">Download HTML File</button>
+        <button class="--med" id="btn-getcode" title="Get the cartridge code for your game and share it with friends or to the gallery!">Get Cartridge Code</button>
+        <button class="--med" onclick="window.open( 'https://forms.gle/Thifa9CL7fQpbXwT8', '_blank');" title="Want to submit your game to the world? Go into the gallery!">Submit to Gallery</button>
       </div>
     </section>
 
