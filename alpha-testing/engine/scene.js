@@ -71,7 +71,7 @@ $("#btn-remixcartridgestart").on("click", function () {
   if (!confirm("Do you want to paste in a cartridge code and start editing an existing game? (Note that this wipes all of your current progress!)")) {
     return;
   }
-  
+
   document.getElementById('window-load').scrollIntoView();
 
   $("#btn-remixcartridge").hide();
@@ -150,13 +150,13 @@ $("#btn-remixcartridge-load").on("click", function () {
   // copy
   scenes.audio = new_scenes.audio;
   scenes.font = new_scenes.font;
-  
-    if(scenes.font !== "default"){
-      
-      $("#e-play textarea").css("font-family", scenes.font);
-      $("#e textarea").css("font-family", scenes.font);
-    }
-  
+
+  if (scenes.font !== "default") {
+
+    $("#e-play textarea").css("font-family", scenes.font);
+    $("#e textarea").css("font-family", scenes.font);
+  }
+
   mapControls.clearMap();
   sceneControls.reassignScenes(new_scenes);
   mapControls.loadMap(scenes);
@@ -165,9 +165,9 @@ $("#btn-remixcartridge-load").on("click", function () {
 
   sceneControls.switchScene(i);
 
-    document.getElementById("window-engine").scrollIntoView();
-  
-  
+  document.getElementById("window-engine").scrollIntoView();
+
+
   $("#map .controls-remixcartridge").hide();
 
   $("#map textarea#_remix").val("").hide();
@@ -281,15 +281,15 @@ const sceneControls = {
   
   */
   switchScene: function (i, o) {
-    
+
     // give a lil tutorial
-      
-      if(chance(.1)){
-        
-        let text_tips = ["We're going to another place!", "What's your favorite map?", "Do you think that the browser can be a world?", "Do you feel the space between us on the internet?", "How weird that one click can bring us nearly everywhere else... there's no need to walk, run, or plan for transport. All you need is a URL and a dream.", "Deeper into the dungeon...", "When does a website begin feeling distant?", "When does a website begin feeling familiar?"];
-        
-        tip("Moving around the map", pick(text_tips), "tip");
-      }
+
+    if (chance(.1)) {
+
+      let text_tips = ["We're going to another place!", "What's your favorite map?", "Do you think that the browser can be a world?", "Do you feel the space between us on the internet?", "How weird that one click can bring us nearly everywhere else... there's no need to walk, run, or plan for transport. All you need is a URL and a dream.", "Deeper into the dungeon...", "When does a website begin feeling distant?", "When does a website begin feeling familiar?"];
+
+      tip("Moving around the map", pick(text_tips), "tip");
+    }
 
     // first, save scene
     sceneControls.saveScene();
@@ -326,6 +326,11 @@ const sceneControls = {
   /* saveScene writes all objects and settings to the active scene */
   saveScene: function () {
     libraryText.saveText();
+
+    if (libraryText.isTextOn()) {
+      libraryText.toggleText();
+    }
+
     objControls.saveObjects();
   },
   /* clearScene deletes all objects from the scene */

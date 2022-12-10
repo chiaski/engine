@@ -100,7 +100,6 @@ const libraryText = {
 
     $("#e textarea").css("font-family", font_random);
     $("#e-play textarea").css("font-family", font_random);
-
   },
 
   // loadText: laod text into active scene
@@ -205,14 +204,13 @@ const libraryControls = {
       $("._howmany").text(active_scene.object_count);
     }
 
-    // check if text needs to be toggled
+
     if (libraryText.isTextOn()) {
       libraryText.toggleText();
     }
 
 
     let o = objControls.addObj($(this).attr("src"));
-
     objControls.moveObj(o);
   },
 
