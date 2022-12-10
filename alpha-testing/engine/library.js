@@ -32,7 +32,7 @@ const libraryText = {
     // click, edit text
     $("button#btn-toggletext").on("click", function () {
 
-      if (chance(.06)) {
+      if (chance(.03)) {
 
         let text_tips = ["Text can be used for speech, but it can also be used for backgrounds... or you can make a text-only game.", "Are you ready for what you have to say to be shown to the world?", "Words are a magical part of our lives...", "Texts can connect us all...", "An asterisk can be a list, a star, a flower...", "I love words.", "Ahh! Sometimes spaces and line breaks don't consistently export. Sorry about that. I'm working on myself.", "You don't always have to say something new...", "What is a word, really?", "What kind of language can you shape here?", "I'm listening... I know they'll listen, too."]
 
@@ -54,13 +54,19 @@ const libraryText = {
     $("#" + libraryText.$TEXT_EDITOR).keyup(function () {
       libraryText.saveText();
     });
+  },
 
+  isTextOn: function () {
+    if ($("button#btn-toggletext").hasClass("__toggled")) {
+      return true;
+    }
 
+    return false;
   },
 
   toggleText: function () {
 
-    if ($("button#btn-toggletext").hasClass("__toggled")) {
+    if (libraryText.isTextOn()) {
       $("button#btn-toggletext").text("Click to edit text");
       window.removeEventListener("keydown", arrow_keys_handler, false);
       window.addEventListener("keydown", arrow_keys_handler, false);
@@ -197,8 +203,13 @@ const libraryControls = {
     } else {
       active_scene.object_count++;
       $("._howmany").text(active_scene.object_count);
-
     }
+
+    // check if text needs to be toggled
+    if (libraryText.isTextOn()) {
+      libraryText.toggleText();
+    }
+
 
     let o = objControls.addObj($(this).attr("src"));
 
