@@ -21,8 +21,11 @@ function Scene(x, y, active, color, object_count) {
 
   // background color of the scene
   this.color = color;
-  // any textoverlay
+  // any text
   this.textoverlay = "";
+  // any effects
+  this.effect = "";
+  this.effects = "";
 
 
   this.object_count = 0;
@@ -251,6 +254,8 @@ const sceneControls = {
     target.object_count = source.object_count;
     target.objects = source.objects;
     target.textoverlay = source.textoverlay;
+    target.effect = source.effect;
+    target.effects = source.effects;
 
   },
   /* 
@@ -266,7 +271,7 @@ const sceneControls = {
       return false;
     }
 
-    if (active_scene.x == s.x && active_scene.y == s.y && active_scene.textoverlay == s.textoverlay && active_scene.color == s.color) {
+    if (active_scene.x == s.x && active_scene.y == s.y && active_scene.textoverlay == s.textoverlay && active_scene.effect == s.effect && active_scene.effects == s.effects && active_scene.color == s.color) {
       return true;
     }
     return false;
@@ -300,6 +305,7 @@ const sceneControls = {
 
     sceneControls.loadColor();
     sceneControls.loadText();
+    sceneControls.loadEffect();
     sceneControls.loadObjects();
 
     console.log("Switched scene to " + active_scene.x + "," + active_scene.y);
@@ -331,6 +337,7 @@ const sceneControls = {
       libraryText.toggleText();
     }
 
+    libraryEffects.saveEffect();
     objControls.saveObjects();
   },
   /* clearScene deletes all objects from the scene */
@@ -361,6 +368,12 @@ const sceneControls = {
 
     $("#e #e-text textarea").hide().delay(100).fadeIn("slow").val(t);
 
+  },
+
+  loadEffect: function () {
+    // loads effect into the editor
+    libraryEffects.clear();
+    libraryEffects.change(active_scene.effect);
   },
 
   /*
@@ -400,6 +413,7 @@ const sceneControls = {
     $(".sidebar-right").fadeOut("slow");
 
     libraryText.saveText();
+    libraryEffects.saveEffect();
     objControls.saveObjects();
     sceneControls.clearScene();
     let c = scenes.cartridge;

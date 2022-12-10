@@ -289,6 +289,9 @@
 
           <div id="e">
 
+            <div id="e-effects">
+            </div>
+
             <div id="e-text">
               <textarea id="texteditor" maxlength="550" rows="17"></textarea>
             </div>
@@ -309,7 +312,22 @@
             </div><br>
 
             <div id="library-scene-controls" class="panel">
-              <h2>Scene Controls</h2><br>
+              <h2>Scene Controls</h2>
+
+              <!-- SCENE / EFFECTS -->
+
+              <select name="effects-category" class="_scene-category">
+                <option value="none" selected>pick effect</option>
+                <option value="flowerpetals">flower petals</option>
+                <option value="softblur">soft blur</option>
+                <option value="mediumblur">medium blur</option>
+                <option value="hardblur">hard blur</option>
+                <option value="lightshadow">light vignette</option>
+                <option value="mediumshadow">medium vignette</option>
+              </select>
+              <br>
+
+              <!-- SCENE / CONTROLS -->
 
 
               <button id="btn-scenecontrols-copyscene" title="Copy the contents of this scene and paste it to another... WARNING: BUGGY!">copy</button>
@@ -397,6 +415,9 @@
         <!--  PLAY AREA GOES HERE  -->
 
         <div id="e-play">
+
+          <div id="e-effects">
+          </div>
 
           <div id="e-text">
             <textarea maxlength="550"></textarea>

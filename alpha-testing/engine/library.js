@@ -12,6 +12,92 @@ console.log("library.js loaded");
 
 
 
+
+/* 
+
+  libraryEffects 
+  handles all effects functions...
+  
+  
+*/
+
+const libraryEffects = {
+
+  change: function (what) {
+
+    libraryEffects.clear();
+
+    if (!libraryEffects.exists(what)) {
+      $("#e #e-effects").data("active", "none");
+      $("select[name='effects-category']").val("none");
+      return;
+    }
+
+    $("#e #e-effects").data("active", what);
+    $("select[name='effects-category']").val(what);
+
+
+    switch (what) {
+      case "flowerpetals":
+        libraryEffects.changeBG("flowerpetals.gif");
+        $("#e #e-effects").css("background-size", "cover");
+        break;
+
+      case "softblur":
+        $("#e #e-effects").css("backdrop-filter", "blur(1px)");
+        break;
+
+      case "mediumblur":
+        $("#e #e-effects").css("backdrop-filter", "blur(3px)");
+        break;
+
+      case "hardblur":
+        $("#e #e-effects").css("backdrop-filter", "blur(12px)");
+        break;
+
+      case "lightshadow":
+        $("#e #e-effects").css("box-shadow", "inset 0 0 50px #fff");
+        break;
+
+      case "mediumshadow":
+        $("#e #e-effects").css("box-shadow", "inset 0 0 100px #fff");
+        break;
+    }
+
+    libraryEffects.saveEffect();
+  },
+
+  exists: function (what) {
+    return $("select[name='effects-category']  option[value='" + what + "']").length > 0;
+  },
+
+
+  // saveEffect: save effect into active scene
+  saveEffect: function () {
+    active_scene.effect = $("#e-effects").data("active");
+    active_scene.effects = $("#e-effects").attr("style");
+  },
+
+  changeBG: function (what) {
+
+    $("#e #e-effects").css("background-image", "url('https://engine.lol/alpha/assets/effects/" + what + "'");
+  },
+
+  clear: function () {
+    $("#e #e-effects")
+      .css("mix-blend-mode", "none")
+      .css("backdrop-filter", "none")
+      .css("filter", "none")
+      .css("box-shadow", "none")
+      .css("color", "none")
+      .css("background", "none")
+      .css("background-size", "cover")
+      .css("background-image", "none");
+  }
+
+}
+
+
 /* 
 
   libraryText 
@@ -119,7 +205,6 @@ const libraryText = {
   saveText: function () {
 
     let t = $("#" + libraryText.$TEXT_EDITOR).val();
-    //    console.log(t);
     // preserve whitespace
 
     if (t !== null) {
@@ -235,13 +320,13 @@ const libraryControls = {
 
   clear: function () {
 
-
   }
 }
 
 
+// LISTENERS
 
-
+// library
 $("#library select[name='library-category']").change(function () {
 
   let n = $("#library select[name='library-category']").val();
@@ -253,12 +338,22 @@ $("#library select[name='library-category']").change(function () {
 });
 
 
+// scene 
+$("#library-scene-controls select[name='effects-category']").change(function () {
+  let n = $("#library-scene-controls select[name='effects-category']").val();
+
+  let t = $("#library-scene-controls select[name='effects-category']").find(":selected").attr("title");
+
+  libraryEffects.change(n);
+});
+
+
+
 $("#objectinteractions select[name='objinteraction-select']").change(function () {
 
   let how = $("#objectinteractions select[name='objinteraction-select']").val();
 
   $("#e img.obj[data-selected='1']").attr("data-interaction", how);
-
 });
 
 

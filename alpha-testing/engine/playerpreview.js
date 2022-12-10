@@ -232,6 +232,9 @@ const Tplayer = {
     // add text
     $("#e-play textarea").hide().delay(300).fadeIn("slow").val((Tplayer.active.textoverlay).replace(/\\n/g, "\n").replace(/&nbsp;/g, " "));
 
+    // add effect
+    $("#e-play #e-effects").attr("style", Tplayer.active.effects);
+
     // add objects
     ((Tplayer.active).objects).forEach(function (e) {
       let newSrc = "";
@@ -283,11 +286,8 @@ const Tplayer = {
   /* clearScene deletes all objects from the scene */
   clearScene: function () {
 
-    // first, save objects on scene
-    //    objControls.saveObjects();
-
-
-    $("#e-play textarea")
+    $("#e-play #e-effects").css("background-image", "none").css("background", "none").css("backdrop-filter", "none").css("box-shadow", "none");
+    $("#e-play textarea").val("");
 
     $("#e-play img.obj").each(function () {
       $(this).remove();
