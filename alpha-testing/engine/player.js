@@ -14,6 +14,23 @@ console.log("Plug and play for Engine: engine.lol/alpha/player.html");
 var cartridge = null;
 var scenes = null;
 
+
+// arrow key navigation
+var arrow_keys_handler = function (e) {
+  switch (e.code) {
+    case "ArrowUp":
+    case "ArrowDown":
+    case "ArrowLeft":
+    case "ArrowRight":
+    case "Space":
+      e.preventDefault();
+      break;
+    default:
+      break; // do not block other keys
+  }
+};
+
+
 function testJSON(text) {
   if (typeof text !== "string") {
     return false;
@@ -64,6 +81,10 @@ $("#btn-loadcartridge").on("click", function () {
     $("#e-loadcartridge").fadeOut();
 
     $("#btn-play").css("display", "inline-block").fadeIn("slow").on("click", function () {
+      //      $("document")//        .focus()
+      //        .attr("tabindex", 0);
+      window.addEventListener("keydown", arrow_keys_handler, false);
+
       Tplayer.init();
       $(this).text("RELOAD");
     });
@@ -133,7 +154,7 @@ const Tplayer = {
         $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       }, 1800);
 
-      $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(1500).css("pointer-events", "auto").css("cursor", "auto");
+      $("#e-play").css("cursor", "not-allowed").css("pointer-events", "none").delay(1500).css("pointer-events", "auto").css("cursor", "auto");
 
     } else {
       $("#e-cartridge").fadeOut();
@@ -276,6 +297,8 @@ const Tplayer = {
   // iterates through navigation options on the active scene and updates it accordingly based on what's possible
   updateSceneNavigation() {
 
+    $("document").off("keydown");
+
     // clear all visual styles
     $("#e-controls a").each(function (i, e) {
       $(this)
@@ -293,7 +316,7 @@ const Tplayer = {
         return;
       } else {
 
-        let target = (convert.toString()).split(',');
+        var target = (convert.toString()).split(',');
 
         // next, check if a scene exists there
         if (c.getScene(target[0], target[1]) == null) {
@@ -305,6 +328,15 @@ const Tplayer = {
           .attr("data-target", target[0] + "," + target[1])
           .bind("click", Tplayer.loadTarget);
       }
+
+      // add keybinding
+      document.addEventListener('keydown', function (event) {
+        console.log(event.keyCode, direction);
+        if ((event.keyCode == 38 && direction == "n") || (event.keyCode == 87 && direction == "n") || (event.keyCode == 39 && direction == "e") || (event.keyCode == 68 && direction == "e") || (event.keyCode == 37 && direction == "w") || (event.keyCode == 65 && direction == "w") || (event.keyCode == 40 && direction == "s") || (event.keyCode == 83 && direction == "s")) {
+          Tplayer.loadScene(parseInt(target[0]), parseInt(target[1]));
+        }
+
+      });
 
     });
 
@@ -379,7 +411,10 @@ const Tplayer = {
     Tplayer.active = c.getScene(x, y);
 
     // add text
-    $("#e-play textarea").hide().delay(700).fadeIn("slow").val(c.textConvert(Tplayer.active.textoverlay));
+    $("#e-play textarea").hide().delay(300).fadeIn("slow").val(c.textConvert(Tplayer.active.textoverlay));
+
+    // add effects
+    $("#e-play #e-effects").attr("style", Tplayer.active.effects);
 
     // add objects
     ((Tplayer.active).objects).forEach(function (e) {
@@ -431,6 +466,8 @@ const Tplayer = {
   },
   /* clearScene deletes all objects from the scene */
   clearScene: function () {
+
+    $("#e-play #e-effects").css("background-image", "none").css("background", "none").css("backdrop-filter", "none").css("box-shadow", "none");
     $("#e-play textarea").val("");
 
     $("#e-play img.obj").each(function () {

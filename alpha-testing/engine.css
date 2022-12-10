@@ -15,7 +15,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   scroll-behavior: smooth;
   font-family: "Courier New";
 }
@@ -45,7 +46,8 @@ html, body {
   border-radius: 16px;
 }
 
-body, #e-play {
+body,
+#e-play {
   -webkit-transition: background 0.15s linear;
   -moz-transition: background 0.15s linear;
   -ms-transition: background 0.15s linear;
@@ -174,7 +176,8 @@ body {
   overflow: hidden;
 }
 
-#e-play .obj, #e-cartridge .obj {
+#e-play .obj,
+#e-cartridge .obj {
   position: absolute;
   display: inline-block;
   left: 0;
@@ -233,6 +236,12 @@ PLAY
   resize: none !important;
   pointer-events: none !important;
 }
+#play #e-effects {
+  position: absolute;
+  top: 0;
+  z-index: 16;
+  pointer-events: none;
+}
 #play #e-controls {
   position: absolute;
   width: 512px;
@@ -249,11 +258,13 @@ PLAY
   -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
-#play #e-controls a.___n, #play #e-controls a.___s {
+#play #e-controls a.___n,
+#play #e-controls a.___s {
   width: 100%;
   height: 24px;
 }
-#play #e-controls a.___e, #play #e-controls a.___w {
+#play #e-controls a.___e,
+#play #e-controls a.___w {
   width: 24px;
   height: 512px;
 }
@@ -290,28 +301,43 @@ PLAY
 }
 
 /* TEXT */
+#e-effects,
 #e-text {
-  background: none;
   position: absolute;
   height: 512px;
   width: 512px;
   top: 0;
   left: 0;
+}
+
+#e-effects {
+  background-size: cover;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* TEXT */
+#e-text {
   mix-blend-mode: difference;
-  z-index: 999;
+  z-index: 14;
   pointer-events: none;
 }
 #e-text textarea {
+  resize: none;
   padding: 0.75em;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0);
-  color: #fff;
+  color: #f7f7f7;
   font-family: "Times New Roman";
   mix-blend-mode: exclusion;
   white-space: pre-wrap;
   overflow-y: hidden;
-  resize: none !important;
+  cursor: text;
+}
+#e-text textarea.__toggled {
+  border: 0.5em solid rgba(255, 255, 255, 0.45);
+  padding: 0.3em;
 }
 
 /* CARTRIDGE */

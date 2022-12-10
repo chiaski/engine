@@ -23,10 +23,6 @@ var arrow_keys_handler = function (e) {
     case "ArrowDown":
     case "ArrowLeft":
     case "ArrowRight":
-    case "KeyW":
-    case "KeyA":
-    case "KeyS":
-    case "KeyD":
     case "Space":
       e.preventDefault();
       break;
@@ -42,7 +38,6 @@ var arrow_keys_handler = function (e) {
 const Tplayer = {
 
   active: scenes.s[0],
-
   /* 
     clearGame
     deletes and clears the game
@@ -153,8 +148,6 @@ const Tplayer = {
         }
 
       });
-
-
 
     });
 
