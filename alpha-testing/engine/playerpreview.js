@@ -148,7 +148,7 @@ const Tplayer = {
       }
       // add keybinding
       $("#play").on('keydown', function (event) {
-        if ((event.keyCode == 38 && direction == "n") || (event.keyCode == 39 && direction == "e") || (event.keyCode == 37 && direction == "w") || (event.keyCode == 40 && direction == "s")) {
+        if ((event.keyCode == 38 && direction == "n") || (event.keyCode == 87 && direction == "n") || (event.keyCode == 39 && direction == "e") || (event.keyCode == 68 && direction == "e") || (event.keyCode == 37 && direction == "w") || (event.keyCode == 65 && direction == "w") || (event.keyCode == 40 && direction == "s") || (event.keyCode == 83 && direction == "s")) {
           Tplayer.loadScene(parseInt(target[0]), parseInt(target[1]));
         }
 
@@ -345,7 +345,7 @@ $("#btn-play").on("click", function () {
   window.addEventListener("keydown", arrow_keys_handler, false);
 
   if (!played) {
-    tip("Exploring your Engine world", "Click the edges of the screen (scenes you can move to are more opaque) or use the Arrow keys to move.", "tip");
+    tip("Exploring your Engine world", "Click the edges of the screen (scenes you can move to are more opaque) or use WASD/Arrow keys to move.", "tip");
     played = 1;
   }
 

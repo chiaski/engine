@@ -389,45 +389,6 @@ START AND EXTRAS
   padding: 0.75em 1.5em;
 }
 
-.panel {
-  margin: 0.5em 0;
-  text-align: center;
-}
-.panel p {
-  padding: 1em;
-  font-weight: normal;
-  font-size: 0.85em;
-  line-height: 120%;
-}
-
-.panel._full {
-  border: 1.5px solid #000000;
-}
-
-.panel._sidebar {
-  width: 100%;
-  border-top: none;
-  margin: 0 0 0.5em 0;
-}
-
-/* PANELS & SIDEBARS */
-.sidebar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: flex-start;
-  flex-wrap: wrap;
-  border-bottom: none;
-}
-
-.sidebar-left {
-  max-width: 190px;
-}
-
-.sidebar-right {
-  max-width: 150px;
-}
-
 ._howmany::after {
   content: "/15";
 }
@@ -435,6 +396,13 @@ START AND EXTRAS
 #controls-top {
   width: 100%;
   text-align: center;
+  padding-bottom: 0.5em;
+}
+#controls-top .-metadata {
+  font-family: "Director";
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding: 0.25em;
 }
 
 #controls {
@@ -871,18 +839,17 @@ hr {
 
 #library-scene-controls {
   text-align: center;
-  width: 100%;
-  margin-bottom: 1em;
 }
 #library-scene-controls button {
+  background: none;
   border: 0;
   padding: 0;
   border-radius: 0;
   margin: 0;
+  color: #000;
 }
 #library-scene-controls button:hover {
   box-shadow: none;
-  color: gray;
   background: none;
   border-radius: 0;
 }
@@ -942,24 +909,6 @@ hr {
   cursor: pointer;
   border: 0.5px solid #edede8;
   border-radius: 6px;
-}
-
-#gamestatus img {
-  padding: 0.5em 0.25em;
-}
-#gamestatus img:hover {
-  cursor: help;
-}
-#gamestatus p {
-  padding: 0;
-  margin: 0;
-  font-size: 0.8rem;
-  line-height: 120%;
-  pointer-events: none;
-}
-
-#gamestatus:hover {
-  cursor: help;
 }
 
 #outer-modals {

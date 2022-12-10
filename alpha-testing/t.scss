@@ -424,52 +424,6 @@ START AND EXTRAS
 
 
 
-.panel {
-  margin: .5em 0;
-  text-align: center;
-
-  p {
-    padding: 1em;
-    font-weight: normal;
-    font-size: .85em;
-    line-height: 120%;
-  }
-}
-
-.panel._full {
-  border: 1.5px solid $c;
-}
-
-.panel._sidebar {
-  width: 100%;
-  border-top: none;
-  margin: 0 0 .5em 0;
-}
-
-
-/* PANELS & SIDEBARS */
-
-
-.sidebar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: flex-start;
-  flex-wrap: wrap;
-
-  border-bottom: none;
-
-}
-
-.sidebar-left {
-  max-width: 190px;
-}
-
-.sidebar-right {
-  max-width: 150px;
-  //  display: none; // we hide this when editing the cartridge
-}
-
 
 
 // –––––––––
@@ -487,6 +441,15 @@ START AND EXTRAS
 #controls-top {
   width: 100%;
   text-align: center;
+  padding-bottom: .5em;
+
+  .-metadata {
+    font-family: $serif-alt;
+    text-transform: uppercase;
+    font-size: .8rem;
+    padding: .25em;
+  }
+
 }
 
 
@@ -1094,19 +1057,18 @@ hr {
 
 #library-scene-controls {
   text-align: center;
-  width: 100%;
-  margin-bottom: 1em;
 
   button {
+    background: none;
     border: 0;
     padding: 0;
     border-radius: 0;
     margin: 0;
+    color: #000;
   }
 
   button:hover {
     box-shadow: none;
-    color: gray;
     background: none;
     border-radius: 0;
   }
@@ -1187,32 +1149,6 @@ hr {
 }
 
 
-// GAME MOOD
-
-#gamestatus {
-
-  img {
-    padding: .5em .25em;
-  }
-
-  img:hover {
-    cursor: help;
-  }
-
-  p {
-    padding: 0;
-    margin: 0;
-    font-size: .8rem;
-    line-height: 120%;
-    pointer-events: none;
-
-  }
-
-}
-
-#gamestatus:hover {
-  cursor: help;
-}
 
 // MODALS AND TIPS
 

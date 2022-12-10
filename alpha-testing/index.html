@@ -203,11 +203,11 @@
               <div id="sss"></div>
 
               <hr>
-              <hr>
+              <hr><br>
 
               <div id="map-controls">
-                <button id="btn-changestartingscene" title="I am at the center of everything that happens">change starting scene</button>
-                <button id="btn-cartridge">edit cartridge (game cover)</button>
+                <button id="btn-changestartingscene" title="I am at the center of everything that happens" class="--med">change starting scene</button>
+                <button id="btn-cartridge" class="--med">edit cartridge (game cover)</button>
               </div>
             </div>
           </div>
@@ -239,7 +239,7 @@
 
               <h2>Text</h2>
 
-              <div class="library-text-controls">
+              <div class="library-text-controls"><br>
                 <button id="btn-toggletext" title="Clicky me and you can then type on the screen! And it saves!">edit text</button>
                 <br>
                 <button id="btn-changefonttext" class="--small" title="Spice up the font a lil bit...">Change font</button>
@@ -315,11 +315,17 @@
 
             <div id="library-scene-controls" class="panel">
               <h2>Scene Controls</h2><br>
-              <button id="btn-scenecontrols-deletescene" title="You can't delete your starting scene.">delete</button>,
 
-              <button id="btn-scenecontrols-copyscene" title="Copy the contents of this scene and paste it to another... WARNING: BUGGY!">copy</button>,
+
+              <button id="btn-scenecontrols-copyscene" title="Copy the contents of this scene and paste it to another... WARNING: BUGGY!">copy</button>
+
+              ·
 
               <button id="btn-scenecontrols-pastescene" title="If you have a scene in your clipboard, you can paste it onto here... ">paste</button>
+              <br>
+
+              <button id="btn-scenecontrols-deletescene" class="--small" title="You can't delete your starting scene.">delete</button>
+
               <br>
               <br>
             </div>
@@ -327,7 +333,7 @@
             <!-- HELP PANEL -->
 
             <div class="panel _sidebar" id="gamestatus">
-              <h2 title="This tells you about your game's feelings. Not how your game is.">Game Status</h2>
+              <h2 title="This tells you about your game's feelings. Not how your game is.">Engine Status</h2>
 
               <img src="assets/status-bleh.gif" class="_gamestatus_mood" title="eh....">
 
@@ -429,16 +435,16 @@
   <script src="//code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
   <script src="//code.jquery.com/ui/1.13.0/jquery-ui.min.js" type="text/javascript"></script>
 
-  <script type="text/javascript" src="core.js"></script>
-  <script type="text/javascript" src="map.js"></script>
-  <script type="text/javascript" src="scene.js"></script>
-  <script type="text/javascript" src="library.js"></script>
-  <script type="text/javascript" src="playerpreview.js"></script>
-  <script type="text/javascript" src="audio.js"></script>
-  <script type="text/javascript" src="downloader.js"></script>
-  <script type="text/javascript" src="tutorial.js"></script>
-  <script type="text/javascript" src="ui.js"></script>
-  <script type="text/javascript" src="samples.js"></script>
+  <script type="text/javascript" src="engine/core.js"></script>
+  <script type="text/javascript" src="engine/map.js"></script>
+  <script type="text/javascript" src="engine/scene.js"></script>
+  <script type="text/javascript" src="engine/library.js"></script>
+  <script type="text/javascript" src="engine/playerpreview.js"></script>
+  <script type="text/javascript" src="engine/audio.js"></script>
+  <script type="text/javascript" src="engine/downloader.js"></script>
+  <script type="text/javascript" src="engine/tutorial.js"></script>
+  <script type="text/javascript" src="engine/ui.js"></script>
+  <script type="text/javascript" src="engine/samples.js"></script>
 
   <script type="text/javascript">
     $(function() {

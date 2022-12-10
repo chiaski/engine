@@ -54,6 +54,14 @@ button.--small {
   font-size: .6rem;
 }
 
+button.--med {
+  border: 0;
+  background: 0;
+  margin: 0;
+  padding: .5em;
+  font-size: .7rem;
+}
+
 button:hover {
   transform: translateY(-2.5px);
   color: $l;
@@ -74,6 +82,59 @@ button.--destructive:hover {
 
 
 // WINDOWS
+
+.window {
+  text-align: center;
+}
+
+
+/* PANELS & SIDEBARS */
+
+.panel {
+  width: 100%;
+  margin: .5em 0;
+  text-align: center;
+
+  p {
+    padding: 1em;
+    font-weight: normal;
+    font-size: .85em;
+    line-height: 120%;
+  }
+}
+
+.panel._full {
+  border: 1.5px solid $c;
+}
+
+.panel._sidebar {
+  border-top: none;
+}
+
+
+
+.sidebar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+
+  border-bottom: none;
+
+}
+
+.sidebar-left {
+  max-width: 190px;
+}
+
+.sidebar-right {
+  max-width: 150px;
+}
+
+
+
+// WHATEVER
 
 
 .engine-buttons {
@@ -105,10 +166,34 @@ button.--destructive:hover {
     color: #000;
   }
 
-
-
 }
 
 .engine-buttons:hover > button:not(:hover) {
   opacity: 0.6;
+}
+
+
+// GAME MOOD
+
+#gamestatus {
+
+  img {
+    padding: .5em .25em;
+  }
+
+  img:hover {
+    cursor: help;
+  }
+
+  p {
+    padding: 0 .25em;
+    font-size: .75rem;
+    line-height: 120%;
+    pointer-events: none;
+  }
+
+}
+
+#gamestatus:hover {
+  cursor: help;
 }
