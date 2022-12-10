@@ -300,7 +300,8 @@ const mapControls = {
 $("#btn-changestartingscene").on("click", function () {
 
   $(".blocker").fadeIn();
-  $(".window#map").css("z-index", "10");
+  $("#map .-content").css("z-index", "10");
+  $("#map h2 span").text("Selecting Start Scene");
   $("#window-map")[0].scrollIntoView();
 
   $("#map-controls").css("pointer-events", "none").css("opacity", "0.5");
@@ -328,6 +329,7 @@ $("#btn-changestartingscene").on("click", function () {
 
     sceneControls.switchScene(i);
 
+    $("#map h2 span").text("Map View");
     $(".blocker").fadeOut();
     $(".window#map").css("z-index", "1");
 

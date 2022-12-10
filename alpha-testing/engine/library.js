@@ -67,7 +67,7 @@ const libraryText = {
   toggleText: function () {
 
     if (libraryText.isTextOn()) {
-      $("button#btn-toggletext").text("Click to edit text");
+      $("button#btn-toggletext").text("Write  text");
       window.removeEventListener("keydown", arrow_keys_handler, false);
       window.addEventListener("keydown", arrow_keys_handler, false);
       $("button#btn-toggletext").removeClass("__toggled");
