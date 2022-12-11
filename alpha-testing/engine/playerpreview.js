@@ -233,6 +233,11 @@ const Tplayer = {
     $("#e-controls").attr("title", Tplayer.active.caption);
     console.log(Tplayer.active);
 
+    // add title
+    if (Tplayer.active.title !== "Scene") {
+      $("._title").text(Tplayer.active.title);
+    }
+
     // add objects
     ((Tplayer.active).objects).forEach(function (e) {
       let newSrc = "";
@@ -326,9 +331,13 @@ function loadPlay(x, y) {
 
   // change text
   setTimeout(function () {
-    $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
-    $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
+    $("#play h2").html("<span class='_playwhatscene'></span><span class='_title'>Play</span>")
 
+    if (Tplayer.active.title !== "Scene") {
+      $("._title").text(Tplayer.active.title);
+    }
+
+    $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
   }, 1800);
 
   Tplayer.loadScene(x, y);

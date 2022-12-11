@@ -168,10 +168,15 @@ button.--destructive:hover {
   opacity: 0.6;
 }
 
-input[name=caption] {
+input[name=caption],
+input[name=title] {
   padding: 0.25em;
   font-size: 0.8rem;
   margin: 0.5em 0.25em;
+}
+
+input[name=caption] {
+  display: none;
 }
 
 #gamestatus img {

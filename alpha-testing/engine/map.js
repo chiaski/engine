@@ -262,7 +262,7 @@ const mapControls = {
       $("#" + mapControls.SIDE + " ._s[data-scene='" + active_scene.x + "," + active_scene.y + "']").removeClass("__active").addClass("__inactive");
 
       // creating a new scene at that indice
-      scenes.s[i] = new Scene(parseInt(coord[0]), parseInt(coord[1]), true, "#000000", "", 0);
+      scenes.s[i] = new Scene(parseInt(coord[0]), parseInt(coord[1]), true, "#000000", "", "", "", "", "", 0);
 
       // switching to the new scene
       sceneControls.switchScene(i);

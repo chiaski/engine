@@ -329,7 +329,7 @@ START AND EXTRAS
 #start #options a:hover {
   background: black;
 }
-#start h1._title {
+#start h1._bigtitle {
   letter-spacing: -5px;
   width: 100%;
   display: inline-block;

@@ -36,7 +36,6 @@ const libraryEffects = {
     $("#e #e-effects").data("active", what);
     $("select[name='effects-category']").val(what);
 
-
     switch (what) {
       case "flowerpetals":
         libraryEffects.changeBG("flowerpetals.gif");
@@ -204,6 +203,11 @@ const libraryText = {
   loadText: function () {
 
     var t = active_scene.textoverlay;
+
+    if (t == null || t == undefined) {
+      t = "";
+    }
+
     t = t.replace(/\\n/g, "\n").replace(/&nbsp;/g, " ");
 
     $("#" + libraryText.$TEXT_EDITOR).hide().fadeIn(100).val(t);
@@ -365,6 +369,14 @@ $("input[name='caption']").keyup(function () {
   let t = $(this).val();
   $("#e").attr("title", t);
   active_scene.caption = t;
+});
+
+
+// title 
+$("input[name='title']").keyup(function () {
+  let t = $(this).val();
+  $("._scenetitle").text(t);
+  active_scene.title = t;
 });
 
 

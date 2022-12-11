@@ -76,7 +76,7 @@
   <div class="screen-one screen">
     <div id="start" class="window">
 
-      <h1 class="_title">engine.lol</h1>
+      <h1 class="_bigtitle">engine.lol</h1>
 
       <div id="options">
         <a title="You could also just scroll down, but that's less fun." id="tempplay">
@@ -226,7 +226,7 @@
     <section id="-editor">
       <div class="window" id="engine-window">
         <h2>
-          <span>Editor View</span> Editing <span class="_whatscenetype">Scene</span> <span class="_whatscene" title="The coordinates of the scene you're currently editing!">0,0&nbsp;</span>
+          <span>Editor View</span> <span class="_whatscene" title="The coordinates of the scene you're currently editing!">0,0</span> Editing <span class="_scenetitle" title="Your scene's title">Scene</span>
         </h2>
 
         <div id="engine">
@@ -329,6 +329,8 @@
 
               <!-- SCENE / CAPTION -->
               <input name="caption" placeholder="Write a scene caption here..">
+
+              <input name="title" placeholder="Write a scene title here..">
 
 
               <!-- SCENE / EFFECTS -->
@@ -476,7 +478,7 @@
     $('#e').tooltip({
       show: {
         effect: 'slideDown',
-        delay: 1000,
+        delay: 5000,
         duration: 500
       }
     });
@@ -484,7 +486,7 @@
     $('#e-controls').tooltip({
       show: {
         effect: 'slideDown',
-        delay: 1000,
+        delay: 5000,
         duration: 500
       }
     });

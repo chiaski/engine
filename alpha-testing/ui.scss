@@ -175,12 +175,16 @@ button.--destructive:hover {
 }
 
 
-input[name='caption'] {
+input[name='caption'],
+input[name='title'] {
   padding: .25em;
   font-size: .8rem;
   margin: .5em .25em;
 }
 
+input[name='caption'] {
+  display: none;
+}
 
 // GAME MOOD
 

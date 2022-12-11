@@ -27,6 +27,9 @@ function Scene(x, y, active, color, object_count) {
   this.effect = "";
   this.effects = "";
 
+  // scene title
+  this.title = "";
+
   // scene caption
   this.caption = "";
 
@@ -259,6 +262,7 @@ const sceneControls = {
     target.textoverlay = source.textoverlay;
     target.effect = source.effect;
     target.effects = source.effects;
+    target.title = source.title;
     target.caption = source.caption;
 
   },
@@ -275,7 +279,7 @@ const sceneControls = {
       return false;
     }
 
-    if (active_scene.x == s.x && active_scene.y == s.y && active_scene.textoverlay == s.textoverlay && active_scene.effect == s.effect && active_scene.effects == s.effects && active_scene.color == s.color && active_scene.caption == s.caption) {
+    if (active_scene.x == s.x && active_scene.y == s.y && active_scene.textoverlay == s.textoverlay && active_scene.effect == s.effect && active_scene.effects == s.effects && active_scene.color == s.color && active_scene.title == s.title && active_scene.caption == s.caption) {
       return true;
     }
     return false;
@@ -302,14 +306,15 @@ const sceneControls = {
 
     sceneControls.saveScene();
     sceneControls.clearScene();
-    $(".input[name='caption']").val("");
+    $("input[name='caption']").val("");
+    $("input[name='title']").val("");
 
     // set to new active scene
     active_scene = scenes.s[i];
 
     sceneControls.loadColor();
     sceneControls.loadText();
-    sceneControls.loadCaption();
+    sceneControls.loadTitle();
     sceneControls.loadEffect();
     sceneControls.loadObjects();
 
@@ -328,7 +333,6 @@ const sceneControls = {
     $("._howmany").text(active_scene.object_count);
 
     // Updating active scene text
-    $("._whatscenetype").text("Scene");
     $("._whatscene").text(active_scene.x + "," + active_scene.y);
 
   },
@@ -343,7 +347,9 @@ const sceneControls = {
     }
 
     libraryEffects.saveEffect();
+
     active_scene.caption = $("#e").attr("title");
+    active_scene.title = $("._scenetitle").text();
 
     objControls.saveObjects();
   },
@@ -352,8 +358,10 @@ const sceneControls = {
 
     libraryEffects.clear();
     libraryText.clearText();
-    $("#e").attr("title", "");
+    $("#e").attr("title", ""); // caption
+    $("._scenetitle").text("Scene"); // title
     $("input[name='caption']").val("");
+    $("input[name='title']").val("");
 
     $("#e img.obj").each(function () {
       $(this).remove();
@@ -378,7 +386,6 @@ const sceneControls = {
     t = t.replace(/&nbsp;/g, " ");
 
     $("#e #e-text textarea").hide().delay(100).fadeIn("slow").val(t);
-
   },
 
   loadEffect: function () {
@@ -390,6 +397,18 @@ const sceneControls = {
   loadCaption: function () {
     $("input[name='caption']").val(active_scene.caption);
     $("#e").attr("title", active_scene.caption);
+  },
+
+  loadTitle: function () {
+    $(".library-scene-controls input[name='title']").val(active_scene.title);
+    if (active_scene.title.length == 0 || active_scene.title == "Scene") {
+      $("._scenetitle").text("Scene");
+      $("input[name='title']").val("");
+    } else {
+      $("._scenetitle").text(active_scene.title);
+      $("input[name='title']").val(active_scene.title);
+    }
+
   },
 
   /*
@@ -449,7 +468,7 @@ const sceneControls = {
     // make cartridge for the first time
     if (c == null) {
 
-      scenes.cartridge = new Scene(-1, -1, true, "#000000", "", 0);
+      scenes.cartridge = new Scene(-1, -1, true, "#000000", "", "", "", "", "", 0);
       active_scene = scenes.cartridge;
 
       // reset colors
@@ -501,7 +520,7 @@ const sceneControls = {
       $("#e-cartridge").append(newObj);
     });
 
-    // update the colo
+    // update the colors
     $("#e-cartridge").css("background", (scenes.cartridge).color);
     $("#btn-savecartridge").fadeOut("slow");
 
@@ -534,6 +553,7 @@ $("#library-scene-controls button#btn-scenecontrols-deletescene").on("click", fu
   let old_y = active_scene.y;
 
   // switch to starting scene
+  sceneControls.clearScene();
 
   sceneControls.switchScene(sceneControls.getSceneIndex(scenes.start_scene.x, scenes.start_scene.y));
   scenes.s[sceneControls.getSceneIndex(old_x, old_y)] = null;
@@ -594,11 +614,23 @@ $("#library-scene-controls button#btn-scenecontrols-pastescene").on("click", fun
   $("#scene_selector div._s.__active").css("background", copy_scene.color);
 
   // loadText
-
   let t = copy_scene.textoverlay;
   t = t.replace(/&nbsp;/g, " ");
-
   $("#e #e-text textarea").hide().delay(100).fadeIn("slow").val(t);
+
+  // loadEffects
+  libraryEffects.clear();
+  libraryEffects.change(copy_scene.effect);
+
+  // loadTitle
+  $(".library-scene-controls input[name='title']").val(copy_scene.title);
+  if (copy_scene.title.length == 0 || copy_scene.title == "Scene") {
+    $("._scenetitle").text("Scene");
+    $("input[name='title']").val("");
+  } else {
+    $("._scenetitle").text(copy_scene.title);
+    $("input[name='title']").val(copy_scene.title);
+  }
 
 
   alert("Successfully copied scene " + copy_scene.x + "," + copy_scene.y + "!");
