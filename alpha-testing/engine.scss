@@ -107,6 +107,9 @@ textarea {
   align-items: center;
   flex-wrap: wrap;
   margin: 2.5vh 5vw;
+  @media only screen and (max-width: 600px) {
+    border-radius: 0;
+  }
 }
 
 h2 {
@@ -261,6 +264,10 @@ PLAY
 
   -webkit-transition: all .3s linear;
   transition: all .13s linear;
+  
+  @media only screen and (max-width: 600px) {
+  animation: none;
+  }
 
   .play-overlay {
     position: absolute;
@@ -303,15 +310,17 @@ PLAY
   #e-controls {
     position: absolute;
     width: 512px;
+    max-width: 100vw;
     height: 512px;
     z-index: 12;
+    left: 0;
     bottom: 0;
 
     a {
       position: absolute;
       display: inline-block;
       background: #fff;
-      opacity: 0.3;
+      opacity: 0.5;
       background-blend-mode: blur(3px);
       -webkit-transition: all .19s cubic-bezier(.17, .67, .83, .67);
       transition: all .19s cubic-bezier(.17, .67, .83, .67);
