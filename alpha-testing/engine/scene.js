@@ -172,10 +172,10 @@ $("#btn-remixcartridge-load").on("click", function () {
 
   let i = sceneControls.getSceneIndex(scenes.start_scene.x, scenes.start_scene.y);
 
+  Tplayer.loadCover();
   sceneControls.switchScene(i);
 
   document.getElementById("window-engine").scrollIntoView();
-
 
   $("#map .controls-remixcartridge").hide();
 

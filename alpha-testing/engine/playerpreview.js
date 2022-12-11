@@ -14,6 +14,21 @@ $("#tempplay").click(function () {
   }, 200);
 });
 
+$("#tempremix").click(function () {
+  $('html, body').animate({
+    scrollTop: $("#window-load").offset().top
+  }, 200);
+  
+  
+  $("#btn-remixcartridge").hide();
+  $("#load textarea#_remix").fadeIn();
+  $("#btn-changestartingscene").hide();
+  $("#btn-cartridge").hide();
+
+  $("#load .controls-remixcartridge").fadeIn();
+  
+});
+
 
 // arrow key navigation
 
@@ -38,6 +53,7 @@ var arrow_keys_handler = function (e) {
 const Tplayer = {
 
   active: scenes.s[0],
+  cartridgeLoaded: false,
   /* 
     clearGame
     deletes and clears the game
@@ -276,6 +292,56 @@ const Tplayer = {
     Tplayer.updateSceneNavigation();
 
   },
+  
+  loadCover: function(){
+     // cartridge checks
+    if (scenes.cartridge !== null) {
+      // load the cartridge if necessary
+      if(!Tplayer.cartridgeLoaded){
+        Tplayer.loadCartridge();
+        Tplayer.cartridgeLoaded = true;
+      } else{
+        $("#e-cartridge").fadeIn(1000);
+      }
+      
+      $("#e-play").css("cursor", "not-allowed").css("pointer-events", "none").delay(1500).css("pointer-events", "auto").css("cursor", "auto");
+
+      $("#e-cartridge").css("background", scenes.cartridge.color);
+      $("body").css("background", scenes.cartridge.color);
+      
+      return true;
+    } else {
+      $("#e-cartridge").fadeOut();
+      return false;
+    }
+  },
+  
+  loadCartridge: function () {
+
+    (scenes.cartridge.objects).forEach(function (e) {
+      let newSrc = "";
+      newSrc = "<img class='obj' data-selected='0' src='" + e.img + "' style='";
+
+      newSrc += "top:" + e.y + "px; left:" + e.x + "px;";
+
+      if (e.filter) {
+        newSrc += "filter:" + e.filter + ";";
+      }
+
+      if (e.flip) {
+        newSrc += "transform:" + e.flip + ";"
+      }
+
+      if (e.size) {
+        newSrc += "width:" + e.size + "; height:" + e.size + ";";
+      }
+
+      newSrc += "'>";
+
+      let newObj = $(newSrc).hide().fadeIn(500);
+      $("#e-cartridge").append(newObj);
+    })
+  },
 
   loadColor: function () {
 
@@ -289,6 +355,48 @@ const Tplayer = {
     $("body").css("background", c);
 
   },
+  loadPlay: function(x, y) {
+
+  $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
+    Tplayer.active = scenes.s[sceneControls.getSceneIndex(x, y)];
+    
+  // Is there a song?
+  if (scenes.audio !== null) {
+    Tplayer.playSong();
+  }
+
+  // does the game have a cartridge?
+  if (scenes.cartridge !== null) {
+    $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(2000).css("pointer-events", "auto").css("cursor", "auto");
+
+    // load the cartridge, if this is a replay
+    if ($("#e-cartridge").css("display") == "none") {
+      $("#e-cartridge").fadeIn(300).delay(2000).fadeOut(1000);
+
+    } else {
+      // first, fade out cartridge very slowly lol
+      $("#e-cartridge").delay(1000).fadeOut(1000);
+    }
+  } else { // nah
+    $("#e-cartridge").fadeOut();
+    $("#play").css("pointer-events", "auto").css("cursor", "auto");
+  }
+
+  // change text
+  setTimeout(function () {
+    $("#play h2").html("<span class='_playwhatscene'></span><span class='_title'>Play</span>")
+
+    if (Tplayer.active.title !== "Scene") {
+      $("._title").text(Tplayer.active.title);
+    }
+
+    $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
+    Tplayer.loadScene(x, y);
+  }, 2000);
+
+
+  $("#e-play").css("background", (Tplayer.active).color);
+},
   /* clearScene deletes all objects from the scene */
   clearScene: function () {
 
@@ -303,50 +411,6 @@ const Tplayer = {
 };
 
 
-function loadPlay(x, y) {
-
-  $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
-
-  // Is there a song?
-  if (scenes.audio !== null) {
-    Tplayer.playSong();
-  }
-
-  // does the game have a cartridge?
-  if (scenes.cartridge !== null) {
-    $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(2000).css("pointer-events", "auto").css("cursor", "auto");
-
-    // load the cartridge, if this is a replay
-    if ($("#e-cartridge").css("display") == "none") {
-      $("#e-cartridge").fadeIn(800).delay(2000).fadeOut(1000);
-
-    } else {
-      // first, fade out cartridge very slowly lol
-      $("#e-cartridge").delay(1000).fadeOut(1000);
-    }
-  } else {
-    $("#e-cartridge").fadeOut();
-    $("#play").css("pointer-events", "auto").css("cursor", "auto");
-  }
-
-  Tplayer.active = scenes.s[sceneControls.getSceneIndex(x, y)];
-
-  // change text
-  setTimeout(function () {
-    $("#play h2").html("<span class='_playwhatscene'></span><span class='_title'>Play</span>")
-
-    if (Tplayer.active.title !== "Scene") {
-      $("._title").text(Tplayer.active.title);
-    }
-
-    $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
-  }, 1800);
-
-  Tplayer.loadScene(x, y);
-
-  $("#e-play").css("background", (Tplayer.active).color);
-}
-
 let played = false;
 
 $("#btn-play").on("click", function () {
@@ -360,11 +424,12 @@ $("#btn-play").on("click", function () {
   }
 
   objControls.saveObjects();
-  loadPlay(scenes.start_scene.x, scenes.start_scene.y);
+  Tplayer.loadPlay(scenes.start_scene.x, scenes.start_scene.y);
 });
 
 
 $("#btn-clear").on("click", function () {
   $("#e-play").css("background", "#000000");
   Tplayer.clearGame();
+  Tplayer.loadCover();
 });
