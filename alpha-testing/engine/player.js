@@ -81,8 +81,9 @@ $("#btn-loadcartridge").on("click", function () {
     $("#e-loadcartridge").fadeOut();
 
     $("#btn-play").css("display", "inline-block").fadeIn("slow").on("click", function () {
-      //      $("document")//        .focus()
-      //        .attr("tabindex", 0);
+      $("#play")
+        .attr("tabindex", 0)
+        .focus();
       window.addEventListener("keydown", arrow_keys_handler, false);
 
       Tplayer.init();
@@ -143,7 +144,7 @@ const Tplayer = {
 
       setTimeout(function () {
         $("#e-cartridge").fadeOut("slow");
-        $("#play h2").html("<span>Playing</span><span class='_playwhatscene'></span> ")
+        $("#play h2").html("<span class='_playwhatscene'></span> <span _title>Playing</span>")
 
 
         // What font?
@@ -211,7 +212,7 @@ const Tplayer = {
 
     // change text
     setTimeout(function () {
-      $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
+      $("#play h2").html("<span class='_playwhatscene'></span><span class='_title'>Play</span>")
       $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
       Tplayer.loadScene(x, y);
 
@@ -297,7 +298,7 @@ const Tplayer = {
   // iterates through navigation options on the active scene and updates it accordingly based on what's possible
   updateSceneNavigation() {
 
-    $("document").off("keydown");
+    $("#play").off("keydown");
 
     // clear all visual styles
     $("#e-controls a").each(function (i, e) {
@@ -330,8 +331,7 @@ const Tplayer = {
       }
 
       // add keybinding
-      document.addEventListener('keydown', function (event) {
-        console.log(event.keyCode, direction);
+      $("#play").on('keydown', function (event) {
         if ((event.keyCode == 38 && direction == "n") || (event.keyCode == 87 && direction == "n") || (event.keyCode == 39 && direction == "e") || (event.keyCode == 68 && direction == "e") || (event.keyCode == 37 && direction == "w") || (event.keyCode == 65 && direction == "w") || (event.keyCode == 40 && direction == "s") || (event.keyCode == 83 && direction == "s")) {
           Tplayer.loadScene(parseInt(target[0]), parseInt(target[1]));
         }
@@ -414,7 +414,19 @@ const Tplayer = {
     $("#e-play textarea").hide().delay(300).fadeIn("slow").val(c.textConvert(Tplayer.active.textoverlay));
 
     // add effects
-    $("#e-play #e-effects").attr("style", Tplayer.active.effects);
+    if (Tplayer.active.effect) $("#e-play #e-effects").attr("style", Tplayer.active.effects);
+
+    // add caption
+    if (Tplayer.active.caption) $("#e-controls").attr("title", Tplayer.active.caption);
+
+    // add title
+    if (!Tplayer.active.title) {
+      $("._title").text("Scene");
+    } else if (Tplayer.active.title || Tplayer.active.title !== undefined || Tplayer.active.title !== "Scene") {
+      $("._title").text(Tplayer.active.title);
+    } else {
+      $("._title").text("Scene");
+    }
 
     // add objects
     ((Tplayer.active).objects).forEach(function (e) {

@@ -151,11 +151,8 @@ h2 img {
 h2 span {
   padding: 0 0.25em;
 }
-h2 span::after {
+h2 span:first-of-type::after {
   content: " · ";
-}
-h2 span:last-of-type::after {
-  content: "";
 }
 h2 span:first-of-type {
   padding: 0 0.25em 0 0;

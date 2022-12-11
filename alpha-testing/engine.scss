@@ -15,6 +15,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Director';
+  src: url('./assets/fonts/Director-Regular.woff2') format('woff2'),
+    url('./assets/fonts/Director-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 
 $c: #000000; // MAIN COLOR
@@ -29,6 +38,7 @@ $p: #eb80ff;
 
 $mono: "Courier New";
 $serif: "Times New Roman";
+$serif-alt: "Director";
 
 * {
   box-sizing: border-box;
@@ -60,7 +70,8 @@ body {
   margin: 1em 0;
 
   button {
-    font-size: .7em;
+    font-family: $serif-alt;
+    font-size: 1.2rem;
     padding: .5em 2em;
     border-radius: 16px;
   }
@@ -88,7 +99,6 @@ textarea {
   background: $l;
   box-shadow: 0 0 100px $g2;
   border: 1.5px solid $c;
-  outline: 1px solid $l;
   width: 100%;
   border-radius: 15px;
   min-height: 30vh;
@@ -104,14 +114,21 @@ h2 {
   width: 100%;
   display: block;
   border-bottom: 1.5px solid $c;
-  font-family: $serif;
-  font-size: 1.75em;
+  font-family: $serif-alt;
+  font-size: 1em;
   letter-spacing: -.3px;
+  text-align: left;
   padding: .5em 0;
+  color: #fff;
 
   span {
-    padding: 0 .25em;
+    padding: .5em .25em;
   }
+
+  span:first-of-type::after {
+    content: " · ";
+  }
+
 
 }
 
@@ -199,7 +216,6 @@ body {
   position: relative;
   background: $c;
   border: 1px solid #fff;
-  outline: 1.5px solid $c;
   width: 512px;
   height: 512px;
   margin: 0;
@@ -235,7 +251,6 @@ PLAY
 */
 
 #play {
-  outline: 1.25px solid #fff;
   background: #000;
   position: relative;
   width: 512px;
@@ -349,12 +364,6 @@ PLAY
       cursor: not-allowed;
     }
   }
-
-  h2 {
-    color: #fff;
-    border-bottom: 1px solid #fff;
-  }
-
 }
 
 

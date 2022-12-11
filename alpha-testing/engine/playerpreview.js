@@ -227,11 +227,10 @@ const Tplayer = {
     $("#e-play textarea").hide().delay(300).fadeIn("slow").val((Tplayer.active.textoverlay).replace(/\\n/g, "\n").replace(/&nbsp;/g, " "));
 
     // add effect
-    $("#e-play #e-effects").attr("style", Tplayer.active.effects);
+    if (Tplayer.active.effect) $("#e-play #e-effects").attr("style", Tplayer.active.effects);
 
     // add caption
-    $("#e-controls").attr("title", Tplayer.active.caption);
-    console.log(Tplayer.active);
+    if (Tplayer.active.caption) $("#e-controls").attr("title", Tplayer.active.caption);
 
     // add title
     if (Tplayer.active.title !== "Scene") {
@@ -304,7 +303,6 @@ function loadPlay(x, y) {
 
   $("#play h2").html("<span>Starting Game...</span>").fadeIn("slow");
 
-
   // Is there a song?
   if (scenes.audio !== null) {
     Tplayer.playSong();
@@ -349,7 +347,7 @@ let played = false;
 
 $("#btn-play").on("click", function () {
 
-  $("#play").focus();
+  $("#play").attr("tabindex", 0).focus();
   window.addEventListener("keydown", arrow_keys_handler, false);
 
   if (!played) {

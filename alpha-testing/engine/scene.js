@@ -389,17 +389,23 @@ const sceneControls = {
   },
 
   loadEffect: function () {
+    if (!active_scene.effect) return;
+
     // loads effect into the editor
     libraryEffects.clear();
     libraryEffects.change(active_scene.effect);
   },
 
   loadCaption: function () {
+    if (!active_scene.caption) return;
     $("input[name='caption']").val(active_scene.caption);
     $("#e").attr("title", active_scene.caption);
   },
 
   loadTitle: function () {
+
+    if (!active_scene.title) return;
+
     $(".library-scene-controls input[name='title']").val(active_scene.title);
     if (active_scene.title.length == 0 || active_scene.title == "Scene") {
       $("._scenetitle").text("Scene");
