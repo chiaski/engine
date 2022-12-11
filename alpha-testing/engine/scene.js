@@ -186,7 +186,6 @@ $("#btn-remixcartridge-load").on("click", function () {
   $("#btn-changestartingscene").fadeIn();
 
   alert("Successfully loaded cartridge");
-
 });
 
 
@@ -604,6 +603,12 @@ $("#library-scene-controls button#btn-scenecontrols-pastescene").on("click", fun
   (copy_scene.objects).forEach(function (e) {
     objControls.addObj(e.img, e.x, e.y, e.filter, e.flip, e.size, e.interaction, e.interaction_target);
   })
+  
+    $("#e .obj").each(function () {
+      $(this)
+        .bind("dblclick", objControls.selectObj);
+    });
+
 
   // loadColor
 
