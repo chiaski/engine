@@ -367,6 +367,10 @@ const Tplayer = {
 
   // does the game have a cartridge?
   if (scenes.cartridge !== null) {
+    
+      $("#e-cartridge").css("background", scenes.cartridge.color);
+      $("body").css("background", scenes.cartridge.color);
+    
     $("#play").css("cursor", "not-allowed").css("pointer-events", "none").delay(2000).css("pointer-events", "auto").css("cursor", "auto");
 
     // load the cartridge, if this is a replay
