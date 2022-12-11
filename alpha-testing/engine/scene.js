@@ -27,6 +27,9 @@ function Scene(x, y, active, color, object_count) {
   this.effect = "";
   this.effects = "";
 
+  // scene caption
+  this.caption = "";
+
 
   this.object_count = 0;
   this.objects = [];
@@ -256,6 +259,7 @@ const sceneControls = {
     target.textoverlay = source.textoverlay;
     target.effect = source.effect;
     target.effects = source.effects;
+    target.caption = source.caption;
 
   },
   /* 
@@ -271,7 +275,7 @@ const sceneControls = {
       return false;
     }
 
-    if (active_scene.x == s.x && active_scene.y == s.y && active_scene.textoverlay == s.textoverlay && active_scene.effect == s.effect && active_scene.effects == s.effects && active_scene.color == s.color) {
+    if (active_scene.x == s.x && active_scene.y == s.y && active_scene.textoverlay == s.textoverlay && active_scene.effect == s.effect && active_scene.effects == s.effects && active_scene.color == s.color && active_scene.caption == s.caption) {
       return true;
     }
     return false;
@@ -296,15 +300,16 @@ const sceneControls = {
       tip("Moving around the map", pick(text_tips), "tip");
     }
 
-    // first, save scene
     sceneControls.saveScene();
     sceneControls.clearScene();
+    $(".input[name='caption']").val("");
 
     // set to new active scene
     active_scene = scenes.s[i];
 
     sceneControls.loadColor();
     sceneControls.loadText();
+    sceneControls.loadCaption();
     sceneControls.loadEffect();
     sceneControls.loadObjects();
 
@@ -338,12 +343,18 @@ const sceneControls = {
     }
 
     libraryEffects.saveEffect();
+    active_scene.caption = $("#e").attr("title");
+
     objControls.saveObjects();
   },
   /* clearScene deletes all objects from the scene */
   clearScene: function () {
 
+    libraryEffects.clear();
     libraryText.clearText();
+    $("#e").attr("title", "");
+    $("input[name='caption']").val("");
+
     $("#e img.obj").each(function () {
       $(this).remove();
     });
@@ -374,6 +385,11 @@ const sceneControls = {
     // loads effect into the editor
     libraryEffects.clear();
     libraryEffects.change(active_scene.effect);
+  },
+
+  loadCaption: function () {
+    $("input[name='caption']").val(active_scene.caption);
+    $("#e").attr("title", active_scene.caption);
   },
 
   /*

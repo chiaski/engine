@@ -97,7 +97,7 @@ textarea:focus {
 
 select {
   padding: .25em 1em;
-  margin: 1em auto;
+  margin: .5em auto;
   text-align: center;
   border-radius: 12px;
   border: 1px solid $g2;
@@ -123,9 +123,9 @@ h1 {
 h2 {
   width: 100%;
   display: block;
-  border-bottom: 1.5px solid $c;
+  border-bottom: 1px solid $c;
   font-family: $serif-alt;
-  font-size: .75rem;
+  font-size: .6rem;
   letter-spacing: -.5px;
   text-transform: uppercase;
   padding: .75em .5em;
@@ -542,8 +542,6 @@ START AND EXTRAS
     border: .5em solid rgba(255, 255, 255, 0.45);
     padding: .3em;
   }
-
-
 }
 
 
@@ -666,6 +664,7 @@ PLAY
     height: 512px;
     bottom: 0;
     z-index: 15;
+    pointer-events: none;
   }
 
   #e-text {
@@ -883,6 +882,9 @@ EDITOR
 
 // PER SCENE MAP
 #scene_s {
+  margin-bottom: 0;
+
+
   #scene_selector {
     max-width: 260px;
 
@@ -924,8 +926,6 @@ hr {
   padding: 0;
   margin: 0;
 }
-
-
 
 
 
@@ -1106,11 +1106,6 @@ hr {
     flex-wrap: wrap;
     justify-content: flex-start;
 
-    select {
-      margin: .25em .5em;
-      color: $c;
-      width: 100%;
-    }
   }
 
   .library-selector {

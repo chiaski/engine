@@ -309,10 +309,27 @@
               <div id="scene_selector">
 
               </div>
-            </div><br>
+            </div>
 
             <div id="library-scene-controls" class="panel">
-              <h2>Scene Controls</h2>
+
+              <!-- SCENE / CONTROLS -->
+
+              <button id="btn-scenecontrols-copyscene" title="Copy the contents of this scene and paste it to another... WARNING: BUGGY!">copy</button>
+
+              ·
+
+              <button id="btn-scenecontrols-pastescene" title="If you have a scene in your clipboard, you can paste it onto here... ">paste</button>
+              <br>
+
+              <button id="btn-scenecontrols-deletescene" class="--small" title="You can't delete your starting scene.">delete</button>
+              <br>
+
+              <h2>Scene</h2>
+
+              <!-- SCENE / CAPTION -->
+              <input name="caption" placeholder="Write a scene caption here..">
+
 
               <!-- SCENE / EFFECTS -->
 
@@ -324,23 +341,10 @@
                 <option value="hardblur">hard blur</option>
                 <option value="lightshadow">light vignette</option>
                 <option value="mediumshadow">medium vignette</option>
+                <option value="hardshadow">hard vignette</option>
+                <option value="redshadow">red vignette</option>
+                <option value="hardredshadow">hard red vignette</option>
               </select>
-              <br>
-
-              <!-- SCENE / CONTROLS -->
-
-
-              <button id="btn-scenecontrols-copyscene" title="Copy the contents of this scene and paste it to another... WARNING: BUGGY!">copy</button>
-
-              ·
-
-              <button id="btn-scenecontrols-pastescene" title="If you have a scene in your clipboard, you can paste it onto here... ">paste</button>
-              <br>
-
-              <button id="btn-scenecontrols-deletescene" class="--small" title="You can't delete your starting scene.">delete</button>
-
-              <br>
-              <br>
             </div>
 
             <!-- HELP PANEL -->
@@ -467,6 +471,22 @@
       $(document).tooltip({
         track: true
       });
+    });
+
+    $('#e').tooltip({
+      show: {
+        effect: 'slideDown',
+        delay: 1000,
+        duration: 500
+      }
+    });
+
+    $('#e-controls').tooltip({
+      show: {
+        effect: 'slideDown',
+        delay: 1000,
+        duration: 500
+      }
     });
 
     console.log("Initializing Engine");

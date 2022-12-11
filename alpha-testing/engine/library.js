@@ -62,6 +62,18 @@ const libraryEffects = {
       case "mediumshadow":
         $("#e #e-effects").css("box-shadow", "inset 0 0 100px #fff");
         break;
+
+      case "hardshadow":
+        $("#e #e-effects").css("box-shadow", "inset 0 0 100px #fff, inset 0 0 200px #fff");
+        break;
+
+      case "redshadow":
+        $("#e #e-effects").css("box-shadow", "inset 0 0 100px red");
+        break;
+
+      case "hardredshadow":
+        $("#e #e-effects").css("box-shadow", "inset 0 0 200px red, inset 0 0 400px red");
+        break;
     }
 
     libraryEffects.saveEffect();
@@ -348,6 +360,14 @@ $("#library-scene-controls select[name='effects-category']").change(function () 
 });
 
 
+// caption 
+$("input[name='caption']").keyup(function () {
+  let t = $(this).val();
+  $("#e").attr("title", t);
+  active_scene.caption = t;
+});
+
+
 
 $("#objectinteractions select[name='objinteraction-select']").change(function () {
 
@@ -355,7 +375,6 @@ $("#objectinteractions select[name='objinteraction-select']").change(function ()
 
   $("#e img.obj[data-selected='1']").attr("data-interaction", how);
 });
-
 
 
 

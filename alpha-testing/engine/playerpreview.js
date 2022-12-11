@@ -141,6 +141,7 @@ const Tplayer = {
           .attr("data-target", target[0] + "," + target[1])
           .bind("click", Tplayer.loadTarget);
       }
+
       // add keybinding
       $("#play").on('keydown', function (event) {
         if ((event.keyCode == 38 && direction == "n") || (event.keyCode == 87 && direction == "n") || (event.keyCode == 39 && direction == "e") || (event.keyCode == 68 && direction == "e") || (event.keyCode == 37 && direction == "w") || (event.keyCode == 65 && direction == "w") || (event.keyCode == 40 && direction == "s") || (event.keyCode == 83 && direction == "s")) {
@@ -228,6 +229,10 @@ const Tplayer = {
     // add effect
     $("#e-play #e-effects").attr("style", Tplayer.active.effects);
 
+    // add caption
+    $("#e-controls").attr("title", Tplayer.active.caption);
+    console.log(Tplayer.active);
+
     // add objects
     ((Tplayer.active).objects).forEach(function (e) {
       let newSrc = "";
@@ -281,6 +286,7 @@ const Tplayer = {
 
     $("#e-play #e-effects").css("background-image", "none").css("background", "none").css("backdrop-filter", "none").css("box-shadow", "none");
     $("#e-play textarea").val("");
+    $("#e-controls").attr("title", "");
 
     $("#e-play img.obj").each(function () {
       $(this).remove();
