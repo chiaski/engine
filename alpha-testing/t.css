@@ -556,6 +556,9 @@ PLAY
   -webkit-transition: all 0.3s linear;
   transition: all 0.13s linear;
 }
+#play h2 {
+  font-size: 0.8rem;
+}
 #play .play-overlay {
   position: absolute;
   pointer-events: none;

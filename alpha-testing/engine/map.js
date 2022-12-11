@@ -82,15 +82,24 @@ const mapControls = {
 
     for (let i = 0; i < globals.MAP_height; i++) {
       for (let j = 0; j < globals.MAP_width; j++) {
-
+        console.log(i,j);
+        
+        let c;
+            if (c == 0 || c == undefined) {
+              c = "#000000"; // default
+            }
+        
         // starting scene
         if (x !== null && y !== null && i == x && j == y) {
-          map_html += ("<div class='_s __active __start' data-active='active' data-scene='" + i + "," + j + "'>" + i + "," + j + "</div>");
+          c = data.s[sceneControls.getSceneIndex(i, j)].color;
+          
+          map_html += ("<div class='_s __active __start' data-active='active' data-scene='" + i + "," + j + "' style='background:" + c + ";'>" + i + "," + j + "</div>");
 
         } else if (x == null && y == null && i == 0 && j == 0) {
+          c = data.s[sceneControls.getSceneIndex(i, j)].color;
 
           // another starting scene
-          map_html += "<div class='_s __active __start' data-active='active' data-scene='" + i + "," + j + "'>" + i + "," + j + "</div>";
+          map_html += "<div class='_s __active __start' data-active='active' data-scene='" + i + "," + j + "' style='background:" + c + ";'>" + i + "," + j + "</div>";
 
         } else {
           // check if scene is used or not
@@ -98,12 +107,8 @@ const mapControls = {
             // unused scene
             map_html += "<div class='_s __unused' data-active='unused'  data-scene='" + i + "," + j + "'>" + i + "," + j + "</div>";
           } else {
-            let c = data.s[sceneControls.getSceneIndex(i, j)].color;
-
-            if (c == 0) {
-              c = "#000000"; // default
-            }
-
+            c = data.s[sceneControls.getSceneIndex(i, j)].color;
+            
             map_html += "<div class='_s __inactive' data-active='inactive' data-scene='" + i + "," + j + "' style='background:" + c + ";'>" + i + "," + j + "</div>";
           }
         }
@@ -271,7 +276,6 @@ const mapControls = {
 
 
       $("#scene_selector div._s.__active").css("background", active_scene.color); //retain scene color 
-
 
       alert("Scene created!");
       return;

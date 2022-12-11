@@ -233,8 +233,12 @@ const Tplayer = {
     if (Tplayer.active.caption) $("#e-controls").attr("title", Tplayer.active.caption);
 
     // add title
-    if (Tplayer.active.title !== "Scene") {
+      if (!Tplayer.active.title) {
+      $("._title").text("Scene");
+    } else if (Tplayer.active.title || Tplayer.active.title !== undefined || Tplayer.active.title !== "Scene") {
       $("._title").text(Tplayer.active.title);
+    } else {
+      $("._title").text("Scene");
     }
 
     // add objects

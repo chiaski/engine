@@ -641,9 +641,12 @@ PLAY
   margin-bottom: 1em;
 
   // handles pulse animation transitions
-
   -webkit-transition: all .3s linear;
   transition: all .13s linear;
+  
+  h2{
+    font-size: .8rem;
+  }
 
   .play-overlay {
     position: absolute;
