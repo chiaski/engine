@@ -317,7 +317,7 @@ const sceneControls = {
     sceneControls.loadEffect();
     sceneControls.loadObjects();
 
-    console.log("Switched scene to " + active_scene.x + "," + active_scene.y);
+//    console.log("Switched scene to " + active_scene.x + "," + active_scene.y);
 
 
     $("#e .obj").each(function () {

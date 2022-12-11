@@ -82,7 +82,6 @@ const mapControls = {
 
     for (let i = 0; i < globals.MAP_height; i++) {
       for (let j = 0; j < globals.MAP_width; j++) {
-        console.log(i,j);
         
         let c;
             if (c == 0 || c == undefined) {

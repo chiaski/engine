@@ -8,6 +8,7 @@
 
 */
 
+import JSONCrush from './JSONCrush.min.js'
 
 console.log("Plug and play for Engine: engine.lol/alpha/player.html");
 
@@ -43,6 +44,36 @@ function testJSON(text) {
   }
 }
 
+
+// check if we want to parse a URL
+$(document).ready(function () {
+
+  if (window.location.href.indexOf("?=") > -1) {
+    
+    let decode = $(location).attr("href").split("=")[1];
+    
+    console.log(decode)
+    
+    let decoded = JSONCrush.uncrush(decodeURIComponent(decode));
+        
+    console.log(decoded);
+    cartridge = decoded.replace(/^\s+|\s+$/g, "")
+    .replace(/\\n/g, "\\n")
+    .replace(/\\'/g, "\\'")
+    .replace(/\\"/g, '\\"')
+    .replace(/\\&/g, "\\&")
+    .replace(/\\r/g, "\\r")
+    .replace(/\\t/g, "\\t")
+    .replace(/\\b/g, "\\b")
+    .replace(/\\f/g, "\\f")
+    .replace(/[\u0000-\u0019]+/g, "");
+    
+    
+    run(cartridge);
+    
+    }
+});
+
 $("#btn-loadcartridge").on("click", function () {
   cartridge = $("#e-loadcartridge textarea").val();
   cartridge = cartridge.replace(/^\s+|\s+$/g, "")
@@ -56,7 +87,12 @@ $("#btn-loadcartridge").on("click", function () {
     .replace(/\\f/g, "\\f");
 
   cartridge = cartridge.replace(/[\u0000-\u0019]+/g, "");
+    run(cartridge);
+  
+});
 
+function run(cartridge){
+  
   console.log("Attempting to load: ", cartridge);
 
   if (testJSON(cartridge)) {
@@ -77,6 +113,8 @@ $("#btn-loadcartridge").on("click", function () {
       globals.MAP_height = Math.sqrt((scenes.s).length);
     }
 
+    Tplayer.loadCover();
+    
     $("#play h2").text("Loaded cartridge. Press play!");
     $("#e-loadcartridge").fadeOut();
 
@@ -87,16 +125,15 @@ $("#btn-loadcartridge").on("click", function () {
       window.addEventListener("keydown", arrow_keys_handler, false);
 
       Tplayer.init();
-      $(this).text("RELOAD");
+      $(this).text("RELOAD").addClass("--small");
     });
 
   } else {
     $("#play h2").text("Corrupted or empty cartridge");
     throw new Error();
   }
-});
-
-
+  
+}
 
 var globals = {
   // maximum objects allowed per scene
@@ -135,34 +172,30 @@ const Tplayer = {
   init: function () {
 
     Tplayer.clearGame();
-
-    // cartridge checks
-    if (scenes.cartridge !== null) {
-      // load the cartridge
-      Tplayer.loadCartridge();
-      $("#e-cartridge").fadeIn(1000);
-
+    if(Tplayer.loadCover()){
       setTimeout(function () {
         $("#e-cartridge").fadeOut("slow");
-        $("#play h2").html("<span class='_playwhatscene'></span> <span _title>Playing</span>")
-
-
-        // What font?
-        if (scenes.font !== "default") {
-          $("#e-play textarea").css("font-family", scenes.font);
-        }
-
-        $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
-      }, 1800);
-
-      $("#e-play").css("cursor", "not-allowed").css("pointer-events", "none").delay(1500).css("pointer-events", "auto").css("cursor", "auto");
-
-    } else {
-      $("#e-cartridge").fadeOut();
+      }, 1000);
     }
 
     // load in starting scene
     Tplayer.loadPlay(scenes.start_scene.x, scenes.start_scene.y);
+  },
+  
+  loadCover: function(){
+     // cartridge checks
+    if (scenes.cartridge !== null) {
+      // load the cartridge
+      Tplayer.loadCartridge();
+      $("#e-cartridge").fadeIn(1000);
+      
+      $("#e-play").css("cursor", "not-allowed").css("pointer-events", "none").delay(1500).css("pointer-events", "auto").css("cursor", "auto");
+
+      return true;
+    } else {
+      $("#e-cartridge").fadeOut();
+      return false;
+    }
   },
 
   loadCartridge: function () {
@@ -470,7 +503,7 @@ const Tplayer = {
       // defaults to black if color isn't set
       c = "#000000";
     }
-    
+
     $("#e-play").css("background", c);
     $("body").css("background", c);
 
@@ -510,4 +543,24 @@ $("button#btn-audio-play").on("click", function () {
   $("._audiotitle").text(scenes.audio);
   $("#_audio")[0].play();
 
+});
+
+
+// Downloader
+
+$("#btn-getcode").on("click", function(){
+  
+  let cartridge_code = JSON.stringify(scenes); 
+  
+  $("#downloader").html(cartridge_code);
+  
+    let range = document.createRange();
+  range.selectNode(document.getElementById("downloader"));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+
+   document.execCommand("copy");
+    window.getSelection().removeAllRanges();
+  
+  alert("Copied cartridge code to clipboard! Note that if you have funky characters or if my code was inadequate, this might have failed... :(\nYou can play this in the 'Load Cartridge' page.");
 });
