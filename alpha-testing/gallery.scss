@@ -1,3 +1,4 @@
+
 .wrapper {
   width: 100%;
   height: 100%;
@@ -10,15 +11,15 @@
   padding: 1em;
   width: 100%;
   text-align: center;
-  font-family: 'Times New Roman';
   font-size: 1em;
-  letter-spacing: -.3px;
+  margin-top: -2em;
   z-index: 9;
   pointer-events: none;
 
   a {
     text-decoration: none;
-  color:#fff;
+    color:#fff;
+    font-family: "Director";
   }
 
 }
@@ -125,6 +126,7 @@ padding: 1em;
   }
 
   a {
+    font-family: "Director";
     font-size:.7em;
     padding: .25em 1em;
     text-decoration: none;

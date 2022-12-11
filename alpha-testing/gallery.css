@@ -10,15 +10,15 @@
   padding: 1em;
   width: 100%;
   text-align: center;
-  font-family: "Times New Roman";
   font-size: 1em;
-  letter-spacing: -0.3px;
+  margin-top: -2em;
   z-index: 9;
   pointer-events: none;
 }
 #engine a {
   text-decoration: none;
   color: #fff;
+  font-family: "Director";
 }
 
 #help {
@@ -111,6 +111,7 @@
   margin: 0;
 }
 #webring a {
+  font-family: "Director";
   font-size: 0.7em;
   padding: 0.25em 1em;
   text-decoration: none;

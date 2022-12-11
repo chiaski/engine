@@ -376,7 +376,7 @@ const sceneControls = {
       active_scene.color = "#000000";
     }
 
-    $("input[type='color']").attr("value", active_scene.color);
+    $("input[type='color']").val(active_scene.color);
     $("#e").css("background", active_scene.color);
     $("body").css("background", active_scene.color);
   },
