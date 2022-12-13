@@ -8,7 +8,13 @@
 
 */
 
-import JSONCrush from './JSONCrush.min.js'
+import JSONCrush from './JSONCrush.min.js';
+import {
+  getDatabase,
+  ref,
+  child,
+  get
+} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 console.log("Plug and play for Engine: engine.lol/alpha/player.html");
 
@@ -49,33 +55,46 @@ function testJSON(text) {
 $(document).ready(function () {
 
   if (window.location.href.indexOf("?=") > -1) {
-    
+
     let decode = $(location).attr("href").split("=")[1];
-    
-    console.log(decode)
-    
-    let decoded = JSONCrush.uncrush(decodeURIComponent(decode));
-        
-    console.log(decoded);
-    cartridge = decoded.replace(/^\s+|\s+$/g, "")
-    .replace(/\\n/g, "\\n")
-    .replace(/\\'/g, "\\'")
-    .replace(/\\"/g, '\\"')
-    .replace(/\\&/g, "\\&")
-    .replace(/\\r/g, "\\r")
-    .replace(/\\t/g, "\\t")
-    .replace(/\\b/g, "\\b")
-    .replace(/\\f/g, "\\f")
-    .replace(/[\u0000-\u0019]+/g, "");
-    
-    
-    run(cartridge);
-    
+    let decoded = null;
+    console.log("1", decode);
+
+    // not a cartridge, fetch from firebase
+    if (decode.charAt() !== "(") {
+
+      console.log("!!");
+
+      const dbRef = ref(getDatabase());
+      get(child(dbRef, `published/${decode}/cartridge`)).then((snapshot) => {
+        if (snapshot.exists()) {
+          decode = snapshot.val();
+          decoded = JSONCrush.uncrush(decodeURIComponent(decode));
+          run(decoded);
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+
+    } else {
+      decoded = JSONCrush.uncrush(decodeURIComponent(decode));
+      run(decoded);
+
     }
+  }
 });
+
 
 $("#btn-loadcartridge").on("click", function () {
   cartridge = $("#e-loadcartridge textarea").val();
+  run(cartridge);
+
+});
+
+function run(cartridge) {
+
   cartridge = cartridge.replace(/^\s+|\s+$/g, "")
     .replace(/\\n/g, "\\n")
     .replace(/\\'/g, "\\'")
@@ -87,12 +106,7 @@ $("#btn-loadcartridge").on("click", function () {
     .replace(/\\f/g, "\\f");
 
   cartridge = cartridge.replace(/[\u0000-\u0019]+/g, "");
-    run(cartridge);
-  
-});
 
-function run(cartridge){
-  
   console.log("Attempting to load: ", cartridge);
 
   if (testJSON(cartridge)) {
@@ -114,7 +128,7 @@ function run(cartridge){
     }
 
     Tplayer.loadCover();
-    
+
     $("#play h2").text("Loaded cartridge. Press play!");
     $("#e-loadcartridge").fadeOut();
 
@@ -132,7 +146,7 @@ function run(cartridge){
     $("#play h2").text("Corrupted or empty cartridge");
     throw new Error();
   }
-  
+
 }
 
 var globals = {
@@ -172,7 +186,7 @@ const Tplayer = {
   init: function () {
 
     Tplayer.clearGame();
-    if(Tplayer.loadCover()){
+    if (Tplayer.loadCover()) {
       setTimeout(function () {
         $("#e-cartridge").fadeOut("slow");
       }, 1000);
@@ -181,14 +195,14 @@ const Tplayer = {
     // load in starting scene
     Tplayer.loadPlay(scenes.start_scene.x, scenes.start_scene.y);
   },
-  
-  loadCover: function(){
-     // cartridge checks
+
+  loadCover: function () {
+    // cartridge checks
     if (scenes.cartridge !== null) {
       // load the cartridge
       Tplayer.loadCartridge();
       $("#e-cartridge").fadeIn(1000);
-      
+
       $("#e-play").css("cursor", "not-allowed").css("pointer-events", "none").delay(1500).css("pointer-events", "auto").css("cursor", "auto");
 
       return true;
@@ -548,19 +562,19 @@ $("button#btn-audio-play").on("click", function () {
 
 // Downloader
 
-$("#btn-getcode").on("click", function(){
-  
-  let cartridge_code = JSON.stringify(scenes); 
-  
-  $("#downloader").html(cartridge_code);
-  
-    let range = document.createRange();
-  range.selectNode(document.getElementById("downloader"));
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
+$("#btn-getcode").on("click", function () {
 
-   document.execCommand("copy");
-    window.getSelection().removeAllRanges();
-  
+  let cartridge_code = JSON.stringify(scenes);
+
+  $("#downloader").html(cartridge_code);
+
+  let range = document.createRange();
+  range.selectNode(document.getElementById("downloader"));
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+
   alert("Copied cartridge code to clipboard! Note that if you have funky characters or if my code was inadequate, this might have failed... :(\nYou can play this in the 'Load Cartridge' page.");
 });

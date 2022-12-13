@@ -122,6 +122,27 @@ button.--small {
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+     <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js'
+
+
+    // Add Firebase products that you want to use
+    import { } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+     
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCH4Y5vJy8D4bJbJVugrr3VWbm1_OzQeks",
+    authDomain: "enginelol.firebaseapp.com",
+    databaseURL: "https://enginelol-default-rtdb.firebaseio.com",
+    projectId: "enginelol",
+    storageBucket: "enginelol.appspot.com",
+    messagingSenderId: "746074108754",
+    appId: "1:746074108754:web:5ad35a998aaccb135b008b"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  </script>
   <script type="module" src="engine/player.js"></script>
 
 </body>

@@ -464,7 +464,6 @@
   <script type="text/javascript" src="engine/library.js"></script>
   <script type="text/javascript" src="engine/playerpreview.js"></script>
   <script type="text/javascript" src="engine/audio.js"></script>
-  <script type="module" src="engine/downloader.js"></script>
   <script type="text/javascript" src="engine/tutorial.js"></script>
   <script type="text/javascript" src="engine/ui.js"></script>
   <script type="text/javascript" src="engine/samples.js"></script>
@@ -497,5 +496,28 @@
     scenes.s[0] = new Scene(0, 0, true, 0);
     var active_scene = scenes.s[0];
   </script>
+   <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js'
+
+
+    // Add Firebase products that you want to use
+    import { } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+     
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCH4Y5vJy8D4bJbJVugrr3VWbm1_OzQeks",
+    authDomain: "enginelol.firebaseapp.com",
+    databaseURL: "https://enginelol-default-rtdb.firebaseio.com",
+    projectId: "enginelol",
+    storageBucket: "enginelol.appspot.com",
+    messagingSenderId: "746074108754",
+    appId: "1:746074108754:web:5ad35a998aaccb135b008b"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  </script>
+  
+    <script type="module" src="engine/downloader.js"></script>
 
 </body></html>
