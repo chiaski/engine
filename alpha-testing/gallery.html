@@ -70,6 +70,8 @@
     
     
     function swap(what){
+    $("#_name").text(what);
+      
        $("iframe#game").attr("src", "gallery/" + what + ".html");
       
         let now = proj.indexOf(active);
@@ -86,19 +88,26 @@
       $("a._forward").attr("data-n", 0 );
       }
     }
+    
+    
+$(document).ready(function () {
+  
     // choose a random project to start
     let active = proj[Math.floor(Math.random()*proj.length)];
+  
+  // check if url has something special
+  if (window.location.href.indexOf("?=") > -1) {
+    let wooOoowowow = $(location).attr("href").split("=")[1];
+    active = wooOoowowow;
+  }
     
     // set iframe to active
     swap(active);
     
-    $("#_name").text(active);
-    
     $("a.nav").on("click", function(){
-      
       swap( proj[$(this).attr("data-n")] );
-      
     });
+});
     
     // help
     
