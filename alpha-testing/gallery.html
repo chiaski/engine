@@ -98,7 +98,13 @@ $(document).ready(function () {
   // check if url has something special
   if (window.location.href.indexOf("?=") > -1) {
     let wooOoowowow = $(location).attr("href").split("=")[1];
-    active = wooOoowowow;
+    
+    //check if valid
+    if(proj.includes(wooOoowowow)){
+    active = wooOoowowow;      
+    } else{
+      console.log("Invalid game given")
+    }
   }
     
     // set iframe to active
