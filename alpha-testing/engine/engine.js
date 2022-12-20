@@ -477,18 +477,5 @@ function getcode() {
 }
 
 
-/* MOBILE AUDIO FALLBACK 
-let songPlaying = 0; 
-  if(scenes.audio !== null){ // mobile audio fallback
-       document.getElementById('engine').addEventListener("touchend", tapOrClick, false);
-       
-function tapOrClick(e) {
-if(!songPlaying) return;
-    var mp3 = e.target;
-        mp3.parentNode.getElementsByTagName('audio')[0].play();
-        songPlaying = 1;
-}
-       
-     } 
-     
-*/
+/* MOBILE AUDIO FALLBACK  */
+ let songPlaying=0;$(document).on("click",function(n){songPlaying||(Tplayer.playSong(),songPlaying=1)});

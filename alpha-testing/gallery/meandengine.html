@@ -838,7 +838,7 @@
     $("#play h2").text("Engine"), scenes.s.length !== globals.MAP_height * globals.MAP_width && (console.log("This cartridge is sized differently. Adjusting the player..."), globals.MAP_width = Math.sqrt(scenes.s.length), globals.MAP_height = Math.sqrt(scenes.s.length)),   $("#play").attr("tabindex", 0).focus(), Tplayer.loadCover(), $("#btn-play").css("display","inline-block").fadeIn("slow").on("click",function(){$("#play").attr("tabindex",0).focus(),window.addEventListener("keydown",arrow_keys_handler,!1),Tplayer.init(),$(this).fadeOut()});
     
       // MOBILE AUDIO FALLBACK
- let songPlaying=0;$(document).on("click",function(n){songPlaying||(Tplayer.playSong(),songPlaying=1;)});
+ let songPlaying=0;$(document).on("click",function(n){songPlaying||(Tplayer.playSong(),songPlaying=1)});
     
     function getcode() {
       var e = JSON.stringify(scenes);
