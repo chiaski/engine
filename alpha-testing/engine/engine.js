@@ -176,6 +176,8 @@ const Tplayer = {
         $("#audio-player-controller").fadeIn();
         Tplayer.playSong();
       }
+      
+     
 
       $("#play h2").html("<span>Play</span><span class='_playwhatscene'></span> ")
       $("._playwhatscene").text((Tplayer.active).x + "," + (Tplayer.active).y);
@@ -473,3 +475,20 @@ function getcode() {
   alert("Copied cartridge code to clipboard! Note that if you have funky characters or if my code was just inadequate, this might have failed... :(\nYou can play this in the 'Load Cartridge' page.");
 
 }
+
+
+/* MOBILE AUDIO FALLBACK 
+let songPlaying = 0; 
+  if(scenes.audio !== null){ // mobile audio fallback
+       document.getElementById('engine').addEventListener("touchend", tapOrClick, false);
+       
+function tapOrClick(e) {
+if(!songPlaying) return;
+    var mp3 = e.target;
+        mp3.parentNode.getElementsByTagName('audio')[0].play();
+        songPlaying = 1;
+}
+       
+     } 
+     
+*/
