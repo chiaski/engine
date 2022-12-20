@@ -107,9 +107,6 @@ textarea {
   align-items: center;
   flex-wrap: wrap;
   margin: 2.5vh 5vw;
-  @media only screen and (max-width: 600px) {
-    border-radius: 0;
-  }
 }
 
 h2 {
@@ -267,8 +264,9 @@ PLAY
   transition: all .13s linear;
   
   @media only screen and (max-width: 600px) {
+    max-width: 100%;
   animation: none;
-transform: scale(0.95);
+transform: scale(0.98);
   }
 
   .play-overlay {
