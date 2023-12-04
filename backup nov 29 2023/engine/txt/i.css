@@ -1,0 +1,14 @@
+.thing {
+  position: absolute;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.thing[i=tree] {
+  width: 300px;
+  height: 300px;
+  background-image: url(i/tree.gif);
+  background-size: contain;
+}
+
+/*# sourceMappingURL=i.css.map */

@@ -1,0 +1,512 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.7">
+  <title>engine.lol</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css">
+  <style type="text/css">@charset "UTF-8";.window,.wrapper,body{display:flex}#e-play,h2{display:block}#e-play,#play,button{background:#000}#downloader,#e-play,#play{overflow:hidden}#e-play,#play #e-cartridge,#play #e-controls{height:512px;width:512px}#e-effects,#e-text,#play #e-effects,#play #e-text,#play .play-overlay{pointer-events:none}#e-text textarea,textarea{resize:none;padding:.75em}@font-face{font-family:"FA Sysfont C";src:url("https://engine.lol/alpha/assets/fonts/sysfont.woff2") format("woff2"),url("https://engine.lol/alpha/assets/fonts/sysfont.woff") format("woff");font-weight:400;font-style:normal}@font-face{font-family:"Times Now";src:url("https://engine.lol/alpha/assets/fonts/TimesNow-Light.woff2") format("woff2"),url("https://engine.lol/alpha/assets/fonts/TimesNow-Light.woff") format("woff");font-weight:300;font-style:normal;font-display:swap}@font-face{font-family:Director;src:url("https://engine.lol/alpha/assets/fonts/Director-Regular.woff2") format("woff2"),url("https://engine.lol/alpha/assets/fonts/Director-Regular.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}*{box-sizing:border-box}body,html{scroll-behavior:smooth;font-family:"Courier New"}.wrapper{position:absolute;width:100vw;height:100vh;top:0;left:0;text-align:center;justify-content:center;vertical-align:center;align-content:center;align-items:center;flex-wrap:wrap}#e-play,#play,.window{position:relative}.engine-controls{width:100%;margin:1em 0}.engine-controls button{font-family:Director;font-size:1.2rem;padding:.5em 2em;border-radius:16px}#e-play,body{-webkit-transition:background .15s linear;-moz-transition:background .15s linear;-ms-transition:background .15s linear;-o-transition:background .15s linear;transition:background .15s linear}textarea{font-size:1.75em;line-height:97.5%}.window{background:#f7f7f7;box-shadow:0 0 100px #717374;border:1.5px solid #000;width:100%;border-radius:15px;min-height:30vh;justify-content:center;vertical-align:middle;align-items:center;flex-wrap:wrap;margin:2.5vh 5vw}h2{width:100%;border-bottom:1.5px solid #000;font-family:Director;font-size:1em;letter-spacing:-.3px;text-align:left;padding:.5em 0;color:#fff}h2 span{padding:.5em}h2 span:first-of-type::after{content:" · "}#audio-player-controller{position:fixed;padding:1em;z-index:20;top:0;width:100%;text-align:center;mix-blend-mode:difference;display:none}#audio-player-controller h3{display:inline-block;padding:.2em .5em;width:200px;height:35px;line-height:30px;border:1px solid #f7f7f7;margin:0 auto;border-radius:16px;color:#f7f7f7}#audio-player-controller button{background:0 0;border:0;outline:0;margin:0 .5em;transform:translateY(-8px);padding:.5em}#audio-player-controller button:hover{text-shadow:0 0 5px #f7f7f7}button{border:1.5px solid #000;border-radius:12px;color:#f7f7f7;padding:.5em 1em;margin:.5em;font-family:"Courier New";-webkit-transition:.19s cubic-bezier(.17, .67, .83, .67);transition:.19s cubic-bezier(.17, .67, .83, .67)}button:hover{transform:translateY(-2.5px);color:#f7f7f7;background:#1c1e1f;cursor:pointer;box-shadow:0 0 20px #3b4041}#downloader{position:absolute;width:1px;height:1px;white-space:pre!important;display:inline-block;pointer-events:none!important;opacity:0!important}body{background:#717374;padding:2em;flex-wrap:wrap;justify-content:center}#e-play{border:1px solid #fff;margin:0}#e-cartridge .obj,#e-play .obj{position:absolute;display:inline-block;left:0;top:0;width:128px;height:128px;mix-blend-mode:exclusion;-webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;-o-user-drag:none;user-drag:none}#play{width:512px;animation:5s infinite pulse-engine;margin:auto;-webkit-transition:.3s linear;transition:.13s linear}#play .play-overlay{position:absolute;width:100%;height:100%;z-index:9}#play #e-cartridge{position:absolute;bottom:0;z-index:15}#play #e-text{position:absolute;top:0;z-index:15}#play #e-text textarea{resize:none!important;pointer-events:none!important}#play #e-effects{position:absolute;top:0;z-index:16}#play #e-controls{position:absolute;z-index:12;bottom:0}#play #e-controls a{position:absolute;display:inline-block;background:#fff;opacity:.3;background-blend-mode:blur(3px);-webkit-transition:.19s cubic-bezier(.17, .67, .83, .67);transition:.19s cubic-bezier(.17, .67, .83, .67)}#play #e-controls a.___n,#play #e-controls a.___s{width:100%;height:24px}#play #e-controls a.___e,#play #e-controls a.___w{width:24px;height:512px}#play #e-controls a.___e{right:0}#play #e-controls a.___w{left:0}#play #e-controls a.___s{bottom:0;left:0}#play #e-controls a.___n{top:0;left:0}#play #e-controls a.-inaccessible{opacity:.05}#play #e-controls a:hover{transform:scale(1.04);mix-blend-mode:difference;cursor:pointer;opacity:.8}#play #e-controls a.-inaccessible:hover{opacity:.1;cursor:not-allowed}#e-effects,#e-text{position:absolute;height:512px;width:512px;top:0;left:0}#e-effects{background-size:cover;z-index:15}#e-text{mix-blend-mode:difference;z-index:14}#e-text textarea{width:100%;height:100%;background:rgba(0,0,0,0);color:#f7f7f7;font-family:"Times New Roman";mix-blend-mode:exclusion;white-space:pre-wrap;overflow-y:hidden;cursor:text}#e-text textarea.__toggled{border:.5em solid rgba(255,255,255,.45);padding:.3em}#cartridge{display:none}@keyframes pulse-engine{0%{box-shadow:0 0 0 5px rgba(0,0,0,.3)}70%{box-shadow:0 0 0 20px transparent}100%{box-shadow:0 0 0 5px transparent}}
+
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+
+    <div id="audio-player-controller">
+      <h3>
+        <marquee class="_audiotitle" onmouseover="this.stop();" onmouseout="this.start();">
+          If there's a song, it's going to play here...
+        </marquee>
+      </h3>
+
+      <button id="btn-audio-play">play</button>
+      <button id="btn-audio-stop">stop</button>
+
+      <audio id="_audio">
+        <source src="" id="_audio_src">
+      </audio>
+    </div>
+
+    <div class="window" tabindex="-1" id="play">
+      <div class="play-overlay" style="background-image:url(https://engine.lol/alpha/assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.08;"></div>
+
+      <h2>Corrupted or empty game</h2>
+
+      <!-- THE 'START SCREEN' FOR GAMES   -->
+
+      <div id="e-cartridge">
+      </div>
+
+      <div id="e-controls">
+        <a data-direction="n" data-target="null" class="___n -inaccessible"></a>
+        <a data-direction="e" data-target="null" class="___e -inaccessible"></a>
+        <a data-direction="w" data-target="null" class="___w -inaccessible"></a>
+        <a data-direction="s" data-target="null" class="___s -inaccessible"></a>
+      </div>
+
+
+
+
+      <!--  PLAY AREA GOES HERE  -->
+      <div id="e-play">
+        <div id="e-effects">
+        </div>
+
+        <div id="e-text">
+          <textarea maxlength="550"></textarea>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <!--  CONTROLS  -->
+    <div class="engine-controls">
+      <button id="btn-play">Play Game</button><br>
+      <button id="btn-reload" style="font-size: .5rem;" onclick="location.reload()">Reload</button>
+      <button id="btn-code" style="font-size: .5rem;" onclick="getcode()">Get Code</button>
+      <button onclick="window.open( 'https://engine.lol', '_bank');" style="font-size: .5rem;">engine.lol</button>
+    </div>
+  </div>
+
+
+  <div id="cartridge">{
+  "scene_count": 1,
+  "start_scene": {
+    "x": 0,
+    "y": 0
+  },
+  "cartridge": {
+    "x": -1,
+    "y": -1,
+    "active": true,
+    "color": "#000000",
+    "textoverlay": "",
+    "object_count": 2,
+    "objects": [
+      {
+        "x": 160,
+        "y": 200,
+        "img": "https://engine.lol/alpha/assets/image/items/note.gif",
+        "filter": "invert(0)",
+        "flip": "none",
+        "size": "200px"
+      },
+      {
+        "x": 320,
+        "y": 40,
+        "img": "https://engine.lol/alpha/assets/image/softbank/62.gif",
+        "filter": "none",
+        "flip": "none",
+        "size": "128px"
+      }
+    ]
+  },
+  "audio": null,
+  "audio_loop": true,
+  "font": "default",
+  "s": [
+    {
+      "x": 0,
+      "y": 0,
+      "active": true,
+      "color": "#000000",
+      "textoverlay": "\n\nyou are the new kid at school\ngo explore\n\n\noh and please don't question the layout of our school\n\n\n\n\n\nit's genius I swear",
+      "object_count": 1,
+      "objects": [
+        {
+          "x": 160,
+          "y": 240,
+          "img": "https://engine.lol/alpha/assets/image/faces/blank.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        }
+      ]
+    },
+    null,
+    {
+      "x": 0,
+      "y": 2,
+      "active": true,
+      "color": "#ffffff",
+      "textoverlay": "history class\n\n\n\n\n\nso uhh a big ass ball of stuff hurled through the sky at another ball of stuff and then it became a bunch of lava n all so then another asteroid delivered water and it was then a bunch of steam and finally it got so cold that a small creature was born from something ",
+      "object_count": 1,
+      "objects": [
+        {
+          "x": 200,
+          "y": 280,
+          "img": "https://engine.lol/alpha/assets/image/monsters/ghost.gif",
+          "filter": "invert(0)",
+          "flip": "none",
+          "size": "250px"
+        }
+      ]
+    },
+    null,
+    null,
+    {
+      "x": 1,
+      "y": 0,
+      "active": true,
+      "color": "#88a4f7",
+      "textoverlay": "You're in the hall.\n\nThere are lots of lockers",
+      "object_count": 3,
+      "objects": [
+        {
+          "x": 40,
+          "y": 120,
+          "img": "https://engine.lol/alpha/assets/image/items/drink.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        },
+        {
+          "x": 120,
+          "y": 120,
+          "img": "https://engine.lol/alpha/assets/image/items/drink.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        },
+        {
+          "x": 200,
+          "y": 120,
+          "img": "https://engine.lol/alpha/assets/image/items/drink.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "160px"
+        }
+      ]
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "active": true,
+      "color": "#7fbf6e",
+      "textoverlay": "there's a bully in this hall\n\nyou should probably get a teacher...\n\n\nnah.",
+      "object_count": 3,
+      "objects": [
+        {
+          "x": 80,
+          "y": 240,
+          "img": "https://engine.lol/alpha/assets/image/faces/rage.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 280,
+          "y": 240,
+          "img": "https://engine.lol/alpha/assets/image/faces/tear.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 160,
+          "y": 320,
+          "img": "https://engine.lol/alpha/assets/image/items/sword.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "96px"
+        }
+      ]
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "active": true,
+      "color": "#000000",
+      "textoverlay": "this hallway is a void for some reason",
+      "object_count": 0,
+      "objects": []
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "active": true,
+      "color": "#1bda91",
+      "textoverlay": "delicious, its the lunchroom\n\n",
+      "object_count": 3,
+      "objects": [
+        {
+          "x": 0,
+          "y": 240,
+          "img": "https://engine.lol/alpha/assets/image/digital/trash.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 320,
+          "y": 240,
+          "img": "https://engine.lol/alpha/assets/image/monsters/dude-3.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 280,
+          "y": 320,
+          "img": "https://engine.lol/alpha/assets/image/items/pizza.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "40.5px"
+        }
+      ]
+    },
+    null,
+    null,
+    {
+      "x": 2,
+      "y": 1,
+      "active": true,
+      "color": "#692d0c",
+      "textoverlay": "what is going on here? is he putting like a shroom in a coffee cup or something?\n\n\n\noh it's chemistry",
+      "object_count": 3,
+      "objects": [
+        {
+          "x": 160,
+          "y": 200,
+          "img": "https://engine.lol/alpha/assets/image/faces/nerd.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 280,
+          "y": 280,
+          "img": "https://engine.lol/alpha/assets/image/items/coffee.gif",
+          "filter": "none",
+          "flip": "matrix(-1, 0, 0, 1, 0, 0)",
+          "size": "72px"
+        },
+        {
+          "x": 320,
+          "y": 240,
+          "img": "https://engine.lol/alpha/assets/image/items/shroom.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "40.5px"
+        }
+      ]
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "active": true,
+      "color": "#d2c751",
+      "textoverlay": "is this like a facs room or something?",
+      "object_count": 3,
+      "objects": [
+        {
+          "x": 80,
+          "y": 120,
+          "img": "https://engine.lol/alpha/assets/image/monsters/dude-2.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "200px"
+        },
+        {
+          "x": 280,
+          "y": 200,
+          "img": "https://engine.lol/alpha/assets/image/items/cake.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "128px"
+        },
+        {
+          "x": 360,
+          "y": 80,
+          "img": "https://engine.lol/alpha/assets/image/softbank/57.gif",
+          "filter": "none",
+          "flip": "none",
+          "size": "128px"
+        }
+      ]
+    },
+    null,
+    null,
+    null,
+    {
+      "x": 3,
+      "y": 1,
+      "active": true,
+      "color": "#5e5050",
+      "textoverlay": "this teacher is DRINKING??",
+      "object_count": 2,
+      "objects": [
+        {
+          "x": 240,
+          "y": 280,
+          "img": "https://engine.lol/alpha/assets/image/items/beer.gif",
+          "filter": "invert(1)",
+          "flip": "matrix(-1, 0, 0, 1, 0, 0)",
+          "size": "72px"
+        },
+        {
+          "x": 80,
+          "y": 160,
+          "img": "https://engine.lol/alpha/assets/image/monsters/child.gif",
+          "filter": "invert(1)",
+          "flip": "none",
+          "size": "200px"
+        }
+      ]
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}</div>
+  <div id="downloader"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    console.log("loaded engine.js, Engine's playmode");
+    const cartridge = $("#cartridge").text();
+    var scenes = null,
+      globals = {
+        MAX_object_count: 15,
+        MAP_width: 5,
+        MAP_height: 5
+      },
+      arrow_keys_handler = function(e) {
+        switch (e.code) {
+          case "ArrowUp":
+          case "ArrowDown":
+          case "ArrowLeft":
+          case "ArrowRight":
+          case "Space":
+            e.preventDefault()
+        }
+      };
+    if (window.addEventListener("keydown", arrow_keys_handler, !1), !testJSON(cartridge)) throw $("#play h2").text("Corrupted or empty game"), new Error;
+    if (!(scenes = JSON.parse(cartridge))) throw $("#play h2").text("Corrupted or empty game"), new Error;
+
+    function testJSON(e) {
+      if ("string" != typeof e) return !1;
+      try {
+        return "object" == typeof JSON.parse(e)
+      } catch (e) {
+        return !1
+      }
+    }
+    const c = {
+        getSceneIndex: function(e, t) {
+          return parseInt(e) * globals.MAP_width + parseInt(t)
+        },
+        getScene: function(e, t) {
+          let a = parseInt(e) * globals.MAP_width + parseInt(t);
+          return scenes.s[a]
+        },
+        textConvert: function(e) {
+          return e.replace(/\\n/g, "\n").replace(/&nbsp;/g, " ")
+        }
+      },
+      Tplayer = {
+        active: scenes.s[0],
+        init: function() {
+          Tplayer.clearGame(),Tplayer.loadCover()&&setTimeout(function(){$("#e-cartridge").fadeOut("slow")},1e3),Tplayer.loadPlay(scenes.start_scene.x,scenes.start_scene.y);
+        },
+        loadCover:function(){
+          null!==scenes.cartridge?(Tplayer.loadCartridge(),$("#e-cartridge").fadeIn(1e3),$("#e-play").css("cursor","not-allowed").css("pointer-events","none").delay(1500).css("pointer-events","auto").css("cursor","auto")):$("#e-cartridge").fadeOut();
+        },
+        loadCartridge: function() {
+          Tplayer.loadObjects(scenes.cartridge.objects, "#e-cartridge"), $("#e-cartridge").css("background", scenes.cartridge.color), $("body").css("background", scenes.cartridge.color);
+        },
+        loadPlay: function(e, t) {
+          $("#e-cartridge").fadeOut(),$("#play h2").html("<span>Starting Game...</span>").fadeIn("slow"), Tplayer.active = scenes.s[c.getSceneIndex(e, t)], setTimeout(function() {
+            null !== scenes.audio && ($("#audio-player-controller").fadeIn(), Tplayer.playSong()), $("#play h2").html("<span class='_playwhatscene'></span><span class='_title'>Play</span> "), $("._playwhatscene").text(Tplayer.active.x + "," + Tplayer.active.y), Tplayer.loadScene(e, t), "default" !== scenes.font && ($("#e-play textarea").css("font-family", scenes.font), $("textarea").css("font-family", scenes.font))
+          }, 1500)
+        },
+        clearGame: function() {
+          $("#e-cartridge").html(""), $("#e-controls a").each(function(e, t) {
+            $(this).removeClass("-inaccessible").addClass("-inaccessible").attr("data-target", "null").unbind("click", Tplayer.loadTarget)
+          }), Tplayer.clearScene()
+        },
+        playSong: function(e) {
+          let t = null;
+          t = e || "https://engine.lol/alpha/assets/audio/" + scenes.audio, $("#_audio")[0].currentTime = 0, $("._audiotitle").text(t), $("#_audio").attr("src", t), $("#_audio")[0].play()
+        },
+        loadTarget: function() {
+          let e = $(this).attr("data-target"),
+            t = e.split(",")[0],
+            a = e.split(",")[1];
+          null != t && null != a && (Tplayer.loadScene(t, a), Tplayer.animatePulse())
+        },
+        animatePulse: function() {
+          let e = $("#play");
+          e.css("transform", "scale(1.03)"), setTimeout(function() {
+            e.css("transform", "scale(0.99)")
+          }, 500)
+        },
+        updateSceneNavigation() {
+          $("#play").off("keydown"),$("#e-controls a").each(function(e,a){$(this).removeClass("-inaccessible").attr("data-target","null").unbind("click",Tplayer.loadTarget);var t=$(this).data("direction"),n=Tplayer.convertCoord(t,Tplayer.active.x,Tplayer.active.y);if(null==n){$(this).addClass("-inaccessible");return}var i=n.toString().split(",");if(null==c.getScene(i[0],i[1])){$(this).addClass("-inaccessible");return}$(this).attr("data-target",i[0]+","+i[1]).bind("click",Tplayer.loadTarget),$("#play").on("keydown",function(e){(38==e.keyCode&&"n"==t||87==e.keyCode&&"n"==t||39==e.keyCode&&"e"==t||68==e.keyCode&&"e"==t||37==e.keyCode&&"w"==t||65==e.keyCode&&"w"==t||40==e.keyCode&&"s"==t||83==e.keyCode&&"s"==t)&&Tplayer.loadScene(parseInt(i[0]),parseInt(i[1]))})});
+        },
+        convertCoord: function(e, t, a) {
+          let n, l;
+          switch (e) {
+            case "n":
+              n = t > 0 ? t - 1 : null, l = a;
+              break;
+            case "e":
+              l = a < globals.MAP_width - 1 ? a + 1 : null, n = t;
+              break;
+            case "w":
+              l = a > 0 ? a - 1 : null, n = t;
+              break;
+            case "s":
+              n = t < globals.MAP_height - 1 ? t + 1 : null, l = a
+          }
+          return null == n || null == l ? null : [n + "," + l]
+        },
+        loadScene: function(e, t) {Tplayer.clearScene(),Tplayer.active=c.getScene(e,t),$("#e-play textarea").hide().delay(300).fadeIn("slow").val(c.textConvert(Tplayer.active.textoverlay)),Tplayer.loadObjects(Tplayer.active.objects,"#e-play"),$("._playwhatscene").text(Tplayer.active.x+","+Tplayer.active.y),Tplayer.loadColor(),Tplayer.active.effect&&$("#e-play #e-effects").attr("style",Tplayer.active.effects),Tplayer.active.caption&&$("#e-controls").attr("title",Tplayer.active.caption),Tplayer.active.title&&(Tplayer.active.title||void 0!==Tplayer.active.title||"Scene"!==Tplayer.active.title)?$("._title").text(Tplayer.active.title):$("._title").text("Scene"),Tplayer.updateSceneNavigation();
+        },
+        loadObjects: function(e, t) {
+          e.forEach(function(e) {
+            let a = "";
+            a = "<img class='obj' data-selected='0' src='" + e.img + "' style='", a += "top:" + e.y + "px; left:" + e.x + "px;", e.filter && (a += "filter:" + e.filter + ";"), e.flip && (a += "transform:" + e.flip + ";"), e.size && (a += "width:" + e.size + "; height:" + e.size + ";"), a += "'>";
+            let n = $(a).hide().fadeIn(500);
+            $(t).append(n)
+          })
+        },
+        loadColor: function() {
+          let e = Tplayer.active.color;
+          0 == e && (e = "#000000"), $("#e-play").css("background", e), $("body").css("background", e)
+        },
+        clearScene: function() {
+          $("#e-play #e-effects").css("background-image","none").css("background","none").css("backdrop-filter","none").css("box-shadow","none"),$("#e-play textarea").val(""),$("#e-play img.obj").each(function(){$(this).remove()});
+        }
+      };
+
+    
+    $("#play h2").text("Engine"), scenes.s.length !== globals.MAP_height * globals.MAP_width && (console.log("This cartridge is sized differently. Adjusting the player..."), globals.MAP_width = Math.sqrt(scenes.s.length), globals.MAP_height = Math.sqrt(scenes.s.length)),   $("#play").attr("tabindex", 0).focus(), Tplayer.loadCover(), $("#btn-play").css("display","inline-block").fadeIn("slow").on("click",function(){$("#play").attr("tabindex",0).focus(),window.addEventListener("keydown",arrow_keys_handler,!1),Tplayer.init(),$(this).fadeOut()});
+    
+      // MOBILE AUDIO FALLBACK
+ let songPlaying=0;$(document).on("click",function(n){songPlaying||(Tplayer.playSong(),songPlaying=1)});
+    
+    
+    function getcode() {
+      var e = JSON.stringify(scenes);
+      console.log(e), $("#downloader").html(e);
+      var t = document.createRange();
+      t.selectNode(document.getElementById("downloader")), window.getSelection().removeAllRanges(), window.getSelection().addRange(t), document.execCommand("copy"), window.getSelection().removeAllRanges(), alert("Copied cartridge code to clipboard! Note that if you have funky characters or if my code was just inadequate, this might have failed... :(\nYou can play this in the 'Load Cartridge' page.")
+    }
+
+  </script>
+
+
+
+
+</body>

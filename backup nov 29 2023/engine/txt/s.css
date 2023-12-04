@@ -1,0 +1,379 @@
+@font-face {
+  font-family: "Director";
+  src: url("Director-Regular.woff2") format("woff2"), url("Director-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
+}
+
+#title {
+  z-index: 9;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  position: fixed;
+  padding: 0.5rem;
+  pointer-events: none;
+}
+
+#mode {
+  z-index: 9;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+@media only screen and (max-width: 600px) {
+  #mode {
+    padding: 0.5rem;
+  }
+}
+#mode a {
+  opacity: 0.4;
+  padding: 0 0.5rem;
+  cursor: #pointer;
+}
+#mode a[active] {
+  opacity: 1;
+}
+
+#engine[mode=player] textarea {
+  pointer-events: none !important;
+  border: 1px solid transparent;
+}
+
+div[onMode=player] div[playing] {
+  display: none;
+}
+div[onMode=player] .--directions a {
+  cursor: pointer !important;
+}
+.map {
+  height: 72px;
+  overflow: scroll;
+  margin: 0;
+}
+@media only screen and (max-width: 600px) {
+  .map {
+    height: 80px;
+  }
+}
+.map hr {
+  border: 0;
+  margin: 0;
+  width: 100%;
+  height: 0.5px;
+}
+.map .row {
+  margin: -1.5px 0;
+}
+.map span.s {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: none;
+  border: 1px solid #ccc;
+  margin: 0.25px;
+  cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .map span.s {
+    width: 18px;
+    height: 18px;
+  }
+}
+.map span.s[state=inactive] {
+  border: 1px solid transparent;
+  background: #ccc;
+  opacity: 0.6;
+}
+.map span.s[state=unused] {
+  opacity: 0.2;
+}
+.map span.s[origin],
+.map span.s[x="2"][y="2"] {
+  border: 1px solid transparent;
+  background: #e0f8f8;
+}
+
+#help {
+  position: fixed;
+  right: 0;
+  top: 0;
+  max-width: 95%;
+  width: 250px;
+  padding: 0.5rem;
+  z-index: 2;
+  text-align: right;
+}
+#help details,
+#help margin,
+#help p {
+  cursor: help;
+  margin: 0;
+  padding: 0;
+}
+
+.engine-coord {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+}
+
+#everything {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 0.5rem;
+}
+
+.engine-wrapper {
+  border: 1px solid red;
+  text-align: center;
+}
+
+#engine {
+  margin: 0 auto;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background: #ffffff;
+  font-family: "Times New Roman";
+  line-height: 24px;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid rgba(204, 204, 204, 0.22);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#engine textarea {
+  width: 100%;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #ccc;
+  resize: none;
+  font-family: inherit;
+  font-size: 20px;
+  line-height: inherit;
+  background: inherit;
+  background-color: inherit;
+  text-align: center;
+  color: inherit;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#engine textarea[full] {
+  width: 100%;
+  height: 100%;
+}
+
+.--directions {
+  padding: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  .--directions {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.--directions input[type=text],
+.--directions span[text] {
+  display: inline-block;
+  flex-grow: 1;
+  width: 100%;
+  font-family: "Times New Roman";
+  font-size: 0.8rem;
+  border: 1px solid transparent;
+  text-align: center;
+}
+.--directions input[type=text]:focus {
+  border: 1px solid #ccc;
+}
+.--directions a[side] {
+  display: inline-block;
+  padding: 0.15rem 0;
+  line-height: 16px;
+  min-height: 16px;
+}
+.--directions a[side] span[direction] {
+  display: inline-block;
+  width: 46px;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  letter-spacing: 0.5px;
+  opacity: 1;
+}
+@media only screen and (max-width: 600px) {
+  .--directions a[side] {
+    width: 48%;
+  }
+}
+.--directions a[side=up],
+.--directions a[side=down] {
+  width: 100%;
+}
+.--directions a[side=left],
+.--directions a[side=right] {
+  width: 48%;
+  display: inline-block;
+}
+.--directions a[side][inactive] {
+  opacity: 0.3;
+  cursor: none;
+}
+.--directions a[side] span[make] {
+  display: inline-block;
+  background: #ccc;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  cursor: pointer;
+  display: none;
+}
+.--directions a[side] span[make]::after {
+  content: "Make scene...";
+  position: absolute;
+  margin-left: 0.5rem;
+  display: none;
+}
+
+div[onMode=editor] a[side]:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+div[onMode=player] a[side][inactive] {
+  pointer-events: none;
+}
+div[onMode=player] a[side][inactive] span[text] {
+  display: none;
+}
+div[onMode=player] a[side][active]:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+#engine-actions {
+  position: relative;
+  width: 320px;
+}
+@media only screen and (max-width: 600px) {
+  #engine-actions {
+    max-width: 100%;
+    height: auto;
+    width: 320px;
+  }
+}
+#engine-actions .wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+@media only screen and (max-width: 600px) {
+  #engine-actions .wrapper {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    padding-bottom: 40px;
+  }
+}
+#engine-actions .--game {
+  position: fixed;
+  bottom: 3rem;
+  width: 100%;
+  left: 0;
+  text-align: center;
+}
+#engine-actions summary {
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+#engine-actions summary details {
+  margin: 0.25rem 0;
+}
+#engine-actions .--settings {
+  text-align: center;
+}
+#engine-actions .--settings label {
+  font-size: 0.7rem;
+}
+#engine-actions .--settings .--publishing .--setting {
+  display: inline-block;
+}
+#engine-actions .--settings .--setting {
+  padding: 0.15rem 0;
+  display: inline-block;
+}
+#engine-actions .--settings .--settings-color input {
+  width: 40px;
+  height: 24px;
+}
+#engine-actions .--settings .--settings-fontsize input,
+#engine-actions .--settings .--settings-lineheight input {
+  width: 40px;
+}
+#engine-actions .--settings .--settings-fontsize,
+#engine-actions .--settings .--settings-textalign,
+#engine-actions .--settings .--settings-lineheight {
+  display: inline-block;
+}
+#engine-actions label {
+  font-size: 0.8rem;
+}
+
+#downloader {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  white-space: pre !important;
+  display: inline-block;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  -webkit-touch-callout: all;
+  /* iOS Safari */
+  -webkit-user-select: all;
+  /* Safari */
+  -khtml-user-select: all;
+  /* Konqueror HTML */
+  -moz-user-select: all;
+  /* Old versions of Firefox */
+  -ms-user-select: all;
+  /* Internet Explorer/Edge */
+  user-select: all;
+}
+
+/*# sourceMappingURL=s.css.map */

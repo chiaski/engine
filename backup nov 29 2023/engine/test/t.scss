@@ -1,0 +1,766 @@
+
+
+@font-face {
+  font-family: 'Times Now';
+  src: url('./assets/fonts/TimesNow-LightItalic.woff2') format('woff2'),
+    url('./assets/fonts/TimesNow-LightItalic.woff') format('woff');
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Times Now';
+  src: url('./assets/fonts/TimesNow-Light.woff2') format('woff2'),
+    url('./assets/fonts/TimesNow-Light.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+@font-face {
+  font-family: 'Apercu Pro Mono';
+  src: url('./assets/fonts/ApercuPro-Mono.woff2') format('woff2'), url('./assets/fonts/ApercuPro-Mono.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/*
+
+  TRANSITIONS
+
+*/
+
+html, body{
+  scroll-behavior: smooth;
+  
+}
+
+#e, body, #e-play{
+  -webkit-transition: background .15s linear;
+-moz-transition: background .15s linear;
+-ms-transition: background .15s linear;
+-o-transition: background .15s linear;
+transition: background .15s linear;
+}
+
+
+/*
+
+  COLORS
+
+*/
+
+$c: #000000; // MAIN COLOR
+$l: #f7f7f7; // light color
+
+$g1: #b6b7b7;
+$g2: #868c8e;
+
+$p: #eb80ff; 
+
+$mono: "Apercu Pro Mono";
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background: $g1;
+  padding: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10vh;
+}
+
+h1{
+  font-family: "Times Now";
+  font-size: 5.6em;
+  letter-spacing: -2px;
+  display: block;
+  text-align: center;
+}
+
+
+h1._title{
+  font-size: 5.6em + 2em;
+  letter-spacing: -5px;
+}
+
+h2{
+  width: 100%;
+  display: block;
+  border-bottom: 1.5px solid $c;
+  font-family: $mono;
+  text-transform: uppercase;
+  font-size: .8em;
+  padding: 1em 0;
+  
+  span{
+    border-right: 1.5px solid $c;
+    padding: 0 1em;
+  }
+  
+}
+
+h4{
+  padding: .5em;
+}
+
+button{
+  border: 1.5px solid $c;
+  background: $l;
+  padding: 1em;
+  margin: 1em;
+}
+
+button:hover{
+  background: $c;
+  color: $l;
+  cursor: pointer;
+  box-shadow: 0 0 20px $g2;
+}
+
+
+/* 
+
+    EFFECTS
+
+
+*/
+
+.fx{
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  top: 0;
+  left: 0;
+  
+}
+
+.fx._1{
+  background-image: url(https://i.gifer.com/origin/c5/c50bb597295cf9c1cacc417a2c2927ea_w200.gif);
+  opacity: 0.08;
+  mix-blend-mode: colorburn;
+}
+
+.fx._p{
+  background: #ffe6eb;
+  opacity: 1;
+  mix-blend-mode: exclusion;
+  display: none;
+}
+
+
+/* 
+
+
+
+START AND EXTRAS 
+
+
+
+*/
+
+
+
+#start{
+  background-image: url(assets/bg-min.gif);
+  background-size: cover;
+  color:#fff;
+  min-height: 50vh;
+  padding:20vh 0;
+  margin: 15vh 0;
+  
+  .window-wrapper{
+    mix-blend-mode: difference;
+    text-align: center;
+    
+    p{
+      font-size: 1.8em;
+      letter-spacing: -1px;
+    }
+    
+    button{
+      font-size: 1.2em;
+      font-family: "Times New Roman";
+      font-family: "Helvetica";
+    }
+    
+  }
+  
+}
+
+
+/* 
+
+    CONSISTENT WINDOWS
+
+
+*/
+
+
+.window{
+  position: relative;
+  background: $l;
+  box-shadow: 0 0 20px $g2;
+  border: 1.5px solid $c;
+  width: 100%;
+  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 2.5vh 0;
+}
+
+
+.panel{
+  border-top: 1px solid $c;
+  border-bottom: 1px solid $c;
+  
+  margin: 1em 0;
+  
+  p{
+    padding: 1em;
+    font-weight: normal;
+    font-size: .85em;
+    line-height: 120%;
+  }
+  
+  h2{
+    width: 100%;
+    padding: .5em 1em;
+    margin: 0;
+  }
+  
+}
+
+.panel._full{
+ border: 1.5px solid $c; 
+}
+
+.panel._sidebar{
+  width: 100%;
+  border-top: none;
+  margin: 1em 0;
+}
+
+
+.panel._tutorial{
+  
+  box-shadow: 0 0 20px $g2;
+  transform: translateX(2em);
+  right: 0;
+  
+  max-width: 250px;
+  z-index: 1;
+  position: absolute;
+  background: $l;
+  color:$c;
+  
+}
+
+
+
+/* PANELS & SIDEBARS */
+
+
+.sidebar{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  
+  border-bottom: none;
+  
+}
+
+.sidebar-left{
+max-width: 190px;
+  
+}
+
+.sidebar-right{
+  
+}
+
+
+
+// –––––––––
+// EDITOR
+// CONTROLS
+// –––––––––
+
+._howmany::after{
+  content: "/15";
+}
+
+
+// CONTROLS TOP
+
+#controls-top{
+  padding: .5em 0;
+}
+
+
+// MAIN CONTROLS
+
+#controls{
+  width: 200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+#controls .controls-selected{
+display: none;
+}
+
+
+#controls #colorpicker input[type=color]{
+  padding: .5em;
+  margin: 1em auto;
+  display: block;
+  width: 100%;
+  height: 50px;
+}
+
+#controls #colorpicker input[type=color]:hover{
+ cursor: pointer; 
+}
+
+
+
+// –––––––––
+// HELP
+// CONTROLS
+// –––––––––
+
+#help{
+  width: 220px;
+}
+
+
+
+/* ENGINE */
+
+#engine-window{
+  max-width: 900px;
+}
+
+#engine{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1em;
+  
+  .sidebar{
+    min-width: calc( ((100% - 512px) / 2) - 2em);
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  .sidebar.sidebar-right{
+    max-width: 150px;
+  }
+  
+}
+
+  #e, #e-play{
+  display: block;
+  position: relative;
+  background: $c;
+  border: 1px solid #fff;
+  outline: 1.5px solid $c;
+  width: 512px;
+  height: 512px;
+  margin: 0;
+  overflow: hidden;
+  }
+  
+
+
+#e .obj{
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  mix-blend-mode: exclusion;
+  
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+#e img[data-selected="1"]{
+  box-shadow: 0 0 20px #fff;
+}
+
+#e img[data-selected="1"]:hover{
+  cursor: pointer;
+}
+
+
+
+/* 
+
+
+
+PLAY 
+
+
+
+*/
+
+#play{
+  
+  background: #000;
+    position: relative;
+  max-width: 512px;
+  animation: pulse-black-engine 10s infinite;
+  
+  .play-overlay{
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+  }
+  
+  #e-play{
+  }
+  
+  h2{
+    color: #fff;
+    border-bottom: 1px solid #fff;
+  }
+  
+}
+
+
+
+/* 
+
+
+
+EDITOR 
+
+
+
+*/
+
+
+
+// –––––––––
+// MAP
+// VIEW
+// –––––––––
+
+
+#scene_s, #map{
+  
+  #scene_selector{
+    
+    
+    margin: 1em auto;
+    text-align: center;
+    
+    
+    hr{
+      height: 0;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      padding: 0;
+      margin: 0;
+    }
+    
+    ._s{
+    display: inline-block;
+      padding: .25em;
+      background: $c;
+      color:#fff;
+      vertical-align: middle;
+    }
+    
+    ._s.__start{
+      border: 1px solid $p;
+    }
+    
+    ._s.__active{
+      opacity: 1;
+//      border: 1px solid #fff;
+      outline: 2ox solid hotpink;
+      box-shadow: 0 0 5px $c;
+      
+  animation: pulse-black 2s infinite;
+    }
+    
+    ._s.__inactive{
+      opacity: .5;
+    }
+    
+    
+    ._s.__unused{
+      opacity: 0.25;
+    }
+    
+    ._s:hover{
+      filter: invert(1);
+      cursor: pointer;
+    }
+    
+  }
+  
+  
+}
+
+// OVERALL MAP
+
+#map{
+  
+  width: 100%;
+  border: 1.5px solid #000;
+  
+  #scene_selector{
+    
+    
+  display: flex;
+  flex-wrap: wrap;
+    justify-content: center;
+  
+  ._s{
+    
+    width: 80px;
+    height: 80px;
+    padding: .5em;
+    margin: .2em;
+    font-size: 1em;
+    vertical-align: middle;
+    text-align: center;
+  }
+    
+    ._s.__active{
+//      border: 5px solid hotpink;
+    }
+    
+    ._s.__start::after{
+      padding: .5em 0;
+      display: block;
+      content:"Start";
+      color:#fff;
+      font-family: $mono;
+      text-transform: uppercase;
+      font-size: .6em;
+    }
+    
+    
+  }
+  
+}
+
+// PER SCENE MAP
+
+#scene_s{
+  
+    ._whatscene{
+      display:inline-block;
+      padding-left: .5em;
+      border-right: 0;
+    }
+  
+
+
+  #scene_selector{
+
+    max-width: 250px;
+    outline: 1px solid $c;
+    padding: .25em;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    hr{
+      margin: 0;
+      display: block;
+    }
+    
+    ._s{
+      flex-basis: 22%;
+      font-size: .5em;
+      line-height: 25px;
+      margin: .25em;
+      -webkit-transition: all .13s linear;
+-moz-transition: all .13s linear;
+-ms-transition: all .13s linear;
+-o-transition: all .13s linear;
+transition: all .13s linear;
+      border: 1px solid #fff;
+      box-shadow: 0 0 5px #fff;
+    }
+    
+    
+  }
+  
+}
+
+
+
+
+// –––––––––
+// EDITOR
+//    MAP
+// –––––––––
+
+
+
+
+
+
+// –––––––––––––––––––––––––––––––––––––––
+
+
+// text tools
+
+#texttool{
+  
+  
+  input[type=text]{
+    margin: 1em auto;
+    width: 80%;
+    padding: .25em;
+    
+  }
+  
+}
+
+
+// library
+
+#library{
+//  background: $c;
+//  color:#fff;
+  
+  width: 400px;
+  flex-grow: 2;
+  margin: 0;
+  
+  .library-controls{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
+    select{
+      padding: .25em;
+      margin: 1em auto;
+      text-align: center;
+    }
+    
+    select:hover{
+      cursor: pointer;
+    }
+    
+    button._filter{
+      padding: .25em;
+      text-transform: uppercase;
+      
+    }
+    
+  }
+  
+  .library-selector{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0;
+    background: #000;
+    width: 100%;
+    max-height: 188px;
+    overflow-y: scroll;
+    display: none;
+    
+    img{
+      // so it looks like one continuous grid
+      margin: -.1em;
+    }
+    
+  }
+  
+  
+  // LIBRARY OBJECTS
+
+  ._toadd{
+    background: $c;
+    padding: .25em;
+    border: .5px solid #fff;
+    object-fit: contain;
+    width: 50px;
+    height: 50px;
+    max-width: 50px;
+    height: 50px;
+  }
+
+    ._toadd:hover{
+      filter:invert(1);
+      cursor: pointer;
+    }
+
+}
+
+
+
+#library .library-objects .objtoadd:hover{
+  filter: invert(1);
+}
+
+
+/* ANIMATIONS */
+
+
+@keyframes pulse-black {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+  
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 7px rgba(0, 0, 0, 0);
+  }
+  
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+
+@keyframes pulse-black-engine {
+  0% {
+    transform: scale(0.98);
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+  
+  100% {
+    transform: scale(0.98);
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+  }
+}

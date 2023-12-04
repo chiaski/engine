@@ -1,0 +1,199 @@
+/* 
+
+
+EDITOR
+
+
+*/
+@font-face {
+  font-family: "FA Sysfont C";
+  src: url("./assets/fonts/sysfont.woff2") format("woff2"), url("./alpha/assets/fonts/sysfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Director";
+  src: url("./assets/fonts/Director-Regular.woff2") format("woff2"), url("./assets/fonts/Director-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/*
+
+  COLORS
+
+*/
+#workspace {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.window {
+  background: #f4f4f4;
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-bottom: 20vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+}
+.window .-content {
+  padding: 2.5vh 0;
+  width: 100%;
+  text-align: center;
+}
+.window h2:first-child {
+  letter-spacing: 0;
+  padding: 0.5em;
+  border-bottom: 0.5px solid;
+}
+
+button {
+  border: 1px solid #1d1d1d;
+  background: #ddd;
+  color: #1d1d1d;
+  padding: 0.5em 1em;
+  margin: 0.25em;
+  font-family: "Director";
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+button.--small {
+  border: 0;
+  background: 0;
+  margin: 0;
+  font-size: 0.6rem;
+}
+
+button.--med {
+  border: 0;
+  background: 0;
+  margin: 0;
+  padding: 0.5em;
+  font-size: 0.7rem;
+}
+
+button:hover {
+  transform: translateY(-2.5px);
+  color: #edede8;
+  background: #1c1e1f;
+  cursor: pointer;
+  box-shadow: 0 0 10px #b6b7b7;
+}
+button:hover img {
+  filter: invert(1);
+}
+
+button.--destructive:hover {
+  color: red;
+  background: none;
+  box-shadow: none;
+}
+
+.window {
+  text-align: center;
+}
+
+/* PANELS & SIDEBARS */
+.panel {
+  width: 100%;
+  margin: 0.5em 0;
+  text-align: center;
+}
+.panel p {
+  padding: 1em;
+  font-weight: normal;
+  font-size: 0.85em;
+  line-height: 120%;
+}
+
+.panel._full {
+  border: 1.5px solid #000000;
+}
+
+.panel._sidebar {
+  border-top: none;
+}
+
+.sidebar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  border-bottom: none;
+}
+
+.sidebar-left {
+  max-width: 190px;
+}
+
+.sidebar-right {
+  max-width: 150px;
+}
+
+.engine-buttons {
+  text-align: center;
+  margin-bottom: 15vh;
+}
+.engine-buttons button {
+  margin: 0 0.25em;
+}
+.engine-buttons button#btn-play {
+  padding: 1em 5em;
+  border-radius: 8px;
+}
+.engine-buttons button#btn-clear {
+  margin-top: 0.5em;
+  padding: 0.5em 2em;
+}
+.engine-buttons button.--med {
+  border: 0;
+  background: #b6b7b7;
+  opacity: 0.6;
+}
+.engine-buttons button.--med:hover {
+  box-shadow: none;
+  color: #000;
+  opacity: 1;
+}
+
+.engine-buttons:hover > button:not(:hover) {
+  opacity: 0.6;
+}
+
+input[name=caption],
+input[name=title] {
+  padding: 0.25em;
+  font-size: 0.8rem;
+  margin: 0.5em 0.25em;
+}
+
+input[name=caption] {
+  display: none;
+}
+
+#gamestatus img {
+  padding: 0.5em 0.25em;
+}
+#gamestatus img:hover {
+  cursor: help;
+}
+#gamestatus p {
+  padding: 0 0.25em;
+  font-size: 0.75rem;
+  line-height: 120%;
+  pointer-events: none;
+}
+
+#gamestatus:hover {
+  cursor: help;
+}
+
+/*# sourceMappingURL=ui.css.map */

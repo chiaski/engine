@@ -1,0 +1,136 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#engine {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 1em;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+  margin-top: -2em;
+  z-index: 9;
+  pointer-events: none;
+}
+#engine a {
+  text-decoration: none;
+  color: #fff;
+  font-family: "Director";
+}
+
+#help {
+  position: fixed;
+  z-index: 9999;
+  padding: 1em;
+  margin: 2vw;
+  cursor: help;
+  display: none;
+}
+
+#downloader {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  white-space: pre !important;
+  display: inline-block;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
+#gamelist {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  display: none;
+}
+#gamelist ._games {
+  padding: 5vw;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+#gamelist ._close {
+  cursor: pointer;
+  font-size: 2em;
+}
+#gamelist a {
+  color: #fff;
+  display: block;
+  padding: 1em;
+  text-align: center;
+  cursor: pointer;
+}
+#gamelist a:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 5px #fff;
+}
+
+#game {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#webring {
+  position: fixed;
+  height: 12.5vh;
+  width: 100vw;
+  bottom: 50px;
+  left: 0;
+  z-index: 9;
+  padding: 3vw;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  vertical-align: middle;
+  mix-blend-mode: difference;
+}
+#webring ._random {
+  display: block;
+  font-size: 1.25em;
+}
+#webring ._tutorial {
+  display: block;
+  width: 100%;
+}
+#webring hr {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+#webring a {
+  font-family: "Director";
+  font-size: 0.7em;
+  padding: 0.25em 1em;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
+  border: 1px solid #fff;
+  border-radius: 12px;
+  margin: 0.25em;
+}
+#webring a._random {
+  font-size: 1.5em;
+}
+#webring a:hover {
+  background: #fff;
+  color: #000;
+  transform: scale(1.1);
+  cursor: pointer;
+  text-shadow: 0 0 5px yellow;
+}
+
+/*# sourceMappingURL=gallery.css.map */

@@ -1,0 +1,27 @@
+/* 
+
+
+EDITOR
+
+
+*/
+@font-face {
+  font-family: "FA Sysfont C";
+  src: url("./assets/fonts/sysfont.woff2") format("woff2"), url("./alpha/assets/fonts/sysfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Director";
+  src: url("./assets/fonts/Director-Regular.woff2") format("woff2"), url("./assets/fonts/Director-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/*
+
+  COLORS
+
+*/
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,800 @@
+/* 
+
+
+EDITOR
+
+
+*/
+@font-face {
+  font-family: "FA Sysfont C";
+  src: url("./assets/fonts/sysfont.woff2") format("woff2"), url("./alpha/assets/fonts/sysfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Director";
+  src: url("./assets/fonts/Director-Regular.woff2") format("woff2"), url("./assets/fonts/Director-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/*
+
+  COLORS
+
+*/
+#workspace {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#info {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  color: #edede8;
+  font-size: 0.8rem;
+  font-family: "Director";
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  padding: 0.75rem;
+  pointer-events: none;
+  z-index: 1;
+}
+#info span {
+  display: inline-block;
+  border-radius: 20px;
+  background: #000;
+  padding: 0.5rem;
+  backdrop-filter: hue-rotate(90deg);
+}
+
+p {
+  color: #edede8;
+  font-family: monospace;
+  margin: 0;
+  padding: 0.25rem;
+}
+p a {
+  color: #000;
+}
+
+#jump {
+  position: fixed;
+  z-index: 20;
+  text-align: center;
+  opacity: 1;
+  padding: 0.25rem;
+  bottom: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  font-family: "Director";
+  width: 100%;
+}
+#jump .-links {
+  display: inline-block;
+  border-radius: 20px;
+  background: #000;
+  backdrop-filter: hue-rotate(90deg);
+  margin: 0.25rem;
+}
+#jump .-tools {
+  float: left;
+}
+#jump .-publish {
+  float: right;
+}
+#jump [toggle] {
+  background: rgba(0, 0, 0, 0.5);
+}
+#jump a {
+  background: none;
+  backdrop-filter: hue-rotate(90deg);
+  border-radius: 20px;
+  pointer-events: auto;
+  display: inline-block;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 0.25px;
+  -webkit-transition: all 0.12s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.12s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+#jump a img {
+  filter: invert(1);
+  display: none;
+}
+#jump .-jump a {
+  width: 70px;
+}
+#jump a:hover {
+  transform: scale(1.15);
+  filter: invert(1);
+}
+#jump .-primary a {
+  margin: 0 0.25rem;
+}
+#jump .-secondary {
+  display: none;
+}
+#jump .-secondary a {
+  display: inline-block;
+  font-size: 0.5rem;
+}
+
+.window {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(2px) hue-rotate(90deg);
+  border-radius: 8px;
+  border: 1px solid #000000;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 90vw;
+  overflow: hidden;
+}
+.window .-content {
+  padding: 2.5vh 0;
+  width: auto;
+  text-align: center;
+}
+.window .-controls button {
+  background: #ddd;
+  font-size: 0.6rem;
+  border-radius: 20px;
+}
+.window h2:first-child {
+  letter-spacing: 0;
+  padding: 0.5rem;
+  border-bottom: 0.5px solid;
+}
+
+#map {
+  width: 300px;
+  display: none;
+  top: 25vh;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
+}
+
+button {
+  border: 1px solid #1d1d1d;
+  background: #ddd;
+  color: #1d1d1d;
+  padding: 0.5em 1em;
+  margin: 0.25em;
+  font-family: monospace;
+  font-size: 0.8rem;
+  -webkit-transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.19s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+button.--small {
+  font-size: 0.6rem;
+}
+
+button.--med {
+  padding: 0.25rem 1rem;
+  margin: 0.25rem 0.5rem;
+  font-size: 0.7rem;
+}
+
+button.--large {
+  width: calc(100% - 0.5rem);
+  margin: 0.5rem auto 0.25rem;
+  font-size: 0.7rem;
+  background: #000;
+  border-radius: 8px;
+  color: #edede8;
+}
+
+button:hover {
+  transform: translateY(-2.5px);
+  cursor: pointer;
+}
+button:hover img {
+  filter: invert(1);
+}
+
+button.--destructive:hover {
+  color: red;
+  background: none;
+}
+
+.window {
+  text-align: center;
+}
+
+/* PANELS & SIDEBARS */
+.panel {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  padding: 0.25rem 0;
+}
+.panel p {
+  padding: 1em;
+  font-weight: normal;
+  font-size: 0.85em;
+  line-height: 120%;
+}
+
+.panel._full {
+  border: 1.5px solid #000000;
+}
+
+.panel._sidebar {
+  border-top: none;
+}
+
+.sidebar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  border-bottom: none;
+}
+
+#btn-savecartridge {
+  margin: 0 auto;
+  display: none;
+}
+
+#engine #controls, #engine #help {
+  width: 150px;
+  margin: 0 auto;
+  padding: 0;
+}
+#engine select {
+  width: 100%;
+  margin: -0.1rem 0;
+  border-radius: 0;
+  background: #000;
+  color: #edede8;
+  font-size: 0.7rem;
+  font-family: monospace;
+}
+#engine input[type=color] {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+#engine input[type=color] input::-webkit-color-swatch {
+  border: none;
+  border-radius: 8px;
+}
+#engine #cartridge-title {
+  z-index: 9;
+  color: #fff;
+  position: relative;
+  top: 395px;
+  text-align: center;
+  font-family: monospace;
+  font-size: 1.25rem;
+  border-radius: 20px;
+  padding: 0.25rem 1rem;
+  height: 32px;
+  line-height: 120%;
+  background: none;
+  mix-blend-mode: difference;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+#engine #cartridge-title:focus {
+  border: 2px dashed #fff;
+}
+#engine #btn-editCartridge {
+  font-size: 0.7rem;
+  text-transform: none;
+  font-family: monospace;
+}
+#engine [action=saveCartridge] {
+  border: 1px dashed #edede8;
+  background: #464A4B;
+}
+#engine #library .library-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+#engine #library marquee {
+  font-size: 0.8em;
+  padding: 0.25rem 0 0.25rem 0;
+  font-family: monospace;
+}
+#engine #library select {
+  border-radius: 4px 4px 0 0;
+  margin: 0.25rem;
+  margin-bottom: 0;
+}
+#engine #library #library-objects {
+  margin: 0.25rem;
+  margin-top: 0;
+  border-radius: 0 0 4px 4px;
+}
+#engine #library ._toadd {
+  background: #000000;
+  padding: 0.25rem;
+  object-fit: contain;
+  width: 36px;
+  height: 36px;
+  -webkit-transition: all 0.24s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.24s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  filter: none;
+}
+#engine #library ._toadd:hover {
+  filter: invert(1);
+  transform: scale(1.15);
+  cursor: pointer;
+  border: 1px dashed #edede8;
+  border-radius: 6px;
+}
+#engine select[name=effects-category] {
+  margin: 0.25rem;
+  width: calc(100% - 0.25rem);
+}
+#engine #library-scene-controls {
+  margin-top: -0.25rem;
+  padding: 0 0 1rem;
+}
+#engine #library-scene-controls button {
+  border-radius: 6px;
+  border: 0;
+  font-size: 0.5rem;
+  background: #000;
+  color: #edede8;
+}
+#engine #library-scene-controls button[disabled] {
+  opacity: 0.1;
+  cursor: not-allowed;
+}
+#engine #library-scene-controls button[disabled]:hover {
+  transform: none;
+}
+#engine #library-scene-controls [checked] {
+  pointer-events: none;
+}
+#engine #library-scene-controls .control-setstarting {
+  background: #000;
+  color: #edede8;
+  margin: 0.25rem;
+  font-size: 0.6rem;
+  font-family: monospace;
+  border-radius: 10px;
+  padding: 0.15rem;
+  line-height: 80%;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+#engine #library-scene-controls .control-setstarting label {
+  display: inline-block;
+  margin: 0;
+  transform: translateY(-3px);
+}
+
+#controls-top {
+  position: absolute;
+  bottom: 24px;
+  left: 160px;
+  text-align: center;
+  width: 512px;
+  z-index: 15;
+}
+#controls-top .controls-selected {
+  display: none;
+}
+#controls-top button {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  color: #edede8;
+  font-size: 0.6rem;
+  font-family: monospace;
+}
+#controls-top button[action=objDelete] {
+  background: rgba(250, 77, 77, 0.42);
+}
+#controls-top button[action=objSave] {
+  background: rgba(0, 0, 0, 0.8);
+}
+#controls-top .controls-text {
+  position: absolute;
+  z-index: 9999;
+  left: 160px;
+  bottom: 0;
+  margin-left: 30px;
+  opacity: 0.4;
+  -webkit-transition: all 0.25s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.25s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+#controls-top .controls-text button {
+  width: auto;
+}
+#controls-top .controls-text button[editing] {
+  border: 1px dashed #edede8;
+  background: #464A4B;
+}
+#controls-top .controls-text #btn-changefonttext {
+  background: none;
+  border: none;
+}
+
+#engine-window:hover .controls-text {
+  opacity: 0.8;
+}
+
+.engine-buttons {
+  text-align: center;
+  margin-bottom: 15vh;
+}
+.engine-buttons button {
+  margin: 0 0.25em;
+}
+.engine-buttons button#btn-play {
+  margin-top: 0.25rem;
+  padding: 1em 5em;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: hue-rotate(180deg);
+  font-family: monospace;
+  color: #edede8;
+}
+.engine-buttons button#btn-play::before {
+  display: inline-block;
+  content: " ";
+  width: 20px;
+  height: 20px;
+  background-image: url(assets/icon-play.gif);
+  background-size: contain;
+  margin: -1rem;
+  position: relative;
+  left: -16px;
+  top: -12px;
+  display: none;
+}
+.engine-buttons button#btn-clear {
+  margin-top: 0.5rem;
+  padding: 0.5em 2em;
+  background: none;
+  border: 0;
+  color: #edede8;
+  mix-blend-mode: difference;
+}
+.engine-buttons button.--med {
+  background: #000;
+  color: #edede8;
+  font-size: 0.6rem;
+  border-radius: 20px;
+}
+.engine-buttons:hover > button:not(:hover) {
+  opacity: 0.6;
+}
+
+input[name=caption],
+input[name=title] {
+  padding: 0.25em;
+  font-size: 0.8rem;
+  margin: 0.5em 0.25em;
+}
+
+input[name=caption] {
+  display: none;
+}
+
+#gamestatus {
+  cursor: help;
+}
+#gamestatus .-wrapper {
+  background: #000;
+  margin: 0.25rem;
+  padding: 0.5rem 0 1rem;
+  border-radius: 8px;
+  color: #edede8;
+}
+#gamestatus img {
+  padding: 0;
+  margin: 0 auto;
+}
+#gamestatus img:hover {
+  cursor: help;
+}
+#gamestatus p {
+  padding: 0 0.5rem;
+  font-size: 0.6rem;
+  line-height: 120%;
+  pointer-events: none;
+  font-family: monospace;
+}
+
+.screen-one {
+  width: 100%;
+  height: 100vh;
+  z-index: 9999999;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  vertical-align: center;
+  justify-content: center;
+}
+
+#start {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000000;
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  height: 100vh;
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url(assets/cover.png);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+#start #options {
+  position: absolute;
+  padding: 1rem;
+  bottom: 5vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+#start #options a {
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
+#start #options a h2 {
+  border: 0;
+  color: #edede8;
+  font-family: "Director";
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  text-align: center;
+  text-shadow: 0 0 15px #000000, 0 0 15px #000000, 0 0 15px #000000;
+}
+#start #options a:hover h2 {
+  text-shadow: 0 0 15px #fff;
+}
+#start h1._bigtitle {
+  width: 100%;
+  display: inline-block;
+  color: #fff;
+  font-family: "Director";
+  font-size: 4rem;
+}
+#start h1._bigtitle span[subtitle] {
+  margin: 1rem 0;
+  display: block;
+  letter-spacing: 0;
+  font-size: 1rem;
+}
+#start .window-samples {
+  text-align: center;
+  width: 500px;
+  display: flex;
+  justify-content: space-evenly;
+}
+#start .window-samples ._sample {
+  margin: 1em 0.25em;
+  border-radius: 6px;
+  display: inline-block;
+  width: 90px;
+  height: 105px;
+  font-size: 0.6rem;
+  font-family: "Director";
+  text-transform: uppercase;
+  object-fit: contain;
+  color: #edede8;
+  -webkit-transition: all 0.14s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.14s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+#start .window-samples ._sample img {
+  margin-bottom: 0.5rem;
+  filter: grayscale(80%);
+  max-width: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+#start .window-samples ._sample:hover {
+  cursor: pointer;
+  transform: translateY(-6px);
+}
+
+[window-moveable] {
+  position: relative;
+  z-index: 999;
+}
+
+[window-moveable] span[close], [window-moveable] span[hide] {
+  position: absolute;
+  right: 0;
+  top: 0;
+  float: right;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem;
+}
+[window-moveable] span[close]::after, [window-moveable] span[hide]::after {
+  content: "";
+}
+[window-moveable] span[close]:hover, [window-moveable] span[hide]:hover {
+  filter: invert(1);
+}
+
+#audio {
+  position: fixed;
+  margin: 0;
+  padding: 0.75rem;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.6rem;
+  display: none;
+}
+#audio .-controls {
+  display: none;
+}
+#audio .wrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 0;
+}
+#audio select {
+  padding: 0.25rem 1rem;
+  height: 24px;
+  font-family: monospace;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px) hue-rotate(180deg) contrast(1.5);
+  color: #fff;
+  mix-blend-mode: exclusion;
+  margin: 0;
+  margin-right: 0.5rem;
+  border: 1px solid #edede8;
+  border-radius: 20px;
+}
+#audio button {
+  background: #000;
+  color: #edede8;
+  border-radius: 16px;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  height: 24px;
+  margin: 0 0.15rem;
+  border: 1px solid #edede8;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px) hue-rotate(180deg) contrast(1.5);
+  pointer-events: auto;
+}
+#audio [playing] {
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px dashed #edede8;
+}
+#audio button:hover {
+  text-shadow: 0 0 5px #edede8;
+}
+
+#load {
+  width: 400px;
+}
+
+#outer-modals {
+  position: fixed;
+  width: 100%;
+  height: 40%;
+  bottom: 0;
+  z-index: 99;
+  pointer-events: none;
+  vertical-align: bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 1;
+}
+#outer-modals ._modal {
+  margin-right: 2vw;
+  margin-left: auto;
+  margin-bottom: 1.5rem;
+  max-width: 320px;
+  min-width: 100px;
+  background: rgba(255, 255, 255, 0.56);
+  backdrop-filter: hue-rotate(30deg) blur(5px);
+  padding: 0.15em;
+  border-radius: 8px;
+  border: 1px solid #000000;
+  animation: pulse-modal 5s infinite;
+  cursor: help;
+  -webkit-transition: all 0.25s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: all 0.25s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  pointer-events: all;
+  opacity: 0.9;
+}
+#outer-modals ._modal ._options {
+  background: #c7c7c7;
+  padding: 0.5em;
+  text-align: center;
+  border-radius: 5px;
+}
+#outer-modals ._modal button {
+  font-size: 0.8em;
+  margin: 0 0.25em;
+  padding: 0.5em 0.75em;
+}
+#outer-modals ._modal h3 {
+  border-bottom: 1px solid #000000;
+  padding: 0.5em 0.25em;
+  text-transform: uppercase;
+  font-family: "Director";
+  font-size: 0.7rem;
+}
+#outer-modals ._modal p {
+  font-size: 0.7rem;
+  padding: 0.5em 0.25em;
+  line-height: 120%;
+  color: inherit;
+}
+#outer-modals ._modal:hover {
+  transform: translateY(-1em);
+  cursor: pointer;
+  opacity: 1;
+}
+#outer-modals ._modal.__warning {
+  background: red;
+}
+
+#ahhh {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999999;
+  left: 0;
+  top: 0;
+  background: #000;
+  color: #fff;
+  padding: 2em;
+  display: none;
+}
+#ahhh h1 {
+  margin: 5vh;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  line-height: 90%;
+}
+@media only screen and (max-width: 720px) {
+  #ahhh {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #new {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=ui.css.map */

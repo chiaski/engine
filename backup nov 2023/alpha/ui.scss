@@ -1,0 +1,212 @@
+@import "styles";
+
+#workspace {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+// CONTAINERS
+.window {
+  background: $white;
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-bottom: 20vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+
+  .-content {
+    padding: 2.5vh 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  h2:first-child {
+    letter-spacing: 0;
+    padding: .5em;
+    border-bottom: .5px solid;
+  }
+}
+
+
+// COMPONENTS
+
+button {
+  border: 1px solid $black;
+  background: $lg;
+  color: $black;
+  padding: .5em 1em;
+  margin: .25em;
+  font-family: $serif-alt;
+  text-transform: uppercase;
+  font-size: .8rem;
+  -webkit-transition: all .19s cubic-bezier(.17, .67, .83, .67);
+  transition: all .19s cubic-bezier(.17, .67, .83, .67);
+}
+
+button.--small {
+  border: 0;
+  background: 0;
+  margin: 0;
+  font-size: .6rem;
+}
+
+button.--med {
+  border: 0;
+  background: 0;
+  margin: 0;
+  padding: .5em;
+  font-size: .7rem;
+}
+
+button:hover {
+  transform: translateY(-2.5px);
+  color: $l;
+  background: $g4;
+  cursor: pointer;
+  box-shadow: 0 0 10px $g1;
+
+  img {
+    filter: invert(1);
+  }
+}
+
+button.--destructive:hover {
+  color: red;
+  background: none;
+  box-shadow: none;
+}
+
+
+// WINDOWS
+
+.window {
+  text-align: center;
+}
+
+
+/* PANELS & SIDEBARS */
+
+.panel {
+  width: 100%;
+  margin: .5em 0;
+  text-align: center;
+
+  p {
+    padding: 1em;
+    font-weight: normal;
+    font-size: .85em;
+    line-height: 120%;
+  }
+}
+
+.panel._full {
+  border: 1.5px solid $c;
+}
+
+.panel._sidebar {
+  border-top: none;
+}
+
+
+
+.sidebar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+
+  border-bottom: none;
+
+}
+
+.sidebar-left {
+  max-width: 190px;
+}
+
+.sidebar-right {
+  max-width: 150px;
+}
+
+
+
+// WHATEVER
+
+
+.engine-buttons {
+  text-align: center;
+  margin-bottom: 15vh;
+
+  button {
+    margin: 0 .25em;
+  }
+
+  button#btn-play {
+    padding: 1em 5em;
+    border-radius: 8px;
+  }
+
+  button#btn-clear {
+    margin-top: .5em;
+    padding: .5em 2em;
+  }
+
+
+  button.--med {
+    border: 0;
+    background: $g1;
+    opacity: 0.6;
+  }
+
+  button.--med:hover {
+    box-shadow: none;
+    color: #000;
+    opacity: 1;
+  }
+
+}
+
+.engine-buttons:hover > button:not(:hover) {
+  opacity: 0.6;
+}
+
+
+input[name='caption'],
+input[name='title'] {
+  padding: .25em;
+  font-size: .8rem;
+  margin: .5em .25em;
+}
+
+input[name='caption'] {
+  display: none;
+}
+
+// GAME MOOD
+
+#gamestatus {
+
+  img {
+    padding: .5em .25em;
+  }
+
+  img:hover {
+    cursor: help;
+  }
+
+  p {
+    padding: 0 .25em;
+    font-size: .75rem;
+    line-height: 120%;
+    pointer-events: none;
+  }
+
+}
+
+#gamestatus:hover {
+  cursor: help;
+}

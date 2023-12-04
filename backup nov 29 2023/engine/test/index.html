@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TESTING: Map</title>
+  <meta name="description" content="description" />
+  <meta name="author" content="author" />
+  <meta name="keywords" content="keywords" />
+  <style type="text/css">
+    .body {
+      width: auto;
+    }
+  </style>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css" />
+  <link rel="stylesheet" href="t.css" />
+</head>
+
+<body>
+
+  <div class="fx _1"></div>
+  <div class="fx _p"></div>
+
+<!--  WINDOW: START  -->
+  
+  
+  <div id="start" class="window">
+    <div class="window-wrapper">
+      <div>
+        <h1 class="_title">Engine</h1>
+
+        <p>Engine is a gamemaking tool for the best gamemakers.</p>
+
+        <button id="tempplay">Create new game</button>
+        <button onclick="location.href='https://engine.lol';">Sign up to playtest</button>
+
+
+      </div>
+    </div>
+  </div>
+
+  
+  
+<!--  WINDOW: MAP  -->
+  
+  
+  
+  
+  
+  <a id="window-map" style="display: block;height: 15vh;width: 100%;"></a>
+  <div id="map" class="window">
+
+    <h2>
+      <span>Map View</span>
+      Viewing the Map of the World
+    </h2>
+
+    <div class="panel _full _tutorial">
+      <h2>Tips</h2>
+      
+      <p class="-helptext">Welcome to the map view. Your world begins at <strong>0,0</strong>. Click to  create new scenes.</p>
+    </div>
+
+
+    <div id="scene_selector">
+      
+      <hr>
+      
+      <div id="sss"></div>
+      
+     
+      <hr>
+      <hr>
+      
+      
+    </div>
+
+  </div>
+
+<!--  WINDOW: ENGINE  -->
+  
+  <a id="window-engine" style="display: block;height: 10vh;width: 100%;"></a>
+  
+  <div class="window" id="engine-window">
+    <h2>
+      <span>Editor View</span> Editing Scene  <span class="_whatscene">0,0</span> Objects left in scene <span class="_howmany">0</span>
+    </h2>
+    
+    
+      <div id="controls-top">
+        
+    <div class="controls-selected">
+
+      <button data-action="delete" onclick="objControls.delObj();">delete</button>
+      
+      <button data-action="" onclick="objControls.size('up');">grow</button>
+      <button data-action="" onclick="objControls.size('down');">shrink</button>
+      
+      <button data-action="" onclick="objControls.effect('invert');">invert</button>
+      
+      <select name="obj-interaction">
+        <option value="jump">jump</option>
+        <option value="title">title</option>
+        <option value="random">random</option>
+      </select>
+      
+      <button data-action="" onclick="objControls.clearSelected();">finish editing</button>
+    </div>
+        
+      </div>
+    
+    <div id="engine">
+      
+      
+  <!-- LEFT SIDEBAR AND CONTROLS HERE --> 
+      <div id="controls" class="panel sidebar sidebar-left">
+      
+        
+
+        <!-- LIBRARY PANEL -->
+
+        <div class="panel _sidebar" id="library">
+          <h2>Asset Library</h2>
+          
+          <div class="library-controls">
+            
+            <select name="library-category" class="_library-category">
+              <option value="environment">environment</option>
+              <option value="faces">faces</option>
+              <option value="clouds">clouds</option>
+              <option value="digital">digital</option>
+              <option value="misc">misc</option>
+            </select>
+          
+            
+<!--
+            <button class="_filter" data-category="environment">Environment</button>
+            <button class="_filter" data-category="clouds">Clouds</button>
+            <button class="_filter" data-category="clouds">Misc</button>
+-->
+            
+          </div>
+          
+          <div class="library-selector" id="library-objects">
+          
+          
+          </div>
+          
+          <hr>
+          
+          <center>
+            <span class="__x"></span>, <span class="__y"></span>
+            </center>
+          
+          </div>
+        
+        <div class="panel _sidebar" id="colorpicker">
+          <h2>Color Picker</h2>
+          
+    <input type="color" name="scenecolorpicker" value="#000">
+        </div>
+
+      </div>
+
+    
+  <!-- MAIN ENGINE HERE -->
+      
+      
+      <div id="e">
+
+        
+      </div>
+      
+      
+      
+  <!-- RIGHT SIDEBAR AND TUTORIALS HERE -->
+      
+      
+    <div id="help" class="panel sidebar sidebar-right">
+    
+        <!-- MAP PANEL -->
+        <div id="scene_s" class="panel _sidebar">
+          <h2><span>Map</span> <span class="_whatscene">0,0</span></h2>
+          <div id="scene_selector">
+
+          </div>
+        </div>
+  
+          <!-- HELP PANEL -->
+      
+      <div class="panel _sidebar">
+        <h2>Tutorial</h2>
+    
+        <p class="!tutorial-text">Double-click to add an object to the screen, doofus.</p>
+      </div>
+      
+    
+    </div>
+      
+
+    </div>
+  </div>
+  
+  
+  
+<!--  WINDOW: PLAY  -->
+  
+  
+  <a id="window-play" style="display: block;height: 15vh;width: 100%;"></a>
+  
+  <div class="window" id="play">
+    <div class="play-overlay" style=" background-image:url(assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.5;"></div>
+    <h2>
+      <span>Play View</span> 
+    </h2>
+    
+    <button id="load-play">LOAD ACTIVE SCENE INTO PLAY</button>
+    <button id="load-clear">CLEAR</button>
+    
+    <div id="e-play">
+    
+    
+    </div>
+    
+    
+  </div>
+  
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+  <script src="//code.jquery.com/ui/1.13.0/jquery-ui.min.js" type="text/javascript"></script>
+
+  <script type="text/javascript" src="core.js"></script>
+
+  <script type="text/javascript" src="map.js"></script>
+  <script type="text/javascript" src="scene.js"></script>
+  
+  <script type="text/javascript" src="library.js"></script>
+  
+  
+  
+  <script type="text/javascript" src="play-test.js"></script>
+  
+  <script type="text/javascript">
+  console.log("imageediting-test.js loaded");
+
+// create a temporary scene
+scenes.s[0] = new Scene(0, 0, true, 0);
+var active_scene = scenes.s[0]; // always begin with this as the active scene
+
+  </script>
+
+</body></html>

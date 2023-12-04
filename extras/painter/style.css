@@ -14,7 +14,7 @@ body {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  max-width: calc((40px + 10px) * 8);
+  max-width: 400px;
 }
 #painter input[type=checkbox] {
   display: inline-block;

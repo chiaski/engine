@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./s.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    
+  <main> 
+  <div id="mode">
+  <a mode="editor" active>Edit</a>
+  <a mode="player">Play</a>
+  </div>
+    
+    <div id="title">
+      
+    </div>
+    
+  <section id="help">
+    <details>
+    <p><a href="https://engine.lol">engine.lol</a> txt is a mobile-friendly tool for making sprawling text games, oriented around navigation on a spatial canvas.<br><br>
+      shift + arrows (editor) / arrows (player) — move around frames<br>
+      auto-saves every 60s
+      </p>
+<summary>?</summary>
+    </details>
+  </section>
+    
+    <div class="engine-coord" coord></div>
+    
+  <section id="everything">
+    
+    <div id="engine" mode='editor'>
+      <textarea id="engine-text" full></textarea>
+    </div>
+    
+    <div id="engine-actions">
+      <div class="wrapper" onMode="player">
+      
+        <div playing>
+        <div class="--directions">
+        <a side="left" inactive><span direction>LEFT</span> <span text></span></a>
+        <a side="right" inactive><span direction>RIGHT</span> <span text></span></a>
+        <a side="up" inactive><span direction>UP</span> <span text></span></a>
+        <a side="down" inactive><span direction>DOWN</span> <span text></span></a>
+          </div>
+        </div>
+        
+        <div class="--game">
+          
+        <button id="play">Play</button>
+        <button id="preview">Preview</button>
+          
+        </div>
+        
+      </div>
+      
+      <div class="wrapper" onMode="editor">
+        
+
+        
+        <div class="--directions">
+        <a side="left" inactive><span direction>LEFT</span> <span text><span make>+</span></span></a>
+        <a side="right" inactive><span direction>RIGHT</span> <span text><span make>+</span></span></a>
+        <a side="up" inactive><span direction>UP</span> <span text><span make>+</span></span></a>
+        <a side="down" inactive><span direction>DOWN</span> <span text><span make>+</span></span></a>
+      </div>
+        
+        <details>
+        <summary>Map</summary><br>
+          <div class="map"></div><br>
+          <button delete-scene>Delete scene</button>
+        </details>
+        
+        <br>
+        
+        <div class="--settings">
+          
+          <details>
+            <summary>Styling</summary>
+          
+          <div class="--setting --settings-font">
+          <select>
+            <option>Times New Roman</option>
+          </select>
+          </div>
+            
+          <div class="--setting --settings-color">
+            <label>Text </label><input type="color" text value="#000000">
+            <label>Bg </label><input type="color" value="#FFFFFF" background>
+          </div>
+          
+          <div class="--setting --settings-fontsize">
+          <label> Size </label> <input type="number" name="fontsize" value="20" fontsize>
+          </div>
+            
+          <div class="--setting --settings-lineheight">
+          <label> Line-height </label> <input type="number" name="lineheight" value="24" lineheight>
+          </div>
+            
+          <div class="--setting --settings-textalign">
+          <label> Align </label>
+            <select>
+            <option value="center">Center</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+            <option value="justify">Justify</option>
+          </select>
+          </div>
+          
+          
+<!--
+          <div class="--setting --settings-lineheight">
+          <label> Height </label> <input type="number" name="lineheight" value="20">
+          </div>
+-->
+          </details>
+          <br>
+          <details class="--publishing">
+            <summary>Save / Publish</summary><br>
+          <div class="--setting --settings-save">
+            <button save>Save</button>
+            </div>
+          <div class="--setting --settings-clear">
+            <button restart>Start fresh</button>
+            </div>
+            <br>
+          <div class="--setting --settings-remix">
+            <button load>Load code</button>
+            <button copy>Copy code</button>
+          </div>
+          <div class="--setting --settings-publish">
+            <button publish>Publish game</button>
+          </div>
+          </details>
+          <br>
+          
+        </div>
+        
+      </div>
+    </div>
+  </section>
+       
+  </main>
+
+  <div id="downloader">
+  </div>
+    
+    <script src="//code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script><script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    
+    <script src="g.js"></script>
+    <script src="engine.js"></script>
+    <script src="papaparse.js"></script>
+    <script src="play.js"></script>
+  </body>
+</html>

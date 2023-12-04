@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>engine.lol (alpha 1.2)</title>
+  <meta property="og:image" content="https://engine.lol/alpha/preview.png">
+  <meta name="description" content="A tiny storytelling tool that may break at any moment, just like you." />
+  <meta name="author" content="Chia" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css" />
+  <link rel="stylesheet" href="t.css" />
+  <link rel="stylesheet" href="ui.css" />
+
+
+</head>
+
+<body>
+
+  <div class="blocker"></div>
+  <div class="fx _1"></div>
+  <div class="fx _p"></div>
+  <div class="fx _s"></div>
+
+  <div class="fx _cover">
+    <img src="assets/fx-television.png">
+  </div>
+
+
+  <div id="ahhh">
+    <h1>sorry engine only works on web :( or your web is a bit too small...</h1>
+  </div>
+
+
+  <div id="info">
+    <span title="That's meeee.">Engine</span>
+
+    <span class="_version" title="Please hard refresh regularly! This is my way of saying that it's not very good right now...">Alpha 1.2</span>
+  </div>
+
+  <div id="jump">
+    <a href="#window-map" title="Take a look at your big big game map.">
+      Map<br>
+      <img src="assets/icon-1.gif"></a>
+    <a href="#window-engine" title="Put your scenes together...">
+      Editor<br>
+      <img src="assets/icon-2.png"></a>
+    <a href="#window-play" title="Take a look at how your game looks like on the player!">
+      Preview<br>
+      <img src="assets/icon-3.gif"></a>
+    <br>
+    <a href="player.html" class="_small" target="_blank" title="Load in other Engine games by their console code (takes you to a new page!)">Player</a>
+    
+    <a href="https://engine.lol/text" class="_small" target="_blank" title="Try the WIP of Engine.lol TXT version">Text (WIP)</a>
+    
+    <a href="https://discord.gg/c4DQ6mqJ" class="_small" target="_blank" title="Chat with the Engine community">Discord</a>
+
+    <a href="gallery.html" class="_small" target="_blank" title="Play other Engine games">Gallery</a>
+
+    <a class="_small" href="https://forms.gle/Thifa9CL7fQpbXwT8" target="_blank" title="Want to submit your game to the world? Go into the gallery!">Submit</a>
+
+    <a href="mailto:hotemogirlfriend@gmail.com" class="_small" target="_blank" title="Are you sure about that?">Complain</a>
+
+
+    <a class="_small" title="Are you really, really sure about that?" onclick="if(!confirm('Everything not saved will be lost')){return;} window.location.reload();">Destroy</a>
+
+  </div>
+
+  <!-- TIPS GO HERE -->
+  <div id="outer-modals">
+  </div>
+
+
+  <!--  WINDOW: START  -->
+
+  <div class="screen-one screen">
+    <div id="start" class="window">
+
+      <h1 class="_bigtitle">engine.lol</h1>
+
+      <div id="options">
+        <a title="You could also just scroll down, but that's less fun." id="tempplay">
+          <div class="_option">
+            <h2>New game</h2>
+          </div>
+        </a>
+
+        <a title="You could also just scroll down, but that's less fun." id="tempremix">
+          <div class="_option">
+            <h2>Remix games</h2>
+            <div class="window-samples">
+              <div class="_sample" data-cartridge="blipo" title="I love you Blipo">
+                <img src="./samples/blipo.gif">
+                blipo's world
+              </div>
+              <div class="_sample" data-cartridge="me" title="Someone's story about their relationship with Engine... Huh?">
+                <img src="./samples/meandengine.gif">
+                me & engine
+              </div>
+              <div class="_sample" data-cartridge="leaf" title="Hey, is that a date?">
+                <img src="./samples/leaf.gif">
+                04102022
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a title="Check out the gallery!" id="tempplay" onclick="window.open( 'gallery.html', '_blank');">
+          <div class="_option">
+            <h2>Play games</h2>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CONTAINER: WORKSPACE -->
+
+  <div id="workspace">
+
+    <!--  WINDOW: LOAD  -->
+
+    <a id="window-load" style="height: 10vh; display: block;"></a>
+
+
+    <div id="load" class="window">
+      <h2>
+        Load or Remix Cartridge
+      </h2>
+      <div class="-content">
+        <textarea id="_remix" placeholder="paste a cartridge code here to start editing it. note this deletes your existing scene!"></textarea>
+
+        <button id="btn-remixcartridge" class="--small" title="Paste in a code and build something">remix a game</button>
+
+        <div class="controls-remixcartridge" style="display: none;">
+          <button id="btn-remixcartridge-load">load cartridge</button><br>
+          <button id="btn-remixcartridge-back" class="--small">back</button>
+        </div>
+      </div>
+    </div>
+
+
+    <!--  WINDOW: AUDIO PLAYER  -->
+
+    <a id="window-audio"></a>
+
+    <section id="-audio">
+      <div id="audio-player-controller">
+        <h3>
+          <marquee class="_audiotitle" onmouseover="this.stop();" onmouseout="this.start();">
+            Here is my silly little song title
+          </marquee>
+        </h3>
+
+        <button id="btn-audio-play">play</button>
+        <button id="btn-audio-stop">stop</button>
+
+        <audio id="_audio">
+          <source src="" id="_audio_src">
+        </audio>
+      </div>
+
+
+      <div id="audio-player" class="window">
+        <h2>Cartridge Audio</h2>
+
+        <div class="-content">
+          <div class="_controlstext">
+            <marquee>You can pick a little song for your game... Make sure it's a good song!</marquee>
+          </div>
+
+          <div class="controls-audio">
+            <div class="controls-audio-loader">
+
+              <select name="audio-category" class="_audio-category">
+                <option value="none" selected disabled hidden>pick audio</option>
+              </select>
+
+              <button id="btn-controls-audio-loadsong">load song</button>
+              <button id="btn-controls-audio-previewsong" title="Listen to the song in another window...">preview song</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--  WINDOW: MAP  -->
+
+
+      <section id="-map">
+        <a id="window-map" style="height: 10vh; display: block;"></a>
+
+        <div id="map" class="window">
+          <h2>
+            <span>Map View</span>
+          </h2>
+
+          <div class="-content">
+            <div id="scene_selector">
+
+              <hr>
+
+              <div id="sss"></div>
+
+              <hr>
+              <hr><br>
+
+              <div id="map-controls">
+                <button id="btn-changestartingscene" title="I am at the center of everything that happens" class="--med">change start scene</button> ·
+                <button id="btn-cartridge" class="--med">edit game cover</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    </section>
+
+    <!--  WINDOW: ENGINE  -->
+
+
+    <a id="window-engine" style="display: block;height: 5vh;width: 100%;"></a>
+
+    <section id="-editor">
+      <div class="window" id="engine-window">
+        <h2>
+          <span>Editor View</span> <span class="_whatscene" title="The coordinates of the scene you're currently editing!">0,0</span> Editing <span class="_scenetitle" title="Your scene's title">Scene</span>
+        </h2>
+
+        <div id="engine">
+
+          <!-- LEFT SIDEBAR AND CONTROLS HERE -->
+          <div id="controls" class="panel sidebar sidebar-left">
+
+
+            <!--  TEXT OVERLAY PANEL -->
+            <div class="panel _sidebar" id="tool-textoverlay">
+
+              <h2>Text</h2>
+
+              <div class="library-text-controls">
+                <button id="btn-toggletext" title="Clicky me and you can then type on the screen! And it saves!">Write text</button>
+                <br>
+                <button id="btn-changefonttext" class="--small" title="Spice up the font a lil bit...">Change font</button>
+
+              </div>
+
+            </div>
+
+
+            <!-- LIBRARY PANEL -->
+
+            <div class="panel _sidebar" id="library">
+              <h2 title="Pick pretty pictures and do things with them?"> Library</h2>
+
+              <div class="library-controls">
+
+                <select name="library-category" class="_library-category">
+                  <option value="none" selected disabled hidden>pick category</option>
+                  <option value="environment" title="Little trees, grass, and flowers... Where do they come from? What's their story?">environment</option>
+                  <option value="faces" title="Did you know that I have feelings of my own too...?">faces</option>
+                  <option value="items" title="To hold something and become something...">items</option>
+                  <option value="digital" title="We get it, you look at early Mac ads and think everything is retro!">digital</option>
+                  <option value="clouds">clouds</option>
+                  <option value="monsters" title="Why do we call some things monsters? Are monsters truly evil by nature? Are mortals truly good by nature? Are we making blind judgments on good and evil based on what our small minds can conceive?">monsters</option>
+                  <option value="chat" title="YES, YES, YES, YES, YES, YES!">chat</option>
+                  <option value="softbank" title="The premise where there is a world where all our software is made by people who love us and we can contribute to building it...">softbank</option>
+                </select>
+              </div>
+
+
+              <div class="library-selector" id="library-objects">
+
+
+              </div>
+              <marquee class="_assetlibrarytext" scrollamount="3">Double-click an image to add it to the scene!</marquee>
+
+            </div>
+
+            <div class="panel _sidebar" id="colorpicker">
+              <h2>Scene Color</h2>
+              <input type="color" name="scenecolorpicker" value="#000000" title="Can't the world look like so much more than this?">
+            </div>
+          </div>
+
+          <!-- MAIN ENGINE HERE -->
+
+          <div id="e">
+
+            <div id="e-effects">
+            </div>
+
+            <div id="e-text">
+              <textarea id="texteditor" maxlength="550" rows="17"></textarea>
+            </div>
+
+          </div>
+
+          <!-- RIGHT SIDEBAR AND TUTORIALS HERE -->
+
+
+          <div id="help" class="panel sidebar sidebar-right">
+
+            <!-- MAP PANEL -->
+            <div id="scene_s" class="panel _sidebar">
+              <h2 title="There is so much of the world to explore..."><span>Map</span> <span class="_whatscene">0,0</span></h2>
+              <div id="scene_selector">
+
+              </div>
+            </div>
+
+            <div id="library-scene-controls" class="panel">
+
+              <!-- SCENE / CONTROLS -->
+
+              <button id="btn-scenecontrols-copyscene" title="Copy the contents of this scene and paste it to another... WARNING: BUGGY!">copy</button>
+
+              ·
+
+              <button id="btn-scenecontrols-pastescene" title="If you have a scene in your clipboard, you can paste it onto here... ">paste</button>
+              <br>
+
+              <button id="btn-scenecontrols-deletescene" class="--small" title="You can't delete your starting scene.">delete</button>
+              <br>
+
+              <h2>Scene</h2>
+
+              <!-- SCENE / CAPTION -->
+              <input name="caption" placeholder="Write a scene caption here..">
+
+              <input name="title" placeholder="Write a scene title here..">
+
+
+              <!-- SCENE / EFFECTS -->
+
+              <select name="effects-category" class="_scene-category">
+                <option value="none" selected>pick effect</option>
+                <option value="flowerpetals">flower petals</option>
+                <option value="softblur">soft blur</option>
+                <option value="mediumblur">medium blur</option>
+                <option value="hardblur">hard blur</option>
+                <option value="lightshadow">light vignette</option>
+                <option value="mediumshadow">medium vignette</option>
+                <option value="hardshadow">hard vignette</option>
+                <option value="redshadow">red vignette</option>
+                <option value="hardredshadow">hard red vignette</option>
+              </select>
+            </div>
+
+            <!-- HELP PANEL -->
+
+            <div class="panel _sidebar" id="gamestatus">
+              <h2 title="This tells you about your game's feelings. Not how your game is.">Engine Status</h2>
+
+              <img src="assets/status-bleh.gif" class="_gamestatus_mood" title="eh....">
+
+              <p class="_gamestatus_text">Your game has just begun.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="controls-top">
+
+          <div class="controls-selected">
+
+            <div class="-metadata">
+              Objects left: <span class="_howmany" title="You can only have a limited amount of images in your scene. Beauty in restriction...">0</span>
+            </div>
+
+            <button data-action="delete" onclick="objControls.delObj();">delete</button>
+
+            <button onclick="objControls.size('up');">grow</button>
+            <button onclick="objControls.size('down');">shrink</button>
+
+            <button onclick="objControls.effect('invert');">invert</button>
+
+            <button onclick="objControls.effect('flip');">flip</button>
+
+
+            <button id="btn-finishediting" onclick="objControls.clearSelected();objControls.saveObjects();">finish editing</button>
+          </div>
+
+          <div class="controls-cartridge">
+            <button id="btn-savecartridge">save cartridge</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!--  WINDOW: PLAY  -->
+
+
+    <a id="window-play" style="display: block;height: 8vh;width: 100%;"></a>
+
+    <section id="-player">
+      <div tabindex="-1" class="window" id="play">
+        <div class="play-overlay" style="background-image:url(assets/fx-scanline.gif);mix-blend-mode: multiply;opacity: 0.1;"></div>
+
+        <h2>
+          <span>Player Preview</span>
+          <span class="_playwhatscene"></span>
+        </h2>
+
+        <!-- THE 'START SCREEN' FOR GAMES   -->
+
+        <div id="e-cartridge">
+        </div>
+
+        <div id="e-controls">
+          <a data-direction="n" data-target="null" class="___n -inaccessible"></a>
+          <a data-direction="e" data-target="null" class="___e -inaccessible"></a>
+          <a data-direction="w" data-target="null" class="___w -inaccessible"></a>
+          <a data-direction="s" data-target="null" class="___s -inaccessible"></a>
+        </div>
+
+        <!--  PLAY AREA GOES HERE  -->
+
+        <div id="e-play">
+
+          <div id="e-effects">
+          </div>
+
+          <div id="e-text">
+            <textarea maxlength="550"></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="engine-buttons">
+        <button id="btn-play" title="Ready to preview your little game?">
+          <img src="assets/icon-play.gif" style="width:20px;margin: -.5em 0;padding: 0;">
+          Play & Preview
+        </button>
+        <br>
+        <button id="btn-clear" class="--small --destructive" title="Tidy up!">Clear</button>
+        <br><br>
+        <button class="--med" id="btn-download" title="Download your game into an HTML file that you can play offline...">Download HTML File</button>
+        <button class="--med" id="btn-getcode" title="Get the cartridge code for your game and share it with friends or to the gallery!">Get Cartridge Code</button>
+        <button class="--med" id="btn-publish" title="Get the cartridge code for your game and share it with friends or to the gallery!">Publish Game</button>
+        <button class="--med" onclick="window.open( 'https://forms.gle/Thifa9CL7fQpbXwT8', '_blank');" title="Want to submit your game to the world? Go into the gallery!">Submit to Gallery</button>
+      </div>
+    </section>
+
+  </div>
+
+  <div id="downloader">
+  </div>
+
+  <iframe id="downloader_game" src="blank-cartridge.html"></iframe>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+  <script src="//code.jquery.com/ui/1.13.0/jquery-ui.min.js" type="text/javascript"></script>
+
+  <script type="text/javascript" src="engine/core.js"></script>
+  <script type="text/javascript" src="engine/map.js"></script>
+  <script type="text/javascript" src="engine/scene.js"></script>
+  <script type="text/javascript" src="engine/library.js"></script>
+  <script type="text/javascript" src="engine/playerpreview.js"></script>
+  <script type="text/javascript" src="engine/audio.js"></script>
+  <script type="text/javascript" src="engine/tutorial.js"></script>
+  <script type="text/javascript" src="engine/ui.js"></script>
+  <script type="text/javascript" src="engine/samples.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      $(document).tooltip({
+        track: true
+      });
+    });
+
+    $('#e').tooltip({
+      show: {
+        effect: 'slideDown',
+        delay: 5000,
+        duration: 500
+      }
+    });
+
+    $('#e-controls').tooltip({
+      show: {
+        effect: 'slideDown',
+        delay: 5000,
+        duration: 500
+      }
+    });
+
+    console.log("Initializing Engine");
+
+    scenes.s[0] = new Scene(0, 0, true, 0);
+    var active_scene = scenes.s[0];
+  </script>
+   <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js'
+
+
+    // Add Firebase products that you want to use
+    import { } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+     
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCH4Y5vJy8D4bJbJVugrr3VWbm1_OzQeks",
+    authDomain: "enginelol.firebaseapp.com",
+    databaseURL: "https://enginelol-default-rtdb.firebaseio.com",
+    projectId: "enginelol",
+    storageBucket: "enginelol.appspot.com",
+    messagingSenderId: "746074108754",
+    appId: "1:746074108754:web:5ad35a998aaccb135b008b"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  </script>
+  
+    <script type="module" src="engine/downloader.js"></script>
+
+</body></html>

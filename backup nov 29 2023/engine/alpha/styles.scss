@@ -1,0 +1,61 @@
+/* 
+
+
+EDITOR
+
+
+*/
+
+@font-face {
+  font-family: 'FA Sysfont C';
+  src: url('./assets/fonts/sysfont.woff2') format('woff2'),
+    url('./alpha/assets/fonts/sysfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Director';
+  src: url('./assets/fonts/Director-Regular.woff2') format('woff2'),
+    url('./assets/fonts/Director-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+/*
+
+  COLORS
+
+*/
+
+$c: #000000; // MAIN COLOR
+$l: #edede8;
+
+$lg: #ddd;
+
+$g1: #b6b7b7;
+$g2: #717374;
+$g3: #3b4041;
+$g4: #1c1e1f;
+
+$p: #eb80ff;
+
+
+$white: #f4f4f4;
+$black: #1d1d1d;
+
+$off-dark: #464A4B;
+$off-light: #cbc7c6;
+
+$sans: "Helvetica",
+"Arial",
+sans-serif;
+
+$mono: "Fa Sysfont C";
+$serif: "Times New Roman";
+$serif-alt: "Director";
+
+// border radi
