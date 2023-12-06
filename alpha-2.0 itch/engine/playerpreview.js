@@ -102,7 +102,7 @@ const Tplayer = {
     $w.css("transform", "scale(1.03)");
 
     setTimeout(function () {
-      $w.css("transform", "scale(0.99)");
+      $w.css("transform", "scale(1)");
     }, 500);
 
 
@@ -294,7 +294,7 @@ const Tplayer = {
       
       return true;
     } else {
-      $("#e-cartridge").remove();
+      $("#e-cartridge").hide();
       return false;
     }
   },

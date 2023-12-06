@@ -294,7 +294,7 @@ const Tplayer = {
       
       return true;
     } else {
-      $("#e-cartridge").remove();
+      $("#e-cartridge").hide();
       return false;
     }
   },

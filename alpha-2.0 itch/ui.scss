@@ -951,6 +951,10 @@ input[name='caption'] {
     letter-spacing: 0;
     line-height: 90%;
   }
+  
+  a{
+    pointer-events: auto;
+  }
 
   @media only screen and (max-width: 720px) {
     display: block;

@@ -31,7 +31,8 @@
 
 
   <div id="ahhh">
-    <h1>sorry engine only works on web :( or your web is a bit too small...</h1>
+    <h1>engine.lol is too small to launch!<br>
+      <a href="gallery.html" style="color:#fff;">you can play games, though!</a></h1>
   </div>
 
 
@@ -52,7 +53,7 @@
       <a href="https://discord.gg/c4DQ6mqJ" class="_small" target="_blank" title="Chat with the Engine community">Discord</a>
 
       <a href="gallery.html" class="_small" target="_blank" title="Play other Engine games">Gallery</a>
-      <a href="gallery.html" class="_small" target="_blank" title="Play other Engine games">Gallery</a>
+      <a href="https://chi.itch.io/enginelol" class="_small" target="_blank" title="Play engine.lol on itch.io">itch.io</a>
 
       <a class="_small" href="https://forms.gle/Thifa9CL7fQpbXwT8" target="_blank" title="Want to submit your game to the world? Go into the gallery!">Submit</a>
 
@@ -100,59 +101,10 @@
   </div>
 
 
-  <!--  WINDOW: START  -->
-
-<!--
-  <div class="screen-one screen">
-    <div id="start" class="window">
-
-      <h1 class="_bigtitle">engine.lol
-      <span subtitle>A tiny gamemaker for collage worlds</span>
-      </h1>
-     
-
-      <div id="options">
-        <a title="You could also just scroll down, but that's less fun." id="tempplay">
-          <div class="_option">
-            <h2>New game</h2>
-          </div>
-        </a>
-c
-        <a title="You could also just scroll down, but that's less fun." id="tempremix">
-          <div class="_option">
-            <h2>Remix</h2>
-            <div class="window-samples">
-              <div class="_sample" data-cartridge="blipo" title="I love you Blipo">
-                <img src="./samples/blipo.gif">
-                blipo's world
-              </div>
-              <div class="_sample" data-cartridge="me" title="Someone's story about their relationship with Engine... Huh?">
-                <img src="./samples/meandengine.gif">
-                me & engine
-              </div>
-              <div class="_sample" data-cartridge="leaf" title="Hey, is that a date?">
-                <img src="./samples/leaf.gif">
-                04102022
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a title="Check out the gallery!" id="tempplay" onclick="window.open( 'gallery.html', '_blank');">
-          <div class="_option">
-            <h2>Play games</h2>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
--->
-
 
   <!--  WORKSPACE -->
 
   <div id="workspace">
-
 
     
 <!--   AUDIO PLAYER -->
@@ -198,7 +150,7 @@ c
     <!--  WINDOW: ENGINE  -->
 
 
-    <a id="window-engine" style="display: block;height: 5vh;width: 100%;"></a>
+    <a id="window-engine" style="display: block;height:20px;width: 100%;"></a>
 
     <section id="-editor">
       <div class="window" id="engine-window">
@@ -224,15 +176,16 @@ c
 
                 <select name="library-category" class="_library-category">
                   <option value="none" selected disabled hidden>choose objects</option>
+                  <option value="faces" title="Did you know that I have feelings of my own too...?">faces</option>
+                  <option value="jamiecross" title="Thank you Jamie Cross">jamie cross</option>
+                  <option value="softbank" title="The premise where there is a world where all our software is made by people who love us and we can contribute to building it...">softbank</option>
                   <option value="everything" title="All I love in the world">everything</option>
                   <option value="environment" title="Little trees, grass, and flowers... Where do they come from? What's their story?">environment</option>
-                  <option value="faces" title="Did you know that I have feelings of my own too...?">faces</option>
                   <option value="items" title="To hold something and become something...">items</option>
                   <option value="digital" title="We get it, you look at early Mac ads and think everything is retro!">digital</option>
                   <option value="clouds">clouds</option>
                   <option value="monsters" title="Why do we call some things monsters? Are monsters truly evil by nature? Are mortals truly good by nature? Are we making blind judgments on good and evil based on what our small minds can conceive?">monsters</option>
                   <option value="chat" title="YES, YES, YES, YES, YES, YES!">chat</option>
-                  <option value="softbank" title="The premise where there is a world where all our software is made by people who love us and we can contribute to building it...">softbank</option>
                 </select>
               </div>
 
@@ -428,7 +381,6 @@ c
         </button>
         <br>
         <button id="btn-clear" class="--small --destructive" title="Tidy up!">Stop</button>
-<!--        <button class="--med" onclick="window.open( 'https://forms.gle/Thifa9CL7fQpbXwT8', '_blank');" title="Want to submit your game to the world? Go into the gallery!">Submit to Gallery</button>-->
       </div>
     </section>
 
@@ -453,12 +405,24 @@ c
   <script type="text/javascript" src="engine/samples.js"></script>
 
   <script type="text/javascript">
+    var active_scene = null;
+    
+    
     $(function() {
+      
+    console.log("Initializing Engine");
+      
+      
+      
+  if ($(window).width() < 600) {
+    window.location.href = 'gallery.html';
+  }
+      
       $(document).tooltip({
         track: true
       });
-    });
-
+      
+      
     $('#e').tooltip({
       show: {
         effect: 'slideDown',
@@ -467,9 +431,7 @@ c
       }
     });
     
-    console.log("Initializing Engine");
-    
-    var active_scene = null;
+      
 
     if(localStorage.getItem("cartridge") !== null){
       loadCartridge(localStorage.getItem("cartridge"));
@@ -477,6 +439,12 @@ c
     scenes.s[0] = new Scene(0, 0, true, 0);
     active_scene = scenes.s[0];
     }
+      
+      
+      
+    });
+
+    
   </script>
   
   

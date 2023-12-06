@@ -260,7 +260,8 @@ libraryText.init();
 
 const library = {
 
-  everything: ["bottle", "cow", "firefly"],
+  everything: ["apple","bottle","brush","candle","chair","chiar","coin","cow","firefly","flower","key","lamp","lantern","mug","pawn","rabbit","spoon"],
+  jamiecross: ["arrow-down","arrow-left","arrow-up","box","brick1","brick2","brick3","button","chain1","chain2","chest","climb","climb1","climb2","dirt","door","fall","fire","ghost","grass","heart","idle","jewel","key","keyblock","ladder","lava","leap","magic","run","run1","run2","run3","soar","spider"],
   environment: ["stone-1", "flower-1", "stone-2", "moon-1", "moon-2", "moon-3", "leaf", "leaf-2", "twig", "leaf-3", "rock", "bush", "bush-2"],
   faces: ["8D", "blank", "fear", "joy", "hmm", "kiss", "nerd", "ninja", "rage", "sad", "tear", "vomit", "worry"],
   digital: ["bomb", "case", "clock", "computer-2", "computer", "cursor", "dude", "exclamation", "package", "paint", "paper", "pointer", "save", "stack", "trash", "printer"],

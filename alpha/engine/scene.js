@@ -531,8 +531,6 @@ const sceneControls = {
     
     $("#e-cartridge").html("");
     
-    $("#e-cartridge").html("");
-    
     
     (scenes.cartridge.objects).forEach(function (e) {      
      let newObj = $(`<div class='obj'><img src='${e.img}'></div>`);
